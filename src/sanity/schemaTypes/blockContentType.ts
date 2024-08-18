@@ -11,7 +11,7 @@ import { defineType, defineArrayMember } from 'sanity';
  *  }
  */
 
-export default defineType({
+const blockContentType = defineType({
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
@@ -73,3 +73,5 @@ export default defineType({
     }),
   ],
 });
+
+export default blockContentType;
