@@ -1,24 +1,19 @@
-'use client';
+"use client";
 
 /**
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...tool]]/page.tsx` route
  */
 
-import { visionTool } from '@sanity/vision';
-import { defineConfig } from 'sanity';
-import { structureTool } from 'sanity/structure';
-import {
-  presentationTool,
-  defineDocuments,
-  defineLocations,
-  DocumentLocation,
-} from 'sanity/presentation';
-import { resolve } from '@/sanity/presentation/resolve';
+import { visionTool } from "@sanity/vision";
+import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+import { presentationTool } from "sanity/presentation";
+import { resolve } from "@/sanity/presentation/resolve";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from './src/sanity/env';
-import { schema } from './src/sanity/schemaTypes';
-import { structure } from './src/sanity/structure';
+import { apiVersion, dataset, projectId } from "./src/sanity/env";
+import { schema } from "./src/sanity/schemaTypes";
+import { structure } from "./src/sanity/structure";
 
 // const blogLocation = {
 //   title: 'Blog',
@@ -31,7 +26,7 @@ import { structure } from './src/sanity/structure';
 //   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000';
 
 export default defineConfig({
-  basePath: '/studio',
+  basePath: "/studio",
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
@@ -45,7 +40,7 @@ export default defineConfig({
       // Required: set the base URL to the preview location in the front end
       previewUrl: {
         draftMode: {
-          enable: '/api/draft-mode/enable',
+          enable: "/api/draft-mode/enable",
         },
       },
       // resolve: {
