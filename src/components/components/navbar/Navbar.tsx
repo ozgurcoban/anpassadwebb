@@ -1,26 +1,43 @@
+import { links } from '@/utils/links';
+import Logo from './Logo';
+import DarkMode from './DarkMode';
+import MobileMenuToggle from './MobileMenuToggle';
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import Logo from './Logo';
-import DarkMode from './DarkMode';
-import MobileToggleButton from './MobileToggleButton';
+
+// Navigation-menu example
+// https://v0.dev/t/efIO1Wze3xI
 
 const Navbar = () => {
   return (
     <header className="container flex items-center justify-between py-8">
-      <div>
+      <div className="size-15">
         <Logo />
       </div>
-      <h3 className="hidden md:inline-block">links</h3>
+      <NavigationMenu className="hidden gap-2 md:flex">
+        <NavigationMenuList>
+          {links.map((link) => {
+            return (
+              <NavigationMenuItem key={link.href}>
+                <NavigationMenuLink
+                  href={link.href}
+                  className={navigationMenuTriggerStyle()}
+                >
+                  {link.label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            );
+          })}
+        </NavigationMenuList>
+      </NavigationMenu>
+
       <div className="flex items-center gap-4">
-        <MobileToggleButton />
+        <MobileMenuToggle />
         <DarkMode />
       </div>
     </header>
