@@ -1,16 +1,18 @@
 import { VisualEditing } from 'next-sanity';
 import { draftMode } from 'next/headers';
-
+import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
-import Navbar from '@/components/components/navbar/Navbar';
+import Navbar from '@/components/navbar/Navbar';
+
+const openSans = Open_Sans({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={openSans.className}>
         <Providers>
           <Navbar />
           <main className="container py-10">
