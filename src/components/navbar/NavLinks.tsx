@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { NavLink } from '@/utils/links';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -33,26 +32,24 @@ const NavLinks: React.FC<NavLinkProps> = ({
   onLinkClick,
 }) => {
   const pathname = usePathname();
-  const [currentPath, setCurrentPath] = useState(pathname);
+  const isActive = (href: string) => {
+    return href === pathname;
+  };
+  console.log(isActive('/'));
 
-  useEffect(() => {
-    setCurrentPath(pathname);
-  }, [pathname]);
+  // console.log('isActive:', isActive);
 
   return (
     <nav>
       <ul>
         {links.map(({ label, href }) => {
-          const isActive = currentPath === href;
-          console.log('Current pathname:', currentPath);
-          console.log('Link href:', href);
-          console.log('isActive:', isActive);
-
-          const linkClassName = `${className} ${isActive ? activeClass : ''}`;
-
           return (
             <li key={href}>
-              <Link href={href} className={linkClassName} onClick={onLinkClick}>
+              <Link
+                href={href}
+                className={isActive(href) ? activeClass : className}
+                onClick={onLinkClick}
+              >
                 {emphasizeFirstLetter ? emphasizeFirstLetter(label) : label}
               </Link>
             </li>

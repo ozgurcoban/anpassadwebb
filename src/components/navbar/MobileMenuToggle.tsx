@@ -37,7 +37,7 @@ const MobileMenuToggle = () => {
         <NavLinks
           links={mobileLinks}
           className=""
-          activeClass="bg-red"
+          activeClass="bg-red-500"
           onLinkClick={handleMenu}
         />
       </SheetContent>
