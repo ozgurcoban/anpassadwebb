@@ -8,14 +8,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { links } from '@/utils/links';
 
 import { Button } from '@/components/ui/button';
 import NavLinks from './NavLinks';
 
 const MobileMenuToggle = () => {
   const [open, setOpen] = useState(false);
-  const mobileLinks = [{ href: '/', label: 'Home' }, ...links];
+  // const mobileLinks = [{ href: '/', label: 'Home' }, ...links];
 
   const handleMenu = () => {
     setOpen(false);
@@ -34,12 +33,16 @@ const MobileMenuToggle = () => {
       </SheetTrigger>
       <SheetContent side="top" className="flex flex-col items-start">
         <SheetTitle hidden={true}>Menu</SheetTitle>
-        <NavLinks
-          links={mobileLinks}
-          className=""
-          activeClass="bg-red-500"
-          onLinkClick={handleMenu}
-        />
+        <nav>
+          <ul>
+            <NavLinks
+              className=""
+              activeClass="bg-red-500"
+              onLinkClick={handleMenu}
+              shouldEmphasizeFirstLetter={true}
+            />
+          </ul>
+        </nav>
       </SheetContent>
     </Sheet>
   );

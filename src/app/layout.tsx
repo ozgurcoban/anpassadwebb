@@ -4,6 +4,7 @@ import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
 import Navbar from '@/components/navbar/Navbar';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -12,7 +13,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body className={`${openSans.className} overflow-y-scroll`}>
         <Providers>
           <Navbar />
           <main className="container py-10">
@@ -24,7 +25,9 @@ export default function RootLayout({
                 Disable preview mode
               </a>
             )}
+
             {children}
+
             {draftMode().isEnabled && <VisualEditing />}
           </main>
         </Providers>

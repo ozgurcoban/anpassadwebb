@@ -1,14 +1,15 @@
 'use client';
 
-import { NavLink } from '@/utils/links';
+import { links } from '@/utils/links';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 type NavLinkProps = {
-  links: NavLink[];
+  // links: NavLink[];
   className?: string;
   activeClass?: string;
   onLinkClick?: () => void;
+  shouldEmphasizeFirstLetter?: boolean;
 };
 
 const emphasizeFirstLetter = (text: string) => {
@@ -26,37 +27,32 @@ const emphasizeFirstLetter = (text: string) => {
 };
 
 const NavLinks: React.FC<NavLinkProps> = ({
-  links,
   className = '',
   activeClass = '',
   onLinkClick,
+  shouldEmphasizeFirstLetter = false,
 }) => {
   const pathname = usePathname();
   const isActive = (href: string) => {
     return href === pathname;
   };
-  console.log(isActive('/'));
-
-  // console.log('isActive:', isActive);
 
   return (
-    <nav>
-      <ul>
-        {links.map(({ label, href }) => {
-          return (
-            <li key={href}>
-              <Link
-                href={href}
-                className={isActive(href) ? activeClass : className}
-                onClick={onLinkClick}
-              >
-                {emphasizeFirstLetter ? emphasizeFirstLetter(label) : label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <>
+      {links.map(({ label, href }) => {
+        return (
+          <li key={href}>
+            <Link
+              href={href}
+              className={isActive(href) ? activeClass : className}
+              onClick={onLinkClick}
+            >
+              {shouldEmphasizeFirstLetter ? emphasizeFirstLetter(label) : label}
+            </Link>
+          </li>
+        );
+      })}
+    </>
   );
 };
 export default NavLinks;
