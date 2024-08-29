@@ -11,17 +11,14 @@ type DesktopNavbarProps = {
 
 const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
   const pathname = usePathname();
-  const isActive = (href: string) => {
-    return href === pathname;
-  };
+  const isActive = (href: string) => href === pathname;
   return (
     <nav className="hidden rounded-full bg-muted p-2 md:flex">
-      <ul>
-        <li className="flex space-x-8">
-          {links.map(({ label, href }) => {
-            return (
+      <ul className="flex space-x-8">
+        {links.map(({ label, href }) => {
+          return (
+            <li key={href}>
               <Link
-                key={href}
                 href={href}
                 className={`${
                   isActive(href) ? '' : 'hover:accent-foreground'
@@ -45,9 +42,9 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
 
                 {label}
               </Link>
-            );
-          })}
-        </li>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

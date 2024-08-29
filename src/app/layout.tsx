@@ -4,7 +4,6 @@ import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
 import Navbar from '@/components/navbar/Navbar';
-import { AnimatePresence, motion } from 'framer-motion';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 

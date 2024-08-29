@@ -13,7 +13,7 @@ const Navbar = () => {
       <DesktopNavbar links={links} />
 
       <div className="flex items-center gap-4">
-        <MobileMenuToggle />
+        <MobileMenuToggle links={links} />
         <DarkMode />
       </div>
     </header>

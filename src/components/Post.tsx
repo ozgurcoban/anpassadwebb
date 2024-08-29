@@ -9,7 +9,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
   const { title, mainImage, body } = post || {};
 
   return (
-    <main className="p4 container prose prose-lg mx-auto">
+    <div className="p4 container prose prose-lg mx-auto">
       {title ? <h1>{title}</h1> : null}
       {mainImage?.asset?._ref ? (
         <Image
@@ -23,6 +23,6 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
       {body ? <PortableText value={body} /> : null}
       <hr />
       <Link href="/">&larr; Return home</Link>
-    </main>
+    </div>
   );
 }
