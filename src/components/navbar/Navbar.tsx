@@ -6,7 +6,7 @@ import { links } from '@/utils/links';
 
 const Navbar = () => {
   return (
-    <header className="container flex w-full items-center justify-between py-8">
+    <header className="z-1000 container sticky top-0 flex w-full items-center justify-between pt-8">
       <div className="size-15">
         <Logo />
       </div>

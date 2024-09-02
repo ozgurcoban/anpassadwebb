@@ -1,3 +1,7 @@
+// For reference: Tutorials on animating navbar modal with Framer Motion
+// https://www.youtube.com/watch?v=obib4ka06y0&t=41s
+// https://www.youtube.com/watch?v=kep_Iaxuzy0&t=0s
+
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -21,7 +25,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
               <Link
                 href={href}
                 className={`${
-                  isActive(href) ? '' : 'hover:accent-foreground'
+                  isActive(href) ? '' : 'hover:text-[#E57373]'
                 } relative rounded-full px-3 py-1.5 text-sm font-medium uppercase outline-sky-400 transition focus-visible:outline-2`}
                 style={{
                   WebkitTapHighlightColor: 'transparent',
@@ -30,7 +34,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
                 {isActive(href) ? (
                   <motion.span
                     layoutId="bubble"
-                    className="absolute inset-[-0.25rem] z-10 bg-primary text-foreground mix-blend-difference"
+                    className="absolute inset-[-0.25rem] z-10 bg-primary text-primary mix-blend-difference"
                     style={{ borderRadius: 9999 }}
                     transition={{
                       type: 'spring',
@@ -49,4 +53,5 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
     </nav>
   );
 };
+
 export default DesktopNavbar;

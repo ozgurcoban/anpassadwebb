@@ -83,7 +83,7 @@ const MobileMenuToggle: React.FC<MobileMenuToggleProps> = ({ links }) => {
 
   const handleMenu = async () => {
     if (open) {
-      // Delay the closing of the menu by 1000ms
+      // Delay the closing of the menu
       await new Promise((resolve) => setTimeout(resolve, 200));
       setOpen(false);
     } else {
