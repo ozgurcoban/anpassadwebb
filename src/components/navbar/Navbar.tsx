@@ -6,7 +6,7 @@ import { links } from '@/utils/links';
 
 const Navbar = () => {
   return (
-    <header className="z-1000 container sticky top-0 flex w-full items-center justify-between pt-8">
+    <header className="container sticky top-0 z-10 flex items-center justify-between pt-8">
       <div className="size-15">
         <Logo />
       </div>

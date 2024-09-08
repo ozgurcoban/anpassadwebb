@@ -34,7 +34,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
                 {isActive(href) ? (
                   <motion.span
                     layoutId="bubble"
-                    className="absolute inset-[-0.25rem] z-10 bg-primary text-primary mix-blend-difference"
+                    className="absolute inset-[-0.25rem] z-10 bg-accent text-primary mix-blend-difference"
                     style={{ borderRadius: 9999 }}
                     transition={{
                       type: 'spring',

@@ -15,7 +15,7 @@ export default function RootLayout({
       <body className={`${openSans.className} overflow-y-scroll`}>
         <Providers>
           <Navbar />
-          <main className="container">
+          <main className="container mt-16">
             {draftMode().isEnabled && (
               <a
                 className="fixed bottom-0 right-0 m-4 bg-blue-500 p-4 text-white"
