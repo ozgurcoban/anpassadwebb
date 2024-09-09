@@ -17,12 +17,14 @@ export const postType = defineType({
       options: {
         source: 'title',
       },
+      validation: (rule) => rule.required().error('Slug is required'),
+      hidden: ({ document }) => !document?.title,
     }),
-    defineField({
-      name: 'author',
-      type: 'reference',
-      to: { type: 'author' },
-    }),
+    // defineField({
+    //   name: 'author',
+    //   type: 'reference',
+    //   to: { type: 'author' },
+    // }),
     defineField({
       name: 'mainImage',
       type: 'image',
@@ -50,17 +52,32 @@ export const postType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'excerpt',
+      description: 'Short description of the post',
+      type: 'text',
+      validation: (rule) =>
+        rule
+          .max(200)
+          .warning('Short descriptions should be less than 200 characters'),
+    }),
+    defineField({
+      name: 'featured',
+      description: 'Show this post on the front page',
+      type: 'boolean',
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      // author: 'author.name',
       media: 'mainImage',
     },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
-    },
+    // prepare(selection) {
+    //   const { author } = selection;
+    //   return { ...selection, subtitle: author && `by ${author}` };
+    // },
   },
 });
 
