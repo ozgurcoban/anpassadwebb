@@ -1,3 +1,4 @@
+import { EditIcon } from '@sanity/icons';
 import { defineType, defineArrayMember } from 'sanity';
 
 /**
@@ -42,6 +43,23 @@ const blockContentType = defineType({
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
+          // {
+          //   name: 'internalLink',
+          //   type: 'object',
+          //   title: 'Internal link',
+          //   icon: EditIcon,
+          //   fields: [
+          //     {
+          //       name: 'reference',
+          //       type: 'reference',
+          //       title: 'Reference',
+          //       to: [
+          //         { type: 'post' },
+          //         // other types you may want to link to
+          //       ],
+          //     },
+          //   ],
+          // },
           {
             title: 'URL',
             name: 'link',

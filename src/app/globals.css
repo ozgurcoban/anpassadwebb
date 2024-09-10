@@ -6,6 +6,9 @@
   .container {
     @apply mx-auto max-w-6xl px-8 xl:max-w-7xl;
   }
+  .drop-cap:first-letter {
+    @apply float-left mr-2 text-6xl font-bold leading-none;
+  }
 }
 
 @layer base {

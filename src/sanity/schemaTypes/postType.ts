@@ -12,6 +12,22 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'subtitle',
+      description: 'Short description of the post',
+      type: 'text',
+      validation: (rule) =>
+        rule
+          .max(160)
+          .warning('Short description should be less than 160 characters'),
+    }),
+    defineField({
+      name: 'excerpt',
+      description: 'Short teaser of the post',
+      type: 'text',
+      validation: (rule) =>
+        rule.max(230).warning('Excerpt should be less than 230 characters'),
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
       options: {
@@ -52,15 +68,7 @@ export const postType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
-    defineField({
-      name: 'excerpt',
-      description: 'Short description of the post',
-      type: 'text',
-      validation: (rule) =>
-        rule
-          .max(200)
-          .warning('Short descriptions should be less than 200 characters'),
-    }),
+
     defineField({
       name: 'featured',
       description: 'Show this post on the front page',

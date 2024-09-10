@@ -15,7 +15,12 @@ type DesktopNavbarProps = {
 
 const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
   const pathname = usePathname();
-  const isActive = (href: string) => href === pathname;
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
   return (
     <nav className="hidden rounded-full bg-muted p-2 md:flex">
       <ul className="flex space-x-8">
