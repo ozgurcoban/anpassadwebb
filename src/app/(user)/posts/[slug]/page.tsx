@@ -14,10 +14,10 @@ export async function generateStaticParams() {
   const posts = await client.fetch<POSTS_QUERYResult>(
     POSTS_QUERY,
     {},
-    { perspective: 'published' }
+    { perspective: 'published' },
   );
 
-  return posts.map(post => ({
+  return posts.map((post) => ({
     slug: post?.slug?.current,
   }));
 }

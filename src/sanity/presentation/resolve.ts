@@ -13,13 +13,13 @@ export const resolve: PresentationPluginOptions['resolve'] = {
         title: 'title',
         slug: 'slug.current',
       },
-      resolve: doc => ({
+      resolve: (doc) => ({
         locations: [
           {
             title: doc?.title || 'Untitled',
-            href: `/blog/posts/${doc?.slug}`,
+            href: `/posts/${doc?.slug}`,
           },
-          { title: 'Blog', href: `/blog` },
+          { title: 'Posts', href: `/posts` },
         ],
       }),
     }),

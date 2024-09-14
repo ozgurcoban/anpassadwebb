@@ -10,23 +10,27 @@ import LettersPullUp from './ui/LettersPullUp';
 
 const Hero = () => {
   return (
-    <section className="-z-5 relative grid w-full place-items-center gap-x-8 gap-y-16 py-16 md:grid-cols-2">
+    <section className="-z-5 relative grid w-full place-items-center gap-y-16 py-16 md:grid-cols-2">
       <div className="w-full">
         <FadeUp delay={0.3}>
-          <h1 className="text-8xl">Azen går i din runda gött</h1>
-          <p className="mt-10 max-w-md">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
-            possimus veritatis commodi hic officiis suscipit. Eaque nulla
-            possimus nihil dignissimos laboriosam assumenda culpa?
+          <h1 className="text-5xl">
+            Skräddarsydd webbutveckling i Uppsala – Unika lösningar för din
+            verksamhet
+          </h1>
+          <p className="mt-16 max-w-md">
+            Vi skapar skräddarsydda hemsidor som är anpassade efter din
+            verksamhets unika behov. Med lokal förankring i Uppsala erbjuder vi
+            webblösningar som kombinerar design och funktionalitet för bästa
+            resultat.
           </p>
         </FadeUp>
         <FadeUp delay={0.7} className="mt-10">
-          <AnimatedButton size="lg">
-            <Link href="/blog">Hero Button</Link>
+          <AnimatedButton size="lg" href="/">
+            Kontakta oss
           </AnimatedButton>
         </FadeUp>
       </div>
-      <div className="relative grid grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center">
+      <div className="relative grid grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center lg:-translate-x-14 lg:transform">
         <FadeUp
           enableHover
           delay={0.2}
@@ -64,6 +68,7 @@ const Hero = () => {
             className="rounded-md shadow-custom"
             width={500}
             height={250}
+            placeholder="blur"
           />
         </FadeUp>
       </div>

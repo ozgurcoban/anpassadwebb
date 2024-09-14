@@ -20,11 +20,11 @@ export function Posts({ posts }: { posts: POSTS_QUERYResult }) {
           <article key={post._id}>
             <Link
               className="hover:bg-secondary"
-              href={`/blog/posts/${post?.slug?.current}`}
+              href={`/posts/${post?.slug?.current}`}
             >
               <Card className="p-4">
                 {post?.title}
-                <Image src="" alt="" />
+                {/* <Image src="" alt="jackson" /> */}
               </Card>
             </Link>
           </article>

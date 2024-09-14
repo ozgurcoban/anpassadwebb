@@ -75,13 +75,9 @@ export type Post = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  subtitle?: string;
+  excerpt?: string;
   slug?: Slug;
-  author?: {
-    _ref: string;
-    _type: 'reference';
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: 'author';
-  };
   mainImage?: {
     asset?: {
       _ref: string;
@@ -135,45 +131,7 @@ export type Post = {
         _key: string;
       }
   >;
-};
-
-export type Author = {
-  _id: string;
-  _type: 'author';
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  slug?: Slug;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: 'reference';
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: 'image';
-  };
-  bio?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'normal';
-    listItem?: never;
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }>;
+  featured?: boolean;
 };
 
 export type Category = {
@@ -291,7 +249,6 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Post
-  | Author
   | Category
   | Slug
   | BlockContent
@@ -303,14 +260,27 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id, title, slug}
+// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id, title, slug, excerpt, mainImage,}
 export type POSTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
+  excerpt: string | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: 'reference';
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: 'image';
+  } | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage, subtitle, excerpt}
+// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, subtitle, excerpt,  mainImage { asset->{url, metadata}, alt }}
 export type POST_QUERYResult = {
   title: string | null;
   body: Array<
@@ -346,6 +316,22 @@ export type POST_QUERYResult = {
         _key: string;
       }
   > | null;
+  subtitle: string | null;
+  excerpt: string | null;
+  mainImage: {
+    asset: {
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: string | null;
+  } | null;
+} | null;
+// Variable: FEATURED_POSTS_QUERY
+// Query: *[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{  _id, title, slug, mainImage, excerpt}
+export type FEATURED_POSTS_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
   mainImage: {
     asset?: {
       _ref: string;
@@ -358,19 +344,15 @@ export type POST_QUERYResult = {
     alt?: string;
     _type: 'image';
   } | null;
-  subtitle: null;
-  excerpt: null;
-} | null;
-// Variable: FEATURED_POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{  _id, title, slug, mainImage, excerpt}
-export type FEATURED_POSTS_QUERYResult = Array<never>;
+  excerpt: string | null;
+}>;
 
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id, title, slug\n}': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, mainImage, subtitle, excerpt\n}': POST_QUERYResult;
+    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id, title, slug, excerpt, mainImage,\n}': POSTS_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, subtitle, excerpt,  mainImage { asset->{url, metadata}, alt }\n}': POST_QUERYResult;
     '*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{\n  _id, title, slug, mainImage, excerpt\n}': FEATURED_POSTS_QUERYResult;
   }
 }

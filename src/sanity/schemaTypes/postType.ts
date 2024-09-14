@@ -44,9 +44,7 @@ export const postType = defineType({
     defineField({
       name: 'mainImage',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true, metadata: ['lqip'] },
       fields: [
         {
           name: 'alt',

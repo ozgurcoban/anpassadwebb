@@ -15,6 +15,15 @@ import {
 } from '@/components/ui/card';
 import { badgeVariants } from '@/components/ui/badge';
 import { Separator } from './ui/separator';
+import { Button } from './ui/button';
+import AnimatedButton from './ui/MotionButton';
+import { DynamicMotion } from './ui/DynamicMotion';
+import SanityImage from './SanityImage';
+
+type POSTProps = {
+  post: POST_QUERYResult;
+  mainImage: any;
+};
 
 const customPortableTextComponents = {
   types: {
@@ -23,7 +32,7 @@ const customPortableTextComponents = {
       // console.log('value: ', value);
 
       return (
-        <div className="">
+        <DynamicMotion type="div" className="" delay={0.5}>
           <Image
             src={urlFor(asset._ref).url()}
             alt={alt || 'Image'}
@@ -32,77 +41,111 @@ const customPortableTextComponents = {
             height={500}
             className="mb-0.5 rounded-lg"
           />
-          <p className="mt-4 text-sm">
+          <figcaption className="mt-4 text-sm">
             {alt ? alt.charAt(0).toUpperCase() + alt.slice(1) : undefined}
-          </p>
-        </div>
+          </figcaption>
+        </DynamicMotion>
       );
     },
   },
-  block: {
-    normal: ({ children }) => <p className="font-normal">{children}</p>,
-  },
 };
 
-export default function POST({ post }: { post: POST_QUERYResult }) {
+export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
   const { title, mainImage, body, subtitle, excerpt } = post || {};
-  // console.log(post);
 
   return (
-    <>
+    <article>
       <h2 className="text-center text-7xl">ÖzByte</h2>
+      <SanityImage image={mainImage} alt={''} />
       <Card className="prose prose-lg mx-auto mt-8 max-w-full">
         <div className="mx-auto max-w-4xl">
-          <CardHeader>
-            <div className="my-4">
+          <CardHeader className="py-0">
+            <DynamicMotion delay={0.6} className="mt-8">
               <Link
                 className={`${badgeVariants({ variant: 'default' })}text-4xl`}
                 href={''}
               >
                 Badge
               </Link>
-            </div>
+            </DynamicMotion>
             {title ? (
-              <CardTitle className="text-4xl text-card-foreground">
-                {title.charAt(0).toUpperCase() + title.slice(1)}
-              </CardTitle>
+              <DynamicMotion delay={0.2}>
+                <CardTitle className="mt-4 text-4xl text-card-foreground">
+                  {title.charAt(0).toUpperCase() + title.slice(1)}
+                </CardTitle>
+              </DynamicMotion>
             ) : null}
             {subtitle ? (
-              <CardDescription className="text-lg text-card-foreground">
-                {subtitle}
-              </CardDescription>
+              <DynamicMotion type="div" delay={0.4}>
+                <CardDescription className="mt-4 text-pretty text-xl leading-relaxed tracking-tight text-card-foreground">
+                  {subtitle}
+                </CardDescription>
+              </DynamicMotion>
             ) : null}
           </CardHeader>
           <CardContent>
             {mainImage?.asset?._ref ? (
-              <div className="md:mx-2 lg:-mx-10 xl:-mx-32">
+              <DynamicMotion
+                delay={0.6}
+                duration={0.8}
+                className="md:mx-2 lg:-mx-10 xl:-mx-32"
+              >
                 <Image
-                  className="w-full rounded-lg"
+                  className="mt-4 w-full rounded-lg"
                   src={urlFor(mainImage?.asset._ref).url()}
                   width={1200}
                   height={700}
                   alt={title || ''}
                 />
                 <Separator className="my-4" />
-              </div>
+              </DynamicMotion>
             ) : null}
             {body ? (
-              <div className="drop-cap">
+              <DynamicMotion
+                className="drop-cap leading-[1.9rem]"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+              >
                 <PortableText
                   value={body}
-                  components={customPortableTextComponents}
+                  components={{
+                    ...customPortableTextComponents,
+
+                    block: ({ children }) => (
+                      <DynamicMotion delay={0.4} className="my-4">
+                        {children}
+                      </DynamicMotion>
+                    ),
+                  }}
                 />
-              </div>
+              </DynamicMotion>
             ) : null}
           </CardContent>
-          <hr />
-          <CardFooter>
-            <CardDescription>
-              <Link href="/">&larr; Return home</Link>
-            </CardDescription>
+          {/* <hr /> */}
+          <CardFooter className="flex flex-col items-center gap-y-10">
+            <DynamicMotion
+              delay={0.6}
+              className="my-8 rounded-md bg-accent p-6 text-center font-medium"
+            >
+              <p className="mb-4 max-w-lg text-base leading-loose text-primary">
+                Vill du veta mer om hur du kan förbättra din webbnärvaro?
+                Kontakta mig för rådgivning eller frågor.
+              </p>
+              <AnimatedButton
+                size="lg"
+                href="/contact"
+                // onClick={() => setModalOpen(true)}
+              >
+                Kontakta mig
+              </AnimatedButton>
+            </DynamicMotion>
+            <DynamicMotion delay={0.8}>
+              <Link href="/blog">&larr; Return to blog</Link>
+            </DynamicMotion>
           </CardFooter>
         </div>
       </Card>
-    </>
+    </article>
   );
 }
