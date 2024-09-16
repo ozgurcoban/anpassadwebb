@@ -32,19 +32,23 @@ const customPortableTextComponents = {
       // console.log('value: ', value);
 
       return (
-        <DynamicMotion type="div" className="" delay={0.5}>
-          <Image
-            src={urlFor(asset._ref).url()}
-            alt={alt || 'Image'}
-            layout="responsive"
-            width={700}
-            height={500}
-            className="mb-0.5 rounded-lg"
-          />
-          <figcaption className="mt-4 text-sm">
-            {alt ? alt.charAt(0).toUpperCase() + alt.slice(1) : undefined}
-          </figcaption>
-        </DynamicMotion>
+        <figure>
+          <DynamicMotion className="" delay={1.2} duration={1.2}>
+            <Image
+              src={urlFor(asset._ref).url()}
+              alt={alt || 'Image'}
+              layout="responsive"
+              width={700}
+              height={500}
+              className="mb-0.5 rounded-lg"
+            />
+          </DynamicMotion>
+          <DynamicMotion delay={1.2} duration={1.2}>
+            <figcaption className="mt-4 text-sm">
+              {alt ? alt.charAt(0).toUpperCase() + alt.slice(1) : undefined}
+            </figcaption>
+          </DynamicMotion>
+        </figure>
       );
     },
   },
@@ -58,9 +62,9 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
       <h2 className="text-center text-7xl">ÖzByte</h2>
       <SanityImage image={mainImage} alt={''} />
       <Card className="prose prose-lg mx-auto mt-8 max-w-full">
-        <div className="mx-auto max-w-4xl">
+        <header className="mx-auto max-w-4xl">
           <CardHeader className="py-0">
-            <DynamicMotion delay={0.6} className="mt-8">
+            <DynamicMotion delay={0.3} className="mt-8">
               <Link
                 className={`${badgeVariants({ variant: 'default' })}text-4xl`}
                 href={''}
@@ -69,14 +73,14 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
               </Link>
             </DynamicMotion>
             {title ? (
-              <DynamicMotion delay={0.2}>
+              <DynamicMotion delay={0.5}>
                 <CardTitle className="mt-4 text-4xl text-card-foreground">
                   {title.charAt(0).toUpperCase() + title.slice(1)}
                 </CardTitle>
               </DynamicMotion>
             ) : null}
             {subtitle ? (
-              <DynamicMotion type="div" delay={0.4}>
+              <DynamicMotion type="div" delay={0.75}>
                 <CardDescription className="mt-4 text-pretty text-xl leading-relaxed tracking-tight text-card-foreground">
                   {subtitle}
                 </CardDescription>
@@ -85,20 +89,31 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
           </CardHeader>
           <CardContent>
             {mainImage?.asset?._ref ? (
-              <DynamicMotion
-                delay={0.6}
-                duration={0.8}
-                className="md:mx-2 lg:-mx-10 xl:-mx-32"
-              >
-                <Image
-                  className="mt-4 w-full rounded-lg"
-                  src={urlFor(mainImage?.asset._ref).url()}
-                  width={1200}
-                  height={700}
-                  alt={title || ''}
-                />
-                <Separator className="my-4" />
-              </DynamicMotion>
+              <figure>
+                <DynamicMotion
+                  delay={0.8}
+                  duration={1.2}
+                  className="md:mx-2 lg:-mx-10 xl:-mx-32"
+                >
+                  <Image
+                    className="mt-4 w-full rounded-lg"
+                    src={urlFor(mainImage?.asset._ref).url()}
+                    width={1200}
+                    height={700}
+                    alt={title || ''}
+                  />
+                </DynamicMotion>
+                <DynamicMotion delay={1.2} duration={1.2}>
+                  <figcaption className="mt-4 text-sm">
+                    <span className="text-muted-foreground">
+                      {mainImage?.alt}
+                    </span>
+                  </figcaption>
+                </DynamicMotion>
+                <DynamicMotion delay={1.4}>
+                  <Separator className="my-4" />
+                </DynamicMotion>
+              </figure>
             ) : null}
             {body ? (
               <DynamicMotion
@@ -144,7 +159,7 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
               <Link href="/blog">&larr; Return to blog</Link>
             </DynamicMotion>
           </CardFooter>
-        </div>
+        </header>
       </Card>
     </article>
   );

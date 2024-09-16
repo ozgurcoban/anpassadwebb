@@ -25,8 +25,11 @@ const SanityImage: React.FC<
   SanityImageProps & React.HTMLProps<HTMLImageElement>
 > = ({ image, alt, ...props }: SanityImageProps) => {
   const imageProps = useNextSanityImage(configuredSanityClient, image);
+  if (!image) {
+    return null;
+  }
   // console.log(imageProps);
-  console.log('image:', image);
+  // console.log('image:', image);
 
   // const blurData = image.asset.
   // console.log('configuredSanityClient:', configuredSanityClient);

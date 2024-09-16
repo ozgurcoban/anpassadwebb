@@ -41,7 +41,7 @@ export const DynamicMotion = <Tag extends keyof JSX.IntrinsicElements>({
   type,
   children,
   className,
-  delay = 0,
+  delay = 0.2,
   duration,
   transition,
   enableHover,
@@ -49,10 +49,10 @@ export const DynamicMotion = <Tag extends keyof JSX.IntrinsicElements>({
 }: CustomMotionProps<Tag>) => {
   const Component = type ? (motion as any)[type] : motion.div;
 
-  if (typeof window !== 'undefined') {
-    const imageElement = document.getElementsByTagName('img');
-    // console.log('imageElement:', imageElement);
-  } // console.log('type:', type);
+  // if (typeof window !== 'undefined') {
+  //   const imageElement = document.getElementsByTagName('img');
+  //   // console.log('imageElement:', imageElement);
+  // } // console.log('type:', type);
   // console.log('Component:', Component);
   // const owner = React.isValidElement(children);
 
@@ -80,13 +80,13 @@ export const DynamicMotion = <Tag extends keyof JSX.IntrinsicElements>({
 
   return (
     <Component
-      initial={'initial'}
       variants={variants}
+      initial={'initial'}
       className={className}
       whileInView={'animate'}
       viewport={{ once: true }}
-      // transition={computedTransition}
-      // whileHover={(enableHover ?? isImage) ? { scale: 1.05 } : undefined}
+      transition={{ delay, duration, ease: 'easeIn', ...transition }}
+      whileHover={enableHover ? { y: -5 } : undefined}
       {...props}
     >
       {children}

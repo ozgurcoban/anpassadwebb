@@ -17,6 +17,7 @@ export async function generateStaticParams() {
     { perspective: 'published' },
   );
 
+  console.log('posts:', posts);
   return posts.map((post) => ({
     slug: post?.slug?.current,
   }));
