@@ -19,6 +19,8 @@ type SanityImageProps = {
 
 const SanityImage: React.FC<SanityImageProps> = ({ image, alt, ...props }) => {
   const imageProps = useNextSanityImage(configuredSanityClient, image);
+  // console.log(imageProps);
+  console.log('image:', image);
 
   const lqip = (image as any)?.asset?.metadata?.lqip || '';
 
