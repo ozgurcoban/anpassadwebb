@@ -18,21 +18,15 @@ import AnimatedButton from './ui/MotionButton';
 import { DynamicMotion } from './ui/DynamicMotion';
 import SanityImage from './SanityImage';
 
-// type POSTProps = {
-//   post: POST_QUERYResult;
-//   mainImage: any;
-// };
-
 const customPortableTextComponents = {
   types: {
     image: ({ value }: { value: any }) => {
       const { asset, alt } = value;
-      // console.log('value: ', value);
 
       return (
         <DynamicMotion type="div" className="" delay={0.5}>
           <Image
-            src={urlFor(asset._ref).url()}
+            src={asset.url}
             alt={alt || 'Image'}
             layout="responsive"
             width={700}
@@ -82,7 +76,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
             ) : null}
           </CardHeader>
           <CardContent>
-            {mainImage?.asset?._ref ? (
+            {mainImage?.asset?.url ? (
               <DynamicMotion
                 delay={0.6}
                 duration={0.8}
@@ -90,7 +84,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
               >
                 <Image
                   className="mt-4 w-full rounded-lg"
-                  src={urlFor(mainImage?.asset._ref).url()}
+                  src={mainImage?.asset?.url}
                   width={1200}
                   height={700}
                   alt={title || ''}
