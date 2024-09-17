@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
-
-import { urlFor } from '@/sanity/lib/image';
 import { POST_QUERYResult } from '../../sanity.types';
 import Link from 'next/link';
 
@@ -15,15 +13,15 @@ import {
 } from '@/components/ui/card';
 import { badgeVariants } from '@/components/ui/badge';
 import { Separator } from './ui/separator';
-import { Button } from './ui/button';
+// import { Button } from './ui/button';
 import AnimatedButton from './ui/MotionButton';
 import { DynamicMotion } from './ui/DynamicMotion';
 import SanityImage from './SanityImage';
 
-type POSTProps = {
-  post: POST_QUERYResult;
-  mainImage: any;
-};
+// type POSTProps = {
+//   post: POST_QUERYResult;
+//   mainImage: any;
+// };
 
 const customPortableTextComponents = {
   types: {
@@ -34,7 +32,7 @@ const customPortableTextComponents = {
       return (
         <DynamicMotion type="div" className="" delay={0.5}>
           <Image
-            src={urlFor(asset._ref).url()}
+            src={asset.url}
             alt={alt || 'Image'}
             layout="responsive"
             width={700}
@@ -50,13 +48,13 @@ const customPortableTextComponents = {
   },
 };
 
-export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
+export default function POST({ post }: { post: POST_QUERYResult }) {
   const { title, mainImage, body, subtitle, excerpt } = post || {};
 
   return (
     <article>
       <h2 className="text-center text-7xl">ÖzByte</h2>
-      <SanityImage image={mainImage} alt={''} />
+      {mainImage && <SanityImage image={mainImage} alt={''} />}
       <Card className="prose prose-lg mx-auto mt-8 max-w-full">
         <div className="mx-auto max-w-4xl">
           <CardHeader className="py-0">
@@ -84,7 +82,7 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
             ) : null}
           </CardHeader>
           <CardContent>
-            {mainImage?.asset?._ref ? (
+            {mainImage?.asset?.url ? (
               <DynamicMotion
                 delay={0.6}
                 duration={0.8}
@@ -92,7 +90,7 @@ export default function POST({ post }: { post: POST_QUERYResult & POSTProps }) {
               >
                 <Image
                   className="mt-4 w-full rounded-lg"
-                  src={urlFor(mainImage?.asset._ref).url()}
+                  src={mainImage?.asset?.url}
                   width={1200}
                   height={700}
                   alt={title || ''}

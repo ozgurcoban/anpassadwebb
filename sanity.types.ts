@@ -280,7 +280,7 @@ export type POSTS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, subtitle, excerpt,  mainImage { asset->{url, metadata}, alt }}
+// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, subtitle, excerpt,  mainImage {      asset->{        _id,        url,        metadata {          lqip        }      }    }}
 export type POST_QUERYResult = {
   title: string | null;
   body: Array<
@@ -320,10 +320,12 @@ export type POST_QUERYResult = {
   excerpt: string | null;
   mainImage: {
     asset: {
+      _id: string;
       url: string | null;
-      metadata: SanityImageMetadata | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
     } | null;
-    alt: string | null;
   } | null;
 } | null;
 // Variable: FEATURED_POSTS_QUERY
@@ -352,7 +354,7 @@ import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "post" && defined(slug.current)][0...12]{\n  _id, title, slug, excerpt, mainImage,\n}': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, subtitle, excerpt,  mainImage { asset->{url, metadata}, alt }\n}': POST_QUERYResult;
+    '*[_type == "post" && slug.current == $slug][0]{\n  title, body, subtitle, excerpt,  mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip\n        }\n      }\n    }\n}': POST_QUERYResult;
     '*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{\n  _id, title, slug, mainImage, excerpt\n}': FEATURED_POSTS_QUERYResult;
   }
 }
