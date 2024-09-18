@@ -22,7 +22,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
     return pathname.startsWith(href);
   };
   return (
-    <nav className="hidden rounded-full bg-muted p-2 md:flex">
+    <nav className="hidden rounded-full border-2 border-muted/60 bg-muted/60 p-2 backdrop-blur-md md:flex">
       <ul className="flex space-x-8">
         {links.map(({ label, href }) => {
           return (
@@ -30,8 +30,8 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
               <Link
                 href={href}
                 className={`${
-                  isActive(href) ? '' : 'hover:text-[#E57373]'
-                } relative rounded-full px-3 py-1.5 text-sm font-medium uppercase outline-sky-400 transition focus-visible:outline-2`}
+                  isActive(href) ? '' : 'hover:text-muted'
+                } relative rounded-full px-3 py-1.5 text-sm font-medium uppercase text-secondary-foreground outline-sky-400 transition focus-visible:outline-2`}
                 style={{
                   WebkitTapHighlightColor: 'transparent',
                 }}
@@ -39,8 +39,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
                 {isActive(href) ? (
                   <motion.span
                     layoutId="bubble"
-                    className="absolute inset-[-0.25rem] z-10 bg-accent text-primary mix-blend-difference"
-                    style={{ borderRadius: 9999 }}
+                    className="pointer-events-none absolute inset-[-0.25rem] rounded-[9999px] bg-accent mix-blend-difference"
                     transition={{
                       type: 'spring',
                       bounce: 0.2,

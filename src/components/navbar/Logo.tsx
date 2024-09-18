@@ -12,6 +12,7 @@ const Logo = () => {
           width={700}
           height={700}
           className="size-20"
+          priority
         />
       </Link>
     </Button>

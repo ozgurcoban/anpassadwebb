@@ -21,18 +21,11 @@ import SanityImage from './SanityImage';
 const customPortableTextComponents = {
   types: {
     image: ({ value }: { value: any }) => {
-      const { asset, alt } = value;
+      const { alt } = value;
 
       return (
-        <DynamicMotion type="div" className="" delay={0.5}>
-          <SanityImage
-            src={value}
-            alt={alt || 'Image'}
-            // layout="responsive"
-            // width={700}
-            // height={500}
-            className="mb-0.5 rounded-lg"
-          />
+        <DynamicMotion type="figure" className="" delay={0.5}>
+          <SanityImage src={value} className="mb-0.5 rounded-lg" />
           <figcaption className="mt-4 text-sm">
             {alt ? alt.charAt(0).toUpperCase() + alt.slice(1) : undefined}
           </figcaption>
@@ -43,12 +36,12 @@ const customPortableTextComponents = {
 };
 
 export default function POST({ post }: { post: POST_QUERYResult }) {
-  const { title, mainImage, body, subtitle, excerpt } = post || {};
+  const { title, mainImage, body, subtitle } = post || {};
+  const alt = (mainImage as { alt?: string })?.alt;
 
   return (
     <article>
       <h2 className="text-center text-7xl">ÖzByte</h2>
-      {/* {mainImage && <SanityImage src={mainImage} alt={''} />} */}
       <Card className="prose prose-lg mx-auto mt-8 max-w-full">
         <header className="mx-auto max-w-4xl">
           <CardHeader className="py-0">
@@ -62,7 +55,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
             </DynamicMotion>
             {title ? (
               <DynamicMotion delay={0.5}>
-                <CardTitle className="mt-4 text-4xl text-card-foreground">
+                <CardTitle className="mt-4 break-words text-4xl leading-normal text-card-foreground">
                   {title.charAt(0).toUpperCase() + title.slice(1)}
                 </CardTitle>
               </DynamicMotion>
@@ -81,14 +74,20 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
                 delay={0.6}
                 duration={0.8}
                 className="md:mx-2 lg:-mx-10 xl:-mx-32"
+                type="figure"
               >
                 <SanityImage
                   className="mt-4 w-full rounded-lg"
                   src={mainImage}
-                  // width={1200}
-                  // height={700}
-                  // alt={title || ''}
                 />
+                <DynamicMotion
+                  type="figcaption"
+                  delay={0.6}
+                  duration={0.8}
+                  className="mt-4 text-sm"
+                >
+                  {alt}
+                </DynamicMotion>
                 <Separator className="my-4" />
               </DynamicMotion>
             ) : null}

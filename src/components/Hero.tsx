@@ -10,7 +10,7 @@ import LettersPullUp from './ui/LettersPullUp';
 
 const Hero = () => {
   return (
-    <section className="-z-5 relative grid w-full place-items-center gap-y-16 py-16 md:grid-cols-2">
+    <section className="-z-5 relative grid w-full place-items-center gap-y-16 pb-16 md:grid-cols-2">
       <div className="w-full">
         <FadeUp delay={0.3}>
           <h1 className="text-5xl">

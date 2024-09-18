@@ -5,7 +5,7 @@ import { Button } from './button';
 import React from 'react';
 import Link from 'next/link';
 
-const MotionButton = motion(Button);
+const MotionButton = motion.create(Button);
 
 type AnimatedButtonProps = {
   children: React.ReactNode;

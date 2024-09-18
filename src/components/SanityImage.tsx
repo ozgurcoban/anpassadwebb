@@ -14,21 +14,19 @@ const configuredSanityClient = createClient({
 
 type SanityImageProps = {
   src: SanityImageSource;
-  alt?: string;
   className?: string;
 };
 
-const SanityImage: React.FC<SanityImageProps> = ({ src, alt, ...props }) => {
+const SanityImage: React.FC<SanityImageProps> = ({ src, ...props }) => {
   const imageProps = useNextSanityImage(configuredSanityClient, src);
-  // console.log(imageProps);
-  // console.log('image:', image);
 
   const lqip = (src as any)?.asset?.metadata?.lqip || '';
+  const alt = (src as any)?.alt || 'Standardbeskrivning';
 
   return (
     <Image
       src={imageProps.src}
-      alt={alt || 'image'}
+      alt={alt}
       width={imageProps.width}
       height={imageProps.height}
       style={{ width: '100%', height: 'auto' }}
