@@ -25,12 +25,12 @@ const customPortableTextComponents = {
 
       return (
         <DynamicMotion type="div" className="" delay={0.5}>
-          <Image
-            src={asset.url}
+          <SanityImage
+            src={value}
             alt={alt || 'Image'}
-            layout="responsive"
-            width={700}
-            height={500}
+            // layout="responsive"
+            // width={700}
+            // height={500}
             className="mb-0.5 rounded-lg"
           />
           <figcaption className="mt-4 text-sm">
@@ -48,7 +48,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
   return (
     <article>
       <h2 className="text-center text-7xl">ÖzByte</h2>
-      {mainImage && <SanityImage image={mainImage} alt={''} />}
+      {/* {mainImage && <SanityImage src={mainImage} alt={''} />} */}
       <Card className="prose prose-lg mx-auto mt-8 max-w-full">
         <header className="mx-auto max-w-4xl">
           <CardHeader className="py-0">
@@ -82,12 +82,12 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
                 duration={0.8}
                 className="md:mx-2 lg:-mx-10 xl:-mx-32"
               >
-                <Image
+                <SanityImage
                   className="mt-4 w-full rounded-lg"
-                  src={mainImage?.asset?.url}
-                  width={1200}
-                  height={700}
-                  alt={title || ''}
+                  src={mainImage}
+                  // width={1200}
+                  // height={700}
+                  // alt={title || ''}
                 />
                 <Separator className="my-4" />
               </DynamicMotion>
