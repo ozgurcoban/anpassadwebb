@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
 
   const { isValid, redirectTo = '/' } = await validatePreviewUrl(
     clientWithToken,
-    request.url
+    request.url,
   );
 
   if (!isValid) {

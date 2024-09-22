@@ -5,7 +5,6 @@ import './globals.css';
 import Providers from '@/providers';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
-
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export default function RootLayout({
@@ -17,18 +16,18 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <main className="container mt-16">
-            {draftMode().isEnabled && (
+            {/* {draftMode().isEnabled && (
               <a
                 className="fixed bottom-0 right-0 m-4 bg-blue-500 p-4 text-white"
                 href="/api/draft-mode/disable"
               >
                 Disable preview mode
               </a>
-            )}
+            )} */}
 
             {children}
 
-            {draftMode().isEnabled && <VisualEditing />}
+            {/* {draftMode().isEnabled && <VisualEditing />} */}
           </main>
           <Footer />
         </Providers>
