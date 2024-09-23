@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Button } from './button';
-import React from 'react';
 import Link from 'next/link';
 
 const MotionButton = motion.create(Button);
+const MotionLink = motion.create(Link);
 
 type AnimatedButtonProps = {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ type AnimatedButtonProps = {
     | 'ghost';
 };
 
-const AnimatedButton: React.FC<AnimatedButtonProps> = ({
+export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   children,
   size,
   href = '#',
@@ -34,7 +34,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
 }) => {
   return (
     <MotionButton
-      asChild
       size={size}
       type={type}
       whileHover={{ scale: 1.1 }}
@@ -44,10 +43,30 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       variant={variant}
       {...props}
     >
-      <Link className="uppercase no-underline" href={href}>
-        {children}
-      </Link>
+      {children}
     </MotionButton>
   );
 };
-export default AnimatedButton;
+
+export const AnimatedLink: React.FC<AnimatedButtonProps> = ({
+  children,
+  size,
+  href = '#',
+  type = 'button',
+  onClick,
+  variant = 'default',
+  ...props
+}) => {
+  return (
+    <MotionLink
+      size={size}
+      type={type}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+      onClick={onClick}
+      variant={variant}
+      {...props}
+    />
+  );
+};

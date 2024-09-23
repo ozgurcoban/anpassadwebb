@@ -12,7 +12,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.className} overflow-y-scroll`}>
+      <body className={`${openSans.className}`}>
         <Providers>
           <Navbar />
           <main className="container mt-16">

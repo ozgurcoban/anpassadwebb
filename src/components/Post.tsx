@@ -1,7 +1,9 @@
-import Image from 'next/image';
+'use client';
+
 import { PortableText } from '@portabletext/react';
 import { POST_QUERYResult } from '../../sanity.types';
 import Link from 'next/link';
+import useDialog from '@/hooks/useDialog';
 
 import {
   Card,
@@ -17,6 +19,8 @@ import { Separator } from './ui/separator';
 import AnimatedButton from './ui/MotionButton';
 import { DynamicMotion } from './ui/DynamicMotion';
 import SanityImage from './SanityImage';
+import Modal from './Modal';
+import ContactForm from './form/ContactForm';
 
 const customPortableTextComponents = {
   types: {
@@ -36,6 +40,18 @@ const customPortableTextComponents = {
 };
 
 export default function POST({ post }: { post: POST_QUERYResult }) {
+  const setDialog = useDialog((state) => state.setDialog);
+
+  const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setDialog({
+      isOpen: true,
+      title: 'Kontakta mig',
+      description: 'Fyll i formuläret nedan så återkommer jag inom kort.',
+      children: <ContactForm />,
+    });
+  };
+
   const { title, mainImage, body, subtitle } = post || {};
   const alt = (mainImage as { alt?: string })?.alt;
 
@@ -117,24 +133,25 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
           <CardFooter className="flex flex-col items-center gap-y-10">
             <DynamicMotion
               delay={0.6}
-              className="my-8 rounded-md bg-accent p-6 text-center font-medium"
+              className="my-8 rounded-md bg-secondary p-6 text-center font-medium"
             >
-              <p className="mb-4 max-w-lg text-base leading-loose text-primary">
+              <p className="mb-4 max-w-lg text-base leading-loose">
                 Vill du veta mer om hur du kan förbättra din webbnärvaro?
                 Kontakta mig för rådgivning eller frågor.
               </p>
               <AnimatedButton
-                size="lg"
-                href="/contact"
-                // onClick={() => setModalOpen(true)}
+                onClick={openModal}
+                type="button"
+                className="mt-4 rounded-md bg-primary px-6 py-4 text-primary-foreground"
               >
-                Kontakta mig
+                Kontakta oss
               </AnimatedButton>
             </DynamicMotion>
             <DynamicMotion delay={0.8}>
               <Link href="/blog">&larr; Return to blog</Link>
             </DynamicMotion>
           </CardFooter>
+          <Modal />
         </header>
       </Card>
     </article>

@@ -1,4 +1,5 @@
 import FeaturedPosts from '@/components/FeaturedPosts';
+import ContactForm from '@/components/form/ContactForm';
 import Hero from '@/components/Hero';
 
 export default function Page() {
@@ -6,6 +7,7 @@ export default function Page() {
     <>
       <Hero />
       <FeaturedPosts />
+      <ContactForm />
     </>
   );
 }
