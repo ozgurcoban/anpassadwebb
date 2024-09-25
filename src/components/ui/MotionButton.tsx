@@ -44,9 +44,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       variant={variant}
       {...props}
     >
-      <Link className="uppercase no-underline" href={href}>
-        {children}
-      </Link>
+      {children}
     </MotionButton>
   );
 };

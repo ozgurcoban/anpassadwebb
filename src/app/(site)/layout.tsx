@@ -5,6 +5,7 @@ import './globals.css';
 import Providers from '@/providers';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/Footer';
+import Modal from '@/components/Modal';
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export default function RootLayout({
@@ -30,6 +31,7 @@ export default function RootLayout({
             {/* {draftMode().isEnabled && <VisualEditing />} */}
           </main>
           <Footer />
+          <Modal />
         </Providers>
       </body>
     </html>

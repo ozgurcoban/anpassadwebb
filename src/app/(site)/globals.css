@@ -22,7 +22,18 @@
     --popover: 0 0% 98%; /* Liknande förändring som card för enhetlighet */
     --popover-foreground: 20 14.3% 10%;
 
-    --primary: 6 100% 60%; /* Marginell justering för att bibehålla färg men öka kontrasten */
+    /* --primary: 210 35% 55%;  */
+    --primary: 210 35% 55%;
+
+    /* --primary: 195 60% 60%; */
+    /* HSL: 195, 60%, 60%
+En ljusare och mer livfull blågrön ton som känns fräsch och modern, perfekt för att dra uppmärksamhet till knappen men samtidigt harmonisera med de varma färgerna. */
+
+    /* --primary: 210 50% 50%; */
+    /*
+HSL: 210, 50%, 50%
+En modern blåton som är något mörkare men som ger en sofistikerad och kall kontrast till de varmare elementen på din webbplats. */
+
     --primary-foreground: 60 9.1% 98%; /* Håll förgrund ljus för bra läsbarhet */
 
     --secondary: 0 0% 96%; /* Lättare sekundärfärg för bättre balans */

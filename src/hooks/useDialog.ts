@@ -1,29 +1,27 @@
+'use client';
+
 import { ReactNode } from 'react';
+
+// hooks/useDialog.ts
 
 import { create } from 'zustand';
 
-type ModalProps = {
+interface DialogState {
   isOpen: boolean;
-  onOpen: () => void;
   onClose: () => void;
   title: string;
-  description?: string;
-  children: ReactNode | null;
-  setDialog: (props: Partial<Omit<ModalProps, 'setDialog'>>) => void;
-};
+  description: string;
+  children: React.ReactNode;
+  setDialog: (dialogState: Partial<DialogState>) => void;
+}
 
-const useDialog = create<ModalProps>((set) => ({
+const useDialog = create<DialogState>((set) => ({
   isOpen: false,
-  onOpen: () => set((state) => ({ ...state, isOpen: true })),
-  onClose: () => {
-    set((state) => ({ ...state, isOpen: false }));
-  },
+  onClose: () => set({ isOpen: false }),
   title: '',
   description: '',
   children: null,
-  setDialog: (props) => {
-    set((state) => ({ ...state, ...props }));
-  },
+  setDialog: (dialogState) => set((state) => ({ ...state, ...dialogState })),
 }));
 
 export default useDialog;

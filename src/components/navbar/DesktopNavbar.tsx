@@ -41,7 +41,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
     if (navbarRef.current && liRefs.current) {
       const navbarRect = navbarRef.current.getBoundingClientRect();
       const activeLinkIndex = links.findIndex((link) => isActive(link.href));
-      console.log(activeLinkIndex);
+      // console.log(activeLinkIndex);
 
       const linkRect = liRefs.current[activeLinkIndex]?.getBoundingClientRect();
 

@@ -2,11 +2,12 @@ import Image from 'next/image';
 import desktopImg from '@/assets/desktop.png';
 import groupDiscussionImg from '@/assets/group-discussion-cafe.png';
 import uppsalaCityImg from '@/assets/uppsala-cityscape.png';
-import MaskText from './ui/MaskText';
 import FadeUp from './ui/FadeUp';
-import Link from 'next/link';
-import AnimatedButton from './ui/MotionButton';
-import LettersPullUp from './ui/LettersPullUp';
+import { AnimatedButton } from './ui/Buttons';
+import { DynamicMotion } from './ui/DynamicMotion';
+
+import ContactForm from './form/ContactForm';
+import { ContactButton } from './ContactButton';
 
 const Hero = () => {
   return (
@@ -24,11 +25,9 @@ const Hero = () => {
             resultat.
           </p>
         </FadeUp>
-        <FadeUp delay={0.7} className="mt-10">
-          <AnimatedButton size="lg" href="/">
-            Kontakta oss
-          </AnimatedButton>
-        </FadeUp>
+        <DynamicMotion delay={0.7} className="mt-10">
+          <ContactButton />
+        </DynamicMotion>
       </div>
       <div className="relative grid grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center lg:-translate-x-14 lg:transform">
         <FadeUp

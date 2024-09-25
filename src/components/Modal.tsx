@@ -1,7 +1,6 @@
-// for reference: https://medium.com/@descometusah/mastering-dialog-components-in-shadcn-ui-library-9420ac736b9e
+// For reference: https://medium.com/@descometusah/mastering-dialog-components-in-shadcn-ui-library-9420ac736b9e
 
 'use client';
-
 import {
   Dialog,
   DialogContent,
@@ -12,10 +11,10 @@ import {
 } from '@/components/ui/dialog';
 import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
-import { Button } from './ui/button';
+// import { Button } from './ui/button';
 
 const Modal = () => {
-  const { isOpen, onOpen, onClose, title, description, children } = useDialog();
+  const { isOpen, onClose, title, description, children } = useDialog();
 
   return (
     <Dialog modal open={isOpen} onOpenChange={onClose}>
@@ -28,12 +27,7 @@ const Modal = () => {
         </DialogHeader>
         {children}
         <DialogFooter>
-          <AnimatedButton
-            variant="outline"
-            size="default"
-            type="button"
-            onClick={onClose}
-          >
+          <AnimatedButton variant="outline" type="button" onClick={onClose}>
             Stäng
           </AnimatedButton>
         </DialogFooter>

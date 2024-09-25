@@ -1,18 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Button } from './button';
-import Link from 'next/link';
+import { motion, MotionProps } from 'framer-motion';
+import { Button, ButtonProps } from './button';
+// import useDialog from '@/hooks/useDialog';
+import ContactForm from '../form/ContactForm';
 
 const MotionButton = motion.create(Button);
-const MotionLink = motion.create(Link);
 
-type AnimatedButtonProps = {
+const transition = { type: 'spring', stiffness: 400, damping: 10 };
+
+interface AnimatedButtonProps extends Omit<MotionProps, 'onAnimationStart'> {
   children: React.ReactNode;
-  size?: 'default' | 'sm' | 'icon' | 'lg' | null;
-  href?: string;
+  size?: 'default' | 'icon' | 'lg' | 'sm';
   type?: 'button' | 'submit' | 'reset';
-  className?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant?:
     | 'link'
@@ -20,53 +20,48 @@ type AnimatedButtonProps = {
     | 'destructive'
     | 'outline'
     | 'secondary'
-    | 'ghost';
-};
+    | 'ghost'
+    | null
+    | undefined;
+
+  disabled?: boolean;
+}
 
 export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   children,
-  size,
-  href = '#',
-  type = 'button',
-  onClick,
+  size = 'default',
+  type,
   variant = 'default',
+  disabled,
+  onClick,
   ...props
 }) => {
+  console.log(type);
+  // const setDialog = useDialog((state) => state.setDialog);
+
+  // const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();
+  //   setDialog({
+  //     isOpen: true,
+  //     onClose: () => setDialog({ isOpen: false }),
+  //     title: 'Kontakta mig',
+  //     description: 'Fyll i formuläret nedan så återkommer jag inom kort.',
+  //     children: <ContactForm />,
+  //   });
+  // };
+
   return (
     <MotionButton
-      size={size}
-      type={type}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+      transition={transition}
       onClick={onClick}
+      type={type}
       variant={variant}
+      disabled={disabled}
       {...props}
     >
       {children}
     </MotionButton>
-  );
-};
-
-export const AnimatedLink: React.FC<AnimatedButtonProps> = ({
-  children,
-  size,
-  href = '#',
-  type = 'button',
-  onClick,
-  variant = 'default',
-  ...props
-}) => {
-  return (
-    <MotionLink
-      size={size}
-      type={type}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-      onClick={onClick}
-      variant={variant}
-      {...props}
-    />
   );
 };

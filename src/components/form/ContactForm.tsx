@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { DotIcon } from 'lucide-react';
+import clsx from 'clsx';
 import {
   Form,
   FormControl,
@@ -15,7 +16,14 @@ import {
 import { Input } from '@/components/ui/input';
 // import { useToast } from '@/components/ui/use-toast'; //optional
 import { Textarea } from '@/components/ui/textarea';
-import AnimatedButton from '../ui/MotionButton';
+import { AnimatedButton } from '../ui/Buttons';
+import useDialog from '@/hooks/useDialog';
+import { Button } from '../ui/button';
+import { Loader2 } from 'lucide-react';
+
+interface FormInputs {
+  singleErrorInput: string;
+}
 
 const schema = z.object({
   name: z
@@ -24,11 +32,11 @@ const schema = z.object({
 
   business: z
     .string()
-    .min(2, { message: 'Företagsnamnet måste vara minst 2 tecken långt' })
-    .max(100, { message: 'Företagsnamnet kan vara högst 100 tecken långt' })
-    .regex(/^[\w\s-]+$/, {
-      message: 'Företagsnamnet innehåller ogiltiga tecken',
-    })
+    // .min(2, { message: 'Företagsnamnet måste vara minst 2 tecken långt' })
+    // .max(100, { message: 'Företagsnamnet kan vara högst 100 tecken långt' })
+    // .regex(/^[\w\s-]+$/, {
+    //   message: 'Företagsnamnet innehåller ogiltiga tecken',
+    // })
     .optional(),
 
   email: z.string().email({ message: 'Ogiltig e-postadress' }),
@@ -58,7 +66,9 @@ const schema = z.object({
 //   },
 // );
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
+  const { onClose } = useDialog();
+
   // const formRef = useRef<HTMLFormElement | null>(null);
 
   const form = useForm<z.infer<typeof schema>>({
@@ -73,18 +83,49 @@ const ContactForm = () => {
     },
   });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+    reset,
+  } = form;
+
+  // Define a helper delay function for redability
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
   // Create the handler that connects to EmailJS.
-  const onSubmit = (data: z.infer<typeof schema>) => {
-    // some code here
-    //         .then(
-    //           () => {
-    //             form.reset(); //clear the fields after submission
-    //           },
-    //           (error) => {
-    //             console.warn('FAILED...', JSON.stringify(error));
-    //          },
-    //        );
-    // }
+  const onSubmit = async (data: z.infer<typeof schema>) => {
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log('response:', response);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('responseData:', responseData);
+
+        // Introduced a delay before resetting and closing the dialog
+        await delay(600);
+        reset();
+        await delay(450);
+        onClose();
+      } else {
+        const { error } = await response.json();
+        console.log('Error:', error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const Kiren = () => {
+    return <DotIcon className="relative -inset-1 size-5" />;
   };
 
   return (
@@ -92,7 +133,7 @@ const ContactForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="mt-4 grid space-y-6"
+          className="mt-4 flex flex-col gap-y-2"
         >
           {/* Name */}
           <FormField
@@ -100,19 +141,24 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="flex text-lg">
-                  Namn <DotIcon className="relative -inset-1.5 size-6" />
+                  Namn <Kiren />
                 </FormLabel>
-
                 <FormControl>
                   <Input
-                    className="border-primary bg-secondary"
+                    className={clsx(
+                      'bg-secondary',
+                      form.formState.errors.name && 'border-destructive',
+                      'border', // Lägg till standard border om det behövs
+                    )}
                     placeholder="Ditt namn"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs">
-                  {form.formState.errors.name?.message}
-                </FormMessage>
+                <div className="min-h-4">
+                  <FormMessage className="text-xs">
+                    {form.formState.errors.name?.message}
+                  </FormMessage>
+                </div>
               </FormItem>
             )}
           />
@@ -122,18 +168,24 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="flex text-lg">
-                  E-post <DotIcon className="relative -inset-1.5 size-6" />
+                  E-post <Kiren />
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="border-primary bg-secondary"
+                    className={clsx(
+                      'bg-secondary',
+                      form.formState.errors.email && 'border-destructive',
+                      'border', // Lägg till standard border om det behövs
+                    )}
                     placeholder="Ditt epostadress"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs">
-                  {form.formState.errors.email?.message}
-                </FormMessage>
+                <div className="min-h-4">
+                  <FormMessage className="text-xs">
+                    {form.formState.errors.email?.message}
+                  </FormMessage>
+                </div>
               </FormItem>
             )}
           />
@@ -145,14 +197,16 @@ const ContactForm = () => {
                 <FormLabel className="text-lg">Företag</FormLabel>
                 <FormControl>
                   <Input
-                    className="border-primary bg-secondary"
-                    placeholder="Ditt företagsnamn"
+                    className="border bg-secondary"
+                    placeholder="Eventuell företagsnamn"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs">
-                  {form.formState.errors.business?.message}
-                </FormMessage>
+                <div className="min-h-2">
+                  <FormMessage className="text-xs">
+                    {form.formState.errors.business?.message}
+                  </FormMessage>
+                </div>
               </FormItem>
             )}
           />
@@ -162,29 +216,40 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="flex text-lg">
-                  Meddelande <DotIcon className="relative -inset-1.5 size-6" />
+                  Meddelande <Kiren />
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    className="border-primary bg-secondary"
+                    className={clsx(
+                      'bg-secondary',
+                      form.formState.errors.message && 'border-destructive',
+                      'border', // Lägg till standard border om det behövs
+                    )}
                     placeholder="Meddelande"
+                    rows={6}
                     id="message"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs">
-                  {form.formState.errors.message?.message}
-                </FormMessage>
+                <div className="min-h-4">
+                  <FormMessage className="text-xs">
+                    {form.formState.errors.message?.message}
+                  </FormMessage>
+                </div>
               </FormItem>
             )}
           />
-          <AnimatedButton
-            size="lg"
-            type="submit"
-            className="sm:justify-self-start"
-          >
-            Skicka
-          </AnimatedButton>
+          <div className="mt-2 sm:self-start">
+            <AnimatedButton disabled={isSubmitting} type="submit">
+              Skicka
+              {isSubmitting ?? (
+                <span>
+                  <Loader2 className="size-5 animate-spin" />
+                  Skickar
+                </span>
+              )}
+            </AnimatedButton>
+          </div>
         </form>
       </Form>
     </>
