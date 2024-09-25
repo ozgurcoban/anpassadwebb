@@ -2,10 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { EmailTemplate } from '@/components/form/EmailTemplate';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-console.log('resend', resend);
-
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  console.log('resend', resend);
   // Chef if the request are present
 
   try {
