@@ -8,14 +8,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Image from 'next/image';
 
 export function Posts({ posts }: { posts: POSTS_QUERYResult }) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
       {posts.map((post) => {
-        // console.log(post);
-
         return (
           <article key={post._id}>
             <Link

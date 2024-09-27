@@ -1,9 +1,6 @@
-'use client';
-
 import { PortableText } from '@portabletext/react';
 import { POST_QUERYResult } from '../../sanity.types';
 import Link from 'next/link';
-import useDialog from '@/hooks/useDialog';
 
 import {
   Card,
@@ -15,12 +12,8 @@ import {
 } from '@/components/ui/card';
 import { badgeVariants } from '@/components/ui/badge';
 import { Separator } from './ui/separator';
-// import { Button } from './ui/button';
-import { AnimatedButton } from './ui/Buttons';
 import { DynamicMotion } from './ui/DynamicMotion';
 import SanityImage from './SanityImage';
-import Modal from './Modal';
-import ContactForm from './form/ContactForm';
 import { ContactButton } from './ContactButton';
 
 const customPortableTextComponents = {
@@ -41,18 +34,6 @@ const customPortableTextComponents = {
 };
 
 export default function POST({ post }: { post: POST_QUERYResult }) {
-  // const setDialog = useDialog((state) => state.setDialog);
-
-  // const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   setDialog({
-  //     isOpen: true,
-  //     title: 'Kontakta mig',
-  //     description: 'Fyll i formuläret nedan så återkommer jag inom kort.',
-  //     children: <ContactForm />,
-  //   });
-  // };
-
   const { title, mainImage, body, subtitle } = post || {};
   const alt = (mainImage as { alt?: string })?.alt;
 
@@ -144,7 +125,6 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
             <Link href="/blog">&larr; Return to blog</Link>
           </DynamicMotion>
         </CardFooter>
-        {/* <Modal /> */}
       </Card>
     </article>
   );

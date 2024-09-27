@@ -3,10 +3,7 @@ import desktopImg from '@/assets/desktop.png';
 import groupDiscussionImg from '@/assets/group-discussion-cafe.png';
 import uppsalaCityImg from '@/assets/uppsala-cityscape.png';
 import FadeUp from './ui/FadeUp';
-import { AnimatedButton } from './ui/Buttons';
 import { DynamicMotion } from './ui/DynamicMotion';
-
-import ContactForm from './form/ContactForm';
 import { ContactButton } from './ContactButton';
 
 const Hero = () => {

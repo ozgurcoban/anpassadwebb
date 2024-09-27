@@ -1,6 +1,7 @@
 // For reference: https://medium.com/@descometusah/mastering-dialog-components-in-shadcn-ui-library-9420ac736b9e
 
 'use client';
+
 import {
   Dialog,
   DialogContent,

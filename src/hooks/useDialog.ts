@@ -1,9 +1,5 @@
 'use client';
 
-import { ReactNode } from 'react';
-
-// hooks/useDialog.ts
-
 import { create } from 'zustand';
 
 interface DialogState {

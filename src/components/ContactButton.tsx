@@ -13,8 +13,8 @@ export const ContactButton: React.FC = () => {
     setDialog({
       isOpen: true,
       onClose: () => setDialog({ isOpen: false }),
-      title: 'Kontakta mig',
-      description: 'Fyll i formuläret nedan så återkommer jag inom kort.',
+      title: 'Kontakta oss',
+      description: 'Fyll i formuläret nedan så återkommer vi inom kort.',
       children: <ContactForm />,
     });
   };

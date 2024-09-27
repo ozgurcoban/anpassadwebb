@@ -7,7 +7,6 @@ export default async function PostsPage() {
   const posts = await sanityFetch<POSTS_QUERYResult>({
     query: POSTS_QUERY,
   });
-  // console.log(posts);
 
   return <Posts posts={posts} />;
 }

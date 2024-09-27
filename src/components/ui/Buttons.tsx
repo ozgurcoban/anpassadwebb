@@ -1,9 +1,7 @@
 'use client';
 
 import { motion, MotionProps } from 'framer-motion';
-import { Button, ButtonProps } from './button';
-// import useDialog from '@/hooks/useDialog';
-import ContactForm from '../form/ContactForm';
+import { Button } from './button';
 
 const MotionButton = motion.create(Button);
 
@@ -36,20 +34,6 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   onClick,
   ...props
 }) => {
-  console.log(type);
-  // const setDialog = useDialog((state) => state.setDialog);
-
-  // const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   setDialog({
-  //     isOpen: true,
-  //     onClose: () => setDialog({ isOpen: false }),
-  //     title: 'Kontakta mig',
-  //     description: 'Fyll i formuläret nedan så återkommer jag inom kort.',
-  //     children: <ContactForm />,
-  //   });
-  // };
-
   return (
     <MotionButton
       whileHover={{ scale: 1.1 }}

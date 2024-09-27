@@ -39,23 +39,15 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
 
   useEffect(() => {
     if (navbarRef.current && liRefs.current) {
-      const navbarRect = navbarRef.current.getBoundingClientRect();
       const activeLinkIndex = links.findIndex((link) => isActive(link.href));
-      // console.log(activeLinkIndex);
+      const activeLink = liRefs.current[activeLinkIndex];
 
-      const linkRect = liRefs.current[activeLinkIndex]?.getBoundingClientRect();
+      if (activeLink) {
+        const linkRect = activeLink.getBoundingClientRect();
+        const navbarRect = navbarRef.current.getBoundingClientRect();
 
-      if (linkRect) {
-        let left = linkRect.left - navbarRect.left;
-        let width = linkRect.width;
-
-        if (activeLinkIndex === 0) {
-          left = 0;
-          width = linkRect.right - navbarRect.left;
-        } else if (activeLinkIndex === links.length - 1) {
-          left = linkRect.left - navbarRect.left;
-          width = navbarRect.right - linkRect.left;
-        }
+        const left = linkRect.left - navbarRect.left;
+        const width = linkRect.width;
 
         setPosition({ left, width });
       }
@@ -63,15 +55,18 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
   }, [pathname, links, isActive]);
 
   return (
-    <nav
+    <motion.nav
+      layout
+      layoutRoot
       ref={navbarRef}
-      className="hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
+      className="relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
     >
-      <ul className="relative flex py-2">
+      <ul className="flex py-2">
         {/* Bubble */}
         {position && (
           <motion.span
             layoutId="bubble"
+            initial={false}
             className="absolute bottom-0 top-0 z-10 rounded-full bg-accent mix-blend-difference"
             style={{
               left: `${position.left}px`,
@@ -108,7 +103,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
