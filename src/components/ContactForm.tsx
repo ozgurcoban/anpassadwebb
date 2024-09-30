@@ -15,13 +15,17 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast'; //optional
+import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 import { Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
-interface FormInputs {
-  singleErrorInput: string;
+interface ContactFormData {
+  business: string;
+  message: string;
+  terms: boolean;
 }
 
 const schema = z.object({
@@ -40,6 +44,10 @@ const schema = z.object({
 
   email: z.string().email({ message: 'Ogiltig e-postadress' }),
   message: z.string().min(1, { message: 'Meddelandet är obligatoriskt' }),
+  terms: z.boolean().refine((data) => data === true, {
+    message: 'Du måste godkänna villkoren',
+  }),
+
   // marketingSource: z
   //   .enum([
   //     'Google',
@@ -80,6 +88,7 @@ const ContactForm: React.FC = () => {
       // marketingSource: undefined,
       // otherSource: '',
       message: '',
+      terms: false,
     },
   });
 
@@ -137,7 +146,7 @@ const ContactForm: React.FC = () => {
     <>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="mt-4 flex flex-col sm:gap-y-2"
         >
           {/* Name */}
@@ -146,22 +155,22 @@ const ContactForm: React.FC = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex sm:text-lg">
+                <FormLabel className="flex px-2 text-base sm:text-lg">
                   Namn <Kiren />
                 </FormLabel>
                 <FormControl>
                   <Input
                     className={clsx(
-                      'bg-secondary',
+                      'bg-secondary py-6 text-base text-secondary shadow-inner',
                       form.formState.errors.name && 'border-destructive',
-                      'border', // Lägg till standard border om det behövs
+                      'border',
                     )}
                     placeholder="Ditt namn"
                     {...field}
                   />
                 </FormControl>
                 <div className="min-h-4">
-                  <FormMessage className="text-xs">
+                  <FormMessage className="pl-2 text-xs">
                     {form.formState.errors.name?.message}
                   </FormMessage>
                 </div>
@@ -174,13 +183,13 @@ const ContactForm: React.FC = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex sm:text-lg">
+                <FormLabel className="mt-1 flex px-2 text-base sm:text-lg">
                   E-post <Kiren />
                 </FormLabel>
                 <FormControl>
                   <Input
                     className={clsx(
-                      'bg-secondary',
+                      'bg-secondary py-6 text-base shadow-inner',
                       form.formState.errors.email && 'border-destructive',
                       'border', // Lägg till standard border om det behövs
                     )}
@@ -188,8 +197,8 @@ const ContactForm: React.FC = () => {
                     {...field}
                   />
                 </FormControl>
-                <div className="min-h-4">
-                  <FormMessage className="text-xs">
+                <div className="mb-4 min-h-4">
+                  <FormMessage className="pl-2 text-xs">
                     {form.formState.errors.email?.message}
                   </FormMessage>
                 </div>
@@ -201,17 +210,19 @@ const ContactForm: React.FC = () => {
             control={form.control}
             name="business"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="sm:text-lg">Företag</FormLabel>
+              <FormItem className="mt-1">
+                <FormLabel className="mt-2 px-2 text-base sm:text-lg">
+                  Företag
+                </FormLabel>
                 <FormControl>
                   <Input
-                    className="border bg-secondary"
+                    className="border bg-secondary py-6 text-base shadow-inner"
                     placeholder="Eventuell företagsnamn"
                     {...field}
                   />
                 </FormControl>
                 <div className="min-h-2">
-                  <FormMessage className="text-xs">
+                  <FormMessage className="pl-2 text-xs">
                     {form.formState.errors.business?.message}
                   </FormMessage>
                 </div>
@@ -224,32 +235,77 @@ const ContactForm: React.FC = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex sm:text-lg">
+                <FormLabel className="mt-2 flex px-2 text-base sm:text-lg">
                   Meddelande <Kiren />
                 </FormLabel>
                 <FormControl>
                   <Textarea
                     className={clsx(
-                      'bg-secondary',
+                      'bg-secondary text-base shadow-inner',
                       form.formState.errors.message && 'border-destructive',
                       'border', // Lägg till standard border om det behövs
                     )}
                     placeholder="Meddelande"
-                    rows={6}
+                    rows={4}
                     id="message"
                     {...field}
                   />
                 </FormControl>
                 <div className="min-h-4">
-                  <FormMessage className="text-xs">
+                  <FormMessage className="pl-2 text-xs">
                     {form.formState.errors.message?.message}
                   </FormMessage>
                 </div>
               </FormItem>
             )}
           />
-          <div className="grid sm:inline-block">
-            <AnimatedButton disabled={isSubmitting} type="submit" className="">
+          {/* Terms and Conditions Checkbox */}
+          <FormField
+            control={form.control}
+            name="terms"
+            rules={{ required: 'Du måste godkänna villkoren' }}
+            render={({ field }) => (
+              <FormItem className="">
+                <div className="mt-2 flex items-center">
+                  <FormControl>
+                    <Checkbox
+                      className={clsx(
+                        'bg-secondary text-base shadow-inner',
+                        form.formState.errors.message && 'border-destructive',
+                        'border',
+                      )}
+                      checked={field.value}
+                      onCheckedChange={(checked) => field.onChange(checked)}
+                    />
+                  </FormControl>
+                  <FormLabel
+                    onClick={onClose}
+                    className="ml-2 flex items-center text-base"
+                    aria-label="Jag godkänner villkoren"
+                  >
+                    Jag godkänner{' '}
+                    <Link
+                      className="pointer-event font-semibold"
+                      href="/villkor"
+                    >
+                      &nbsp;villkoren
+                    </Link>
+                    <Kiren />
+                  </FormLabel>
+                </div>
+                <div className="hidden min-h-4 sm:block">
+                  <FormMessage className="pl-6 text-xs" />
+                </div>
+              </FormItem>
+            )}
+          />
+
+          <div className="mt-4 grid sm:inline-block">
+            <AnimatedButton
+              disabled={isSubmitting}
+              type="submit"
+              className="shadow-md"
+            >
               Skicka
               {isSubmitting ?? (
                 <span>
