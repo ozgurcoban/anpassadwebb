@@ -2,7 +2,7 @@
 
 import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
-import ContactForm from './form/ContactForm';
+import ContactForm from './ContactForm';
 import React from 'react';
 
 export const ContactButton: React.FC = () => {

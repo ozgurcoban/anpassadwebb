@@ -9,6 +9,13 @@
   .drop-cap:first-letter {
     @apply float-left mr-2 text-6xl font-medium leading-none;
   }
+
+  .dark .toast {
+    background-color: hsl(
+      var(--foreground)
+    ); /* Använd "foreground" för ljus färg på mörk bakgrund */
+    color: hsl(var(--background)); /* Använd "background" för texten */
+  }
 }
 
 @layer base {

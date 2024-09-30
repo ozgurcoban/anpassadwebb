@@ -1,8 +1,6 @@
 // For reference: https://ekomenyong.com/insights/nextjs-resend-contact-form
 
-import React from 'react';
-
-type EmailTemplateProps = {
+export type EmailTemplateProps = {
   name: string;
   business?: string;
   email: string;
@@ -11,7 +9,7 @@ type EmailTemplateProps = {
   otherSource?: string;
 };
 
-export const EmailTemplate: React.FC<EmailTemplateProps> = ({
+export const ContactFormSubmissionEmail: React.FC<EmailTemplateProps> = ({
   name,
   business,
   email,
@@ -41,5 +39,25 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
         <strong>Andra källor:</strong> {otherSource}
       </p>
     )}
+  </div>
+);
+
+export const UserConfirmationEmail: React.FC<EmailTemplateProps> = ({
+  name,
+  message,
+}) => (
+  <div>
+    <h2>Hej {name},</h2>
+    <p>
+      Tack för att du kontaktar oss på Özbyte! Vi är glada att ha dig med oss.
+    </p>
+    <p>
+      Vi har mottagit ditt meddelande och kommer att svara så snart som möjligt.
+    </p>
+    <p>Här är en kopia av ditt meddelande:</p>
+    <p>{message}</p>
+    <p>
+      Om du har några frågor eller funderingar, tveka inte att kontakta oss på
+    </p>
   </div>
 );

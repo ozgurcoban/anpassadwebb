@@ -14,11 +14,10 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-// import { useToast } from '@/components/ui/use-toast'; //optional
+import { useToast } from '@/components/ui/use-toast'; //optional
 import { Textarea } from '@/components/ui/textarea';
-import { AnimatedButton } from '../ui/Buttons';
+import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
-import { Button } from '../ui/button';
 import { Loader2 } from 'lucide-react';
 
 interface FormInputs {
@@ -67,6 +66,7 @@ const schema = z.object({
 // );
 
 const ContactForm: React.FC = () => {
+  const { toast } = useToast();
   const { onClose } = useDialog();
 
   // const formRef = useRef<HTMLFormElement | null>(null);
@@ -115,6 +115,11 @@ const ContactForm: React.FC = () => {
         reset();
         await delay(450);
         onClose();
+        toast({
+          title: 'Skickat!',
+          description: 'Vi har mottagit ditt meddelande.',
+          className: 'toast bg-accent',
+        });
       } else {
         const { error } = await response.json();
         console.log('Error:', error);
@@ -137,6 +142,7 @@ const ContactForm: React.FC = () => {
         >
           {/* Name */}
           <FormField
+            control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
@@ -164,6 +170,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Email */}
           <FormField
+            control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
@@ -191,6 +198,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Business */}
           <FormField
+            control={form.control}
             name="business"
             render={({ field }) => (
               <FormItem>
@@ -212,6 +220,7 @@ const ContactForm: React.FC = () => {
           />
           {/* Message */}
           <FormField
+            control={form.control}
             name="message"
             render={({ field }) => (
               <FormItem>

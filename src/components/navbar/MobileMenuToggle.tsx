@@ -79,7 +79,12 @@ const MobileMenuToggle: React.FC<MobileMenuToggleProps> = ({ links }) => {
 
   const pathname = usePathname();
   const router = useRouter();
-  const isActive = (href: string) => href === pathname;
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
 
   const handleMenu = async () => {
     if (open) {

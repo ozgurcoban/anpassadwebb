@@ -6,6 +6,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import useMediaQuery from '@/hooks/useMediaQuery';
 import { motion } from 'framer-motion';
 import { NavLinks } from '@/utils/links';
 import Link from 'next/link';
@@ -20,6 +21,7 @@ type DesktopNavbarProps = {
 };
 
 const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const navbarRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const liRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -52,7 +54,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
         setPosition({ left, width });
       }
     }
-  }, [pathname, links, isActive]);
+  }, [pathname, links, isActive, isDesktop]);
 
   return (
     <motion.nav
