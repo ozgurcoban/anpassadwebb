@@ -23,6 +23,7 @@ interface AnimatedButtonProps extends Omit<MotionProps, 'onAnimationStart'> {
     | undefined;
 
   disabled?: boolean;
+  className?: string;
 }
 
 export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -32,6 +33,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   variant = 'default',
   disabled,
   onClick,
+  className,
   ...props
 }) => {
   return (
@@ -43,6 +45,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       type={type}
       variant={variant}
       disabled={disabled}
+      className={className}
       {...props}
     >
       {children}

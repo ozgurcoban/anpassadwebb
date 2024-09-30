@@ -19,7 +19,7 @@ const Modal = () => {
 
   return (
     <Dialog modal open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-full rounded">
+      <DialogContent className="max-h-svh sm:mx-auto sm:max-w-lg">
         <DialogHeader className="mt-6">
           <DialogTitle className="text-2xl">{title}</DialogTitle>
           <DialogDescription className="text-md">

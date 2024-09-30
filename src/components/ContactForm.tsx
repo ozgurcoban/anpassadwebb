@@ -130,7 +130,7 @@ const ContactForm: React.FC = () => {
   };
 
   const Kiren = () => {
-    return <DotIcon className="relative -inset-1 size-5" />;
+    return <DotIcon className="relative -inset-1 size-5 bg-transparent" />;
   };
 
   return (
@@ -138,7 +138,7 @@ const ContactForm: React.FC = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="mt-4 flex flex-col gap-y-2"
+          className="mt-4 flex flex-col sm:gap-y-2"
         >
           {/* Name */}
           <FormField
@@ -146,7 +146,7 @@ const ContactForm: React.FC = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex text-lg">
+                <FormLabel className="flex sm:text-lg">
                   Namn <Kiren />
                 </FormLabel>
                 <FormControl>
@@ -174,7 +174,7 @@ const ContactForm: React.FC = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex text-lg">
+                <FormLabel className="flex sm:text-lg">
                   E-post <Kiren />
                 </FormLabel>
                 <FormControl>
@@ -202,7 +202,7 @@ const ContactForm: React.FC = () => {
             name="business"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-lg">Företag</FormLabel>
+                <FormLabel className="sm:text-lg">Företag</FormLabel>
                 <FormControl>
                   <Input
                     className="border bg-secondary"
@@ -224,7 +224,7 @@ const ContactForm: React.FC = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="flex text-lg">
+                <FormLabel className="flex sm:text-lg">
                   Meddelande <Kiren />
                 </FormLabel>
                 <FormControl>
@@ -248,8 +248,8 @@ const ContactForm: React.FC = () => {
               </FormItem>
             )}
           />
-          <div className="mt-2 sm:self-start">
-            <AnimatedButton disabled={isSubmitting} type="submit">
+          <div className="grid sm:inline-block">
+            <AnimatedButton disabled={isSubmitting} type="submit" className="">
               Skicka
               {isSubmitting ?? (
                 <span>
