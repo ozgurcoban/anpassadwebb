@@ -69,7 +69,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
           <motion.span
             layoutId="bubble"
             initial={false}
-            className="absolute bottom-0 top-0 z-10 rounded-full bg-accent mix-blend-difference"
+            className="pointer-events-none absolute bottom-0 top-0 z-10 rounded-full bg-accent mix-blend-difference"
             style={{
               left: `${position.left}px`,
               width: `${position.width}px`,

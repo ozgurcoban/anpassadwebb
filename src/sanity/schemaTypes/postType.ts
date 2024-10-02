@@ -10,6 +10,7 @@ export const postType = defineType({
     defineField({
       name: 'title',
       type: 'string',
+      validation: (rule) => rule.required().error('Title is required'),
     }),
     defineField({
       name: 'subtitle',
@@ -59,8 +60,15 @@ export const postType = defineType({
       of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
     }),
     defineField({
+      name: 'tags',
+      type: 'array',
+      of: [defineArrayMember({ type: 'reference', to: { type: 'tag' } })],
+    }),
+    defineField({
       name: 'publishedAt',
       type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required().error('Published date is required'),
     }),
     defineField({
       name: 'body',

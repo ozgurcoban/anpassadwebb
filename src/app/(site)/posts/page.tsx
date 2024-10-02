@@ -8,5 +8,5 @@ export default async function PostsPage() {
     query: POSTS_QUERY,
   });
 
-  return <Posts posts={posts} />;
+  return <>{posts?.length > 0 && <Posts posts={posts} />}</>;
 }

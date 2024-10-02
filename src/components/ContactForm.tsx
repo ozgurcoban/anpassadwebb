@@ -14,19 +14,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useToast } from '@/components/ui/use-toast'; //optional
+import { useToast } from '@/components/ui/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
-
-interface ContactFormData {
-  business: string;
-  message: string;
-  terms: boolean;
-}
 
 const schema = z.object({
   name: z

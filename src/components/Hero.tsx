@@ -11,15 +11,12 @@ const Hero = () => {
     <section className="-z-5 relative grid w-full place-items-center gap-y-16 pb-16 md:grid-cols-2">
       <div className="w-full">
         <FadeUp delay={0.3}>
-          <h1 className="text-5xl">
-            Skräddarsydd webbutveckling i Uppsala – Unika lösningar för din
-            verksamhet
+          <h1 className="text-balance text-6xl leading-tight">
+            Skräddarsydda, moderna hemsidor byggda med headless CMS
           </h1>
-          <p className="mt-16 max-w-md">
-            Vi skapar skräddarsydda hemsidor som är anpassade efter din
-            verksamhets unika behov. Med lokal förankring i Uppsala erbjuder vi
-            webblösningar som kombinerar design och funktionalitet för bästa
-            resultat.
+          <p className="mt-16 max-w-md text-balance text-lg font-medium uppercase tracking-wide">
+            Vi skapar skräddarsydda hemsidor anpassade efter ditt företags behov
+            – med modern design, funktionalitet och SEO för bästa resultat.
           </p>
         </FadeUp>
         <DynamicMotion delay={0.7} className="mt-10">

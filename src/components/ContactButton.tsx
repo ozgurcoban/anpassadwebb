@@ -34,5 +34,5 @@ export const ContactButton: React.FC = () => {
     });
   };
 
-  return <AnimatedButton onClick={openModal}>Kontakta mig</AnimatedButton>;
+  return <AnimatedButton onClick={openModal}>Kontakta oss</AnimatedButton>;
 };

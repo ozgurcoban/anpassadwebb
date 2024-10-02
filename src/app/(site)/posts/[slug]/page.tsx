@@ -8,7 +8,8 @@ import {
   POST_QUERYResult,
   POSTS_QUERYResult,
 } from '../../../../../sanity.types';
-import Post from '@/components/Post';
+import Post from '@/components/BlogPost/BlogPost';
+import { revalidatePath } from 'next/cache';
 
 export async function generateStaticParams() {
   const posts = await client.fetch<POSTS_QUERYResult>(
