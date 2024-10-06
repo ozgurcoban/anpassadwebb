@@ -6,10 +6,7 @@ import Content from './BlogContent';
 import Footer from './BlogFooter';
 
 export default function POST({ post }: { post: POST_QUERYResult }) {
-  console.log('Post.tsx', post);
-
   const { title, mainImage, body, subtitle, tags, publishedAt } = post || {};
-  // console.log('tags:', tag);
 
   const alt = (mainImage as { alt?: string })?.alt;
 

@@ -3,23 +3,16 @@ import { badgeVariants } from '../ui/badge';
 import { DynamicMotion } from '../ui/DynamicMotion';
 import Link from 'next/link';
 import formattedDate from '@/utils/formattedDate';
+import { Tag } from '@/lib/types';
 
 interface HeaderProps {
-  title?: string | null;
-  subtitle?: string | null;
-  tag?: Tag | Tag[] | null;
-  published?: string | null;
+  title: string;
+  subtitle?: string;
+  tag?: Tag[];
+  published?: string;
 }
 
-type Tag = {
-  title: string;
-  slug: { current: string };
-  _id: string;
-};
-
 const Header: React.FC<HeaderProps> = ({ title, subtitle, tag, published }) => {
-  console.log('Header.tsx', published);
-
   return (
     <CardHeader className="mx-auto max-w-4xl py-0">
       {published ? (
@@ -40,13 +33,15 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, tag, published }) => {
       {tag && Array.isArray(tag) && (
         <DynamicMotion delay={0.3} className="mt-8 flex flex-wrap gap-2">
           {tag.map((t) => {
+            console.log('t', t);
+
             return (
               <Link
                 key={t._id}
                 className={`${badgeVariants({ variant: 'outline' })} text-4xl`}
-                href={`/tags/${t.slug.current}`}
+                href={`/tag/${t.slug.current}`}
               >
-                #{t.title}
+                #{t.title.toLowerCase()}
               </Link>
             );
           })}

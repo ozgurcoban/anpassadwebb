@@ -15,6 +15,12 @@ export const POSTS_QUERY = groq`*[_type == "post" && defined(slug.current)][0...
     },
     alt
   },
+  tags[]->{
+    _id,
+    title,
+    slug,
+    description
+  }
 }`;
 
 export const POST_QUERY = groq`
@@ -55,6 +61,17 @@ export const POST_QUERY = groq`
   }
 `;
 
-export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{
-  _id, title, slug, mainImage, excerpt
+export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...4]{
+  _id, title, slug, mainImage, excerpt, tags[]->{
+    _id,
+    slug,
+    title,
+  },
+}`;
+
+export const TAGS_QUERY = groq`*[_type == "tag"] {
+  title,
+  slug,
+  description,
+    _id
 }`;

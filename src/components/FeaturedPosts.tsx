@@ -8,7 +8,6 @@ const FeaturedPosts = async () => {
     query: FEATURED_POSTS_QUERY,
   });
   if (!posts) {
-    console.error('Failed to fetch posts');
     return <div>Failed to load featured posts.</div>;
   }
   return (
