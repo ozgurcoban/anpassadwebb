@@ -3,14 +3,22 @@ import { badgeVariants } from '../ui/badge';
 import { DynamicMotion } from '../ui/DynamicMotion';
 import Link from 'next/link';
 import formattedDate from '@/utils/formattedDate';
-import { Tag } from '@/lib/types';
+import React from 'react';
+import { Slug } from '../../../sanity.types';
 
-interface HeaderProps {
+type HeaderProps = {
   title: string;
   subtitle?: string;
-  tags?: Tag[];
-  published?: string;
-}
+  tags?:
+    | {
+        _id: string;
+        slug: Slug | null;
+        title: string | null;
+        description: string | null;
+      }[]
+    | undefined;
+  published: string;
+};
 
 const Header: React.FC<HeaderProps> = ({
   title,
@@ -42,9 +50,9 @@ const Header: React.FC<HeaderProps> = ({
               <Link
                 key={t._id}
                 className={`${badgeVariants({ variant: 'outline' })} text-4xl`}
-                href={`/tag/${t.slug.current}`}
+                href={`/tag/${t.slug?.current}`}
               >
-                #{t.title.toLowerCase()}
+                #{t.title?.toLowerCase()}
               </Link>
             );
           })}

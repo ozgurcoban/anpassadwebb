@@ -16,7 +16,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <main className="container mt-16 flex-grow">{children}</main>
+          <main className="container mt-8 flex-grow">{children}</main>
           <Footer />
           <Modal />
         </Providers>

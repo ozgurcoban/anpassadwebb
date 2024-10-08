@@ -5,6 +5,7 @@ import uppsalaCityImg from '@/assets/uppsala-cityscape.png';
 import FadeUp from './ui/FadeUp';
 import { DynamicMotion } from './ui/DynamicMotion';
 import { ContactButton } from './ContactButton';
+import { CheckCheckIcon } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,8 +23,22 @@ const Hero = () => {
         <DynamicMotion delay={0.7} className="mt-10">
           <ContactButton />
         </DynamicMotion>
+        <div className="mt-8 flex cursor-default justify-around gap-x-4 text-sm md:justify-around">
+          <p className="flex items-center gap-2">
+            <CheckCheckIcon className="size-4" />
+            Benefit 1
+          </p>
+          <p className="flex items-center gap-2">
+            <CheckCheckIcon className="size-4" />
+            Baserad i Uppsala
+          </p>
+          <p className="flex items-center gap-2">
+            <CheckCheckIcon className="size-4" />
+            Benefit 3
+          </p>
+        </div>
       </div>
-      <div className="relative grid grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center lg:-translate-x-14 lg:transform">
+      <div className="relative grid max-w-[90vw] grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center lg:-translate-x-14 lg:transform">
         <FadeUp
           enableHover
           delay={0.2}

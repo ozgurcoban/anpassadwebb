@@ -18,7 +18,7 @@ export default function POST({ post }: { post: POST_QUERYResult }) {
           <Header
             title={title}
             subtitle={subtitle}
-            tags={tags ?? []}
+            tags={tags || undefined}
             published={publishedAt}
           />
         ) : (
