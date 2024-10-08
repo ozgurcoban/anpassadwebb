@@ -11,12 +11,13 @@ import {
 } from '@/components/ui/card';
 import formattedDate from '@/utils/formattedDate';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
+import SanityImage from './SanityImage';
 
 export const revalidate = 60;
 
 export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
   return (
-    <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+    <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {posts.map((post) => {
         const {
           title,
@@ -27,7 +28,7 @@ export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
           tags,
         } = post || {};
         const alt = (mainImage as { alt?: string })?.alt;
-        console.log('tags', tags);
+        // console.log('mainImage', mainImage);
 
         return (
           <article key={id}>
@@ -35,23 +36,22 @@ export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
               className="hover:bg-secondary"
               href={`/posts/${post?.slug?.current}`}
             >
-              <Card className="max-auto relative grid min-h-[31rem] max-w-[90vw] auto-rows-[8rem_3rem_minmax(10rem,auto)_auto] text-balance rounded border-none">
+              <Card className="relative -z-10 mx-auto grid min-h-[30rem] max-w-[80vw] auto-rows-[minmax(8rem,10rem)_3rem_minmax(6rem,8rem)_auto] text-balance border-none text-card sm:min-h-[34rem] sm:max-w-full">
+                {/* Overlay */}
+                <div className="absolute inset-0 z-10 rounded border-none bg-black opacity-70" />
                 {/* Background Image */}
-                {/* <Image
-                  src="/background.png"
-                  alt="background image"
+                {/* <SanityImage
+                  src={mainImage}
+                  alt={alt}
                   layout="fill"
                   objectFit="cover"
-                  className="absolute inset-0 z-0"
+                  className="absolute inset-0 z-0 rounded"
                 /> */}
 
-                {/* Overlay */}
-                {/* <div className="absolute inset-0 z-10 rounded border-none bg-black opacity-30" /> */}
-
                 {/* Content */}
-                <div className="relative z-20 row-span-4 grid min-h-[30rem] grid-rows-subgrid gap-4 rounded shadow-custom">
-                  <CardHeader className="font-medium">
-                    <CardTitle>
+                <div className="relative z-20 row-span-4 grid grid-rows-subgrid gap-4 rounded shadow-custom">
+                  <CardHeader className="font-medium uppercase">
+                    <CardTitle className="text-xl">
                       {title && capitalizeFirstLetter(title)}
                     </CardTitle>
                   </CardHeader>

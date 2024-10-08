@@ -8,11 +8,16 @@ import { Tag } from '@/lib/types';
 interface HeaderProps {
   title: string;
   subtitle?: string;
-  tag?: Tag[];
+  tags?: Tag[];
   published?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, subtitle, tag, published }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  subtitle,
+  tags,
+  published,
+}) => {
   return (
     <CardHeader className="mx-auto max-w-4xl py-0">
       {published ? (
@@ -30,11 +35,9 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, tag, published }) => {
           {formattedDate('2022-01-01')}
         </p>
       )}
-      {tag && Array.isArray(tag) && (
+      {tags && Array.isArray(tags) && (
         <DynamicMotion delay={0.3} className="mt-8 flex flex-wrap gap-2">
-          {tag.map((t) => {
-            console.log('t', t);
-
+          {tags.map((t) => {
             return (
               <Link
                 key={t._id}

@@ -50,5 +50,10 @@ export default async function TagsPage() {
     query: TAGS_QUERY,
   });
 
-  return <>{tags?.length > 0 && <Tags tags={tags} />}</>;
+  return (
+    <>
+      <h2>kiren</h2>
+      {tags?.length > 0 && <Tags tags={tags} />}
+    </>
+  );
 }

@@ -61,7 +61,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
       layout
       layoutRoot
       ref={navbarRef}
-      className="relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
+      className="z-10000 relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
     >
       <ul className="flex py-2">
         {/* Bubble */}

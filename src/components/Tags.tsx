@@ -7,9 +7,6 @@ const Tags = async ({ tags }: { tags: TAGS_QUERYResult }) => {
       <h2>Tags</h2>
       {tags.map((tag) => {
         const { title, description, _id: id, slug } = tag || {};
-        console.log('tag', tag);
-
-        // console.log('name', name);
 
         return (
           <Link href={`/tag/${slug?.current}`} key={id}>
