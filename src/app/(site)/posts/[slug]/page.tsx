@@ -8,7 +8,7 @@ import {
   POST_QUERYResult,
   POSTS_QUERYResult,
 } from '../../../../../sanity.types';
-import BlogPost from '../../../../components/BlogPost/BlogPost';
+import BlogPost from '@/components/Blog/BlogPost';
 import { revalidatePath } from 'next/cache';
 
 export async function generateStaticParams() {
