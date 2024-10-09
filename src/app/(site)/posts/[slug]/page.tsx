@@ -8,7 +8,7 @@ import {
   POST_QUERYResult,
   POSTS_QUERYResult,
 } from '../../../../../sanity.types';
-import Post from '@/components/blogpost/BlogPost';
+import BlogPost from '@/components/blogpost/BlogPost';
 import { revalidatePath } from 'next/cache';
 
 export async function generateStaticParams() {
@@ -31,5 +31,5 @@ export default async function Page({ params }: { params: QueryParams }) {
   if (!post) {
     return notFound();
   }
-  return <Post post={post} />;
+  return <BlogPost post={post} />;
 }
