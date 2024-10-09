@@ -1,7 +1,7 @@
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
-import Navbar from '@/components/navbar/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
 const openSans = Open_Sans({ subsets: ['latin'] });
