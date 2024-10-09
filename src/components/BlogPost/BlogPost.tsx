@@ -5,7 +5,7 @@ import Header from './BlogHeader';
 import Content from './BlogContent';
 import Footer from './BlogFooter';
 
-export default function POST({ post }: { post: POST_QUERYResult }) {
+export default function Post({ post }: { post: POST_QUERYResult }) {
   const { title, mainImage, body, subtitle, tags, publishedAt } = post || {};
 
   const alt = (mainImage as { alt?: string })?.alt ?? '';
