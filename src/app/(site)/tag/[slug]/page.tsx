@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  const tags = await client.fetch<{ slug: { current: string } }[]>(
+  const tags = await client.fetch<{ slug: string }[]>(
     `*[_type == "tag" && defined(slug.current)]{
       "slug": slug.current
     }`,
@@ -29,9 +29,12 @@ const SingleTagPage = async ({ params }: PageProps) => {
     params: { slug },
   });
 
+  const currentTag = posts[0]?.tags?.find((tag) => tag?.slug?.current === slug);
+  const currentTagTitle = currentTag?.title;
+
   return (
     <div>
-      <h1 className="text-4xl uppercase">#{slug} #tags</h1>
+      <h1 className="text-4xl uppercase">#{currentTagTitle} inlägg</h1>
       <Posts posts={posts} />
     </div>
   );
