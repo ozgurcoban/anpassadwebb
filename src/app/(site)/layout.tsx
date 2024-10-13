@@ -1,18 +1,29 @@
-import { Open_Sans } from 'next/font/google';
+import { Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
-const openSans = Open_Sans({ subsets: ['latin'] });
+const open_sans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-open-sans',
+  weight: ['300', '400', '600', '700', '800'],
+});
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${openSans.className} flex min-h-svh flex-col overflow-y-scroll`}
+        className={`${open_sans.variable} ${poppins.variable} flex min-h-svh flex-col overflow-y-scroll`}
       >
         <Providers>
           <Navbar />

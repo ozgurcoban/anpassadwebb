@@ -14,19 +14,25 @@ export const postType = defineType({
     }),
     defineField({
       name: 'subtitle',
-      description: 'Short description of the post',
+      description: '110-120 characters',
       type: 'text',
       validation: (rule) =>
         rule
-          .max(160)
-          .warning('Short description should be less than 160 characters'),
+          .min(110)
+          .error('Subtitle should be at least 110 characters')
+          .max(120)
+          .warning('Short description should be less than 120 characters'),
     }),
     defineField({
       name: 'excerpt',
-      description: 'Short teaser of the post',
+      description: '110-165 characters',
       type: 'text',
       validation: (rule) =>
-        rule.max(230).warning('Excerpt should be less than 230 characters'),
+        rule
+          .min(110)
+          .error('Excerpt should be at least 110 characters')
+          .max(165)
+          .warning('Excerpt should be less than 165 characters'),
     }),
     defineField({
       name: 'slug',

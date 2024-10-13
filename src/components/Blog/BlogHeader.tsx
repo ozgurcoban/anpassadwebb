@@ -5,6 +5,7 @@ import Link from 'next/link';
 import formattedDate from '@/utils/formattedDate';
 import React from 'react';
 import { Slug } from '../../../sanity.types';
+import { capitalizeFirstLetter } from '@/utils/stringUtils';
 
 type HeaderProps = {
   title: string;
@@ -61,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({
       {title ? (
         <DynamicMotion delay={0.5}>
           <CardTitle className="mt-4 break-words text-4xl leading-normal text-card-foreground">
-            {title.charAt(0).toUpperCase() + title.slice(1)}
+            {capitalizeFirstLetter(title)}
           </CardTitle>
         </DynamicMotion>
       ) : null}
