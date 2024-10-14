@@ -70,6 +70,9 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
     --chart-5: 27 87% 64%;
 
     --shadow: 220 14% 40% / 60%; /* Behåll samma */
+
+    --gradient-from: 210 50% 50%;
+    --gradient-to: 195 60% 60%;
   }
 
   .dark {
@@ -98,6 +101,8 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --shadow: 0 0% 40% / 19%;
+    --gradient-from: 210 70% 70%;
+    --gradient-to: 195 80% 80%;
   }
 }
 
