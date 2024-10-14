@@ -1,27 +1,31 @@
 import { groq } from 'next-sanity';
 
-export const POSTS_QUERY = groq`*[_type == "post" && defined(slug.current)][0...12]{
-  _id,
-  title,
-  slug,
-  excerpt,
-  publishedAt,
-  mainImage {
-    asset->{
-      url,
-      metadata {
-        lqip
-      }
-    },
-    alt
-  },
-  tags[]->{
+export const POSTS_QUERY = groq`
+  *[_type == "post" && defined(slug.current)][0...12]{
     _id,
     title,
     slug,
-    description
+    excerpt,
+    publishedAt,
+    mainImage {
+      asset->{
+        _id,
+        url,
+        metadata {
+          lqip
+        }
+      },
+      alt
+    },
+    tags[]->{
+      _id,
+      title,
+      slug,
+      description
+    }
   }
-}`;
+`;
+
 
 export const POST_QUERY = groq`
   *[_type == "post" && slug.current == $slug][0]{
@@ -62,7 +66,16 @@ export const POST_QUERY = groq`
 `;
 
 export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...4]{
-  _id, title, slug, mainImage, excerpt, tags[]->{
+  _id, title, slug, mainImage {
+      asset->{
+        _id,
+        url,
+        metadata {
+          lqip
+        }
+      },
+      alt
+    }, excerpt, tags[]->{
     _id,
     slug,
     title,

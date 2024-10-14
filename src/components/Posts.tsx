@@ -27,8 +27,6 @@ export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
           publishedAt,
           tags,
         } = post || {};
-        const alt = (mainImage as { alt?: string })?.alt;
-        // console.log('mainImage', mainImage);
 
         return (
           <article key={id}>
@@ -40,13 +38,10 @@ export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
                 {/* Overlay */}
                 <div className="absolute inset-0 z-10 rounded border-none bg-black opacity-70" />
                 {/* Background Image */}
-                {/* <SanityImage
+                {mainImage?.asset && <SanityImage
                   src={mainImage}
-                  alt={alt}
-                  layout="fill"
-                  objectFit="cover"
                   className="absolute inset-0 z-0 rounded"
-                /> */}
+                /> }
 
                 {/* Content */}
                 <div className="relative z-20 row-span-4 grid grid-rows-subgrid gap-4 rounded shadow-custom">
