@@ -13,7 +13,7 @@ type ContentProps = {
 
 const Content: React.FC<ContentProps> = ({ alt, image, body }) => {
   return (
-    <CardContent className='mx-32'>
+    <CardContent className="mx-32">
       {image?.asset?.url ? (
         <DynamicMotion
           delay={0.6}
@@ -46,7 +46,7 @@ const Content: React.FC<ContentProps> = ({ alt, image, body }) => {
               ...customPortableTextComponents,
 
               block: ({ children }) => (
-                <DynamicMotion delay={0.4} className="my-4">
+                <DynamicMotion type="p" delay={0.4} className="my-4">
                   {children}
                 </DynamicMotion>
               ),

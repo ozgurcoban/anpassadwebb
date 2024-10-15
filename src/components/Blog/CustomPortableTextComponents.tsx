@@ -16,9 +16,7 @@ const customPortableTextComponents = {
       );
     },
     // Bold text component
-    bold: ({ value }: { value: any }) => {
-      return <strong className="font-bold dark:text-white">{value}</strong>;
-    },
+
     // Link component
     link: ({ value }: { value: any }) => {
       const { href, title } = value;
@@ -31,6 +29,16 @@ const customPortableTextComponents = {
         >
           {title || href}
         </a>
+      );
+    },
+  },
+  marks: {
+    // Bold text component
+    strong: ({ children }: { children: React.ReactNode }) => {
+      return (
+        <strong className="font-bold text-secondary-foreground">
+          {children}
+        </strong>
       );
     },
   },
