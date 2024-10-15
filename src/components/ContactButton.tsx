@@ -6,7 +6,11 @@ import ContactForm from './ContactForm';
 import React from 'react';
 import Link from 'next/link';
 
-export const ContactButton: React.FC = () => {
+type ContactButtonProps = {
+  className?: string;
+};
+
+export const ContactButton: React.FC<ContactButtonProps> = ({ className }) => {
   const setDialog = useDialog((state) => state.setDialog);
 
   const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -34,5 +38,9 @@ export const ContactButton: React.FC = () => {
     });
   };
 
-  return <AnimatedButton onClick={openModal}>Kontakta oss</AnimatedButton>;
+  return (
+    <AnimatedButton className={className} onClick={openModal}>
+      KONTAKTA OSS
+    </AnimatedButton>
+  );
 };

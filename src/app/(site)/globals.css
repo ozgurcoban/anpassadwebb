@@ -71,6 +71,9 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
 
     --shadow: 220 14% 40% / 60%; /* Behåll samma */
 
+    --gradient-from: 210 50% 50%;
+    --gradient-to: 195 60% 60%;
+
     --link: 210, 50%, 50%; /* Example color for light mode (HSL) */
     --link-hover: 210, 70%, 40%; /* Example hover color for light mode (HSL) */
   }
@@ -113,5 +116,14 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
   }
 }
