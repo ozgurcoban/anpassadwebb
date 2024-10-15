@@ -33,10 +33,7 @@ export const POST_QUERY = groq`
     subtitle,
     publishedAt,
     tags[]->{
-    _id,
-    slug,
-    title,
-    description
+   ...,
   },
     mainImage {
       asset->{

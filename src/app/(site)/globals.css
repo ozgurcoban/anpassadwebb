@@ -70,6 +70,9 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
     --chart-5: 27 87% 64%;
 
     --shadow: 220 14% 40% / 60%; /* Behåll samma */
+
+    --link: 210, 50%, 50%; /* Example color for light mode (HSL) */
+    --link-hover: 210, 70%, 40%; /* Example hover color for light mode (HSL) */
   }
 
   .dark {
@@ -98,6 +101,9 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --shadow: 0 0% 40% / 19%;
+
+    --link: 200, 80%, 70%; /* Example color for dark mode (HSL) */
+    --link-hover: 200, 90%, 40%; /* Example hover color for dark mode (HSL) */
   }
 }
 

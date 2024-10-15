@@ -13,7 +13,7 @@ type ContentProps = {
 
 const Content: React.FC<ContentProps> = ({ alt, image, body }) => {
   return (
-    <CardContent>
+    <CardContent className='mx-32'>
       {image?.asset?.url ? (
         <DynamicMotion
           delay={0.6}

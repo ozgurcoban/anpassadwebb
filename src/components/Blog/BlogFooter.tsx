@@ -17,7 +17,7 @@ const Footer = () => {
         <ContactButton />
       </DynamicMotion>
       <DynamicMotion delay={0.8}>
-        <Link href="/posts">&larr; Return to blog</Link>
+        <Link href="/posts" className='text-link hover:text-link-hover'>&larr; Return to blog</Link>
       </DynamicMotion>
     </CardFooter>
   );

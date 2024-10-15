@@ -9,14 +9,12 @@ import { Slug } from '../../../sanity.types';
 type HeaderProps = {
   title: string;
   subtitle?: string;
-  tags?:
-    | {
-        _id: string;
-        slug: Slug | null;
-        title: string | null;
-        description: string | null;
-      }[]
-    | undefined;
+  tags: Array<{
+    _id: string;
+    slug: Slug | null;
+    title: string | null;
+    description: string | null;
+  }> | null;
   published: string;
 };
 
