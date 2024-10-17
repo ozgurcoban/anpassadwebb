@@ -26,7 +26,6 @@ export const POSTS_QUERY = groq`
   }
 `;
 
-
 export const POST_QUERY = groq`
   *[_type == "post" && slug.current == $slug][0]{
     title,
@@ -62,7 +61,7 @@ export const POST_QUERY = groq`
   }
 `;
 
-export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...4]{
+export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{
   _id, title, slug, mainImage {
       asset->{
         _id,

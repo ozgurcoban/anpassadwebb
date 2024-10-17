@@ -5,12 +5,13 @@ import { CheckCheckIcon } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative px-6 py-10 md:py-14">
+    <section className="relative min-h-[50vh] px-6 py-10 md:py-14">
       {/* Background image */}
       <Image
         src={heroImage}
         alt="Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik."
         fill
+        priority
         placeholder="blur"
         className="-scale-x-100 transform rounded-md"
       />

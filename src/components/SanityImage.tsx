@@ -14,32 +14,25 @@ const configuredSanityClient = createClient({
   useCdn: true,
 });
 
-
 type SanityImageProps = {
   src: SanityImageSource;
   className?: string;
 };
-
-
-
 
 const SanityImage: React.FC<SanityImageProps> = ({ src, className }) => {
   const imageProps = useNextSanityImage(configuredSanityClient, src);
 
   const lqip = (src as any)?.asset?.metadata?.lqip || '';
   const alt = (src as any)?.alt || 'Standardbeskrivning';
-  console.log({lqip})
-
-  
 
   return (
     <Image
       {...imageProps}
       alt={alt}
-      placeholder='blur' 
+      placeholder="blur"
       blurDataURL={lqip}
-      style={{ width: '100%', height: 'auto' }}
-			sizes="(max-width: 800px) 100vw, 800px"
+      style={{ width: '100%', height: '100%' }}
+      sizes="(max-width: 800px) 100vw, 800px"
       className={className}
     />
   );

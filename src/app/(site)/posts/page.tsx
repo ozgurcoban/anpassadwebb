@@ -11,14 +11,14 @@ export default async function PostsPage() {
   });
 
   return (
-    <section>
+    <>
       <SubHero
         title="Välkommen till vår blogg"
         description="Här delar vi med oss av nyheter, insikter och tips om webbdesign och SEO."
         imageSrc={img}
-        textAlign="left"
+        textAlign="center"
       />
       {posts?.length > 0 && <Posts posts={posts} />}
-    </section>
+    </>
   );
 }

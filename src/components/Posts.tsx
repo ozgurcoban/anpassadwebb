@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+
 import formattedDate from '@/utils/formattedDate';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
 import SanityImage from './SanityImage';
@@ -17,7 +18,7 @@ export const revalidate = 60;
 
 export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
   return (
-    <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => {
         const {
           title,
@@ -29,63 +30,50 @@ export async function Posts({ posts }: { posts: POSTS_QUERYResult }) {
         } = post || {};
 
         return (
-          <article key={id}>
-            <Link
-              className="hover:bg-secondary"
-              href={`/posts/${post?.slug?.current}`}
+          <article
+            key={id}
+            className="max-w-sm shadow-md transition-transform duration-300 ease-in-out hover:scale-[1.025] hover:shadow-lg"
+          >
+            <div
+              className="mx-auto grid auto-rows-[auto_6rem_minmax(6rem,_8rem)_6rem] text-balance border-none text-card hover:bg-secondary sm:min-h-[34rem] sm:max-w-full sm:auto-rows-[auto_6rem_8rem_5rem]"
+              // href={`/posts/${post?.slug?.current}`}
             >
-              <Card className="relative -z-10 mx-auto grid min-h-[30rem] max-w-[80vw] auto-rows-[minmax(8rem,10rem)_3rem_minmax(6rem,8rem)_auto] text-balance border-none text-card sm:min-h-[34rem] sm:max-w-full">
-                {/* Overlay */}
-                <div className="absolute inset-0 z-10 rounded border-none bg-black opacity-70" />
-                {/* Background Image */}
-                {mainImage?.asset && <SanityImage
-                  src={mainImage}
-                  className="absolute inset-0 z-0 rounded"
-                /> }
+              {/* Content */}
+              <Card className="relative row-span-4 grid w-full grid-rows-subgrid gap-4 overflow-hidden rounded shadow-custom">
+                <CardHeader className="relative h-64 space-y-0 overflow-hidden p-0 font-medium uppercase">
+                  {mainImage?.asset && (
+                    <SanityImage src={mainImage} className="object-cover" />
+                  )}
 
-                {/* Content */}
-                <div className="relative z-20 row-span-4 grid grid-rows-subgrid gap-4 rounded shadow-custom">
-                  <CardHeader className="font-medium uppercase">
-                    <CardTitle className="text-xl">
-                      {title && capitalizeFirstLetter(title)}
-                    </CardTitle>
-                  </CardHeader>
-                  <p className="self-center px-[1.5rem] text-xs font-semibold">
+                  {/* Overlay */}
+                  <div className="absolute left-0 top-0 mt-0 h-1/4 w-full bg-gradient-to-b from-black to-transparent" />
+                  <p className="absolute right-6 top-4 rounded text-xs font-medium text-white">
                     {publishedAt
                       ? formattedDate(publishedAt)
                       : formattedDate('2025-01-01')}
                   </p>
-                  <CardContent>
-                    {/* {mainImage?.asset?.url ? (
-                    <SanityImage
-                    className="mt-4 w-full rounded-lg"
-                      src={mainImage}
-                      alt={alt}
-                    />
-                  ) : null} */}
+                </CardHeader>
+                <CardTitle className="px-[1.5rem] font-heading text-xl">
+                  {title && capitalizeFirstLetter(title)}
+                </CardTitle>
+                <CardContent>{excerpt}</CardContent>
 
-                    {excerpt}
-                  </CardContent>
-
-                  {/* <Image src="" alt="jackson" /> */}
-
-                  <CardFooter className="mt-auto flex flex-wrap gap-2 text-sm">
-                    {tags &&
-                      tags.map((tag, index) => {
-                        const { title, _id: id } = tag || {};
-                        return (
-                          <p
-                            key={id}
-                            className={`gap-1 lowercase ${index >= 2 ? 'col-span-2' : ''}`}
-                          >
-                            #{title}
-                          </p>
-                        );
-                      })}
-                  </CardFooter>
-                </div>
+                <CardFooter className="mt-auto flex flex-wrap gap-2 text-sm">
+                  {tags &&
+                    tags.map((tag, index) => {
+                      const { title, _id: id } = tag || {};
+                      return (
+                        <p
+                          key={id}
+                          className={`gap-1 lowercase ${index >= 2 ? 'col-span-2' : ''}`}
+                        >
+                          #{title}
+                        </p>
+                      );
+                    })}
+                </CardFooter>
               </Card>
-            </Link>
+            </div>
           </article>
         );
       })}
