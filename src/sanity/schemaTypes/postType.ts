@@ -25,12 +25,12 @@ export const postType = defineType({
     }),
     defineField({
       name: 'excerpt',
-      description: '110-165 characters',
+      description: '140-165 characters',
       type: 'text',
       validation: (rule) =>
         rule
           .min(110)
-          .error('Excerpt should be at least 110 characters')
+          .error('Excerpt should be at least 140 characters')
           .max(165)
           .warning('Excerpt should be less than 165 characters'),
     }),
