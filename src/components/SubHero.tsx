@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import {
   Card,
   CardContent,
@@ -9,24 +10,23 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-type TextAlignOptions = 'left' | 'center' | 'right';
-
 type SubHeroProps = {
   title: string;
   description: string;
   imageSrc?: StaticImageData;
-  textAlign: TextAlignOptions;
+  textAlign: 'left' | 'center' | 'right';
   showCTA?: boolean;
   ctaText?: string;
+  alt: string;
 };
 
 const SubHero = (props: SubHeroProps) => {
-  const { imageSrc, title, description, textAlign } = props;
+  const { imageSrc, title, description, textAlign, alt } = props;
 
   return (
     <Card
       className={clsx(
-        `relative mb-8 grid grid-rows-[10rem_auto_8rem] rounded-md border-none px-6 py-10 md:justify-items-end`,
+        `relative grid min-h-[40vh] grid-rows-[1fr_auto_1fr] rounded-md border-none py-10 md:justify-items-end`,
         {
           'md:justify-items-start': textAlign === 'left',
           'md:justify-items-center': textAlign === 'center',
@@ -38,26 +38,33 @@ const SubHero = (props: SubHeroProps) => {
       {imageSrc && (
         <Image
           src={imageSrc}
-          alt="Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik."
+          alt={alt}
           fill
           placeholder="blur"
-          className="rounded-md"
+          className="rounded-md object-cover"
           priority
         />
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-75 dark:via-black/85 dark:to-black/20 dark:opacity-85 md:bg-gradient-to-tr" />
+      <div
+        className={cn(`absolute inset-0`, {
+          'bg-gradient-to-r from-black/60 to-transparent': textAlign === 'left',
+          'bg-gradient-to-l from-black/60 to-transparent':
+            textAlign === 'right',
+          'bg-gradient-to-t from-black/60 to-black/30': textAlign === 'center',
+        })}
+      />
       <CardHeader
-        className={clsx(`z-2 relative row-start-2 text-balance p-0`, {
+        className={cn(`z-2 relative row-start-2 md:max-w-2xl`, {
           'md:text-left': textAlign === 'left',
           'items-center text-center': textAlign === 'center',
           'items-end text-right': textAlign === 'right',
         })}
       >
-        <CardTitle className="text-5xl font-bold leading-tight text-white md:text-6xl md:leading-relaxed">
+        <CardTitle className="hyphens-manual text-balance text-5xl font-bold leading-tight text-white md:text-6xl md:leading-relaxed">
           {title}
         </CardTitle>
-        <CardDescription className="mt-4 max-w-xl text-lg text-white">
+        <CardDescription className="mt-4 max-w-xl text-lg font-medium text-white">
           {description}
         </CardDescription>
       </CardHeader>

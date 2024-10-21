@@ -17,6 +17,7 @@ export default async function PostsPage() {
         description="Här delar vi med oss av nyheter, insikter och tips om webbdesign och SEO."
         imageSrc={img}
         textAlign="center"
+        alt="Anteckningsbok med pennor i förgrunden och digitala effekter i bakgrunden, som symboliserar kreativitet och teknisk utveckling för bloggen."
       />
       {posts?.length > 0 && <Posts posts={posts} />}
     </>
