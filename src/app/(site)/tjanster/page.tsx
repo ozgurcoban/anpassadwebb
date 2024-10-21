@@ -8,39 +8,82 @@ import {
   IconMapSearch,
   IconShoppingCartCog,
   IconLifebuoy,
+  IconLayoutGridAdd,
+  IconWorld,
 } from '@tabler/icons-react';
-import { Button } from '@/components/ui/button';
 
 const ServiceOfferings = [
   {
-    icon: <IconDeviceDesktopCode />,
-    subheader: 'Skräddarsydda Webblösningar',
+    icon: (
+      <IconDeviceDesktopCode
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
+    subheader: 'Skräddarsydda lösningar',
     description:
-      'Vi skapar unika och anpassade webblösningar som speglar ditt varumärke och erbjuder en modern användarupplevelse. Varje lösning är utformad för att möta dina specifika behov och hjälpa ditt företag att synas och växa online.',
+      'Webblösningar som speglar ditt varumärke och hjälper dig växa online.',
   },
   {
-    icon: <IconMapSearch />,
+    icon: (
+      <IconMapSearch
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
     subheader: 'SEO & Lokal Optimering',
     description:
-      'Förbättra din synlighet på sökmotorer och nå dina lokala kunder i Uppsala. Vi hjälper dig att synas när kunder söker efter just det du erbjuder.',
+      'Förbättra din synlighet i Uppsala och nå lokala kunder när de söker vad du erbjuder.',
   },
   {
-    icon: <IconShoppingCartCog />,
-    subheader: 'E-Commerce & CMS Integration',
+    icon: (
+      <IconLayoutGridAdd
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
+    subheader: 'CMS Integration',
     description:
-      'Vi erbjuder flexibla lösningar och arbetar med plattformar som WordPress och Shopify, men anpassar oss efter dina behov. Oavsett vilken lösning du väljer, ser vi till att du enkelt kan hantera och uppdatera din webbplats eller e-handel smidigt och effektivt.',
+      'Flexibla lösningar med WordPress och andra CMS ger enkel hantering och uppdatering.',
   },
   {
-    icon: <IconLifebuoy />,
-    subheader: 'Löpande Support & Underhåll',
+    icon: (
+      <IconWorld
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
+    subheader: 'Flerspråkiga Webbsidor',
     description:
-      'Vi erbjuder löpande underhåll och support för att säkerställa att din webbplats alltid är uppdaterad och fungerar optimalt.',
+      'Nå en bredare publik med en flerspråkig webbplats anpassad för internationella kunder.',
+  },
+  {
+    icon: (
+      <IconShoppingCartCog
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
+    subheader: 'E-Commerce',
+    description:
+      'Bygg din drömshop och sälj med enkelhet genom Shopify eller WooCommerce.',
+  },
+  {
+    icon: (
+      <IconLifebuoy
+        className="size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]"
+        stroke={1}
+      />
+    ),
+    subheader: 'Kontinuerlig Drift & Support',
+    description:
+      'Se till att din webbplats är uppdaterad och fungerande med vår support och underhåll.',
   },
 ];
 
 const ServicesPage = () => {
   return (
-    <section className="space-y-10">
+    <section className="space-y-20">
       <SubHero
         title="Våra tjänster"
         description="På NextWebb skapar vi anpassade webbplatser för småföretag i Uppsala och omnejd. Med kreativitet och teknisk precision hjälper vi ditt företag att synas online och växa."
@@ -48,16 +91,16 @@ const ServicesPage = () => {
         imageSrc={img}
         alt="xiri gir"
       />
-      <div className="grid gap-6 md:grid-cols-[2fr_3fr]">
+      <div className="grid gap-6 md:grid-cols-[2.5fr_3fr]">
         <h3 className="self-end text-[2.6rem] font-medium leading-snug">
           Varje företag är <span className="font-extrabold">unikt</span>
         </h3>
-        <div className="row-start-3 flex max-w-sm flex-col justify-around gap-4 md:col-span-1 md:col-start-1 md:row-start-2">
-          <p className="">
-            Därför erbjuder vi personliga och anpassade webbutvecklingstjänster
-            som hjälper ditt företag att sticka ut online.{' '}
+        <div className="row-start-3 flex flex-col justify-start gap-8 md:col-span-1 md:col-start-1 md:row-start-2">
+          <p className="text-balance">
+            Därför erbjuder vi personliga och anpassade webbsidor som hjälper
+            ditt företag att sticka ut online.
           </p>
-          <ContactButton />
+          <ContactButton className="md:w-fit" />
         </div>
         <Image
           className="rounded md:col-start-2 md:row-span-2 md:row-start-1"
@@ -66,19 +109,21 @@ const ServicesPage = () => {
         />
       </div>
 
-      <div className="space-y-6 rounded-md bg-secondary px-2 py-4 md:p-6">
-        <h3 className="text-3xl font-medium leading-snug">
+      {/* Service Offerings */}
+      <div className="space-y-8 rounded-md bg-secondary p-6 md:py-8">
+        <h3 className="text-3xl font-medium leading-snug md:text-center">
           Helhetslösningar för din digitala närvaro
         </h3>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 md:justify-items-center lg:grid-cols-3">
           {ServiceOfferings.map((service, index) => (
-            <div key={index} className="">
-              <div className="max-w-sm space-y-4">
-                <Button variant="ghost" size="icon" className="">
-                  {service.icon}
-                </Button>
-                <h4 className="text-xl font-semibold">{service.subheader}</h4>
-                <p>{service.description}</p>
+            <div
+              key={index}
+              className="border/opacity-40 grid min-h-[12rem] auto-rows-[auto_3rem_5rem] rounded-md border border-dashed border-secondary-foreground/20 p-4 pt-6"
+            >
+              <div className="row-span-3 grid max-w-sm grid-rows-subgrid space-y-2">
+                {service.icon}
+                <h4 className="text-lg font-medium">{service.subheader}</h4>
+                <p className="">{service.description}</p>
               </div>
             </div>
           ))}
