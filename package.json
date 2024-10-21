@@ -23,6 +23,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/presentation": "^1.16.4",
     "@sanity/vision": "^3.53.0",
+    "@tabler/icons-react": "^3.19.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.3.0",

@@ -12,6 +12,7 @@ const AboutPage = () => {
         description="Här delar vi med oss av nyheter, insikter och tips om webbdesign och SEO."
         imageSrc={img}
         textAlign="right"
+        alt="xirren"
       />
       <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-8">

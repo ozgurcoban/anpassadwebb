@@ -2,30 +2,36 @@ import SubHero from '@/components/SubHero';
 import img from '@/assets/services-hero.png';
 import uniqueImg from '@/assets/unique-services.png';
 import Image from 'next/image';
-import { Component } from 'lucide-react';
 import { ContactButton } from '@/components/ContactButton';
+import {
+  IconDeviceDesktopCode,
+  IconMapSearch,
+  IconShoppingCartCog,
+  IconLifebuoy,
+} from '@tabler/icons-react';
+import { Button } from '@/components/ui/button';
 
 const ServiceOfferings = [
   {
-    icon: 'icon-url-or-class-for-custom-web-solutions',
+    icon: <IconDeviceDesktopCode />,
     subheader: 'Skräddarsydda Webblösningar',
     description:
       'Vi skapar unika och anpassade webblösningar som speglar ditt varumärke och erbjuder en modern användarupplevelse. Varje lösning är utformad för att möta dina specifika behov och hjälpa ditt företag att synas och växa online.',
   },
   {
-    icon: <Component />,
+    icon: <IconMapSearch />,
     subheader: 'SEO & Lokal Optimering',
     description:
       'Förbättra din synlighet på sökmotorer och nå dina lokala kunder i Uppsala. Vi hjälper dig att synas när kunder söker efter just det du erbjuder.',
   },
   {
-    icon: 'icon-url-or-class-for-ecommerce-cms-integration',
+    icon: <IconShoppingCartCog />,
     subheader: 'E-Commerce & CMS Integration',
     description:
       'Vi erbjuder flexibla lösningar och arbetar med plattformar som WordPress och Shopify, men anpassar oss efter dina behov. Oavsett vilken lösning du väljer, ser vi till att du enkelt kan hantera och uppdatera din webbplats eller e-handel smidigt och effektivt.',
   },
   {
-    icon: 'icon-url-or-class-for-support-maintenance',
+    icon: <IconLifebuoy />,
     subheader: 'Löpande Support & Underhåll',
     description:
       'Vi erbjuder löpande underhåll och support för att säkerställa att din webbplats alltid är uppdaterad och fungerar optimalt.',
@@ -68,7 +74,9 @@ const ServicesPage = () => {
           {ServiceOfferings.map((service, index) => (
             <div key={index} className="">
               <div className="max-w-sm space-y-4">
-                <div>{service.icon}</div>
+                <Button variant="ghost" size="icon" className="">
+                  {service.icon}
+                </Button>
                 <h4 className="text-xl font-semibold">{service.subheader}</h4>
                 <p>{service.description}</p>
               </div>
