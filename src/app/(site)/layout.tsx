@@ -18,8 +18,9 @@ const poppins = Poppins({
 });
 import { VisualEditing } from 'next-sanity';
 import { draftMode } from 'next/headers';
+const draft = await draftMode();
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -27,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${open_sans.variable} ${poppins.variable} flex min-h-svh flex-col overflow-y-scroll`}
       >
-        {draftMode().isEnabled && (
+        {draft.isEnabled && (
           <a
             className="fixed bottom-0 right-0 m-4 bg-blue-500 p-4 text-white"
             href="/api/draft-mode/disable"
@@ -40,7 +41,7 @@ export default function RootLayout({
           <main className="container mt-4 flex-grow md:mt-8">{children}</main>
           <Footer />
           <Modal />
-          {draftMode().isEnabled && <VisualEditing />}
+          {draft.isEnabled && <VisualEditing />}
         </Providers>
       </body>
     </html>
