@@ -4,9 +4,9 @@ import { Posts } from '@/components/Posts';
 import { POSTS_BY_TAG_QUERY } from '@/sanity/lib/queries';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const SingleTagPage = async ({ params }: PageProps) => {
+const SingleTagPage = async (props: PageProps) => {
+  const params = await props.params;
   const { slug } = params;
 
   const posts = await sanityFetch<POSTS_QUERYResult>({

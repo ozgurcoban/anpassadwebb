@@ -1,10 +1,11 @@
 interface Props {
-  params: {
+  params: Promise<{
     name: string[];
-  };
+  }>;
 }
 
-export default function NotFound({ params }: Props) {
+export default async function NotFound(props: Props) {
+  const params = await props.params;
   const path = Object.values(params).toString();
 
   return (

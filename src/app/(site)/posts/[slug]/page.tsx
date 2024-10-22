@@ -23,7 +23,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: QueryParams }) {
+export default async function Page(props: { params: Promise<QueryParams> }) {
+  const params = await props.params;
   const post = await sanityFetch<POST_QUERYResult>({
     query: POST_QUERY,
     params,
