@@ -25,8 +25,8 @@ const SubHero = (props: SubHeroProps) => {
 
   return (
     <Card
-      className={clsx(
-        `relative grid min-h-[40vh] grid-rows-[1fr_auto_1fr] rounded-md border-none py-10 md:justify-items-end`,
+      className={cn(
+        `relative grid min-h-[40vh] grid-rows-[1fr_auto_1fr] border-none py-10 sm:rounded-md md:justify-items-end`,
         {
           'md:justify-items-start': textAlign === 'left',
           'md:justify-items-center': textAlign === 'center',
@@ -41,7 +41,7 @@ const SubHero = (props: SubHeroProps) => {
           alt={alt}
           fill
           placeholder="blur"
-          className="rounded-md object-cover"
+          className="object-cover sm:rounded-md"
           priority
         />
       )}

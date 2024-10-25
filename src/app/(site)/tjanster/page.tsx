@@ -10,7 +10,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -26,6 +25,12 @@ import {
   IconShieldCheckFilled,
   IconHandClick,
 } from '@tabler/icons-react';
+import { Button } from '@/components/ui/button';
+import Section from '@/components/ui/Section';
+import H3 from '@/components/ui/H3';
+import P from '@/components/ui/P';
+import H4 from '@/components/ui/H4';
+import Text from '@/components/ui/Text';
 
 const ServiceIcon = ({
   IconComponent,
@@ -54,14 +59,14 @@ const solutionServicesData = [
     ariaLabel: 'Ikon för skräddarsydda lösningar',
     subheader: 'Skräddarsydda lösningar',
     description:
-      'Webblösningar som speglar ditt varumärke och hjälper dig växa online.',
+      'Webblösningar efter dina behov, som speglar ditt varumärke och hjälper dig växa online.',
   },
   {
     iconComponent: IconMapSearch,
     ariaLabel: 'Ikon för SEO och lokal optimering',
     subheader: 'SEO & Lokal Optimering',
     description:
-      'Förbättra din synlighet i Uppsala och nå lokala kunder när de söker vad du erbjuder.',
+      'Förbättra din synlighet och nå lokala kunder när de söker vad du erbjuder.',
   },
   {
     iconComponent: IconLayoutGridAdd,
@@ -89,7 +94,7 @@ const solutionServicesData = [
     ariaLabel: 'Ikon för kontinuerlig drift och support',
     subheader: 'Kontinuerlig Drift & Support',
     description:
-      'Se till att din webbplats är uppdaterad och fungerande med vår support och underhåll.',
+      'Håll din nya fräsha webbplats uppdaterad och fungerande med vår support och underhåll.',
   },
 ];
 
@@ -98,28 +103,66 @@ const coreServicesData = [
     title: 'Prestandaoptimering',
     iconComponent: IconBoltFilled,
     ariaLabel: 'Ikon för kontinuerlig drift och support',
-    description:
-      'Vi optimerar din webbplats för snabba laddningstider och smidig prestanda. En snabb webbplats förbättrar inte bara användarupplevelsen utan också din SEO, vilket hjälper dig att synas bättre på Google.',
+    description: (
+      <>
+        <span>
+          Vi bygger snabba och effektiva webbplatser från grunden med modern
+          teknik som{' '}
+          <a
+            href="https://nextjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-white underline transition duration-200 ease-in-out hover:text-gray-200 hover:no-underline"
+          >
+            Next.js.
+          </a>
+        </span>
+        <span>
+          En optimerad webbplats förbättrar både användarupplevelsen och din
+          synlighet på Google.
+        </span>
+      </>
+    ),
   },
   {
-    title: 'Användarupplevelse & Interaktionsdesign',
+    title: 'Användarupplevelse',
     iconComponent: IconHandClick,
     ariaLabel: 'Ikon för kontinuerlig drift och support',
-    description:
-      'Genomtänkt design gör din webbplats enkel att använda och engagerande för dina besökare. Med fokus på intuitiv användarupplevelse hjälper vi dina kunder att snabbt hitta det de söker.',
+    description: (
+      <>
+        <span>
+          Genomtänkt design gör din webbplats enkel att använda och engagerande
+          för dina besökare.{' '}
+        </span>
+        <span>
+          Med fokus på intuitiv användarupplevelse hjälper vi dina kunder att
+          snabbt hitta det de söker.
+        </span>
+      </>
+    ),
   },
   {
-    title: 'Säkerhet och Dataskydd',
+    title: 'Säkerhet',
     iconComponent: IconShieldCheckFilled,
     ariaLabel: 'Ikon för kontinuerlig drift och support',
-    description:
-      'Med moderna säkerhetslösningar och efterlevnad av GDPR skyddar vi din webbplats och kunddata, vilket gör den säker och trygg för alla användare.',
+    description: (
+      <>
+        <span>
+          Med moderna säkerhetslösningar och GDPR-efterlevnad skyddar vi din
+          webbplats och kunddata.
+        </span>
+        <span>
+          Robust säkerhet säkerställer trygghet för användarna och minimerar
+          hot.
+        </span>
+      </>
+    ),
   },
 ];
 
 const ServicesPage = () => {
   return (
-    <section className="space-y-20">
+    <>
       <SubHero
         title="Våra tjänster"
         description="På NextWebb skapar vi anpassade webbplatser för småföretag i Uppsala och omnejd. Med kreativitet och teknisk precision hjälper vi ditt företag att synas online och växa."
@@ -127,32 +170,38 @@ const ServicesPage = () => {
         imageSrc={img}
         alt="xiri gir"
       />
-      <div className="grid gap-6 md:grid-cols-[2.5fr_3fr]">
+      <Section className="grid gap-6 md:grid-cols-[2.5fr_3fr]">
         <header className="self-end">
-          <h3 className="text-[2.6rem] font-medium leading-snug">
-            Varje företag är <strong className="font-extrabold">unikt.</strong>
-          </h3>
+          <H3 className="text-[2.6rem]">
+            Varje företag är{' '}
+            <strong className="inline-block bg-gradient-to-r from-pink-400 via-yellow-400 via-50% to-teal-400 bg-clip-text font-extrabold text-transparent">
+              unikt.
+            </strong>
+          </H3>
         </header>
         <div className="row-start-3 flex flex-col justify-start gap-8 md:col-span-1 md:col-start-1 md:row-start-2">
-          <p className="text-balance">
+          <P>
             Därför erbjuder vi personliga och anpassade webbsidor som hjälper
             ditt företag att sticka ut online.
-          </p>
+          </P>
           <ContactButton className="md:w-fit" />
         </div>
-        <Image
-          className="rounded md:col-start-2 md:row-span-2 md:row-start-1"
-          src={uniqueImg}
-          alt="unique services"
-          placeholder="blur"
-        />
-      </div>
+        <div className="-mx-2 rounded md:col-start-2 md:row-span-2 md:row-start-1 md:mx-0">
+          <Image
+            className="h-full w-full md:rounded-md"
+            src={uniqueImg}
+            alt="unique services"
+            placeholder="blur"
+          />
+        </div>
+      </Section>
 
       {/* Service Offerings */}
-      <section className="space-y-8 rounded-md bg-secondary p-6 md:py-8">
-        <h3 className="text-3xl font-medium leading-snug md:text-center">
-          Helhetslösningar för din digitala närvaro
-        </h3>
+      <Section
+        variant="narrow"
+        className="space-y-8 bg-secondary sm:rounded-md"
+      >
+        <H3>Helhetslösningar för din digitala närvaro</H3>
         <div className="grid gap-8 md:grid-cols-2 md:justify-items-center lg:grid-cols-3">
           {solutionServicesData.map((service, index) => {
             const { subheader, description, iconComponent, ariaLabel } =
@@ -166,52 +215,62 @@ const ServicesPage = () => {
                   <ServiceIcon
                     IconComponent={iconComponent}
                     ariaLabel={ariaLabel}
+                    className="size-14"
                   />
-                  <h4 className="text-lg font-medium">{subheader}</h4>
-                  <p className="">{description}</p>
+                  <H4>{subheader}</H4>
+                  <p className="text-md leading-relaxed">{description}</p>
                 </div>
               </article>
             );
           })}
         </div>
-      </section>
+      </Section>
 
       {/* Fissi section */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="mx-auto max-w-3xl p-6 text-3xl font-medium leading-snug">
-            Oavsett vilken verksamhet du driver...
-          </CardTitle>
-          <CardDescription className="mx-auto max-w-3xl p-6 text-lg">
-            Så skapar vi webbplatser som kombinerar estetisk design med hög
-            prestanda och optimal funktionalitet – så att din verksamhet inte
-            bara syns online, utan också levererar en sömlös användarupplevelse.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid auto-rows-[auto_4rem_14rem] justify-items-center gap-6 px-6 lg:grid-cols-3">
+      <Section className="space-y-6">
+        <div className="space-y-10 text-balance md:px-20">
+          <Text as="h3" className="text-center">
+            Oavsett din verksamhet skapar vi webbsidor som kombinerar design,
+            prestanda och säkerhet.
+          </Text>
+          <P>
+            Våra webbsidor kombinerar modern design, hög prestanda och robust
+            säkerhet – vilket säkerställer att din verksamhet inte bara syns
+            online, utan också levererar en säker och smidig upplevelse för dina
+            kunder.
+          </P>
+        </div>
+        <CardContent className="grid auto-rows-[auto_2rem_14rem] justify-items-center gap-6 px-4 md:auto-rows-[auto_2rem_16rem] lg:grid-cols-3">
           {coreServicesData.map((service, index) => {
             const { title, description, iconComponent, ariaLabel } = service;
             return (
               <article
                 key={index}
-                className="row-span-3 grid min-h-[15rem] max-w-xs grid-rows-subgrid justify-items-center rounded-md bg-primary px-4 pt-8 text-primary-foreground sm:max-w-72"
+                className="row-span-3 grid max-w-72 grid-rows-subgrid justify-items-center rounded-md bg-primary px-4 pt-10 text-primary-foreground sm:max-w-64"
               >
                 <ServiceIcon
                   IconComponent={iconComponent}
                   ariaLabel={ariaLabel}
-                  className="size-24 text-accent"
+                  className="size-36 text-accent"
                 />
 
-                <h4 className="text-sm font-medium md:text-lg lg:text-center">
-                  {title}
-                </h4>
-                <p className="text-md text-wrap break-words">{description}</p>
+                <h4 className="text-center text-xl font-medium">{title}</h4>
+                <p className="text-md flex flex-col gap-2 text-wrap break-words leading-relaxed">
+                  {description}
+                </p>
               </article>
             );
           })}
         </CardContent>
-      </Card>
-    </section>
+        <div className="mx-auto max-w-lg rounded-md bg-secondary p-10 text-center text-lg font-medium">
+          <p className="mb-4">
+            Vill du veta mer om hur du kan förbättra din webbnärvaro? Kontakta
+            oss för rådgivning eller frågor.
+          </p>
+          <ContactButton />
+        </div>
+      </Section>
+    </>
   );
 };
 export default ServicesPage;

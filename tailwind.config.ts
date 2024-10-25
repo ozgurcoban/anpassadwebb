@@ -15,7 +15,7 @@ const config = {
     },
     container: {
       center: true,
-      padding: '2rem',
+      padding: '0',
       screens: {
         '2xl': '1400px',
       },
@@ -56,7 +56,7 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
         link: {
-          DEFAULT: 'hsl(var(--link))', 
+          DEFAULT: 'hsl(var(--link))',
           hover: 'hsl(var(--link-hover))',
         },
       },

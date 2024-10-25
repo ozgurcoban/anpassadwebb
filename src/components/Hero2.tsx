@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="z-1 relative grid justify-items-center md:grid-cols-2">
         <div className="grid grid-rows-[auto_auto_auto_auto] gap-y-5 text-white">
           <h1 className="text-5xl font-bold leading-tight md:text-6xl md:leading-relaxed lg:text-7xl lg:leading-loose">
-            Skapad för småföretag, anpassad för tillväxt.
+            Skapad för småföretag. Anpassad för tillväxt.
           </h1>
           <p className="max-w-md text-balance text-base font-normal tracking-wide md:mt-6 md:text-lg">
             Vi skapar skräddarsydda och SEO-vänliga hemsidor för småföretag, med

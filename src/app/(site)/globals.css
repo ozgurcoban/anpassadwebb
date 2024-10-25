@@ -4,7 +4,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto max-w-6xl px-2 md:px-6 xl:max-w-7xl;
+    @apply mx-auto max-w-6xl md:px-6 xl:max-w-7xl;
   }
   .drop-cap:first-letter {
     @apply float-left mr-2 text-6xl font-medium leading-none;
