@@ -2,7 +2,6 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import SubHero from '@/components/SubHero';
 import img from '@/assets/services-hero.png';
-import uniqueImg from '@/assets/unique-services.png';
 import Image from 'next/image';
 import { ContactButton } from '@/components/ContactButton';
 
@@ -31,24 +30,30 @@ import H3 from '@/components/ui/H3';
 import P from '@/components/ui/P';
 import H4 from '@/components/ui/H4';
 import Text from '@/components/ui/Text';
+import { Content } from 'next/font/google';
+import ContentSection from '@/components/ui/ContentSection';
+import { RainbowButton } from '@/components/ui/RainbowButton/RainbowButton';
 
 const ServiceIcon = ({
   IconComponent,
   ariaLabel,
   className,
+  color,
 }: {
   IconComponent: React.ElementType;
   ariaLabel: string;
   className?: string;
+  color?: string;
 }) => {
   return (
     <IconComponent
       className={cn(
-        `size-10 text-primary drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]`,
+        `size-10 drop-shadow-[1px_-1px_0.6px_rgba(3,0,0,0.6)]`,
         className,
       )}
       stroke={1}
       aria-label={ariaLabel}
+      style={{ color }}
     />
   );
 };
@@ -57,16 +62,16 @@ const solutionServicesData = [
   {
     iconComponent: IconDeviceDesktopCode,
     ariaLabel: 'Ikon för skräddarsydda lösningar',
-    subheader: 'Skräddarsydda lösningar',
+    subheader: 'Nya Skräddarsydda Webbsidor',
     description:
-      'Webblösningar efter dina behov, som speglar ditt varumärke och hjälper dig växa online.',
+      'Vi skapar helt nya och snabba webbsidor som hjälper dig växa online.',
   },
   {
     iconComponent: IconMapSearch,
     ariaLabel: 'Ikon för SEO och lokal optimering',
     subheader: 'SEO & Lokal Optimering',
     description:
-      'Förbättra din synlighet och nå lokala kunder när de söker vad du erbjuder.',
+      'Våra sidor ökar din synlighet, så kunder hittar dig när de söker det du erbjuder.',
   },
   {
     iconComponent: IconLayoutGridAdd,
@@ -112,7 +117,7 @@ const coreServicesData = [
             href="https://nextjs.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-white underline transition duration-200 ease-in-out hover:text-gray-200 hover:no-underline"
+            className="font-medium text-[#3366cc] underline transition duration-200 ease-in-out hover:text-gray-200 hover:no-underline"
           >
             Next.js.
           </a>
@@ -160,6 +165,18 @@ const coreServicesData = [
   },
 ];
 
+const cardColors = [
+  '#FFEDE5', // Light pink for "Prestandaoptimering"
+  '#FFF6E0', // Light pastel yellow for "Användarupplevelse"
+  '#E5F4FF', // Light blue for "Säkerhet"
+];
+
+const iconColors = [
+  '#B84F3C', // Light pink for "Prestandaoptimering"
+  '#A98A3E', // Light pastel yellow for "Användarupplevelse"
+  '#6A8BA2', // Light blue for "Säkerhet"
+];
+
 const ServicesPage = () => {
   return (
     <>
@@ -170,31 +187,6 @@ const ServicesPage = () => {
         imageSrc={img}
         alt="xiri gir"
       />
-      <Section className="grid gap-6 md:grid-cols-[2.5fr_3fr]">
-        <header className="self-end">
-          <H3 className="text-[2.6rem]">
-            Varje företag är{' '}
-            <strong className="inline-block bg-gradient-to-r from-pink-400 via-yellow-400 via-50% to-teal-400 bg-clip-text font-extrabold text-transparent">
-              unikt.
-            </strong>
-          </H3>
-        </header>
-        <div className="row-start-3 flex flex-col justify-start gap-8 md:col-span-1 md:col-start-1 md:row-start-2">
-          <P>
-            Därför erbjuder vi personliga och anpassade webbsidor som hjälper
-            ditt företag att sticka ut online.
-          </P>
-          <ContactButton className="md:w-fit" />
-        </div>
-        <div className="-mx-2 rounded md:col-start-2 md:row-span-2 md:row-start-1 md:mx-0">
-          <Image
-            className="h-full w-full md:rounded-md"
-            src={uniqueImg}
-            alt="unique services"
-            placeholder="blur"
-          />
-        </div>
-      </Section>
 
       {/* Service Offerings */}
       <Section
@@ -209,7 +201,7 @@ const ServicesPage = () => {
             return (
               <article
                 key={index}
-                className="border/opacity-40 grid min-h-[12rem] auto-rows-[auto_3rem_5rem] rounded-md border border-dashed border-secondary-foreground/20 p-4 pt-6"
+                className="border/opacity-40 sm:auto-rows-[auto_3rem_7rem]rounded-md mt-6 grid min-h-[12rem] auto-rows-[auto_3rem_5rem] border border-dashed border-secondary-foreground/20 p-4"
               >
                 <div className="row-span-3 grid max-w-sm grid-rows-subgrid space-y-2">
                   <ServiceIcon
@@ -227,52 +219,67 @@ const ServicesPage = () => {
       </Section>
 
       {/* Fissi section */}
-      <Section className="space-y-6">
-        <div className="space-y-10 text-balance md:px-20">
-          <Text as="h3" className="text-center">
+      <Section className="space-y-18 rounded bg-secondary p-4 pt-12">
+        <div className="mb-32 space-y-10 text-balance md:px-20">
+          <Text as="h3" className="text-center" size="xl">
             Oavsett din verksamhet skapar vi webbsidor som kombinerar design,
             prestanda och säkerhet.
           </Text>
-          <P>
+          <Text as="p" className="text-center" size="lg">
             Våra webbsidor kombinerar modern design, hög prestanda och robust
             säkerhet – vilket säkerställer att din verksamhet inte bara syns
             online, utan också levererar en säker och smidig upplevelse för dina
             kunder.
-          </P>
+          </Text>
         </div>
-        <CardContent className="grid auto-rows-[auto_2rem_14rem] justify-items-center gap-6 px-4 md:auto-rows-[auto_2rem_16rem] lg:grid-cols-3">
+        <CardContent className="relative grid auto-rows-[auto_2rem_14rem] justify-items-center gap-6 px-4 md:auto-rows-[auto_2rem_16rem] lg:grid-cols-3">
+          <div className="absolute -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
+            <div
+              className="bg-gradient-180 lg:bg-gradient-90 mx-auto h-full w-full max-w-5xl rounded-3xl opacity-30 blur-lg filter"
+              // style={{
+              //   background:
+              //     'linear-gradient(180deg, #F2B8B4 0%, #FC8A52 20%, #F3DE66 40%, #3DBB98 60%, #3DCFD1 80%, #7FC5DE 100%)',
+              // }}
+            />
+          </div>
           {coreServicesData.map((service, index) => {
             const { title, description, iconComponent, ariaLabel } = service;
             return (
               <article
                 key={index}
-                className="row-span-3 grid max-w-72 grid-rows-subgrid justify-items-center rounded-md bg-primary px-4 pt-10 text-primary-foreground sm:max-w-64"
+                style={{
+                  backgroundColor: cardColors[index % cardColors.length],
+                }}
+                className={cn(
+                  'relative row-span-3 grid max-w-72 grid-rows-subgrid justify-items-center rounded-md px-4 pt-10 text-card-foreground shadow-xl sm:max-w-xs',
+                )}
               >
                 <ServiceIcon
                   IconComponent={iconComponent}
                   ariaLabel={ariaLabel}
-                  className="size-36 text-accent"
+                  className="size-36"
+                  color={iconColors[index % iconColors.length]}
                 />
 
-                <h4 className="text-center text-xl font-medium">{title}</h4>
-                <p className="text-md flex flex-col gap-2 text-wrap break-words leading-relaxed">
+                <h4 className="text-center text-xl font-medium text-[#333333]">
+                  {title}
+                </h4>
+                <p className="text-md flex flex-col gap-2 text-wrap break-words leading-relaxed text-[#555555]">
                   {description}
                 </p>
               </article>
             );
           })}
         </CardContent>
-        <div className="mx-auto max-w-lg rounded-md bg-secondary p-10 text-center text-lg font-medium">
-          <p className="mb-4">
+        <div className="mx-auto mt-36 grid max-w-lg place-items-center gap-8 rounded-md bg-accent p-10 text-lg font-medium">
+          <p className="mb-4 text-center">
             Vill du veta mer om hur du kan förbättra din webbnärvaro? Kontakta
             oss för rådgivning eller frågor.
           </p>
-          <ContactButton />
+          <ContactButton className="w-full md:w-fit" />
         </div>
       </Section>
     </>
   );
 };
 export default ServicesPage;
-
-// bg-gradient-to-t from-black via-black/60 to-transparent opacity-75 dark:via-black/85 dark:to-black/20 dark:opacity-85 md:bg-gradient-to-tr

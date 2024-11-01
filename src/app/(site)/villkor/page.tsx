@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const TermsPage = () => {
   return (
-    <article className="mx-auto min-h-svh max-w-2xl space-y-4">
+    <article className="mx-auto min-h-svh max-w-2xl space-y-4 p-4">
       <h3 className="font-bold">
         Allmänna Villkor för Personuppgiftshantering (GDPR)
       </h3>

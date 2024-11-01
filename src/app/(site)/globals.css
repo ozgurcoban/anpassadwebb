@@ -20,7 +20,8 @@
 
 @layer base {
   :root {
-    --background: 30 100% 92%; /* Ljusare nyans för bättre kontrast */
+    --background: 160, 40%, 96%; /* Example base background */
+
     --foreground: 20 14.3% 10%; /* Lite ljusare för att undvika för skarp kontrast */
 
     --card: 0 0% 98%; /* Lättare nyansändring för att skapa en subtil skillnad */
@@ -43,7 +44,7 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
 
     --primary-foreground: 60 9.1% 98%; /* Håll förgrund ljus för bra läsbarhet */
 
-    --secondary: 0 0% 96%; /* Lättare sekundärfärg för bättre balans */
+    --secondary: 40 40% 96%; /* Lättare sekundärfärg för bättre balans */
     --secondary-foreground: 24 9.8% 12%; /* Lite mörkare för att stå ut mot sekundärfärgen */
 
     --muted: 30 24% 80%; /* Något ljusare muted för bättre bakgrundskontrast */
@@ -125,5 +126,28 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
   h5,
   h6 {
     @apply font-heading;
+  }
+
+  .bg-gradient-180 {
+    background: linear-gradient(
+      180deg,
+      #f2b8b4 0%,
+      #fc8a52 20%,
+      #f3de66 40%,
+      #3dbb98 60%,
+      #3dcfd1 80%,
+      #7fc5de 100%
+    );
+  }
+  .bg-gradient-90 {
+    background: linear-gradient(
+      90deg,
+      #f2b8b4 0%,
+      #fc8a52 20%,
+      #f3de66 40%,
+      #3dbb98 60%,
+      #3dcfd1 80%,
+      #7fc5de 100%
+    );
   }
 }

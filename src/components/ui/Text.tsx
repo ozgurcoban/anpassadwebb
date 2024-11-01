@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 
 type TextProps = {
+  size?: 'sm' | 'base' | 'lg' | 'xl';
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   children: React.ReactNode;
   className?: string;
@@ -8,6 +9,7 @@ type TextProps = {
 };
 
 const Text: React.FC<TextProps> = ({
+  size = 'lg',
   as = 'p',
   children,
   className,
@@ -15,8 +17,15 @@ const Text: React.FC<TextProps> = ({
 }) => {
   const Component = as;
 
+  const sizes = {
+    sm: 'text-sm',
+    base: 'text-base',
+    lg: 'text-lg leading-loose tracking-wide',
+    xl: 'px-2 text-3xl font-medium leading-snug',
+  };
+
   return (
-    <Component className={cn(`px-2`, className)} style={style}>
+    <Component className={cn(sizes[size], className)} style={style}>
       {children}
     </Component>
   );

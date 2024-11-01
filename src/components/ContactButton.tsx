@@ -1,10 +1,11 @@
 'use client';
 
-import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 import ContactForm from './ContactForm';
 import React from 'react';
 import Link from 'next/link';
+import { RainbowModalButton } from './ui/RainbowButton/RainbowModalButton';
+import { Button } from './ui/button';
 
 type ContactButtonProps = {
   className?: string;
@@ -39,8 +40,8 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className }) => {
   };
 
   return (
-    <AnimatedButton className={className} onClick={openModal}>
-      KONTAKTA OSS
-    </AnimatedButton>
+    <RainbowModalButton className={className} onClick={openModal}>
+      Kontakta oss
+    </RainbowModalButton>
   );
 };

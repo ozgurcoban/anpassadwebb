@@ -12,9 +12,9 @@ type HeaderProps = {
   subtitle?: string;
   tags: Array<{
     _id: string;
-    slug: Slug | null;
-    title: string | null;
-    description: string | null;
+    slug?: Slug | null | undefined;
+    title?: string | null | undefined;
+    description?: string | null | undefined;
   }> | null;
   published: string;
 };

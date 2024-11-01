@@ -1,86 +1,61 @@
 import Image from 'next/image';
-import desktopImg from '@/assets/desktop.png';
-import groupDiscussionImg from '@/assets/group-discussion-cafe.png';
-import uppsalaCityImg from '@/assets/uppsala-cityscape.png';
-import FadeUp from './ui/FadeUp';
-import { DynamicMotion } from './ui/DynamicMotion';
+import heroImage from '@/assets/hero-background.png';
 import { ContactButton } from './ContactButton';
 import { CheckCheckIcon } from 'lucide-react';
+import Text from './ui/Text';
 
 const Hero = () => {
   return (
-    <section className="-z-5 relative grid w-full place-items-center gap-y-16 pb-16 md:grid-cols-2">
-      <div className="w-full">
-        <FadeUp delay={0.3}>
-          <h1 className="text-balance text-5xl leading-tight">
-            Skapad för småföretag, anpassad för tillväxt.
-          </h1>
-          <p className="text-md mt-8 max-w-md text-balance font-medium uppercase leading-snug">
+    <section className="relative grid min-h-[50vh] px-6 py-10 md:py-14">
+      {/* Background image */}
+      <Image
+        src={heroImage}
+        alt="Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik."
+        fill
+        priority
+        placeholder="blur"
+        className="-scale-x-100 transform sm:rounded-md"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent opacity-80 dark:via-black/85 dark:to-black/30 dark:opacity-95 sm:rounded-md" />
+
+      {/* Content */}
+      <div className="z-1 relative grid justify-items-center md:grid-cols-2">
+        <div className="grid grid-rows-[auto_auto_auto_auto] gap-y-5 text-white">
+          <Text
+            as="h1"
+            className="text-5xl font-bold leading-tight md:text-6xl md:leading-relaxed lg:text-7xl lg:leading-loose"
+          >
+            Skapad för småföretag. Anpassad för tillväxt.
+          </Text>
+          <Text
+            as="p"
+            className="max-w-md text-balance text-base font-normal tracking-wide md:mt-6 md:text-lg"
+          >
             Vi skapar skräddarsydda och SEO-vänliga hemsidor för småföretag, med
             fokus på att stärka din online-närvaro och nå fler kunder.
-          </p>
-        </FadeUp>
-        <DynamicMotion delay={0.7} className="mt-10">
-          <ContactButton />
-        </DynamicMotion>
-        <div className="mt-8 flex cursor-default justify-around gap-x-4 text-sm md:justify-between">
-          <p className="flex items-center gap-2">
-            <CheckCheckIcon className="size-4" />
-            Benefit 1
-          </p>
-          <p className="flex items-center gap-2">
-            <CheckCheckIcon className="size-4" />
-            Baserad i Uppsala
-          </p>
-          <p className="flex items-center gap-2">
-            <CheckCheckIcon className="size-4" />
-            Benefit 3
-          </p>
+          </Text>
+          <div className="mt-5 md:mt-10">
+            <ContactButton className="w-full text-primary md:w-fit" />
+          </div>
+          <ul className="mt-4 flex max-w-md cursor-default justify-around gap-x-4 text-sm md:mt-20 md:justify-between">
+            <li className="flex items-center gap-2">
+              <CheckCheckIcon className="size-6" aria-hidden="true" />
+              Benefit 1
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCheckIcon className="size-6" aria-hidden="true" />
+              Baserad i Uppsala
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckCheckIcon className="size-6" aria-hidden="true" />
+              Benefit 3
+            </li>
+          </ul>
         </div>
-      </div>
-      <div className="relative grid max-w-[90vw] grid-cols-6 gap-6 self-start md:col-span-2 md:col-start-2 md:gap-y-10 md:self-center lg:-translate-x-14 lg:transform">
-        <FadeUp
-          enableHover
-          delay={0.2}
-          className="col-span-3 row-start-1 flex items-center justify-center"
-        >
-          <Image
-            src={groupDiscussionImg}
-            alt="Pixel art of a group of friends happily discussing around a table in a cozy, dimly-lit café, with one person showing something on a tablet"
-            className="rounded-md shadow-custom"
-            width={250}
-            height={200}
-          />
-        </FadeUp>
-        <FadeUp
-          enableHover
-          delay={0.4}
-          className="col-span-3 col-start-4 flex items-center justify-center"
-        >
-          <Image
-            src={uppsalaCityImg}
-            alt="Pixel art of Uppsala cityscape with a church, bridge, and canal surrounded by greenery under a bright blue sky"
-            className="rounded-md shadow-custom"
-            width={230}
-            height={200}
-          />
-        </FadeUp>
-        <FadeUp
-          enableHover
-          delay={0.6}
-          className="boxShadow col-span-4 col-start-2 row-start-2 flex items-center justify-center"
-        >
-          <Image
-            src={desktopImg}
-            alt="Pixel art of a computer setup in a cozy café"
-            className="rounded-md shadow-custom"
-            width={500}
-            height={250}
-            placeholder="blur"
-          />
-        </FadeUp>
       </div>
     </section>
   );
 };
+
 export default Hero;

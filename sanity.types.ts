@@ -279,7 +279,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id,  title,  slug,  excerpt,  publishedAt,  mainImage {    asset->{      url,      metadata {        lqip      }    },    alt  },  tags[]->{    _id,    title,    slug,    description  }}
+// Query: *[_type == "post" && defined(slug.current)][0...12]{    _id,    title,    slug,    excerpt,    publishedAt,    mainImage {      asset->{        _id,        url,        metadata {          lqip        }      },      alt    },    tags[]->{      _id,      title,      slug,      description    }  }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -288,6 +288,7 @@ export type POSTS_QUERYResult = Array<{
   publishedAt: string | null;
   mainImage: {
     asset: {
+      _id: string;
       url: string | null;
       metadata: {
         lqip: string | null;
@@ -303,16 +304,20 @@ export type POSTS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{    title,    subtitle,    publishedAt,    tags[]->{    _id,    slug,    title,    description  },    mainImage {      asset->{        _id,        url,        metadata {          lqip        }      },      alt    },    body[]{      ...,      _type == "image" => {        _key,        alt,        asset->{          _id,          url,          metadata {            lqip          }        }      },    }  }
+// Query: *[_type == "post" && slug.current == $slug][0]{    title,    subtitle,    publishedAt,    tags[]->{   ...,  },    mainImage {      asset->{        _id,        url,        metadata {          lqip        }      },      alt    },    body[]{      ...,      _type == "image" => {        _key,        alt,        asset->{          _id,          url,          metadata {            lqip          }        }      },    }  }
 export type POST_QUERYResult = {
   title: string | null;
   subtitle: string | null;
   publishedAt: string | null;
   tags: Array<{
     _id: string;
-    slug: Slug | null;
-    title: string | null;
-    description: string | null;
+    _type: 'tag';
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    title?: string;
+    slug?: Slug;
+    description?: string;
   }> | null;
   mainImage: {
     asset: {
@@ -360,22 +365,20 @@ export type POST_QUERYResult = {
   > | null;
 } | null;
 // Variable: FEATURED_POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...4]{  _id, title, slug, mainImage, excerpt, tags[]->{    _id,    slug,    title,  },}
+// Query: *[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{  _id, title, slug, mainImage {      asset->{        _id,        url,        metadata {          lqip        }      },      alt    }, excerpt, tags[]->{    _id,    slug,    title,  },}
 export type FEATURED_POSTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
   mainImage: {
-    asset?: {
-      _ref: string;
-      _type: 'reference';
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: 'image';
+    asset: {
+      _id: string;
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
+    alt: string | null;
   } | null;
   excerpt: string | null;
   tags: Array<{
@@ -385,15 +388,16 @@ export type FEATURED_POSTS_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: ALL_TAGS_QUERY
-// Query: *[_type == "tag" && defined(slug.current)]{    _id,    title,    slug,    description  }
+// Query: *[_type == "tag" && defined(slug.current)]{    _id,    title,    slug,    description,    "postCount": count(*[_type == "post" && references("tags", ^._id)])  }
 export type ALL_TAGS_QUERYResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
   description: string | null;
+  postCount: number;
 }>;
 // Variable: POSTS_BY_TAG_QUERY
-// Query: *[_type == "post" && references(*[_type=="tag" && slug.current == $slug]._id)]{    _id,    title,    slug,    excerpt,    publishedAt,    mainImage {      asset->{        url,        metadata {          lqip        }      },      alt    },    tags[]->{      _id,      title,      slug,      description    }  }
+// Query: *[_type == "post" && references(*[_type=="tag" && slug.current == $slug]._id)]{    _id,    title,    slug,    excerpt,    publishedAt,    mainImage {      asset->{        url,        metadata {          lqip        }      },      alt    },    tags[]->{      _id,      title,      slug,      description,      postCount    }  }
 export type POSTS_BY_TAG_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -414,6 +418,7 @@ export type POSTS_BY_TAG_QUERYResult = Array<{
     title: string | null;
     slug: Slug | null;
     description: string | null;
+    postCount: null;
   }> | null;
 }>;
 
@@ -421,10 +426,10 @@ export type POSTS_BY_TAG_QUERYResult = Array<{
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id,\n  title,\n  slug,\n  excerpt,\n  publishedAt,\n  mainImage {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    },\n    alt\n  },\n  tags[]->{\n    _id,\n    title,\n    slug,\n    description\n  }\n}': POSTS_QUERYResult;
-    '\n  *[_type == "post" && slug.current == $slug][0]{\n    title,\n    subtitle,\n    publishedAt,\n    tags[]->{\n    _id,\n    slug,\n    title,\n    description\n  },\n    mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    body[]{\n      ...,\n      _type == "image" => {\n        _key,\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip\n          }\n        }\n      },\n    }\n  }\n': POST_QUERYResult;
-    '*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...4]{\n  _id, title, slug, mainImage, excerpt, tags[]->{\n    _id,\n    slug,\n    title,\n  },\n}': FEATURED_POSTS_QUERYResult;
-    '\n  *[_type == "tag" && defined(slug.current)]{\n    _id,\n    title,\n    slug,\n    description\n  }\n': ALL_TAGS_QUERYResult;
-    '\n  *[_type == "post" && references(*[_type=="tag" && slug.current == $slug]._id)]{\n    _id,\n    title,\n    slug,\n    excerpt,\n    publishedAt,\n    mainImage {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    tags[]->{\n      _id,\n      title,\n      slug,\n      description\n    }\n  }\n': POSTS_BY_TAG_QUERYResult;
+    '\n  *[_type == "post" && defined(slug.current)][0...12]{\n    _id,\n    title,\n    slug,\n    excerpt,\n    publishedAt,\n    mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    tags[]->{\n      _id,\n      title,\n      slug,\n      description\n    }\n  }\n': POSTS_QUERYResult;
+    '\n  *[_type == "post" && slug.current == $slug][0]{\n    title,\n    subtitle,\n    publishedAt,\n    tags[]->{\n   ...,\n  },\n    mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    body[]{\n      ...,\n      _type == "image" => {\n        _key,\n        alt,\n        asset->{\n          _id,\n          url,\n          metadata {\n            lqip\n          }\n        }\n      },\n    }\n  }\n': POST_QUERYResult;
+    '*[_type == "post" && defined(slug.current) && featured == true] | order(publishedAt desc) [0...3]{\n  _id, title, slug, mainImage {\n      asset->{\n        _id,\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    }, excerpt, tags[]->{\n    _id,\n    slug,\n    title,\n  },\n}': FEATURED_POSTS_QUERYResult;
+    '\n  *[_type == "tag" && defined(slug.current)]{\n    _id,\n    title,\n    slug,\n    description,\n    "postCount": count(*[_type == "post" && references("tags", ^._id)])\n  }\n': ALL_TAGS_QUERYResult;
+    '\n  *[_type == "post" && references(*[_type=="tag" && slug.current == $slug]._id)]{\n    _id,\n    title,\n    slug,\n    excerpt,\n    publishedAt,\n    mainImage {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      },\n      alt\n    },\n    tags[]->{\n      _id,\n      title,\n      slug,\n      description,\n      postCount\n    }\n  }\n': POSTS_BY_TAG_QUERYResult;
   }
 }

@@ -83,7 +83,8 @@ export const ALL_TAGS_QUERY = groq`
     _id,
     title,
     slug,
-    description
+    description,
+   "postCount": count(*[_type == "post" && references(^._id)])
   }
 `;
 
@@ -107,7 +108,8 @@ export const POSTS_BY_TAG_QUERY = groq`
       _id,
       title,
       slug,
-      description
+      description,
+      postCount
     }
   }
 `;

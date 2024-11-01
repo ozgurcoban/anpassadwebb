@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, MotionProps } from 'framer-motion';
-import { Button } from './button';
+import { Button, ButtonProps } from './button';
+import React from 'react';
 
 const MotionButton = motion.create(Button);
 

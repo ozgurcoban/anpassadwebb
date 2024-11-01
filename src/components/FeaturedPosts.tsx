@@ -2,6 +2,8 @@ import { sanityFetch } from '@/sanity/lib/client';
 import { POSTS_QUERYResult } from '../../sanity.types';
 import { FEATURED_POSTS_QUERY } from '@/sanity/lib/queries';
 import { Posts } from './Posts';
+import Section from './ui/Section';
+import Text from './ui/Text';
 
 const FeaturedPosts = async () => {
   const posts = await sanityFetch<POSTS_QUERYResult>({
@@ -11,10 +13,12 @@ const FeaturedPosts = async () => {
     return <div>Failed to load featured posts.</div>;
   }
   return (
-    <section>
-      <h2 className="mb-6 text-4xl">Featured posts</h2>
+    <Section>
+      <Text as="h3" size="xl" className="mb-6">
+        Featured posts
+      </Text>
       <Posts posts={posts} />
-    </section>
+    </Section>
   );
 };
 export default FeaturedPosts;

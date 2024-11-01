@@ -4,6 +4,7 @@ import { POSTS_QUERY } from '@/sanity/lib/queries';
 import { POSTS_QUERYResult } from '../../../../sanity.types';
 import SubHero from '@/components/SubHero';
 import img from '@/assets/blog-hero.png';
+import Section from '@/components/ui/Section';
 
 export default async function PostsPage() {
   const posts = await sanityFetch<POSTS_QUERYResult>({
@@ -19,7 +20,11 @@ export default async function PostsPage() {
         textAlign="center"
         alt="Anteckningsbok med pennor i förgrunden och digitala effekter i bakgrunden, som symboliserar kreativitet och teknisk utveckling för bloggen."
       />
-      {posts?.length > 0 && <Posts posts={posts} />}
+      {posts?.length > 0 && (
+        <Section>
+          <Posts posts={posts} />
+        </Section>
+      )}
     </>
   );
 }

@@ -21,8 +21,14 @@ const Section = ({
   ...props
 }: Props) => {
   const variantClasses = VARIANT_STYLES[variant];
+  const hasBg = className?.includes('bg-');
   return (
-    <section className={cn(variantClasses, className)} {...props}>
+    <section
+      className={cn(variantClasses, className, {
+        'my-8 md:my-12 lg:my-16': hasBg,
+      })}
+      {...props}
+    >
       {children}
     </section>
   );
