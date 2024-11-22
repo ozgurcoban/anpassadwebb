@@ -79,7 +79,7 @@ export const FEATURED_POSTS_QUERY = groq`*[_type == "post" && defined(slug.curre
 }`;
 
 export const ALL_TAGS_QUERY = groq`
-  *[_type == "tag" && defined(slug.current)]{
+  *[_type == "tag" && defined(slug.current) && count(*[_type == "post" && references(^._id)]) > 0]{
     _id,
     title,
     slug,

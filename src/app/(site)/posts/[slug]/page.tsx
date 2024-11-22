@@ -9,7 +9,6 @@ import {
   POSTS_QUERYResult,
 } from '../../../../../sanity.types';
 import BlogPost from '@/components/Blog/BlogPost';
-import { revalidatePath } from 'next/cache';
 
 export async function generateStaticParams() {
   const posts = await client.fetch<POSTS_QUERYResult>(
@@ -25,9 +24,11 @@ export async function generateStaticParams() {
 
 export default async function Page(props: { params: Promise<QueryParams> }) {
   const params = await props.params;
+  console.log(`Fetching post with tags: post:${params.slug}`);
   const post = await sanityFetch<POST_QUERYResult>({
     query: POST_QUERY,
     params,
+    tags: [`post:${params.slug}`],
   });
   if (!post) {
     return notFound();

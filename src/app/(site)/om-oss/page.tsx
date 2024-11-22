@@ -12,6 +12,7 @@ const AboutPage = () => {
         imageSrc={img}
         textAlign="right"
         alt="xirren"
+        minHeight="40vh"
       />
       <Section className="grid gap-8">
         <Text as="h2" className="text-4xl">

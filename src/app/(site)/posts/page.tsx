@@ -9,6 +9,7 @@ import Section from '@/components/ui/Section';
 export default async function PostsPage() {
   const posts = await sanityFetch<POSTS_QUERYResult>({
     query: POSTS_QUERY,
+    tags: ['post'],
   });
 
   return (
@@ -19,6 +20,7 @@ export default async function PostsPage() {
         imageSrc={img}
         textAlign="center"
         alt="Anteckningsbok med pennor i förgrunden och digitala effekter i bakgrunden, som symboliserar kreativitet och teknisk utveckling för bloggen."
+        secondaryCTA={{ text: 'Utforska Tags', href: '/tag' }}
       />
       {posts?.length > 0 && (
         <Section>

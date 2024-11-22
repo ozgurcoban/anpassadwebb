@@ -16,6 +16,31 @@
     ); /* Använd "foreground" för ljus färg på mörk bakgrund */
     color: hsl(var(--background)); /* Använd "background" för texten */
   }
+
+  .subhero-background {
+    background: linear-gradient(
+      135deg,
+      #ffd700,
+      /* Ljusgul likt element från "unika" gradienten */ #ff8c00,
+      /* Orange från vissa delar av bilden */ #ff69b4,
+      /* Ljusrosa nyans från dörrarna */ #1e90ff
+        /* Ljusblå nyans som matchar de kalla tonerna */
+    );
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 @layer base {

@@ -2,6 +2,7 @@ import { POSTS_QUERYResult } from '../../../../../sanity.types';
 import { client, sanityFetch } from '@/sanity/lib/client';
 import { Posts } from '@/components/Posts';
 import { POSTS_BY_TAG_QUERY } from '@/sanity/lib/queries';
+import SubHero from '@/components/SubHero';
 
 type PageProps = {
   params: Promise<{
@@ -28,16 +29,22 @@ const SingleTagPage = async (props: PageProps) => {
   const posts = await sanityFetch<POSTS_QUERYResult>({
     query: POSTS_BY_TAG_QUERY,
     params: { slug },
+    tags: [`tag:${params.slug}`],
   });
 
   const currentTag = posts[0]?.tags?.find((tag) => tag?.slug?.current === slug);
   const currentTagTitle = currentTag?.title;
 
   return (
-    <div>
-      <h1 className="text-4xl uppercase">#{currentTagTitle} inlägg</h1>
+    <>
+      {/* <SubHero
+        title={currentTagTitle}
+        textAlign="center"
+        description="hitta din favvotag"
+        alt="Tags"
+      /> */}
       <Posts posts={posts} />
-    </div>
+    </>
   );
 };
 export default SingleTagPage;

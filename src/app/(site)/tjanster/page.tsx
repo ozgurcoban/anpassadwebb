@@ -186,6 +186,7 @@ const ServicesPage = () => {
         textAlign="left"
         imageSrc={img}
         alt="xiri gir"
+        minHeight="40vh"
       />
 
       {/* Service Offerings */}
