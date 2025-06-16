@@ -24,7 +24,7 @@ export default async function TagLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const headerList = headers();
+  const headerList = await headers();
   const pathname = headerList.get('x-current-path');
   const slug = pathname?.split('/').pop();
 

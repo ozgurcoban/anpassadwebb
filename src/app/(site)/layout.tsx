@@ -18,6 +18,7 @@ const poppins = Poppins({
 });
 import { VisualEditing } from 'next-sanity';
 import { draftMode } from 'next/headers';
+import Link from 'next/link';
 
 export default async function RootLayout({
   children,
@@ -28,12 +29,12 @@ export default async function RootLayout({
         className={`${open_sans.variable} ${poppins.variable} flex min-h-svh flex-col overflow-y-scroll`}
       >
         {(await draftMode()).isEnabled && (
-          <a
+          <Link
             className="fixed bottom-0 right-0 m-4 bg-blue-500 p-4 text-white"
             href="/api/draft-mode/disable"
           >
             Disable preview mode
-          </a>
+          </Link>
         )}
         <Providers>
           <Navbar />

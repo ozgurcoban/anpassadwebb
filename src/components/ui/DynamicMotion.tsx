@@ -3,7 +3,7 @@
 import { motion, MotionProps } from 'framer-motion';
 import React from 'react';
 
-interface CustomMotionProps<Tag extends keyof JSX.IntrinsicElements>
+interface CustomMotionProps<Tag extends keyof React.JSX.IntrinsicElements>
   extends MotionProps {
   type?: Tag;
   children?: React.ReactNode;
@@ -25,7 +25,7 @@ const variants = {
   },
 };
 
-export const DynamicMotion = <Tag extends keyof JSX.IntrinsicElements>({
+export const DynamicMotion = <Tag extends keyof React.JSX.IntrinsicElements>({
   type,
   children,
   className,
