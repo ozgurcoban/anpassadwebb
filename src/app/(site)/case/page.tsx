@@ -181,8 +181,8 @@ const ServicesPage = () => {
   return (
     <>
       <SubHero
-        title="Våra tjänster"
-        description="På NextWebb skapar vi anpassade webbplatser för småföretag i Uppsala och omnejd. Med kreativitet och teknisk precision hjälper vi ditt företag att synas online och växa."
+        title="Våra case"
+        description="Utforska våra projekt och se hur vi har hjälpt småföretag i Uppsala att skapa en stark digital närvaro. Varje case visar vår passion för design, teknik och resultat."
         textAlign="left"
         imageSrc={img}
         alt="xiri gir"
