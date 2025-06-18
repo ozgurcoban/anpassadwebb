@@ -1,33 +1,19 @@
-// For reference: Tutorials on animating navbar modal with Framer Motion
-// https://www.youtube.com/watch?v=obib4ka06y0&t=41s
-// https://www.youtube.com/watch?v=kep_Iaxuzy0&t=0s
-
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import useMediaQuery from '@/hooks/useMediaQuery';
-import { motion } from 'framer-motion';
-import { NavLinks } from '@/utils/links';
 import Link from 'next/link';
-
-type Position = {
-  left: number;
-  width: number;
-};
+import { NavLinks } from '@/utils/links';
 
 type DesktopNavbarProps = {
   links: NavLinks[];
 };
 
 const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
-  const isDesktop = useMediaQuery('(min-width: 768px)');
   const navbarRef = useRef<HTMLDivElement>(null);
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const bubbleRef = useRef<HTMLSpanElement>(null);
   const liRefs = useRef<(HTMLLIElement | null)[]>([]);
-
   const pathname = usePathname();
-  const [position, setPosition] = useState<Position | null>(null);
 
   const isActive = useCallback(
     (href: string) => {
@@ -40,7 +26,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
   );
 
   useEffect(() => {
-    if (navbarRef.current && liRefs.current) {
+    if (navbarRef.current && bubbleRef.current && liRefs.current) {
       const activeLinkIndex = links.findIndex((link) => isActive(link.href));
       const activeLink = liRefs.current[activeLinkIndex];
 
@@ -51,36 +37,28 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
         const left = linkRect.left - navbarRect.left;
         const width = linkRect.width;
 
-        setPosition({ left, width });
+        // Direct transform for better performance
+        bubbleRef.current.style.transform = `translateX(${left}px)`;
+        bubbleRef.current.style.width = `${width}px`;
       }
     }
-  }, [pathname, links, isActive, isDesktop]);
+  }, [pathname, links, isActive]);
 
   return (
-    <motion.nav
-      layout
-      layoutRoot
+    <nav
       ref={navbarRef}
-      className="z-10000 relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
+      className="relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
     >
       <ul className="flex py-2">
-        {/* Bubble */}
-        {position && (
-          <motion.span
-            layoutId="bubble"
-            initial={false}
-            className="pointer-events-none absolute bottom-0 top-0 z-10 rounded-full bg-accent mix-blend-difference"
-            style={{
-              left: `${position.left}px`,
-              width: `${position.width}px`,
-            }}
-            transition={{
-              type: 'spring',
-              bounce: 0.2,
-              duration: 0.6,
-            }}
-          />
-        )}
+        {/* Animated Bubble - Ultra Optimized */}
+        <span
+          ref={bubbleRef}
+          className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 rounded-full bg-accent mix-blend-difference will-change-transform"
+          style={{
+            transition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
+          }}
+        />
+        
         {/* Links */}
         {links.map(({ label, href }, index) => (
           <li
@@ -92,10 +70,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
           >
             <Link
               href={href}
-              ref={(el) => {
-                linkRefs.current[index] = el;
-              }}
-              className="-z-1 relative rounded-full px-3 py-1.5 text-sm font-medium uppercase text-secondary-foreground outline-sky-400 transition focus-visible:outline-2"
+              className="relative z-20 rounded-full px-3 py-1.5 text-sm font-medium uppercase text-secondary-foreground outline-sky-400 transition-colors hover:text-foreground focus-visible:outline-2"
               style={{
                 WebkitTapHighlightColor: 'transparent',
               }}
@@ -105,7 +80,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
           </li>
         ))}
       </ul>
-    </motion.nav>
+    </nav>
   );
 };
 
