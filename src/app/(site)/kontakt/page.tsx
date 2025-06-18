@@ -3,7 +3,7 @@ import img from '@/assets/about-us-hero.png';
 import Section from '@/components/ui/Section';
 import Text from '@/components/ui/Text';
 import { ContactButton } from '@/components/ContactButton';
-import { ContactForm } from '@/components/ContactForm';
+import ContactForm from '@/components/ContactForm';
 
 const KontaktPage = () => {
   return (
