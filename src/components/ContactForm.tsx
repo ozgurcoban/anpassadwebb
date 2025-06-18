@@ -17,6 +17,13 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 import { Loader2 } from 'lucide-react';
@@ -27,32 +34,26 @@ const schema = z.object({
     .string()
     .min(2, { message: 'Namnet måste vara minst 2 tecken långt' }),
 
-  business: z
-    .string()
-    // .min(2, { message: 'Företagsnamnet måste vara minst 2 tecken långt' })
-    // .max(100, { message: 'Företagsnamnet kan vara högst 100 tecken långt' })
-    // .regex(/^[\w\s-]+$/, {
-    //   message: 'Företagsnamnet innehåller ogiltiga tecken',
-    // })
-    .optional(),
-
   email: z.string().email({ message: 'Ogiltig e-postadress' }),
-  message: z.string().min(1, { message: 'Meddelandet är obligatoriskt' }),
-  terms: z.boolean().refine((data) => data === true, {
-    message: 'Du måste godkänna villkoren',
-  }),
-
-  // marketingSource: z
-  //   .enum([
-  //     'Google',
-  //     'Sociala medier',
-  //     'Rekommendation',
-  //     'Tidigare kund',
-  //     'Annons',
-  //     'Annat',
-  //   ])
-  //   .optional(), // Gör fältet valfritt
-  // otherSource: z.string().optional(), // Valfritt fält för att specificera "Annat"
+  
+  website: z
+    .string()
+    .url({ message: 'Ogiltig URL' })
+    .optional()
+    .or(z.literal('')),
+    
+  source: z.enum([
+    'google',
+    'recommendation',
+    'ai',
+    'social',
+    'website',
+    'other'
+  ]).optional(),
+    
+  message: z
+    .string()
+    .min(10, { message: 'Meddelandet måste vara minst 10 tecken långt' }),
 });
 // .refine(
 //   (data) => {
@@ -77,12 +78,10 @@ const ContactForm: React.FC = () => {
     resolver: zodResolver(schema),
     defaultValues: {
       name: '',
-      business: '',
       email: '',
-      // marketingSource: undefined,
-      // otherSource: '',
+      website: '',
+      source: undefined,
       message: '',
-      terms: false,
     },
   });
 
@@ -185,9 +184,10 @@ const ContactForm: React.FC = () => {
                     className={clsx(
                       'bg-secondary py-6 text-base shadow-inner',
                       form.formState.errors.email && 'border-destructive',
-                      'border', // Lägg till standard border om det behövs
+                      'border',
                     )}
-                    placeholder="Ditt epostadress"
+                    placeholder="din@epost.se"
+                    type="email"
                     {...field}
                   />
                 </FormControl>
@@ -199,25 +199,58 @@ const ContactForm: React.FC = () => {
               </FormItem>
             )}
           />
-          {/* Business */}
+          {/* Website */}
           <FormField
             control={form.control}
-            name="business"
+            name="website"
             render={({ field }) => (
               <FormItem className="mt-1">
                 <FormLabel className="mt-2 px-2 text-base sm:text-lg">
-                  Företag
+                  Hemsida
                 </FormLabel>
                 <FormControl>
                   <Input
                     className="border bg-secondary py-6 text-base shadow-inner"
-                    placeholder="Eventuell företagsnamn"
+                    placeholder="https://dinhemsida.se (valfritt)"
+                    type="url"
                     {...field}
                   />
                 </FormControl>
                 <div className="min-h-2">
                   <FormMessage className="pl-2 text-xs">
-                    {form.formState.errors.business?.message}
+                    {form.formState.errors.website?.message}
+                  </FormMessage>
+                </div>
+              </FormItem>
+            )}
+          />
+          {/* Source */}
+          <FormField
+            control={form.control}
+            name="source"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="mt-2 px-2 text-base sm:text-lg">
+                  Hur hittade du oss?
+                </FormLabel>
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="bg-secondary py-6 text-base shadow-inner">
+                      <SelectValue placeholder="Välj ett alternativ (valfritt)" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="google">Google-sökning</SelectItem>
+                    <SelectItem value="recommendation">Rekommendation</SelectItem>
+                    <SelectItem value="ai">ChatGPT/AI</SelectItem>
+                    <SelectItem value="social">Sociala medier</SelectItem>
+                    <SelectItem value="website">Annan webbsida</SelectItem>
+                    <SelectItem value="other">Annat</SelectItem>
+                  </SelectContent>
+                </Select>
+                <div className="min-h-4">
+                  <FormMessage className="pl-2 text-xs">
+                    {form.formState.errors.source?.message}
                   </FormMessage>
                 </div>
               </FormItem>
@@ -237,10 +270,10 @@ const ContactForm: React.FC = () => {
                     className={clsx(
                       'bg-secondary text-base shadow-inner',
                       form.formState.errors.message && 'border-destructive',
-                      'border', // Lägg till standard border om det behövs
+                      'border',
                     )}
-                    placeholder="Meddelande"
-                    rows={4}
+                    placeholder="Berätta om ditt projekt..."
+                    rows={6}
                     id="message"
                     {...field}
                   />
@@ -249,46 +282,6 @@ const ContactForm: React.FC = () => {
                   <FormMessage className="pl-2 text-xs">
                     {form.formState.errors.message?.message}
                   </FormMessage>
-                </div>
-              </FormItem>
-            )}
-          />
-          {/* Terms and Conditions Checkbox */}
-          <FormField
-            control={form.control}
-            name="terms"
-            rules={{ required: 'Du måste godkänna villkoren' }}
-            render={({ field }) => (
-              <FormItem className="">
-                <div className="mt-2 flex items-center">
-                  <FormControl>
-                    <Checkbox
-                      className={clsx(
-                        'bg-secondary text-base shadow-inner',
-                        form.formState.errors.message && 'border-destructive',
-                        'border',
-                      )}
-                      checked={field.value}
-                      onCheckedChange={(checked) => field.onChange(checked)}
-                    />
-                  </FormControl>
-                  <FormLabel
-                    onClick={onClose}
-                    className="ml-2 flex items-center text-base"
-                    aria-label="Jag godkänner villkoren"
-                  >
-                    Jag godkänner{' '}
-                    <Link
-                      className="pointer-event font-semibold"
-                      href="/villkor"
-                    >
-                      &nbsp;villkoren
-                    </Link>
-                    <Kiren />
-                  </FormLabel>
-                </div>
-                <div className="hidden min-h-4 sm:block">
-                  <FormMessage className="pl-6 text-xs" />
                 </div>
               </FormItem>
             )}
