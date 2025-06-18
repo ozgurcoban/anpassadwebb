@@ -1,27 +1,29 @@
-import { Separator } from '@radix-ui/react-separator';
-import SanityImage from '../SanityImage';
-import { CardContent } from '../ui/card';
-import { DynamicMotion } from '../ui/DynamicMotion';
+import { Separator } from '@/components/ui/separator';
+import SanityImage from '@/components/SanityImage';
+import { CardContent } from '@/components/ui/card';
+import { DynamicMotion } from '@/components/ui/DynamicMotion';
 import { PortableText } from 'next-sanity';
 import customPortableTextComponents from './CustomPortableTextComponents';
+import { cn } from '@/lib/utils';
 
 type ContentProps = {
   alt?: string;
   image: any;
   body: any;
+  className?: string;
 };
 
-const Content: React.FC<ContentProps> = ({ alt, image, body }) => {
+const Content: React.FC<ContentProps> = ({ alt, image, body, className }) => {
   return (
-    <CardContent className="mx-32">
+    <CardContent className={cn("px-4 md:px-8 lg:px-16 xl:px-32", className)}>
       {image?.asset?.url ? (
         <DynamicMotion
           delay={0.6}
           duration={0.8}
-          className="md:mx-2 lg:-mx-10 xl:-mx-32"
+          className="relative w-full md:w-[calc(100%+2rem)] lg:w-[calc(100%+4rem)] xl:w-[calc(100%+8rem)] md:-mx-4 lg:-mx-8 xl:-mx-16"
           type="figure"
         >
-          <SanityImage className="mt-4 w-full rounded-lg" src={image} />
+          <SanityImage className="mt-4 w-full rounded-lg object-cover aspect-video" src={image} />
           <DynamicMotion
             type="figcaption"
             delay={0.6}

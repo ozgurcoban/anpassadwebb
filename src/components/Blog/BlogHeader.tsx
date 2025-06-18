@@ -1,22 +1,18 @@
-import { CardHeader, CardTitle, CardDescription } from '../ui/card';
-import { badgeVariants } from '../ui/badge';
-import { DynamicMotion } from '../ui/DynamicMotion';
-import Link from 'next/link';
-import formattedDate from '@/utils/formattedDate';
+import { CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { DynamicMotion } from '@/components/ui/DynamicMotion';
+import { formatDateWithFallback } from '@/utils/formattedDate';
 import React from 'react';
-import { Slug } from '../../../sanity.types';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
+import { TagBadge } from './TagBadge';
+import { blogConfig, getLabel } from '@/lib/blog-config';
+import type { Tag } from '@/types/blog';
 
 type HeaderProps = {
   title: string;
   subtitle?: string;
-  tags: Array<{
-    _id: string;
-    slug?: Slug | null | undefined;
-    title?: string | null | undefined;
-    description?: string | null | undefined;
-  }> | null;
+  tags: Tag[] | null;
   published: string;
+  locale?: string;
 };
 
 const Header: React.FC<HeaderProps> = ({
@@ -24,37 +20,27 @@ const Header: React.FC<HeaderProps> = ({
   subtitle,
   tags,
   published,
+  locale = blogConfig.defaultLocale,
 }) => {
   return (
     <CardHeader className="mx-auto max-w-4xl py-0">
-      {published ? (
-        <DynamicMotion
-          delay={0.1}
-          type="p"
-          className="mt-8 text-sm text-card-foreground"
-        >
-          <span className="font-semibold">Publicerad:</span>{' '}
-          {formattedDate(published)}
-        </DynamicMotion>
-      ) : (
-        <p className="mt-8 text-sm text-card-foreground">
-          <span className="font-semibold">Publicerad:</span>{' '}
-          {formattedDate('2022-01-01')}
-        </p>
-      )}
+      <DynamicMotion
+        delay={0.1}
+        type="p"
+        className="mt-8 text-sm text-card-foreground"
+      >
+        <span className="font-semibold">{getLabel('published', locale)}</span>{' '}
+        {formatDateWithFallback(published, locale)}
+      </DynamicMotion>
       {tags && Array.isArray(tags) && (
         <DynamicMotion delay={0.3} className="mt-8 flex flex-wrap gap-2">
-          {tags.map((t) => {
-            return (
-              <Link
-                key={t._id}
-                className={`${badgeVariants({ variant: 'outline' })} text-4xl`}
-                href={`/tag/${t.slug?.current}`}
-              >
-                #{t.title?.toLowerCase()}
-              </Link>
-            );
-          })}
+          {tags.map((tag) => (
+            <TagBadge 
+              key={tag._id} 
+              tag={tag} 
+              className="text-base"
+            />
+          ))}
         </DynamicMotion>
       )}
       {title ? (

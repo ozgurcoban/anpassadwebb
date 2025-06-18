@@ -1,9 +1,14 @@
 import Link from 'next/link';
-import { ContactButton } from '../ContactButton';
-import { CardFooter } from '../ui/card';
-import { DynamicMotion } from '../ui/DynamicMotion';
+import { ContactButton } from '@/components/ContactButton';
+import { CardFooter } from '@/components/ui/card';
+import { DynamicMotion } from '@/components/ui/DynamicMotion';
+import { blogConfig, getLabel } from '@/lib/blog-config';
 
-const Footer = () => {
+type FooterProps = {
+  locale?: string;
+};
+
+const Footer: React.FC<FooterProps> = ({ locale = blogConfig.defaultLocale }) => {
   return (
     <CardFooter className="flex flex-col items-center gap-y-10">
       <DynamicMotion
@@ -11,13 +16,12 @@ const Footer = () => {
         className="my-8 rounded-md bg-secondary p-6 text-center font-medium"
       >
         <p className="mb-4 max-w-lg text-base leading-loose">
-          Vill du veta mer om hur du kan förbättra din webbnärvaro? Kontakta mig
-          för rådgivning eller frågor.
+          {getLabel('contactUs', locale)}
         </p>
         <ContactButton />
       </DynamicMotion>
       <DynamicMotion delay={0.8}>
-        <Link href="/posts" className='text-link hover:text-link-hover'>&larr; Return to blog</Link>
+        <Link href="/posts" className='text-link hover:text-link-hover'>&larr; {getLabel('allPosts', locale)}</Link>
       </DynamicMotion>
     </CardFooter>
   );
