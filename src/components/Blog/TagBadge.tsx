@@ -1,20 +1,21 @@
 import Link from "next/link";
 import { badgeVariants } from "@/components/ui/badge";
-import type { Tag } from "@/types/blog";
 
 interface TagBadgeProps {
-  tag: Tag;
+  tag: string;
   variant?: "default" | "secondary" | "destructive" | "outline";
   className?: string;
 }
 
 export function TagBadge({ tag, variant = "outline", className }: TagBadgeProps) {
+  const slug = tag.toLowerCase().replace(/\s+/g, '-');
+  
   return (
     <Link
       className={badgeVariants({ variant, className })}
-      href={`/tag/${tag.slug?.current}`}
+      href={`/tag/${slug}`}
     >
-      #{tag.title?.toLowerCase()}
+      #{tag.toLowerCase()}
     </Link>
   );
 }

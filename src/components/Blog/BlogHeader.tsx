@@ -3,15 +3,16 @@ import { FadeInView } from '@/components/ui/FadeInView';
 import { formatDateWithFallback } from '@/utils/formattedDate';
 import React from 'react';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
-import { TagBadge } from './TagBadge';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 import { blogConfig, getLabel } from '@/lib/blog-config';
-import type { Tag } from '@/types/blog';
 
 type HeaderProps = {
   title: string;
   subtitle?: string;
-  tags: Tag[] | null;
+  tags: string[];
   published: string;
+  readingTime?: string;
   locale?: string;
 };
 
@@ -20,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({
   subtitle,
   tags,
   published,
+  readingTime,
   locale = blogConfig.defaultLocale,
 }) => {
   return (
@@ -31,15 +33,27 @@ const Header: React.FC<HeaderProps> = ({
       >
         <span className="font-semibold">{getLabel('published', locale)}</span>{' '}
         {formatDateWithFallback(published, locale)}
+        {readingTime && (
+          <>
+            {' • '}
+            <span className="text-muted-foreground">{readingTime}</span>
+          </>
+        )}
       </FadeInView>
-      {tags && Array.isArray(tags) && (
+      {tags && Array.isArray(tags) && tags.length > 0 && (
         <FadeInView delay={0.3} className="mt-8 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <TagBadge 
-              key={tag._id} 
-              tag={tag} 
-              className="text-base"
-            />
+            <Link
+              key={tag}
+              href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+            >
+              <Badge 
+                variant="outline" 
+                className="text-base rounded-full px-3 py-1 transition duration-300 ease-in-out hover:border-secondary hover:bg-secondary hover:text-primary"
+              >
+                {tag}
+              </Badge>
+            </Link>
           ))}
         </FadeInView>
       )}

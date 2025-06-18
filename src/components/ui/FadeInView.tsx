@@ -46,9 +46,11 @@ export const FadeInView: React.FC<FadeInViewProps> = ({
     };
   }, [isVisible]);
 
+  const ElementType = Component as any;
+  
   return (
-    <Component
-      ref={ref as any}
+    <ElementType
+      ref={ref}
       className={cn(
         'transition-all will-change-transform',
         enableHover && 'hover:-translate-y-1',
@@ -62,6 +64,6 @@ export const FadeInView: React.FC<FadeInViewProps> = ({
       }}
     >
       {children}
-    </Component>
+    </ElementType>
   );
 };

@@ -2,11 +2,13 @@ import FeaturedPosts from '@/components/FeaturedPosts';
 import uniqueImg from '@/assets/unique-services.png';
 import Hero from '@/components/Hero';
 import ContentSection from '@/components/ui/ContentSection';
+import ServicesSection from '@/components/ServicesSection';
 
 export default function Page() {
   return (
     <>
       <Hero />
+      <ServicesSection />
       <ContentSection
         title={
           <>

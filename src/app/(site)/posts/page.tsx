@@ -1,16 +1,11 @@
 import { Posts } from '@/components/Posts';
-import { sanityFetch } from '@/sanity/lib/client';
-import { POSTS_QUERY } from '@/sanity/lib/queries';
-import { POSTS_QUERYResult } from '../../../../sanity.types';
+import { getAllPosts } from '@/lib/mdx';
 import SubHero from '@/components/SubHero';
 import img from '@/assets/blog-hero.png';
 import Section from '@/components/ui/Section';
 
 export default async function PostsPage() {
-  const posts = await sanityFetch<POSTS_QUERYResult>({
-    query: POSTS_QUERY,
-    tags: ['post'],
-  });
+  const posts = getAllPosts();
 
   return (
     <>

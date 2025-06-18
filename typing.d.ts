@@ -1,147 +1,92 @@
-// Base type that all Sanity documents extend
-type Base = {
-  _createdAt: string;
-  _id: string;
-  _rev: string;
-  _type: string;
-  _updatedAt: string;
-};
-
-// Slug type
-interface Slug {
-  _type: "slug";
-  current: string;
+// MDX types
+declare module '*.mdx' {
+  let MDXComponent: (props: any) => JSX.Element;
+  export default MDXComponent;
 }
 
-// Reference type for Sanity references
-interface Reference {
-  _ref: string;
-  _type: "reference";
+// Global types
+interface Window {
+  // Add any custom window properties here
 }
 
-// Image type for Sanity
-interface Image {
-  _type: "image";
-  asset: Reference;
-  hotspot?: {
-    x: number;
-    y: number;
-    height: number;
-    width: number;
-  };
-  crop?: {
-    top: number;
-    bottom: number;
-    left: number;
-    right: number;
-  };
-  alt?: string;
-  metadata?: {
-    dimensions: {
-      width: number;
-      height: number;
-      aspectRatio: number;
-    };
-    palette?: {
-      dominant?: {
-        background: string;
-        foreground: string;
-        title: string;
-        population: number;
-      };
-    };
-  };
-}
+// Utility types
+type Nullable<T> = T | null;
+type Optional<T> = T | undefined;
 
-// Block content types (Portable Text)
-interface Span {
-  _key: string;
-  _type: "span";
-  marks: string[];
-  text: string;
-}
-
-interface Block {
-  _key: string;
-  _type: "block";
-  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-  children: Span[];
-  markDefs?: MarkDef[];
-  level?: number;
-  listItem?: "bullet" | "number";
-}
-
-interface MarkDef {
-  _key: string;
-  _type: "link";
-  href: string;
-}
-
-interface BlockImage {
-  _key: string;
-  _type: "image";
-  asset: Reference;
-  alt?: string;
-  caption?: string;
-}
-
-type BlockContent = Array<Block | BlockImage>;
-
-// Document types
-interface Post extends Base {
+// Common types used across the application
+interface BaseMetadata {
   title: string;
-  slug: Slug;
-  excerpt?: string;
-  body: BlockContent;
-  coverImage?: Image;
-  categories?: Reference[];
-  tags?: Reference[];
-  publishedAt?: string;
-  featured?: boolean;
-  seo?: {
-    metaTitle?: string;
-    metaDescription?: string;
-    openGraphImage?: Image;
+  description: string;
+  keywords?: string[];
+  openGraph?: {
+    title?: string;
+    description?: string;
+    image?: string;
+    url?: string;
   };
 }
 
-interface Category extends Base {
-  title: string;
-  slug: Slug;
-  description?: string;
-}
-
-interface Tag extends Base {
-  title: string;
-  slug: Slug;
-}
-
-interface Author extends Base {
+// Form types
+interface ContactFormData {
   name: string;
-  slug: Slug;
-  bio?: BlockContent;
-  image?: Image;
+  email: string;
+  message: string;
+  phone?: string;
 }
 
-// Extended types for populated queries
-interface PostWithReferences extends Omit<Post, "categories" | "tags"> {
-  categories?: Category[];
-  tags?: Tag[];
+// API Response types
+interface ApiResponse<T = any> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
 }
 
-// Query result types (with slug as string)
-interface PostQueryResult extends Omit<Post, "slug"> {
+// Image types
+interface ImageProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  priority?: boolean;
+  quality?: number;
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
+}
+
+// Blog types (now used with MDX)
+interface PostFrontmatter {
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  categories: string[];
+  author: string;
+  featured?: boolean;
+  image?: string;
+  imageAlt?: string;
+}
+
+interface Post {
   slug: string;
+  frontmatter: PostFrontmatter;
+  content: string;
+  readingTime: {
+    text: string;
+    minutes: number;
+    time: number;
+    words: number;
+  };
 }
 
-interface CategoryQueryResult extends Omit<Category, "slug"> {
+interface Tag {
+  name: string;
   slug: string;
+  count: number;
 }
 
-interface TagQueryResult extends Omit<Tag, "slug"> {
+interface Category {
+  name: string;
   slug: string;
-}
-
-interface AuthorQueryResult extends Omit<Author, "slug"> {
-  slug: string;
+  count: number;
 }

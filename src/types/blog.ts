@@ -1,2 +1,12 @@
-// Re-export types from typing.d.ts for use in components
-export type { Tag, Post, Category, Author } from '../../typing';
+// Blog types
+export interface Tag {
+  name: string;
+  slug: string;
+  count: number;
+}
+
+export interface Category {
+  name: string;
+  slug: string;
+  count: number;
+}

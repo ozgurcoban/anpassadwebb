@@ -1,11 +1,6 @@
 import { headers } from 'next/headers';
 import SubHero from '@/components/SubHero';
-import { client, sanityFetch } from '@/sanity/lib/client';
-import {
-  ALL_TAGS_QUERYResult,
-  POSTS_QUERYResult,
-} from '../../../../sanity.types';
-import { ALL_TAGS_QUERY, POSTS_BY_TAG_QUERY } from '@/sanity/lib/queries';
+import { getAllTags } from '@/lib/mdx';
 
 // export async function generateStaticParams() {
 //   const tags = await client.fetch<{ slug: string }[]>(
@@ -28,16 +23,10 @@ export default async function TagLayout({
   const pathname = headerList.get('x-current-path');
   const slug = pathname?.split('/').pop();
 
-  const tags = await sanityFetch<ALL_TAGS_QUERYResult>({
-    query: ALL_TAGS_QUERY,
-    tags: ['tag'],
-  });
-
-  const mathedTag = tags.find((tag) => tag.slug?.current === slug);
-  const slugTag = mathedTag?.slug?.current;
-  console.log('slugTag', slugTag);
-  const title = mathedTag?.title;
-  const description = mathedTag?.description || 'hitta din favvotag';
+  const tags = getAllTags();
+  const matchedTag = tags.find((tag) => tag.slug === slug);
+  const title = matchedTag?.name;
+  const description = 'hitta din favvotag';
 
   return (
     <>

@@ -1,20 +1,22 @@
 import Link from 'next/link';
-import {
-  POSTS_BY_TAG_QUERYResult,
-  ALL_TAGS_QUERYResult,
-} from '../../sanity.types';
 
-const Tags = async ({ tags }: { tags: ALL_TAGS_QUERYResult }) => {
+type Tag = {
+  name: string;
+  slug: string;
+  count: number;
+};
+
+const Tags = async ({ tags }: { tags: Tag[] }) => {
   return (
     <ul className="mt-6 space-y-4">
       {tags.map((tag) => {
-        const { title, _id: id, slug, postCount } = tag || {};
+        const { name, slug, count } = tag;
 
         return (
-          <li key={id} className="rounded border border-primary">
-            <Link href={`/tag/${slug?.current}`}>
+          <li key={slug} className="rounded border border-primary">
+            <Link href={`/tag/${slug}`}>
               <p className="text-red p-2">
-                #{title} ( {postCount} inlägg )
+                #{name} ( {count} inlägg )
               </p>
             </Link>
           </li>
