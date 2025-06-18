@@ -10,7 +10,7 @@ import NavigationButton from './NavigationButton';
 import RainbowLinkButton from './RainbowButton/RainbowLinkButton';
 
 interface FeatureSectionProps {
-  title: ReactElement;
+  title: ReactElement<any>;
   description: string;
   imageSrc: StaticImageData;
   reverse?: boolean;

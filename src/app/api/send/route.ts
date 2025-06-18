@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         message,
         marketingSource,
         otherSource,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
     });
 
     const emailToUser = resend.emails.send({
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
         name,
         email,
         message,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
     });
 
     // Använd Promise.allSettled för att vänta på att båda e-postmeddelandena skickas

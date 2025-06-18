@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 // MDX types
 declare module '*.mdx' {
   let MDXComponent: (props: any) => JSX.Element;
