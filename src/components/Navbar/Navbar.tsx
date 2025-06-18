@@ -1,6 +1,5 @@
 import Logo from './Logo';
 import DarkMode from './DarkMode';
-import MobileMenuToggle from './MobileMenuToggle';
 import DesktopNavbar from './DesktopNavbar';
 import { links } from '@/utils/links';
 
@@ -13,7 +12,6 @@ const Navbar = () => {
       <DesktopNavbar links={links} />
 
       <div className="flex items-center gap-4">
-        <MobileMenuToggle links={links} />
         <DarkMode />
       </div>
     </header>

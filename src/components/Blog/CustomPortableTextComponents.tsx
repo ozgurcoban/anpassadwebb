@@ -1,4 +1,4 @@
-import { DynamicMotion } from '../ui/DynamicMotion';
+import { FadeInView } from '../ui/FadeInView';
 import SanityImage from '../SanityImage';
 
 const customPortableTextComponents = {
@@ -7,12 +7,12 @@ const customPortableTextComponents = {
     image: ({ value }: { value: any }) => {
       const { alt } = value;
       return (
-        <DynamicMotion type="figure" delay={0.5}>
+        <FadeInView as="figure" delay={0.5}>
           <SanityImage src={value} className="mb-0.5 rounded-lg" />
           <figcaption className="mt-4 text-sm">
             {alt ? alt.charAt(0).toUpperCase() + alt.slice(1) : undefined}
           </figcaption>
-        </DynamicMotion>
+        </FadeInView>
       );
     },
     // Bold text component
