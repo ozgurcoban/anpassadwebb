@@ -87,14 +87,14 @@
 
 @layer base {
   :root {
-    --background: 160, 40%, 96%; /* Example base background */
+    --background: 240, 20%, 98%; /* Very light neutral with subtle blue undertone */
 
     --foreground: 20 14.3% 10%; /* Lite ljusare för att undvika för skarp kontrast */
 
-    --card: 0 0% 98%; /* Lättare nyansändring för att skapa en subtil skillnad */
+    --card: 240 15% 99%; /* Slightly lighter than background for subtle depth */
     --card-foreground: 20 14.3% 10%; /* Matchar den nya förgrunden */
 
-    --popover: 0 0% 98%; /* Liknande förändring som card för enhetlighet */
+    --popover: 240 15% 99%; /* Match card background for consistency */
     --popover-foreground: 20 14.3% 10%;
 
     /* --primary: 210 35% 55%;  */
@@ -111,20 +111,20 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
 
     --primary-foreground: 60 9.1% 98%; /* Håll förgrund ljus för bra läsbarhet */
 
-    --secondary: 40 40% 96%; /* Lättare sekundärfärg för bättre balans */
+    --secondary: 240 10% 96%; /* Neutral secondary that harmonizes with new background */
     --secondary-foreground: 24 9.8% 12%; /* Lite mörkare för att stå ut mot sekundärfärgen */
 
-    --muted: 30 24% 80%; /* Något ljusare muted för bättre bakgrundskontrast */
+    --muted: 240 12% 92%; /* Subtle muted tone that complements the color scheme */
     --muted-foreground: 25 5.3% 44.7%; /* Behåll detta, det har en bra kontrast */
 
-    --accent: 60 4.8% 92%; /* Justerad för bättre kontrast */
+    --accent: 270 20% 94%; /* Subtle purple accent that echoes the logo gradient */
     --accent-foreground: 24 9.8% 12%; /* Lite mörkare, matchar nya sekundärföreground */
 
     --destructive: 0 84.2% 58%; /* Lättare för att matcha primärfärgen */
     --destructive-foreground: 60 9.1% 98%;
 
-    --border: 20 5.9% 86%; /* Mörkare kantlinje för bättre synlighet */
-    --input: 20 5.9% 86%; /* Matchar border för konsekvens */
+    --border: 240 9% 91%; /* Neutral border that works with new color scheme */
+    --input: 240 9% 91%; /* Match border for consistency */
 
     --ring: 20 14.3% 10%; /* Mörkare ring för bättre kontrast mot bakgrund */
 

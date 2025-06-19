@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="group relative flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 transition-all duration-300 hover:scale-105"
+      className="group relative flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm border border-slate-200/50 dark:from-slate-900 dark:to-slate-800 dark:border-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-md"
     >
       {/* Subtle gradient accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -61,8 +61,6 @@ const Logo = () => {
         />
       </svg>
       
-      {/* Bottom accent line */}
-      <div className="absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
     </Link>
   );
 };

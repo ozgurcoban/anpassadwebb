@@ -1,7 +1,7 @@
 import { Open_Sans, Poppins } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
-import Navbar from '@/components/Navbar/Navbar';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
 const open_sans = Open_Sans({
@@ -23,10 +23,10 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${open_sans.variable} ${poppins.variable} flex min-h-svh flex-col overflow-y-scroll`}
+        className={`${open_sans.variable} ${poppins.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
       >
         <Providers>
-          <Navbar />
+          <Header />
           <main className="container mt-4 flex-grow md:mt-8">{children}</main>
           <Footer />
           <Modal />

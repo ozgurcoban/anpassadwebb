@@ -1,4 +1,4 @@
-import { PostsGridSkeleton } from "@/components/Blog/BlogLoading";
+import { PostsGridSkeleton } from "@/components/Blog";
 
 export default function Loading() {
   return (

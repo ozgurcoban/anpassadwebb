@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getPostSlugs } from '@/lib/mdx';
-import BlogPost from '@/components/Blog/BlogPost';
+import { BlogPost } from '@/components/Blog';
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();

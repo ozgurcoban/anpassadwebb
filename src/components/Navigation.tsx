@@ -10,14 +10,15 @@ import { cn } from '@/lib/utils';
 const navStyles = {
   container: cn(
     'relative hidden rounded-full pr-[2px] md:flex',
-    'bg-gradient-to-r from-slate-50/80 via-slate-100/80 to-slate-50/80',
-    'dark:from-slate-900/80 dark:via-slate-800/80 dark:to-slate-900/80',
+    'bg-gradient-to-r from-slate-50/95 via-white/90 to-slate-50/95',
+    'dark:from-slate-900/90 dark:via-slate-800/95 dark:to-slate-900/90',
     'backdrop-blur-xl backdrop-saturate-150',
-    'border border-slate-200/50 dark:border-slate-700/50',
-    'shadow-lg shadow-slate-900/5 dark:shadow-slate-100/5',
+    'border border-slate-300/60 dark:border-slate-700/50',
+    'shadow-lg shadow-slate-900/10 dark:shadow-slate-100/5',
+    'ring-1 ring-slate-900/5 dark:ring-slate-100/5',
     '[clip-path:inset(0_round_9999px)]',
     'transition-all duration-300',
-    'hover:shadow-xl hover:shadow-slate-900/10 dark:hover:shadow-slate-100/10',
+    'hover:shadow-xl hover:shadow-slate-900/15 dark:hover:shadow-slate-100/10',
   ),
   bubble: 'pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-90 will-change-transform',
   bubbleTransition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
@@ -125,11 +126,11 @@ function NavLink({ href, label, isActive }: NavLinkProps) {
   );
 }
 
-type DesktopNavbarProps = {
+type NavigationProps = {
   links: NavLinks[];
 };
 
-export default function DesktopNavbar({ links }: DesktopNavbarProps) {
+export default function Navigation({ links }: NavigationProps) {
   const navRef = useRef<HTMLElement>(null);
   const bubbleRef = useBubbleAnimation(links, navRef);
   const pathname = usePathname();
