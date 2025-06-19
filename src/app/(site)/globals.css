@@ -41,6 +41,48 @@
       background-position: 0% 50%;
     }
   }
+
+  .logo-gradient-animated {
+    background: linear-gradient(
+      90deg,
+      #f2b8b4 0%,
+      #fc8a52 20%,
+      #f3de66 40%,
+      #3dbb98 60%,
+      #3dcfd1 80%,
+      #7fc5de 100%
+    );
+    background-size: 200% 100%;
+    animation: gradientAnimation 8s ease infinite;
+  }
+
+  .logo-gradient-modern {
+    background: linear-gradient(
+      135deg,
+      #f472b6 0%,
+      #ec4899 10%,
+      #facc15 30%,
+      #fbbf24 40%,
+      #14b8a6 60%,
+      #06b6d4 70%,
+      #818cf8 90%,
+      #a78bfa 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientFlow 6s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 }
 
 @layer base {
