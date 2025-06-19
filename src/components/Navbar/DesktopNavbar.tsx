@@ -48,14 +48,19 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({ links }) => {
     <nav
       ref={navbarRef}
       className="relative hidden rounded-full bg-muted/60 backdrop-blur-md md:flex"
+      style={{
+        clipPath: 'inset(0 round 9999px)',
+        WebkitClipPath: 'inset(0 round 9999px)',
+      }}
     >
       <ul className="flex py-2">
         {/* Animated Bubble - Ultra Optimized */}
         <span
           ref={bubbleRef}
-          className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 rounded-full bg-accent mix-blend-difference will-change-transform"
+          className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 rounded-full bg-accent will-change-transform"
           style={{
             transition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
+            mixBlendMode: 'difference',
           }}
         />
         
