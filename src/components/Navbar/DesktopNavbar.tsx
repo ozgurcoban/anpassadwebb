@@ -48,51 +48,68 @@ type DesktopNavbarProps = {
 export default function DesktopNavbar({ links }: DesktopNavbarProps) {
   const navRef = useRef<HTMLElement>(null);
   const bubbleRef = useBubbleAnimation(links, navRef);
+  const pathname = usePathname();
 
   return (
     <nav
       ref={navRef}
       className={cn(
-        "relative hidden md:flex",
-        "rounded-full bg-muted/60 backdrop-blur-md",
-        "[clip-path:inset(0_round_9999px)]"
+        "relative hidden md:flex rounded-full",
+        "bg-gradient-to-r from-slate-50/80 via-slate-100/80 to-slate-50/80",
+        "dark:from-slate-900/80 dark:via-slate-800/80 dark:to-slate-900/80",
+        "backdrop-blur-xl backdrop-saturate-150",
+        "border border-slate-200/50 dark:border-slate-700/50",
+        "shadow-lg shadow-slate-900/5 dark:shadow-slate-100/5",
+        "[clip-path:inset(0_round_9999px)]",
+        "transition-all duration-300",
+        "hover:shadow-xl hover:shadow-slate-900/10 dark:hover:shadow-slate-100/10"
       )}
     >
-      <ul className="flex py-2">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 transition-opacity duration-500 hover:opacity-100" />
+      
+      {/* Glass effect */}
+      <div className="absolute inset-0 rounded-full bg-white/5 dark:bg-white/10" />
+      
+      <ul className="relative flex">
         {/* Animated Bubble */}
         <span
           ref={bubbleRef}
-          className={cn(
-            "pointer-events-none absolute inset-y-0 left-0 z-10",
-            "rounded-full bg-accent",
-            "will-change-transform",
-            "mix-blend-difference"
-          )}
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-90 will-change-transform"
           style={{
             transition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)'
           }}
         />
         
         {/* Navigation Links */}
-        {links.map(({ label, href }) => (
-          <li key={href} className="px-4 py-1">
-            <Link
-              href={href}
-              className={cn(
-                "relative z-20 block",
-                "rounded-full px-3 py-1.5",
-                "text-sm font-medium uppercase",
-                "text-secondary-foreground",
-                "transition-colors hover:text-foreground",
-                "outline-sky-400 focus-visible:outline-2",
-                "select-none touch-none"
-              )}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
+        {links.map(({ label, href }) => {
+          const isActive = href === '/' ? pathname === href : pathname.startsWith(href);
+          
+          return (
+            <li key={href} className="flex items-stretch">
+              <Link
+                href={href}
+                className={cn(
+                  "relative z-20 flex items-center px-6 py-4",
+                  "text-sm font-medium uppercase tracking-wide",
+                  "transition-all duration-300 outline-none",
+                  isActive 
+                    ? "text-white" 
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+                )}
+              >
+                <span className="relative z-10">{label}</span>
+                {!isActive && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-300 hover:opacity-100" />
+                )}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
+      
+      {/* Bottom accent line */}
+      <div className="absolute -bottom-px left-4 right-4 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
     </nav>
   );
 }
