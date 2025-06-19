@@ -33,7 +33,7 @@ const Logo = () => {
           
           {/* Subtle shadow */}
           <filter id="subtleShadow">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.1"/>
           </filter>
         </defs>
         
