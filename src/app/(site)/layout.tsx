@@ -4,7 +4,6 @@ import Providers from '@/providers';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 const open_sans = Open_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -32,7 +31,6 @@ export default async function RootLayout({
           <Footer />
           <Modal />
         </Providers>
-        <SpeedInsights />
       </body>
     </html>
   );
