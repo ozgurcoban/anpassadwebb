@@ -1,4 +1,4 @@
-import { Open_Sans, Montserrat } from 'next/font/google';
+import { Open_Sans, Montserrat, Quicksand } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
 import Header from '@/components/Header';
@@ -16,6 +16,12 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   weight: ['300'],
 });
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-quicksand',
+  weight: ['400', '500', '600', '700'],
+});
 
 export default async function RootLayout({
   children,
@@ -23,7 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${open_sans.variable} ${montserrat.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
+        className={`${open_sans.variable} ${montserrat.variable} ${quicksand.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
       >
         <Providers>
           <Header />

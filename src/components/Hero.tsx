@@ -23,39 +23,18 @@ const Hero = () => {
       {/* Content */}
       <div className="z-1 relative flex items-center px-6">
         <div className="grid gap-y-8 md:gap-y-10 text-white max-w-4xl p-8 md:p-12">
-          {/* SVG Text with Gradient */}
           <div className="space-y-6">
-            <svg
-              viewBox="0 0 1400 180"
-              className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl h-auto"
-              preserveAspectRatio="xMinYMid meet"
-            >
-              <defs>
-                <linearGradient id="heroTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#93c5fd" />
-                  <stop offset="50%" stopColor="#d8b4fe" />
-                  <stop offset="100%" stopColor="#f9a8d4" />
-                </linearGradient>
-                <filter id="heroTextShadow">
-                  <feDropShadow dx="0" dy="4" stdDeviation="12" floodOpacity="0.7"/>
-                  <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.9"/>
-                </filter>
-              </defs>
-              <text
-                x="10"
-                y="140"
-                fill="url(#heroTextGradient)"
-                filter="url(#heroTextShadow)"
-                className="font-heading"
-                style={{ fontSize: '140px', fontWeight: '300', letterSpacing: '-2px' }}
-              >
-                Anpassad Webb
-              </text>
-            </svg>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-quicksand font-semibold 
+              bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              style={{ 
+                filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 30px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(147,51,234,0.3))' 
+              }}>
+              Anpassad Webb
+            </h1>
             
             <Text
               as="p"
-              className="max-w-2xl text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-white"
+              className="max-w-2xl text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-white/90"
               style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6), 0 4px 4px rgba(0,0,0,0.9)' }}
             >
               Vi skapar skräddarsydda och SEO-vänliga hemsidor för småföretag, med
@@ -65,11 +44,16 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <ContactButton className="w-full text-primary md:w-fit" />
-            <button className="text-white/90 hover:text-white font-normal text-lg flex items-center gap-2 transition-all duration-200 px-5 py-2.5 rounded-md hover:bg-white/10"
-              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6)' }}
+            <button className="relative font-medium text-lg flex items-center gap-2 transition-all duration-300 px-6 py-3 rounded-md
+              text-white hover:text-white
+              before:absolute before:inset-0 before:rounded-md before:p-[1px] 
+              before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 
+              before:-z-10 before:opacity-70 hover:before:opacity-100
+              bg-black/30 hover:bg-black/40 backdrop-blur-sm"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
             >
               Se vårt arbete
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
