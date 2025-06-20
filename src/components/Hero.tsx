@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import heroImage from '@/assets/hero-background.png';
+import heroImage from '../../public/images/hero.webp';
 import { ContactButton } from './ContactButton';
-import { CheckCheckIcon } from 'lucide-react';
 import Text from './ui/Text';
 
 const Hero = () => {
   return (
-    <section className="relative grid min-h-[50vh] px-6 py-10 md:py-14">
+    <section className="relative mx-auto max-w-screen-2xl px-4 lg:px-8">
+      <div className="relative grid min-h-[80vh] pt-20 pb-16 md:pt-24 md:pb-20 lg:rounded-2xl overflow-hidden">
       {/* Background image */}
       <Image
         src={heroImage}
@@ -14,45 +14,68 @@ const Hero = () => {
         fill
         priority
         placeholder="blur"
-        className="-scale-x-100 transform sm:rounded-md"
+        className="object-cover object-center"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent opacity-80 dark:via-black/85 dark:to-black/30 dark:opacity-95 sm:rounded-md" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
 
       {/* Content */}
-      <div className="z-1 relative grid justify-items-center md:grid-cols-2">
-        <div className="grid grid-rows-[auto_auto_auto_auto] gap-y-5 text-white">
-          <Text
-            as="h1"
-            className="text-5xl font-bold leading-tight md:text-6xl md:leading-relaxed lg:text-7xl lg:leading-loose"
-          >
-            Skapad för småföretag. Anpassad för tillväxt.
-          </Text>
-          <Text
-            as="p"
-            className="max-w-md text-balance text-base font-normal tracking-wide md:mt-6 md:text-lg"
-          >
-            Vi skapar skräddarsydda och SEO-vänliga hemsidor för småföretag, med
-            fokus på att stärka din online-närvaro och nå fler kunder.
-          </Text>
-          <div className="mt-5 md:mt-10">
-            <ContactButton className="w-full text-primary md:w-fit" />
+      <div className="z-1 relative flex items-center px-6">
+        <div className="grid gap-y-8 md:gap-y-10 text-white max-w-4xl p-8 md:p-12">
+          {/* SVG Text with Gradient */}
+          <div className="space-y-6">
+            <svg
+              viewBox="0 0 1400 180"
+              className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl h-auto"
+              preserveAspectRatio="xMinYMid meet"
+            >
+              <defs>
+                <linearGradient id="heroTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#93c5fd" />
+                  <stop offset="50%" stopColor="#d8b4fe" />
+                  <stop offset="100%" stopColor="#f9a8d4" />
+                </linearGradient>
+                <filter id="heroTextShadow">
+                  <feDropShadow dx="0" dy="4" stdDeviation="12" floodOpacity="0.7"/>
+                  <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.9"/>
+                </filter>
+              </defs>
+              <text
+                x="10"
+                y="140"
+                fill="url(#heroTextGradient)"
+                filter="url(#heroTextShadow)"
+                className="font-heading"
+                style={{ fontSize: '140px', fontWeight: '300', letterSpacing: '-2px' }}
+              >
+                Anpassad Webb
+              </text>
+            </svg>
+            
+            <Text
+              as="p"
+              className="max-w-2xl text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-white"
+              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6), 0 4px 4px rgba(0,0,0,0.9)' }}
+            >
+              Vi skapar skräddarsydda och SEO-vänliga hemsidor för småföretag, med
+              fokus på att stärka din online-närvaro och nå fler kunder.
+            </Text>
           </div>
-          <ul className="mt-4 flex max-w-md cursor-default justify-around gap-x-4 text-sm md:mt-20 md:justify-between">
-            <li className="flex items-center gap-2">
-              <CheckCheckIcon className="size-6" aria-hidden="true" />
-              Benefit 1
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCheckIcon className="size-6" aria-hidden="true" />
-              Baserad i Uppsala
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCheckIcon className="size-6" aria-hidden="true" />
-              Benefit 3
-            </li>
-          </ul>
+          
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <ContactButton className="w-full text-primary md:w-fit" />
+            <button className="text-white/90 hover:text-white font-normal text-lg flex items-center gap-2 transition-all duration-200 px-5 py-2.5 rounded-md hover:bg-white/10"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6)' }}
+            >
+              Se vårt arbete
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -1,7 +1,10 @@
 import { getFeaturedPosts } from '@/lib/mdx';
 import { Posts } from './Posts';
 import Section from './ui/Section';
+import SectionContainer from './ui/SectionContainer';
 import Text from './ui/Text';
+
+export const revalidate = 60;
 
 const FeaturedPosts = async () => {
   const posts = getFeaturedPosts(3);
@@ -11,11 +14,18 @@ const FeaturedPosts = async () => {
   }
   
   return (
-    <Section>
-      <Text as="h3" size="xl" className="mb-6">
-        Featured posts
-      </Text>
-      <Posts posts={posts} />
+    <Section variant="wide">
+      <SectionContainer>
+        <header className="mb-12 text-center">
+          <Text as="h2" size="xl" className="mb-4">
+            Senaste från bloggen
+          </Text>
+          <Text className="text-gray-600 dark:text-gray-400">
+            Tips och insikter för att växa online
+          </Text>
+        </header>
+        <Posts posts={posts} />
+      </SectionContainer>
     </Section>
   );
 };

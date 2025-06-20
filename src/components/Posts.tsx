@@ -13,89 +13,85 @@ import { capitalizeFirstLetter } from '@/utils/stringUtils';
 import { Badge } from '@/components/ui/badge';
 import { blogConfig } from '@/lib/blog-config';
 
-export const revalidate = 60;
-
 type PostsProps = {
   posts: Post[];
   locale?: string;
 };
 
-export async function Posts({ posts, locale = blogConfig.defaultLocale }: PostsProps) {
+export async function Posts({
+  posts,
+  locale = blogConfig.defaultLocale,
+}: PostsProps) {
   return (
-    <div className="grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-8 [grid-template-rows:auto_1fr_auto_auto] md:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => {
         const {
           slug,
-          frontmatter: {
-            title,
-            description,
-            date,
-            tags,
-            image,
-            imageAlt
-          },
-          readingTime
+          frontmatter: { title, description, date, tags, image, imageAlt },
+          readingTime,
         } = post;
 
         return (
           <article
             key={slug}
-            className="max-w-sm shadow-md transition-transform duration-300 ease-in-out hover:scale-[1.025] hover:shadow-lg"
+            className="group grid overflow-hidden rounded-xl bg-white shadow-sm transition-all [grid-row:span_4] [grid-template-rows:subgrid] hover:shadow-md dark:bg-gray-800"
           >
-            <div
-              className="mx-auto grid auto-rows-[16rem_auto_auto_auto] text-balance border-none text-card hover:bg-secondary sm:min-h-[34rem] sm:max-w-full"
+            {/* Image - Row 1 */}
+            <Link
+              href={`/posts/${slug}`}
+              className="relative h-48 w-full overflow-hidden"
             >
-              {/* Content */}
-              <Card className="relative row-span-4 grid w-full grid-rows-subgrid gap-4 overflow-hidden rounded shadow-custom">
-                <Link
-                  href={`/posts/${slug}`}
-                  className="contents cursor-pointer"
-                >
-                  <CardHeader className="relative h-64 space-y-0 overflow-hidden p-0 font-medium uppercase">
-                    {image && (
-                      <div className="relative h-full w-full">
-                        <Image
-                          src={image}
-                          alt={imageAlt || title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
+              {image ? (
+                <>
+                  <Image
+                    src={image}
+                    alt={imageAlt || title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 via-purple-300/20 to-pink-300/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </>
+              ) : (
+                <div className="h-full w-full bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700" />
+              )}
+            </Link>
 
-                    {/* Overlay */}
-                    <div className="absolute left-0 top-0 mt-0 h-1/4 w-full bg-gradient-to-b from-black to-transparent" />
-                    <p className="absolute right-6 top-3 rounded text-xs font-medium text-white">
-                      {formatDateWithFallback(date, locale)}
-                    </p>
-                  </CardHeader>
-                  <CardTitle className="px-[1.5rem] font-heading text-xl">
-                    {title && capitalizeFirstLetter(title)}
-                  </CardTitle>
-                  <CardContent>
-                    <p className="text-muted-foreground">{description}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {readingTime.text}
-                    </p>
-                  </CardContent>
-                </Link>
-                <CardFooter className="mt-auto flex flex-wrap gap-2 text-sm">
-                  {tags &&
-                    tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        <Badge
-                          variant="outline"
-                          className="rounded-full border px-3 py-1 text-sm transition duration-300 ease-in-out hover:border-secondary hover:bg-secondary hover:text-primary"
-                        >
-                          {tag}
-                        </Badge>
-                      </Link>
-                    ))}
-                </CardFooter>
-              </Card>
+            {/* Content - Row 2 */}
+            <div className="flex flex-col p-6">
+              <Link href={`/posts/${slug}`} className="flex-grow">
+                <h3 className="mb-2 font-heading text-xl font-semibold transition-colors group-hover:text-primary">
+                  {title && capitalizeFirstLetter(title)}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {description}
+                </p>
+              </Link>
+            </div>
+
+            {/* Meta - Row 3 */}
+            <div className="flex items-center gap-2 px-6 pb-4 text-sm text-gray-500 dark:text-gray-500">
+              <span>{formatDateWithFallback(date, locale)}</span>
+              <span>•</span>
+              <span>{readingTime.text}</span>
+            </div>
+
+            {/* Tags - Row 4 */}
+            <div className="border-t border-gray-100 px-6 py-4 dark:border-gray-700">
+              {tags && tags.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 px-3 py-1 text-xs font-medium text-gray-700 transition-all hover:from-blue-100 hover:via-purple-100 hover:to-pink-100 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 dark:text-gray-300"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="h-6" />
+              )}
             </div>
           </article>
         );

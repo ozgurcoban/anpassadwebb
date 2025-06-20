@@ -1,4 +1,4 @@
-import { Open_Sans, Poppins } from 'next/font/google';
+import { Open_Sans, Montserrat } from 'next/font/google';
 import './globals.css';
 import Providers from '@/providers';
 import Header from '@/components/Header';
@@ -10,11 +10,11 @@ const open_sans = Open_Sans({
   variable: '--font-open-sans',
   weight: ['300', '400', '600', '700', '800'],
 });
-const poppins = Poppins({
+const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-montserrat',
+  weight: ['300'],
 });
 
 export default async function RootLayout({
@@ -23,11 +23,11 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${open_sans.variable} ${poppins.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
+        className={`${open_sans.variable} ${montserrat.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
       >
         <Providers>
           <Header />
-          <main className="container mt-4 flex-grow md:mt-8">{children}</main>
+          <main className="mt-4 flex-grow md:mt-8">{children}</main>
           <Footer />
           <Modal />
         </Providers>
