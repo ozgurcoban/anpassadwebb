@@ -8,6 +8,8 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       },
     ],
+    // Allow Next.js to optimize images from the public folder
+    unoptimized: false,
   },
   transpilePackages: ['next-mdx-remote'],
   experimental: {

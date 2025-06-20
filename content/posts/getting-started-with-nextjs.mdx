@@ -2,12 +2,11 @@
 title: Getting Started with Next.js 14
 description: Learn how to build modern web applications with Next.js 14 and its powerful features
 date: 2024-01-15
-tags: ["Next.js", "React", "Web Development"]
-categories: ["Tutorial"]
+tags: ['Next.js', 'React', 'Web Development']
+categories: ['Tutorial']
 author: Digital Studio Team
 featured: true
-image: /images/nextjs-tutorial.jpg
-imageAlt: Next.js logo with code snippets
+image: /images/blog/next-hero.png
 ---
 
 # Getting Started with Next.js 14
@@ -58,18 +57,14 @@ By default, all components in the app directory are Server Components. This mean
 When you need interactivity, use the `"use client"` directive:
 
 ```jsx
-"use client"
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function Counter() {
-  const [count, setCount] = useState(0)
-  
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Count: {count}
-    </button>
-  )
+  const [count, setCount] = useState(0);
+
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
 }
 ```
 
