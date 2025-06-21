@@ -9,6 +9,15 @@ import H3 from '@/components/ui/H3';
 import Text from '@/components/ui/Text';
 import { IconExternalLink } from '@tabler/icons-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import { 
+  Languages, 
+  CalendarDays, 
+  Clock, 
+  UtensilsCrossed, 
+  MessageCircle, 
+  Image as ImageIcon,
+  LucideIcon 
+} from 'lucide-react';
 
 interface ProjectDetailsProps {
   caseStudy: DetailedCaseStudy;
@@ -31,6 +40,8 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     link,
     story,
     testimonial,
+    aboutSection,
+    processSection,
   } = caseStudy;
 
   return (
@@ -85,53 +96,90 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </Text>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2">
-            {/* Before */}
-            <div className="space-y-4">
-              <div className="rounded-2xl bg-muted/50 p-8">
-                <Text className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-                  {section.beforeTitle}
-                </Text>
-                <Text className="mt-4 text-lg">
-                  {section.beforeDescription}
-                </Text>
+          {/* Features List or Before/After Grid */}
+          {section.features ? (
+            <div className="mx-auto max-w-3xl">
+              <div className="grid gap-4 md:grid-cols-2">
+                {section.features.map((feature, idx) => {
+                  const iconMap: Record<string, LucideIcon> = {
+                    Languages,
+                    CalendarDays,
+                    Clock,
+                    UtensilsCrossed,
+                    MessageCircle,
+                    Image: ImageIcon,
+                  };
+                  const Icon = feature.icon ? iconMap[feature.icon] : null;
+                  
+                  return (
+                    <div key={idx} className="rounded-xl bg-secondary/50 p-6 flex gap-4">
+                      {Icon && (
+                        <div className="flex-shrink-0">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <Text className="font-semibold text-lg mb-2">
+                          {feature.title}
+                        </Text>
+                        <Text className="text-muted-foreground">
+                          {feature.description}
+                        </Text>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              {section.beforeImage && (
-                <div className="relative aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src={section.beforeImage}
-                    alt={`${section.title} - före`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              )}
             </div>
+          ) : (
+            <div className="grid gap-12 lg:grid-cols-2">
+              {/* Before */}
+              <div className="space-y-4">
+                <div className="rounded-2xl bg-muted/50 p-8">
+                  <Text className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                    {section.beforeTitle}
+                  </Text>
+                  <Text className="mt-4 text-lg">
+                    {section.beforeDescription}
+                  </Text>
+                </div>
+                {section.beforeImage && (
+                  <div className="relative aspect-video overflow-hidden rounded-lg">
+                    <Image
+                      src={section.beforeImage}
+                      alt={`${section.title} - före`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+              </div>
 
-            {/* After */}
-            <div className="space-y-4">
-              <div className="rounded-2xl bg-primary/5 p-8">
-                <Text className="text-sm font-medium uppercase tracking-wider text-primary">
-                  {section.afterTitle}
-                </Text>
-                <Text className="mt-4 text-lg">
-                  {section.afterDescription}
-                </Text>
-              </div>
-              {section.afterImage && (
-                <div className="relative aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src={section.afterImage}
-                    alt={`${section.title} - efter`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+              {/* After */}
+              <div className="space-y-4">
+                <div className="rounded-2xl bg-primary/5 p-8">
+                  <Text className="text-sm font-medium uppercase tracking-wider text-primary">
+                    {section.afterTitle}
+                  </Text>
+                  <Text className="mt-4 text-lg">
+                    {section.afterDescription}
+                  </Text>
                 </div>
-              )}
+                {section.afterImage && (
+                  <div className="relative aspect-video overflow-hidden rounded-lg">
+                    <Image
+                      src={section.afterImage}
+                      alt={`${section.title} - efter`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Value Highlight */}
           <div className="text-center">
@@ -172,6 +220,39 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             </blockquote>
           </CardContent>
         </Card>
+      )}
+
+      {/* About Section */}
+      {aboutSection && (
+        <section className="mx-auto max-w-3xl text-center">
+          <H3 className="mb-8 text-4xl font-semibold">{aboutSection.title}</H3>
+          <Text className="text-lg leading-relaxed text-muted-foreground">
+            {aboutSection.content}
+          </Text>
+        </section>
+      )}
+
+      {/* Process Section */}
+      {processSection && (
+        <section className="mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <H3 className="mb-4 text-4xl font-semibold">{processSection.subtitle}</H3>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {processSection.steps.map((step, index) => (
+              <div key={index} className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-semibold">
+                    {index + 1}
+                  </div>
+                </div>
+                <Text className="text-lg text-muted-foreground pt-2">
+                  {step}
+                </Text>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* CTA */}

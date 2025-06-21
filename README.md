@@ -224,6 +224,36 @@ When the slider is focused, users can navigate with:
 - **Home**: Jump to start (0%)
 - **End**: Jump to end (100%)
 
+### Favicon
+
+The project includes a custom favicon based on the logo component with a gradient design.
+
+#### Favicon Files
+
+- `public/favicon.svg` - SVG favicon for modern browsers
+- `public/favicon.ico` - Legacy favicon
+- `public/favicon-16x16.png` - 16x16 PNG favicon
+- `public/favicon-32x32.png` - 32x32 PNG favicon  
+- `public/apple-touch-icon.png` - 180x180 Apple touch icon
+
+#### Favicon Generator
+
+To generate new favicon PNG files from the logo, use the FaviconGenerator component:
+
+1. Temporarily add the component to a page:
+```tsx
+import FaviconGenerator from '@/components/FaviconGenerator';
+
+// In your page component
+<FaviconGenerator />
+```
+
+2. Visit the page and use the download buttons to get PNG files in different sizes
+3. Place the downloaded files in the `public/` directory
+4. For `.ico` file, use an online converter with the 16x16 and 32x32 PNG files
+
+The favicon metadata is already configured in `src/app/(site)/layout.tsx`.
+
 ## Available Scripts
 
 - `npm run dev` - Start development server
