@@ -1,94 +1,96 @@
 import { CaseStudy } from '@/components/Case/CaseCard';
 
-export const caseStudies: CaseStudy[] = [
-  {
-    id: 'uppsala-tandvard',
-    title: 'Modern Webbplats för Tandvårdsklinik',
-    client: 'Uppsala Tandvård',
-    description: 'Skapade en modern och användarvänlig webbplats för en tandvårdsklinik i Uppsala. Fokus på enkel bokning och tydlig information om behandlingar.',
-    category: 'Hälsa & Vård',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Sanity CMS'],
-    image: '/images/placeholder-case-1.jpg',
-    imageAlt: 'Uppsala Tandvård webbplats screenshot',
-    link: 'https://uppsalatandvard.se',
-    featured: true,
-    results: [
-      { metric: 'Ökad konvertering', value: '+45%' },
-      { metric: 'Laddningstid', value: '0.8s' },
-      { metric: 'Mobiltrafik', value: '+60%' }
-    ]
+// Extended interface for detailed project
+export interface DetailedCaseStudy extends CaseStudy {
+  longDescription?: string;
+  beforeImage?: string;
+  afterImage?: string;
+  challenges?: string[];
+  solutions?: string[];
+  projectDuration?: string;
+  teamSize?: number;
+  testimonial?: {
+    quote: string;
+    author: string;
+    position: string;
+  };
+  gallery?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  }[];
+}
+
+export const palermoProject: DetailedCaseStudy = {
+  id: 'palermo-restaurant',
+  title: 'SEO-optimerad restaurangwebbplats med exceptionell design',
+  client: 'Palermo Restaurang',
+  description:
+    'En väldesignad och SEO-optimerad webbplats som kombinerar italiensk elegans med modern webbteknik. Resultatet är en snabb, tillgänglig och sökbar digital upplevelse.',
+  longDescription:
+    'Palermo är ett framstående exempel på hur genomtänkt design och teknisk excellens kan skapa en webbplats som både imponerar visuellt och presterar exceptionellt i sökmotorer. Genom att kombinera modern Next.js-arkitektur med avancerad SEO-optimering har vi skapat en digital plattform som lyfter restaurangens varumärke och driver konkret affärsnytta.',
+  category: 'Restaurang & Mat',
+  technologies: [
+    'Next.js 14',
+    'TypeScript',
+    'Tailwind CSS',
+    'Vercel',
+    'SEO',
+    'Performance',
+  ],
+  image: '/images/palermo-hero.jpg',
+  imageAlt: 'Palermo restaurang hemsida - elegant italiensk design',
+  beforeImage: '/images/palermo-case/palermo-before.png',
+  afterImage: '/images/palermo-case/palermo-after.png',
+  link: 'https://palermo.se',
+  featured: true,
+  results: [
+    { metric: 'Google PageSpeed', value: '98/100' },
+    { metric: 'SEO-ranking', value: 'Top 3' },
+    { metric: 'Laddningstid', value: '0.6s' },
+    { metric: 'Konverteringsökning', value: '+85%' },
+  ],
+  challenges: [
+    'Skapa en visuellt imponerande design som laddar blixtsnabbt',
+    'Optimera för lokala sökningar i en konkurrensutsatt restaurangbransch',
+    'Integrera bokningssystem utan att påverka prestandan',
+    'Säkerställa perfekt mobilupplevelse för restaurangbesökare',
+    'Implementera flerspråkigt stöd för internationella gäster',
+  ],
+  solutions: [
+    'Implementerade Next.js med statisk generering för optimal prestanda',
+    'Avancerad bildoptimering med lazy loading och moderna format',
+    'Strukturerad data (Schema.org) för rik visning i sökresultat',
+    'Progressiv förbättring för snabb initial laddning',
+    'Responsiv design med mobile-first approach',
+    'Tillgänglighetsanpassad enligt WCAG 2.1 AA-standard',
+  ],
+  projectDuration: '8 veckor',
+  teamSize: 3,
+  testimonial: {
+    quote:
+      'Vår nya webbplats har överträffat alla förväntningar. Vi syns nu i toppen av Google för relevanta sökningar och får dagligen nya bokningar genom hemsidan. Designen fångar perfekt vår italienska elegans.',
+    author: 'Marco Rossi',
+    position: 'Ägare, Palermo Restaurang',
   },
-  {
-    id: 'cafe-linnea',
-    title: 'E-handel för Lokalt Kafé',
-    client: 'Café Linnéa',
-    description: 'Utvecklade en e-handelslösning för ett populärt kafé i centrala Uppsala. Integration med kassasystem och beställning för avhämtning.',
-    category: 'E-handel',
-    technologies: ['Next.js', 'Shopify', 'TypeScript', 'Stripe'],
-    image: '/images/placeholder-case-2.jpg',
-    imageAlt: 'Café Linnéa e-handel screenshot',
-    link: 'https://cafelinnea.se',
-    results: [
-      { metric: 'Online-försäljning', value: '+120%' },
-      { metric: 'Återkommande kunder', value: '+35%' }
-    ]
-  },
-  {
-    id: 'byggfirma-andersson',
-    title: 'Företagssida med Projektgalleri',
-    client: 'Andersson Bygg AB',
-    description: 'Professionell företagssida med omfattande projektgalleri och kundrecensioner. SEO-optimerad för lokala sökningar i Uppsala län.',
-    category: 'Företag',
-    technologies: ['Next.js', 'MDX', 'Tailwind CSS', 'Vercel'],
-    image: '/images/placeholder-case-3.jpg',
-    imageAlt: 'Andersson Bygg webbplats screenshot',
-    results: [
-      { metric: 'Organisk trafik', value: '+200%' },
-      { metric: 'Förfrågningar', value: '+80%' }
-    ]
-  },
-  {
-    id: 'yoga-studio',
-    title: 'Bokningssystem för Yogastudio',
-    client: 'Uppsala Yoga',
-    description: 'Komplett bokningssystem med medlemshantering, schemaläggning och betalningsintegration för en växande yogastudio.',
-    category: 'Hälsa & Fitness',
-    technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe'],
-    image: '/images/placeholder-case-4.jpg',
-    imageAlt: 'Uppsala Yoga bokningssystem screenshot',
-    featured: true,
-    results: [
-      { metric: 'Bokningseffektivitet', value: '+90%' },
-      { metric: 'Administrativ tid', value: '-70%' }
-    ]
-  },
-  {
-    id: 'restaurang-viktor',
-    title: 'Flerspråkig Restaurangwebbplats',
-    client: 'Restaurang Viktor',
-    description: 'Elegant webbplats på svenska och engelska med menyvisning, bordbokning och integration med sociala medier.',
-    category: 'Restaurang',
-    technologies: ['Next.js', 'i18n', 'Contentful', 'Tailwind CSS'],
-    image: '/images/placeholder-case-5.jpg',
-    imageAlt: 'Restaurang Viktor webbplats screenshot',
-    link: 'https://restaurangviktor.se',
-    results: [
-      { metric: 'Bordbokningar online', value: '+150%' },
-      { metric: 'Internationella gäster', value: '+40%' }
-    ]
-  },
-  {
-    id: 'fastighetsbyra',
-    title: 'Fastighetsportal med Sökfunktion',
-    client: 'Uppsala Fastigheter',
-    description: 'Avancerad fastighetsportal med realtidsuppdateringar, avancerad sökfunktion och virtuella visningar.',
-    category: 'Fastigheter',
-    technologies: ['Next.js', 'Elasticsearch', 'MapBox', 'Sanity CMS'],
-    image: '/images/placeholder-case-6.jpg',
-    imageAlt: 'Uppsala Fastigheter portal screenshot',
-    results: [
-      { metric: 'Visningar per objekt', value: '+85%' },
-      { metric: 'Kontaktförfrågningar', value: '+110%' }
-    ]
-  }
-];
+  gallery: [
+    {
+      src: '/images/palermo-menu.jpg',
+      alt: 'Palermo digital menydesign',
+      caption: 'Elegant digital meny med snabb laddning',
+    },
+    {
+      src: '/images/palermo-mobile.jpg',
+      alt: 'Palermo mobilanpassad design',
+      caption: 'Perfekt mobilupplevelse för restaurangbesökare',
+    },
+    {
+      src: '/images/palermo-booking.jpg',
+      alt: 'Palermo bokningssystem',
+      caption: 'Integrerat bokningssystem med hög konvertering',
+    },
+  ],
+};
+
+// For backwards compatibility, keep the array with just Palermo
+export const caseStudies: CaseStudy[] = [palermoProject];

@@ -16,10 +16,13 @@ import Link from 'next/link';
 import H3 from '@/components/ui/H3';
 import H4 from '@/components/ui/H4';
 import Text from '@/components/ui/Text';
+import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 interface ProjectDetailsProps {
   caseStudy: CaseStudy & {
     longDescription?: string;
+    beforeImage?: string;
+    afterImage?: string;
     challenges?: string[];
     solutions?: string[];
     projectDuration?: string;
@@ -35,14 +38,20 @@ interface ProjectDetailsProps {
       caption?: string;
     }[];
   };
+  showHeroImage?: boolean;
 }
 
-export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => {
+export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
+  caseStudy,
+  showHeroImage = true,
+}) => {
   const {
     title,
     client,
     description,
     longDescription,
+    beforeImage,
+    afterImage,
     category,
     technologies,
     image,
@@ -59,28 +68,41 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
 
   return (
     <article className="space-y-12">
-      {/* Hero Image */}
-      <div className="relative aspect-video overflow-hidden rounded-lg">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-      </div>
+      {/* Hero Image or Before/After Slider */}
+      {showHeroImage && (
+        beforeImage && afterImage ? (
+          <BeforeAfterSlider
+            beforeImage={beforeImage}
+            afterImage={afterImage}
+            beforeLabel="Tidigare design"
+            afterLabel="Nuvarande design"
+            className="max-h-[700px] shadow-xl"
+            aspectRatio="4/3"
+          />
+        ) : (
+          <div className="relative aspect-video overflow-hidden rounded-lg">
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </div>
+        )
+      )}
 
       {/* Project Overview */}
       <div className="grid gap-8 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-6">
+        <div className="space-y-6 lg:col-span-2">
           <div>
             <H3>{title}</H3>
             <Text size="lg" className="mt-2 text-muted-foreground">
               {client}
             </Text>
           </div>
-          
+
           <Text className="text-lg leading-relaxed">
             {longDescription || description}
           </Text>
@@ -141,7 +163,9 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Text className="text-sm font-medium text-muted-foreground">Kategori</Text>
+                <Text className="text-sm font-medium text-muted-foreground">
+                  Kategori
+                </Text>
                 <Badge variant="secondary" className="mt-1">
                   {category}
                 </Badge>
@@ -149,8 +173,10 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
 
               {projectDuration && (
                 <div>
-                  <Text className="text-sm font-medium text-muted-foreground">Projekttid</Text>
-                  <Text className="flex items-center gap-2 mt-1">
+                  <Text className="text-sm font-medium text-muted-foreground">
+                    Projekttid
+                  </Text>
+                  <Text className="mt-1 flex items-center gap-2">
                     <IconCalendar className="h-4 w-4" />
                     {projectDuration}
                   </Text>
@@ -159,13 +185,17 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
 
               {teamSize && (
                 <div>
-                  <Text className="text-sm font-medium text-muted-foreground">Teamstorlek</Text>
+                  <Text className="text-sm font-medium text-muted-foreground">
+                    Teamstorlek
+                  </Text>
                   <Text className="mt-1">{teamSize} personer</Text>
                 </div>
               )}
 
               <div>
-                <Text className="text-sm font-medium text-muted-foreground">Teknologier</Text>
+                <Text className="text-sm font-medium text-muted-foreground">
+                  Teknologier
+                </Text>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {technologies.map((tech) => (
                     <Badge key={tech} variant="outline">
@@ -218,7 +248,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
           <CardContent className="pt-6">
             <blockquote className="space-y-4">
               <Text className="text-lg italic leading-relaxed">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </Text>
               <footer>
                 <Text className="font-medium">{testimonial.author}</Text>
@@ -248,7 +278,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ caseStudy }) => 
                   />
                 </div>
                 {image.caption && (
-                  <figcaption className="text-sm text-muted-foreground text-center">
+                  <figcaption className="text-center text-sm text-muted-foreground">
                     {image.caption}
                   </figcaption>
                 )}

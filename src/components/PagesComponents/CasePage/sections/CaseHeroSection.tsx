@@ -1,15 +1,13 @@
-import SubHero from '@/components/SubHero';
-import img from '@/assets/services-hero.png';
+import GradientHero from '@/components/GradientHero';
 
 const CaseHeroSection = () => {
   return (
-    <SubHero
-      title="Våra case"
-      description="Utforska våra projekt och se hur vi har hjälpt småföretag i Uppsala att skapa en stark digital närvaro. Varje case visar vår passion för design, teknik och resultat."
+    <GradientHero
+      title="Palermo - Ett mästerverk"
+      description="En djupdykning i hur vi skapade en SEO-optimerad och väldesignad webbplats som sätter nya standarder för restaurangbranschen. Upptäck hur genomtänkt design och teknisk excellens driver konkreta affärsresultat."
+      colorScheme="blue-purple"
       textAlign="left"
-      imageSrc={img}
-      alt="Portfolio av webbprojekt"
-      minHeight="40vh"
+      minHeight="50vh"
     />
   );
 };

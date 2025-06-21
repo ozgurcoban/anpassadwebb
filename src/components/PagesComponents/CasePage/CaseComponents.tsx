@@ -3,7 +3,7 @@
 import React from 'react';
 import CaseHeroSection from './sections/CaseHeroSection';
 import StatsSection from './sections/StatsSection';
-import PortfolioSection from './sections/PortfolioSection';
+import SingleProjectSection from './sections/SingleProjectSection';
 import CTASection from './sections/CTASection';
 
 const CaseComponents: React.FC = () => {
@@ -11,7 +11,7 @@ const CaseComponents: React.FC = () => {
     <>
       <CaseHeroSection />
       <StatsSection />
-      <PortfolioSection />
+      <SingleProjectSection />
       <CTASection />
     </>
   );
