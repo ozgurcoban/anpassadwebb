@@ -223,43 +223,11 @@ export default function GradientHero({
 
             {/* Code snippet 3 - CSS */}
             <div
-              className="md-[25%] md-top-[65%] absolute left-[50%] top-[70%] animate-pulse opacity-35"
+              className="md-top-[65%] md-left-[50%] absolute left-[45%] top-[70%] animate-pulse opacity-35"
               style={{ animationDelay: '3.3s' }}
             >
               <div className="font-mono rounded bg-white/5 px-3 py-1 text-xs text-white/55 shadow-lg backdrop-blur-sm">
                 {`.blur-xl { filter: blur(24px) }`}
-              </div>
-            </div>
-
-            {/* Code snippet 4 - import */}
-            <div
-              className="absolute right-[5%] top-[25%] animate-pulse opacity-25"
-              style={{ animationDelay: '4.7s' }}
-            >
-              <div className="font-mono rounded bg-white/5 px-2 py-1 text-xs text-white/45 shadow-lg backdrop-blur-sm">
-                import React
-              </div>
-            </div>
-
-            {/* Code snippet 5 - useState */}
-            <div
-              className="absolute left-[90%] top-[50%] animate-pulse opacity-30"
-              style={{ animationDelay: '6.2s' }}
-            >
-              <div className="font-mono rounded bg-white/5 px-2 py-1 text-xs text-white/40 shadow-lg backdrop-blur-sm">
-                <span className="text-blue-400/60">useState</span>(
-                <span className="text-purple-400/60">false</span>)
-              </div>
-            </div>
-
-            {/* Code snippet 6 - className */}
-            <div
-              className="absolute bottom-[16%] left-[35%] hidden animate-pulse opacity-35 md:block"
-              style={{ animationDelay: '7.5s' }}
-            >
-              <div className="font-mono rounded bg-white/5 px-2 py-1 text-xs text-white/50 shadow-lg backdrop-blur-sm">
-                className=
-                <span className="text-green-400/60">"animate-gradient"</span>
               </div>
             </div>
 

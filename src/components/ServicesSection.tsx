@@ -1,4 +1,4 @@
-import { Zap, Users, MousePointerClick, CheckCircle, ArrowRight } from 'lucide-react';
+import { Zap, Users, MousePointerClick, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Section from './ui/Section';
 import SectionContainer from './ui/SectionContainer';
@@ -57,14 +57,19 @@ const ServicesSection = () => {
           ))}
         </div>
         
-        <div className="mt-16 flex items-center justify-center">
+        <div className="mt-16 text-center">
+          <Text className="mb-2 text-gray-600 dark:text-gray-400">
+            Palermo klättrade från plats 25 till 4 för "pizza uppsala".
+          </Text>
+          <Text className="mb-4 text-gray-600 dark:text-gray-400">
+            Vi stod för webb, SEO och sidstruktur.
+          </Text>
           <Link 
             href="/case/palermo-uppsala" 
-            className="group flex items-center gap-2 text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+            className="group inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
           >
-            <CheckCircle className="h-5 w-5 text-green-500" />
-            <Text className="italic">
-              Vi har hjälpt Palermo Uppsala att växa online
+            <Text className="font-medium">
+              Läs caset här
             </Text>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>

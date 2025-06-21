@@ -11,21 +11,23 @@ const SingleProjectSection = () => {
   const { beforeImage, afterImage } = palermoProject;
 
   return (
-    <Section className="space-y-12 py-16">
-      {/* BeforeAfter Slider - Full width on mobile */}
+    <Section className="space-y-16 py-16">
+      {/* BeforeAfter Slider - Full width dramatic intro */}
       {beforeImage && afterImage && (
-        <div className="w-full md:px-4 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+        <div className="w-full">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
             <BeforeAfterSlider
               beforeImage={beforeImage}
               afterImage={afterImage}
-              beforeLabel="Tidigare design"
-              afterLabel="Nuvarande design"
-              className="shadow-xl"
-              aspectRatio="4/3"
-              title="Webbplatsomdesign"
-              description="Se den dramatiska förbättringen"
+              beforeLabel="Tidigare"
+              afterLabel="Nu"
+              className="shadow-2xl"
+              aspectRatio="16/10"
+              title="Se förändringen"
+              description="Dra i reglaget för att jämföra före och efter"
               borderRadius="1rem"
+              sliderHandleSize="lg"
+              initialPosition={30}
             />
           </div>
         </div>

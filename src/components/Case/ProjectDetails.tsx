@@ -1,43 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
-import { CaseStudy } from './CaseCard';
+import { DetailedCaseStudy } from '@/data/caseStudies';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  IconBrandGithub,
-  IconExternalLink,
-  IconCalendar,
-  IconCode,
-  IconTarget,
-  IconChartBar,
-} from '@tabler/icons-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import H3 from '@/components/ui/H3';
-import H4 from '@/components/ui/H4';
 import Text from '@/components/ui/Text';
+import { IconExternalLink } from '@tabler/icons-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 interface ProjectDetailsProps {
-  caseStudy: CaseStudy & {
-    longDescription?: string;
-    beforeImage?: string;
-    afterImage?: string;
-    challenges?: string[];
-    solutions?: string[];
-    projectDuration?: string;
-    teamSize?: number;
-    testimonial?: {
-      quote: string;
-      author: string;
-      position: string;
-    };
-    gallery?: {
-      src: string;
-      alt: string;
-      caption?: string;
-    }[];
-  };
+  caseStudy: DetailedCaseStudy;
   showHeroImage?: boolean;
 }
 
@@ -52,202 +26,141 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     longDescription,
     beforeImage,
     afterImage,
-    category,
-    technologies,
     image,
     imageAlt,
     link,
-    results,
-    challenges,
-    solutions,
-    projectDuration,
-    teamSize,
+    story,
     testimonial,
-    gallery,
   } = caseStudy;
 
   return (
-    <article className="space-y-12">
-      {/* Hero Image or Before/After Slider */}
+    <article className="space-y-24">
+      {/* Hero Section */}
       {showHeroImage && (
-        beforeImage && afterImage ? (
-          <BeforeAfterSlider
-            beforeImage={beforeImage}
-            afterImage={afterImage}
-            beforeLabel="Tidigare design"
-            afterLabel="Nuvarande design"
-            className="max-h-[700px] shadow-xl"
-            aspectRatio="4/3"
-          />
-        ) : (
-          <div className="relative aspect-video overflow-hidden rounded-lg">
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-            />
-          </div>
-        )
-      )}
-
-      {/* Project Overview */}
-      <div className="grid gap-8 lg:grid-cols-3">
-        <div className="space-y-6 lg:col-span-2">
-          <div>
-            <H3>{title}</H3>
+        <div className="space-y-8">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold">{title}</h1>
             <Text size="lg" className="mt-2 text-muted-foreground">
               {client}
             </Text>
+            <Text className="mx-auto mt-6 max-w-2xl text-xl">
+              {longDescription || description}
+            </Text>
           </div>
-
-          <Text className="text-lg leading-relaxed">
-            {longDescription || description}
-          </Text>
-
-          {/* Challenges & Solutions */}
-          {(challenges || solutions) && (
-            <div className="grid gap-6 md:grid-cols-2">
-              {challenges && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <IconTarget className="h-5 w-5" />
-                      Utmaningar
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {challenges.map((challenge, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
-                          <span className="text-sm">{challenge}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )}
-
-              {solutions && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <IconCode className="h-5 w-5" />
-                      Lösningar
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {solutions.map((solution, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
-                          <span className="text-sm">{solution}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )}
+          
+          {beforeImage && afterImage ? (
+            <BeforeAfterSlider
+              beforeImage={beforeImage}
+              afterImage={afterImage}
+              beforeLabel="Tidigare"
+              afterLabel="Nu"
+              className="shadow-2xl"
+              aspectRatio="16/10"
+              borderRadius="1rem"
+              sliderHandleSize="lg"
+              initialPosition={30}
+            />
+          ) : (
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                priority
+                sizes="100vw"
+              />
             </div>
           )}
         </div>
+      )}
 
-        {/* Project Info Sidebar */}
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Projektdetaljer</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <Text className="text-sm font-medium text-muted-foreground">
-                  Kategori
+      {/* Story Sections */}
+      {story && story.map((section, index) => (
+        <section key={index} className="space-y-12">
+          <div className="text-center">
+            <H3 className="text-4xl font-semibold">{section.title}</H3>
+            <Text className="mt-2 text-xl text-muted-foreground">
+              {section.subtitle}
+            </Text>
+          </div>
+
+          <div className="grid gap-12 lg:grid-cols-2">
+            {/* Before */}
+            <div className="space-y-4">
+              <div className="rounded-2xl bg-muted/50 p-8">
+                <Text className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                  {section.beforeTitle}
                 </Text>
-                <Badge variant="secondary" className="mt-1">
-                  {category}
-                </Badge>
-              </div>
-
-              {projectDuration && (
-                <div>
-                  <Text className="text-sm font-medium text-muted-foreground">
-                    Projekttid
-                  </Text>
-                  <Text className="mt-1 flex items-center gap-2">
-                    <IconCalendar className="h-4 w-4" />
-                    {projectDuration}
-                  </Text>
-                </div>
-              )}
-
-              {teamSize && (
-                <div>
-                  <Text className="text-sm font-medium text-muted-foreground">
-                    Teamstorlek
-                  </Text>
-                  <Text className="mt-1">{teamSize} personer</Text>
-                </div>
-              )}
-
-              <div>
-                <Text className="text-sm font-medium text-muted-foreground">
-                  Teknologier
+                <Text className="mt-4 text-lg">
+                  {section.beforeDescription}
                 </Text>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {technologies.map((tech) => (
-                    <Badge key={tech} variant="outline">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
               </div>
-
-              {link && (
-                <Button asChild className="w-full">
-                  <Link href={link} target="_blank" rel="noopener noreferrer">
-                    <IconExternalLink className="mr-2 h-4 w-4" />
-                    Besök webbplatsen
-                  </Link>
-                </Button>
+              {section.beforeImage && (
+                <div className="relative aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src={section.beforeImage}
+                    alt={`${section.title} - före`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               )}
-            </CardContent>
-          </Card>
+            </div>
 
-          {/* Results */}
-          {results && results.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <IconChartBar className="h-5 w-5" />
-                  Resultat
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {results.map((result, index) => (
-                  <div key={index}>
-                    <Text className="text-2xl font-bold text-primary">
-                      {result.value}
-                    </Text>
-                    <Text className="text-sm text-muted-foreground">
-                      {result.metric}
-                    </Text>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+            {/* After */}
+            <div className="space-y-4">
+              <div className="rounded-2xl bg-primary/5 p-8">
+                <Text className="text-sm font-medium uppercase tracking-wider text-primary">
+                  {section.afterTitle}
+                </Text>
+                <Text className="mt-4 text-lg">
+                  {section.afterDescription}
+                </Text>
+              </div>
+              {section.afterImage && (
+                <div className="relative aspect-video overflow-hidden rounded-lg">
+                  <Image
+                    src={section.afterImage}
+                    alt={`${section.title} - efter`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Value Highlight */}
+          <div className="text-center">
+            <Text className="text-3xl font-bold text-primary">
+              {section.value}
+            </Text>
+          </div>
+
+          {/* Full width image if provided */}
+          {section.image && (
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <Image
+                src={section.image}
+                alt={section.title}
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
           )}
-        </div>
-      </div>
+        </section>
+      ))}
 
       {/* Testimonial */}
       {testimonial && (
-        <Card className="bg-secondary">
-          <CardContent className="pt-6">
-            <blockquote className="space-y-4">
-              <Text className="text-lg italic leading-relaxed">
+        <Card className="mx-auto max-w-3xl border-0 bg-secondary/50">
+          <CardContent className="p-12 text-center">
+            <blockquote className="space-y-6">
+              <Text className="text-2xl font-light italic leading-relaxed">
                 &ldquo;{testimonial.quote}&rdquo;
               </Text>
               <footer>
@@ -261,30 +174,15 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         </Card>
       )}
 
-      {/* Gallery */}
-      {gallery && gallery.length > 0 && (
-        <div className="space-y-4">
-          <H4>Projektbilder</H4>
-          <div className="grid gap-4 md:grid-cols-2">
-            {gallery.map((image, index) => (
-              <figure key={index} className="space-y-2">
-                <div className="relative aspect-video overflow-hidden rounded-lg">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                {image.caption && (
-                  <figcaption className="text-center text-sm text-muted-foreground">
-                    {image.caption}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
-          </div>
+      {/* CTA */}
+      {link && (
+        <div className="text-center">
+          <Button size="lg" asChild className="gap-2">
+            <Link href={link} target="_blank" rel="noopener noreferrer">
+              Besök webbplatsen
+              <IconExternalLink className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       )}
     </article>
