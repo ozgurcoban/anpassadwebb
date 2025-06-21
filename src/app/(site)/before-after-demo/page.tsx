@@ -1,11 +1,23 @@
+'use client';
+
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import { useState } from 'react';
 
 export default function BeforeAfterDemoPage() {
+  const [position, setPosition] = useState(50);
+  
   return (
-    <div className="container mx-auto px-4 py-16 max-w-4xl">
+    <div className="container mx-auto px-4 py-16 max-w-6xl">
+      {/* Internal demo notice */}
+      <div className="mb-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+        <p className="text-sm text-yellow-800 dark:text-yellow-200 text-center">
+          ⚠️ This is an internal demo page for development purposes only. Not indexed by search engines.
+        </p>
+      </div>
+      
       <h1 className="text-4xl font-bold mb-8 text-center">Before/After Slider Demo</h1>
       
-      <div className="space-y-12">
+      <div className="space-y-16">
         {/* Example 1: Basic usage */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Basic Example</h2>
@@ -17,7 +29,37 @@ export default function BeforeAfterDemoPage() {
           />
         </div>
 
-        {/* Example 2: Custom aspect ratio */}
+        {/* Example 2: With Title and Description */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">With Title and Description</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80&hue-rotate=90"
+            beforeLabel="Original Design"
+            afterLabel="Modern Redesign"
+            title="Website Transformation"
+            description="Experience the dramatic improvement in user interface design, showcasing our commitment to modern aesthetics and enhanced user experience."
+            titleClassName="text-3xl"
+            descriptionClassName="text-lg"
+          />
+        </div>
+
+        {/* Example 3: Title at Bottom */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Header Position Bottom</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80&saturate=200"
+            beforeLabel="Desaturated"
+            afterLabel="Vibrant"
+            title="Color Enhancement Demo"
+            description="See how color correction can bring life to your images"
+            headerPosition="bottom"
+            className="shadow-xl"
+          />
+        </div>
+
+        {/* Example 4: Square aspect ratio */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Square Aspect Ratio</h2>
           <BeforeAfterSlider
@@ -30,7 +72,7 @@ export default function BeforeAfterDemoPage() {
           />
         </div>
 
-        {/* Example 3: Custom styling */}
+        {/* Example 5: Custom styling */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">Custom Styling</h2>
           <BeforeAfterSlider
@@ -45,7 +87,7 @@ export default function BeforeAfterDemoPage() {
           />
         </div>
 
-        {/* Example 4: Without labels */}
+        {/* Example 6: Without labels */}
         <div>
           <h2 className="text-2xl font-semibold mb-4">No Labels</h2>
           <BeforeAfterSlider
@@ -56,42 +98,246 @@ export default function BeforeAfterDemoPage() {
             aspectRatio="21/9"
           />
         </div>
+
+        {/* Example 7: Different label positions */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Custom Label Positions</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&saturate=0"
+            beforeLabel="Top Left"
+            afterLabel="Top Right"
+            beforeLabelPosition="top-left"
+            afterLabelPosition="top-right"
+          />
+        </div>
+
+        {/* Example 8: Different handle sizes */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Handle Size Variations</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <h3 className="text-lg font-medium mb-2">Small</h3>
+              <BeforeAfterSlider
+                beforeImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
+                afterImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80&hue-rotate=180"
+                sliderHandleSize="sm"
+                aspectRatio="4/3"
+              />
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-2">Medium (Default)</h3>
+              <BeforeAfterSlider
+                beforeImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
+                afterImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80&hue-rotate=180"
+                sliderHandleSize="md"
+                aspectRatio="4/3"
+              />
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-2">Large</h3>
+              <BeforeAfterSlider
+                beforeImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
+                afterImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80&hue-rotate=180"
+                sliderHandleSize="lg"
+                aspectRatio="4/3"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Example 9: Animated with hover effects */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Hover Animation & Smooth Transitions</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80&brightness=150"
+            beforeLabel="Dark"
+            afterLabel="Bright"
+            animateOnHover={true}
+            transitionDuration={300}
+            initialPosition={50}
+          />
+        </div>
+
+        {/* Example 10: With overlay and custom border radius */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Overlay & Custom Border Radius</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&invert"
+            beforeLabel="Normal"
+            afterLabel="Inverted"
+            overlayOpacity={0.1}
+            borderRadius="1.5rem"
+            labelClassName="!bg-white/90 !text-black"
+          />
+        </div>
+
+        {/* Example 11: Disabled state */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Disabled State</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80&blur=5"
+            beforeLabel="Sharp"
+            afterLabel="Blurred"
+            disabled={true}
+            initialPosition={65}
+          />
+        </div>
+
+        {/* Example 12: With position change callback */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Position Tracking</h2>
+          <BeforeAfterSlider
+            beforeImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
+            afterImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80&contrast=50"
+            beforeLabel="High Contrast"
+            afterLabel="Low Contrast"
+            onPositionChange={setPosition}
+            transitionDuration={150}
+          />
+          <p className="mt-4 text-center text-lg">Current position: {position.toFixed(1)}%</p>
+        </div>
       </div>
 
       {/* Usage Instructions */}
       <div className="mt-16 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">How to Use</h2>
-        <pre className="text-sm overflow-x-auto">
-          <code>{`import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+        <h2 className="text-2xl font-semibold mb-4">Usage Examples</h2>
+        
+        <div className="space-y-6">
+          <div>
+            <h3 className="font-semibold mb-2">Basic Usage</h3>
+            <pre className="text-sm overflow-x-auto bg-gray-900 text-gray-100 p-4 rounded">
+              <code>{`import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 <BeforeAfterSlider
   beforeImage="/path/to/before.jpg"
   afterImage="/path/to/after.jpg"
-  beforeLabel="Before"
-  afterLabel="After"
-  aspectRatio="16/9"
-  sliderLineWidth={2}
-  sliderLineColor="white"
-  sliderHandleColor="white"
-  className="custom-class"
 />`}</code>
-        </pre>
+            </pre>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold mb-2">Advanced Example</h3>
+            <pre className="text-sm overflow-x-auto bg-gray-900 text-gray-100 p-4 rounded">
+              <code>{`<BeforeAfterSlider
+  beforeImage="/before.jpg"
+  afterImage="/after.jpg"
+  beforeLabel="Original"
+  afterLabel="Enhanced"
+  initialPosition={50}
+  labelPosition="top-center"
+  sliderHandleSize="lg"
+  animateOnHover={true}
+  transitionDuration={200}
+  onPositionChange={(pos) => console.log(pos)}
+  className="shadow-2xl"
+/>`}</code>
+            </pre>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">With Title and Description</h3>
+            <pre className="text-sm overflow-x-auto bg-gray-900 text-gray-100 p-4 rounded">
+              <code>{`<BeforeAfterSlider
+  beforeImage="/before.jpg"
+  afterImage="/after.jpg"
+  title="Website Redesign Comparison"
+  description="See how our modern redesign transformed the user experience"
+  titleClassName="text-3xl font-bold"
+  descriptionClassName="text-lg text-gray-600"
+  headerPosition="top"
+  beforeLabel="Old Design"
+  afterLabel="New Design"
+/>`}</code>
+            </pre>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold mb-2">Keyboard Navigation</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              The slider supports keyboard navigation when focused:
+            </p>
+            <ul className="text-sm mt-2 space-y-1">
+              <li>• <kbd>←</kbd> / <kbd>→</kbd> - Move slider by 5%</li>
+              <li>• <kbd>Home</kbd> - Move to start (0%)</li>
+              <li>• <kbd>End</kbd> - Move to end (100%)</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       {/* Props Documentation */}
       <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">Props</h2>
-        <ul className="space-y-2 text-sm">
-          <li><strong>beforeImage</strong> (required): URL of the before image</li>
-          <li><strong>afterImage</strong> (required): URL of the after image</li>
-          <li><strong>beforeLabel</strong> (optional): Label for before image (default: "Before")</li>
-          <li><strong>afterLabel</strong> (optional): Label for after image (default: "After")</li>
-          <li><strong>aspectRatio</strong> (optional): CSS aspect ratio (default: "16/9")</li>
-          <li><strong>sliderLineWidth</strong> (optional): Width of slider line in pixels (default: 2)</li>
-          <li><strong>sliderLineColor</strong> (optional): Color of slider line (default: "white")</li>
-          <li><strong>sliderHandleColor</strong> (optional): Color of slider handle (default: "white")</li>
-          <li><strong>className</strong> (optional): Additional CSS classes</li>
-        </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <h3 className="font-semibold mb-2">Required Props</h3>
+            <ul className="space-y-2">
+              <li><strong>beforeImage</strong>: URL of the before image</li>
+              <li><strong>afterImage</strong>: URL of the after image</li>
+            </ul>
+            
+            <h3 className="font-semibold mb-2 mt-4">Basic Props</h3>
+            <ul className="space-y-2">
+              <li><strong>beforeLabel</strong>: Label for before image (default: &quot;Before&quot;)</li>
+              <li><strong>afterLabel</strong>: Label for after image (default: &quot;After&quot;)</li>
+              <li><strong>aspectRatio</strong>: CSS aspect ratio (default: &quot;16/9&quot;)</li>
+              <li><strong>className</strong>: Additional CSS classes</li>
+              <li><strong>initialPosition</strong>: Initial slider position 0-100 (default: 35)</li>
+            </ul>
+            
+            <h3 className="font-semibold mb-2 mt-4">Slider Styling</h3>
+            <ul className="space-y-2">
+              <li><strong>sliderLineWidth</strong>: Width in pixels (default: 2)</li>
+              <li><strong>sliderLineColor</strong>: Line color (default: &quot;white&quot;)</li>
+              <li><strong>sliderHandleColor</strong>: Handle color (default: &quot;white&quot;)</li>
+              <li><strong>sliderHandleSize</strong>: &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; (default: &quot;md&quot;)</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold mb-2">Title & Description</h3>
+            <ul className="space-y-2">
+              <li><strong>title</strong>: Optional title text</li>
+              <li><strong>description</strong>: Optional description text</li>
+              <li><strong>titleClassName</strong>: CSS classes for title</li>
+              <li><strong>descriptionClassName</strong>: CSS classes for description</li>
+              <li><strong>headerPosition</strong>: &quot;top&quot; | &quot;bottom&quot; (default: &quot;top&quot;)</li>
+            </ul>
+            
+            <h3 className="font-semibold mb-2 mt-4">Label Customization</h3>
+            <ul className="space-y-2">
+              <li><strong>labelPosition</strong>: Position for both labels</li>
+              <li><strong>beforeLabelPosition</strong>: Override position for before label</li>
+              <li><strong>afterLabelPosition</strong>: Override position for after label</li>
+              <li><strong>labelClassName</strong>: CSS classes for both labels</li>
+              <li><strong>beforeLabelClassName</strong>: Override classes for before label</li>
+              <li><strong>afterLabelClassName</strong>: Override classes for after label</li>
+            </ul>
+            <p className="text-xs mt-2 text-gray-600 dark:text-gray-400">
+              Position options: &quot;bottom-left&quot;, &quot;bottom-right&quot;, &quot;top-left&quot;, &quot;top-right&quot;, &quot;bottom-center&quot;, &quot;top-center&quot;
+            </p>
+            
+            <h3 className="font-semibold mb-2 mt-4">Effects & Interaction</h3>
+            <ul className="space-y-2">
+              <li><strong>animateOnHover</strong>: Scale handle on hover (default: false)</li>
+              <li><strong>transitionDuration</strong>: Transition time in ms (default: 0)</li>
+              <li><strong>overlayOpacity</strong>: Dark overlay 0-1 (default: 0)</li>
+              <li><strong>borderRadius</strong>: Custom border radius</li>
+              <li><strong>disabled</strong>: Disable interaction (default: false)</li>
+              <li><strong>onPositionChange</strong>: Callback with position (0-100)</li>
+            </ul>
+            
+            <h3 className="font-semibold mb-2 mt-4">Accessibility</h3>
+            <ul className="space-y-2">
+              <li><strong>ariaLabelBefore</strong>: Screen reader label for before image</li>
+              <li><strong>ariaLabelAfter</strong>: Screen reader label for after image</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

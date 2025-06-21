@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow demo and test pages
+Disallow: /before-after-demo
+
+Sitemap: https://your-domain.com/sitemap.xml

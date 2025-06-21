@@ -9,9 +9,9 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
 const SingleProjectSection = () => {
   const { beforeImage, afterImage } = palermoProject;
-  
+
   return (
-    <Section className="py-16 space-y-12">
+    <Section className="space-y-12 py-16">
       {/* BeforeAfter Slider - Full width on mobile */}
       {beforeImage && afterImage && (
         <div className="w-full md:px-4 lg:px-8">
@@ -23,11 +23,14 @@ const SingleProjectSection = () => {
               afterLabel="Nuvarande design"
               className="shadow-xl"
               aspectRatio="4/3"
+              title="Webbplatsomdesign"
+              description="Se den dramatiska förbättringen"
+              borderRadius="1rem"
             />
           </div>
         </div>
       )}
-      
+
       {/* Rest of project details */}
       <SectionContainer>
         <ProjectDetails caseStudy={palermoProject} showHeroImage={false} />
