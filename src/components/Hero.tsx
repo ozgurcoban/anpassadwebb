@@ -119,7 +119,7 @@ const Hero = () => {
           <div className="grid max-w-4xl gap-y-8 p-8 text-white md:gap-y-10 md:p-12">
             <div className="space-y-6">
               <h1
-                className="font-quicksand text-6xl font-semibold text-white md:text-7xl lg:text-8xl xl:text-9xl"
+                className="font-quicksand text-5xl font-medium text-white md:text-6xl lg:text-7xl xl:text-8xl"
                 style={{
                   filter:
                     'drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 30px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(147,51,234,0.3))',
