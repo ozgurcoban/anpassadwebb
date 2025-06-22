@@ -27,6 +27,7 @@ interface InteractiveEffectsProps {
   mousePosition: { x: number; y: number };
   isHovering: boolean;
   transformedColors: string[];
+  particleColors?: string[];
   containerRef: React.RefObject<HTMLDivElement | null>;
   onMouseClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
@@ -35,9 +36,12 @@ export function InteractiveEffects({
   mousePosition,
   isHovering,
   transformedColors,
+  particleColors,
   containerRef,
   onMouseClick
 }: InteractiveEffectsProps) {
+  // Use particle colors if provided, otherwise fall back to transformed colors
+  const effectColors = particleColors || transformedColors;
   const [particles, setParticles] = useState<Particle[]>([]);
   const [ripples, setRipples] = useState<Ripple[]>([]);
   const [orbPositions, setOrbPositions] = useState({ 
@@ -225,7 +229,7 @@ export function InteractiveEffects({
               transform: `translate3d(${particle.x - particle.size / 2}px, ${particle.y - particle.size / 2}px, 0)`,
               width: particle.size,
               height: particle.size,
-              background: `radial-gradient(circle, ${transformedColors[Math.floor(Math.random() * transformedColors.length)]} 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${effectColors[Math.floor(Math.random() * effectColors.length)]} 0%, transparent 70%)`,
               opacity: particle.opacity,
               filter: 'blur(1px)',
               willChange: 'transform, opacity',
@@ -243,7 +247,7 @@ export function InteractiveEffects({
               transform: `translate3d(${ripple.x - ripple.radius}px, ${ripple.y - ripple.radius}px, 0)`,
               width: ripple.radius * 2,
               height: ripple.radius * 2,
-              borderColor: `${transformedColors[1]}${Math.floor(ripple.opacity * 255).toString(16).padStart(2, '0')}`,
+              borderColor: `${effectColors[1]}${Math.floor(ripple.opacity * 255).toString(16).padStart(2, '0')}`,
               borderWidth: '2px',
               opacity: ripple.opacity,
               willChange: 'transform, opacity',
@@ -257,7 +261,7 @@ export function InteractiveEffects({
           className="absolute w-8 h-8 rounded-full pointer-events-none"
           style={{
             transform: `translate3d(${orbPositions.orb1.x - 16}px, ${orbPositions.orb1.y - 16}px, 0)`,
-            background: `radial-gradient(circle, ${transformedColors[0]} 0%, transparent 70%)`,
+            background: `radial-gradient(circle, ${effectColors[0]} 0%, transparent 70%)`,
             opacity: 0.7,
             filter: 'blur(2px)',
             willChange: 'transform',
@@ -269,7 +273,7 @@ export function InteractiveEffects({
           className="absolute w-6 h-6 rounded-full pointer-events-none"
           style={{
             transform: `translate3d(${orbPositions.orb2.x - 12}px, ${orbPositions.orb2.y - 12}px, 0)`,
-            background: `radial-gradient(circle, ${transformedColors[2]} 0%, transparent 70%)`,
+            background: `radial-gradient(circle, ${effectColors[2]} 0%, transparent 70%)`,
             opacity: 0.6,
             filter: 'blur(3px)',
             willChange: 'transform',

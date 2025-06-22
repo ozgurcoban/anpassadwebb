@@ -12,10 +12,11 @@ export default function GradientHero({
   description,
   colorScheme = 'blue-purple',
   customColors,
+  particleColors,
   textAlign = 'left',
   secondaryCTA,
   className,
-  minHeight = '50vh',
+  minHeight = '80vh',
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
   
@@ -38,6 +39,7 @@ export default function GradientHero({
     >
       <GradientBackground
         transformedColors={transformedColors}
+        particleColors={particleColors}
         isHovering={isHovering}
         mousePosition={mousePosition}
         minHeight={minHeight}

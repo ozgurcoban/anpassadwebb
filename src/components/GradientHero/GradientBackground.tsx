@@ -6,6 +6,7 @@ import { InteractiveEffects } from './InteractiveEffects';
 
 export function GradientBackground({
   transformedColors,
+  particleColors,
   isHovering,
   mousePosition,
   minHeight,
@@ -146,6 +147,7 @@ export function GradientBackground({
           mousePosition={mousePosition}
           isHovering={isHovering}
           transformedColors={transformedColors}
+          particleColors={particleColors}
           containerRef={containerRef}
           onMouseClick={handlers.onClick}
         />

@@ -12,6 +12,7 @@ export interface GradientHeroProps {
   description?: string;
   colorScheme?: ColorScheme;
   customColors?: string[];
+  particleColors?: string[];
   textAlign?: 'left' | 'center' | 'right';
   secondaryCTA?: {
     text: string;
@@ -23,6 +24,7 @@ export interface GradientHeroProps {
 
 export interface GradientBackgroundProps {
   transformedColors: string[];
+  particleColors?: string[];
   isHovering: boolean;
   mousePosition: MousePosition;
   minHeight: string;

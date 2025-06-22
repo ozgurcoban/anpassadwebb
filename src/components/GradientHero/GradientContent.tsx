@@ -13,53 +13,53 @@ export function GradientContent({
 }: GradientContentProps) {
   return (
     <div className="relative z-10 px-4 lg:px-8">
-      <div className="grid min-h-[inherit] grid-cols-12 items-center py-20">
-        <div
-          className={cn(
-            'col-span-12 space-y-6',
-            CONTENT_ALIGNMENT[textAlign],
-            ALIGNMENT_CLASSES[textAlign],
-          )}
-        >
-          {/* Enhanced Glassmorphism Card with glow */}
-          <div className="group relative">
-            {/* Glow effect */}
-            <div
-              className="absolute -inset-1 rounded-2xl opacity-75 blur-xl transition-all duration-500 group-hover:opacity-100"
+      <div className="relative grid min-h-[inherit] overflow-hidden pb-16 pt-20 md:pb-20 md:pt-24">
+        <div className="relative flex items-center px-6">
+          <div
+            className={cn(
+              'grid max-w-4xl gap-y-8 p-8 md:gap-y-10 md:p-12',
+              CONTENT_ALIGNMENT[textAlign],
+              ALIGNMENT_CLASSES[textAlign],
+            )}
+          >
+            <div className="space-y-6">
+            <h1 
+              className="font-quicksand text-6xl font-semibold text-white md:text-7xl lg:text-8xl xl:text-9xl"
               style={{
-                background: `linear-gradient(135deg, ${transformedColors[0]}40, ${transformedColors[1]}40, ${transformedColors[2]}40)`,
+                filter:
+                  'drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 30px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(147,51,234,0.3))',
               }}
-            />
-
-            {/* Card */}
-            <div
-              className={cn(
-                'relative rounded-2xl bg-white/10 p-8 backdrop-blur-md md:p-10',
-                'border border-white/20 shadow-2xl',
-                'transform transition-all duration-300 hover:bg-white/15',
-              )}
             >
-              <h1 className="mb-4 text-balance font-quicksand text-4xl font-light text-white md:text-5xl lg:text-6xl xl:text-7xl">
-                {title}
-              </h1>
+              {title}
+            </h1>
 
-              {description && (
-                <p className="mb-8 max-w-2xl text-balance text-lg text-white/90">
-                  {description}
-                </p>
-              )}
+            {description && (
+              <p 
+                className="max-w-2xl text-xl font-light leading-relaxed text-white/90 md:text-2xl lg:text-3xl"
+                style={{
+                  textShadow:
+                    '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6), 0 4px 4px rgba(0,0,0,0.9)',
+                }}
+              >
+                {description}
+              </p>
+            )}
 
-              {secondaryCTA && (
+            </div>
+
+            {secondaryCTA && (
+              <div className="flex flex-col items-start gap-4 sm:flex-row">
                 <Button
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="border-white/30 bg-white/20 text-white backdrop-blur-sm hover:bg-white/30"
+                  className="relative bg-black/30 text-white backdrop-blur-sm transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 before:p-[1px] before:opacity-70 hover:bg-black/40 hover:before:opacity-100"
+                  style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
                 >
                   <Link href={secondaryCTA.href}>{secondaryCTA.text}</Link>
                 </Button>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
