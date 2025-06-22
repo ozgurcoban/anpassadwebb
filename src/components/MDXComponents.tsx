@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { type MDXComponents } from 'mdx/types'
-import H3 from '@/components/ui/H3'
-import H4 from '@/components/ui/H4'
-import P from '@/components/ui/P'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -22,13 +19,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h2>
     ),
     h3: ({ children }) => (
-      <H3>{children}</H3>
+      <h3 className="px-2 text-3xl font-medium leading-snug">{children}</h3>
     ),
     h4: ({ children }) => (
-      <H4>{children}</H4>
+      <h4 className="text-lg font-medium">{children}</h4>
     ),
     p: ({ children }) => (
-      <P>{children}</P>
+      <p className="px-2 text-lg leading-loose">{children}</p>
     ),
     a: ({ href, children }) => {
       const isInternal = href && (href.startsWith('/') || href.startsWith('#'))

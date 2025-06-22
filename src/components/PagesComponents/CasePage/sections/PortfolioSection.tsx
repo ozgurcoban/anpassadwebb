@@ -3,7 +3,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import Section from '@/components/ui/Section';
-import H3 from '@/components/ui/H3';
 import Text from '@/components/ui/Text';
 import { Badge } from '@/components/ui/badge';
 import { CaseCard } from '@/components/Case/CaseCard';
@@ -24,7 +23,7 @@ const PortfolioSection = () => {
   return (
     <Section className="space-y-12 bg-secondary sm:rounded-md">
       <div className="text-center">
-        <H3 className="mb-4">Utvalda projekt</H3>
+        <h3 className="px-2 text-3xl font-medium leading-snug mb-4">Utvalda projekt</h3>
         <Text size="lg" className="mx-auto max-w-2xl text-muted-foreground">
           Från e-handelslösningar till företagswebbplatser - varje projekt är 
           unikt anpassat efter kundens behov och mål.

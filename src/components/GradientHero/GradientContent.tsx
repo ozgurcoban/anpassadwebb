@@ -39,7 +39,7 @@ export function GradientContent({
                 'transform transition-all duration-300 hover:bg-white/15',
               )}
             >
-              <h1 className="mb-4 text-balance text-5xl font-bold text-white md:text-6xl">
+              <h1 className="mb-4 text-balance font-quicksand text-4xl font-light text-white md:text-5xl lg:text-6xl xl:text-7xl">
                 {title}
               </h1>
 

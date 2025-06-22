@@ -4,7 +4,6 @@ import { DetailedCaseStudy } from '@/data/caseStudies';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import H3 from '@/components/ui/H3';
 import Text from '@/components/ui/Text';
 import { IconExternalLink } from '@tabler/icons-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
@@ -119,7 +118,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       {story && story.map((section, index) => (
         <section key={index} className="space-y-12">
           <div className="text-center">
-            <H3 className="text-4xl font-semibold">{section.title}</H3>
+            <h3 className="px-2 text-3xl font-medium leading-snug">{section.title}</h3>
             <Text className="mt-2 text-xl text-muted-foreground">
               {section.subtitle}
             </Text>
@@ -275,7 +274,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       {/* About Section */}
       {aboutSection && (
         <section className="mx-auto max-w-3xl text-center">
-          <H3 className="mb-8 text-4xl font-semibold">{aboutSection.title}</H3>
+          <h3 className="px-2 text-3xl font-medium leading-snug">{aboutSection.title}</h3>
           <Text className="text-lg leading-relaxed text-muted-foreground">
             {aboutSection.content}
           </Text>
@@ -286,7 +285,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
       {processSection && (
         <section className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <H3 className="mb-4 text-4xl font-semibold">{processSection.subtitle}</H3>
+            <h3 className="px-2 text-3xl font-medium leading-snug">{processSection.subtitle}</h3>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {processSection.steps.map((step, index) => (
