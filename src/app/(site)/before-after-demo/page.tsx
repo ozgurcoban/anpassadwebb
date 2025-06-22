@@ -192,9 +192,9 @@ export default function BeforeAfterDemoPage() {
             
             <h3 className="font-semibold mb-2 mt-4">Basic Props</h3>
             <ul className="space-y-2">
-              <li><strong>beforeLabel</strong>: Label for before image (default: "Before")</li>
-              <li><strong>afterLabel</strong>: Label for after image (default: "After")</li>
-              <li><strong>aspectRatio</strong>: CSS aspect ratio (default: "16/9")</li>
+              <li><strong>beforeLabel</strong>: Label for before image (default: &quot;Before&quot;)</li>
+              <li><strong>afterLabel</strong>: Label for after image (default: &quot;After&quot;)</li>
+              <li><strong>aspectRatio</strong>: CSS aspect ratio (default: &quot;16/9&quot;)</li>
               <li><strong>className</strong>: Additional CSS classes</li>
               <li><strong>initialPosition</strong>: Initial slider position 0-100 (default: 35)</li>
             </ul>
@@ -202,8 +202,8 @@ export default function BeforeAfterDemoPage() {
             <h3 className="font-semibold mb-2 mt-4">Slider Styling</h3>
             <ul className="space-y-2">
               <li><strong>sliderLineWidth</strong>: Width in pixels (default: 2)</li>
-              <li><strong>sliderLineColor</strong>: Line color (default: "white")</li>
-              <li><strong>sliderHandleColor</strong>: Handle color (default: "white")</li>
+              <li><strong>sliderLineColor</strong>: Line color (default: &quot;white&quot;)</li>
+              <li><strong>sliderHandleColor</strong>: Handle color (default: &quot;white&quot;)</li>
             </ul>
           </div>
           
@@ -214,7 +214,7 @@ export default function BeforeAfterDemoPage() {
               <li><strong>description</strong>: Optional description text</li>
               <li><strong>titleClassName</strong>: CSS classes for title</li>
               <li><strong>descriptionClassName</strong>: CSS classes for description</li>
-              <li><strong>headerPosition</strong>: "top" | "bottom" (default: "top")</li>
+              <li><strong>headerPosition</strong>: &quot;top&quot; | &quot;bottom&quot; (default: &quot;top&quot;)</li>
             </ul>
             
             <h3 className="font-semibold mb-2 mt-4">Interaction</h3>

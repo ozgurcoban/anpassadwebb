@@ -59,7 +59,7 @@ const ServicesSection = () => {
         
         <div className="mt-16 text-center">
           <Text className="mb-2 text-gray-600 dark:text-gray-400">
-            Palermo klättrade från plats 25 till 4 för "pizza uppsala".
+            Palermo klättrade från plats 25 till 4 för &quot;pizza uppsala&quot;.
           </Text>
           <Text className="mb-4 text-gray-600 dark:text-gray-400">
             Vi stod för webb, SEO och sidstruktur.
