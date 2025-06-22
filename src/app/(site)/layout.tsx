@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Anpassad Webb - Skräddarsydda hemsidor för företag',
   description: 'Vi skapar professionella, responsiva hemsidor som hjälper ditt företag att växa online.',
+  robots: 'noindex, nofollow',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
