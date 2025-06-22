@@ -13,12 +13,11 @@ const CTASection = () => {
         <Card className="mx-auto max-w-2xl bg-accent text-center">
           <CardContent className="space-y-6 p-10">
             <IconTarget className="mx-auto h-12 w-12 text-primary" stroke={1.5} />
-            <h3 className="px-2 text-3xl font-medium leading-snug">Redo att starta ditt nästa projekt?</h3>
+            <h3 className="px-2 text-3xl font-medium leading-snug">Redo att klättra på Google?</h3>
             <Text size="lg" className="text-muted-foreground">
-              Låt oss hjälpa dig att skapa en digital närvaro som driver resultat. 
-              Kontakta oss idag för en kostnadsfri konsultation.
+              Vi hjälpte Palermo från plats 25 till 4. Var står du idag?
             </Text>
-            <ContactButton className="mt-6" />
+            <ContactButton className="mt-6" text="Boka gratis genomgång" />
           </CardContent>
         </Card>
       </SectionContainer>

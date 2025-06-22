@@ -37,3 +37,6 @@ yarn-error.log*
 next-env.d.ts
 
 /palermo-repo
+
+# claude local settings
+.claude/settings.local.json

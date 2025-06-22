@@ -11,7 +11,8 @@
       "Bash(timeout 10s npm run dev)",
       "Bash(true)",
       "Bash(git add:*)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "mcp__palermo-filesystem__write_file"
     ],
     "deny": []
   }

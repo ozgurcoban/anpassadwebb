@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Section from '@/components/ui/Section';
-import SectionContainer from '@/components/ui/SectionContainer';
-import { ProjectDetails } from '@/components/Case/ProjectDetails';
 import { palermoProject } from '@/data/caseStudies';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 
@@ -11,7 +9,7 @@ const SingleProjectSection = () => {
   const { beforeImage, afterImage } = palermoProject;
 
   return (
-    <Section className="space-y-16 py-16">
+    <Section className="py-16" id="before-after-section">
       {/* BeforeAfter Slider - Full width dramatic intro */}
       {beforeImage && afterImage && (
         <div className="w-full">
@@ -30,11 +28,6 @@ const SingleProjectSection = () => {
           </div>
         </div>
       )}
-
-      {/* Rest of project details */}
-      <SectionContainer>
-        <ProjectDetails caseStudy={palermoProject} showHeroImage={false} />
-      </SectionContainer>
     </Section>
   );
 };
