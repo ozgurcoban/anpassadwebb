@@ -21,12 +21,10 @@ const SingleProjectSection = () => {
               afterImage={afterImage}
               beforeLabel="Tidigare"
               afterLabel="Nu"
-              className="shadow-2xl"
-              aspectRatio="16/10"
+              className="shadow-2xl rounded-2xl"
+              aspectRatio="4/3"
               title="Se förändringen"
               description="Dra i reglaget för att jämföra före och efter"
-              borderRadius="1rem"
-              sliderHandleSize="lg"
               initialPosition={30}
             />
           </div>

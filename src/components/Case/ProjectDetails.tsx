@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { DetailedCaseStudy } from '@/data/caseStudies';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -9,6 +8,7 @@ import H3 from '@/components/ui/H3';
 import Text from '@/components/ui/Text';
 import { IconExternalLink } from '@tabler/icons-react';
 import BeforeAfterSlider from '@/components/BeforeAfterSlider';
+import ImageZoomModal from '@/components/ImageZoomModal';
 import { 
   Languages, 
   CalendarDays, 
@@ -16,6 +16,7 @@ import {
   UtensilsCrossed, 
   MessageCircle, 
   Image as ImageIcon,
+  ZoomIn,
   LucideIcon 
 } from 'lucide-react';
 
@@ -28,6 +29,18 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
   caseStudy,
   showHeroImage = true,
 }) => {
+  const [zoomModal, setZoomModal] = useState<{
+    isOpen: boolean;
+    imageSrc: string;
+    imageAlt: string;
+    title?: string;
+  }>({
+    isOpen: false,
+    imageSrc: '',
+    imageAlt: '',
+    title: '',
+  });
+
   const {
     title,
     client,
@@ -43,6 +56,24 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     aboutSection,
     processSection,
   } = caseStudy;
+
+  const openZoomModal = (imageSrc: string, imageAlt: string, imageTitle?: string) => {
+    setZoomModal({
+      isOpen: true,
+      imageSrc,
+      imageAlt,
+      title: imageTitle,
+    });
+  };
+
+  const closeZoomModal = () => {
+    setZoomModal({
+      isOpen: false,
+      imageSrc: '',
+      imageAlt: '',
+      title: '',
+    });
+  };
 
   return (
     <article className="space-y-24">
@@ -65,10 +96,8 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               afterImage={afterImage}
               beforeLabel="Tidigare"
               afterLabel="Nu"
-              className="shadow-2xl"
+              className="shadow-2xl rounded-2xl"
               aspectRatio="16/10"
-              borderRadius="1rem"
-              sliderHandleSize="lg"
               initialPosition={30}
             />
           ) : (
@@ -132,7 +161,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
               </div>
             </div>
           ) : (
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               {/* Before */}
               <div className="space-y-4">
                 <div className="rounded-2xl bg-muted/50 p-8">
@@ -144,14 +173,21 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   </Text>
                 </div>
                 {section.beforeImage && (
-                  <div className="relative aspect-video overflow-hidden rounded-lg">
+                  <div 
+                    className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white cursor-pointer group"
+                    onClick={() => openZoomModal(section.beforeImage!, `${section.title} - före`, `${section.title} - Före`)}
+                  >
                     <Image
                       src={section.beforeImage}
                       alt={`${section.title} - före`}
                       fill
-                      className="object-contain"
+                      className="object-contain rounded-2xl transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+                    <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ZoomIn className="h-4 w-4 text-gray-700" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -167,14 +203,21 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                   </Text>
                 </div>
                 {section.afterImage && (
-                  <div className="relative aspect-video overflow-hidden rounded-lg">
+                  <div 
+                    className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white cursor-pointer group"
+                    onClick={() => openZoomModal(section.afterImage!, `${section.title} - efter`, `${section.title} - Efter`)}
+                  >
                     <Image
                       src={section.afterImage}
                       alt={`${section.title} - efter`}
                       fill
-                      className="object-cover"
+                      className="object-contain rounded-2xl transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+                    <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ZoomIn className="h-4 w-4 text-gray-700" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -190,14 +233,21 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 
           {/* Full width image if provided */}
           {section.image && (
-            <div className="relative aspect-video overflow-hidden rounded-2xl">
+            <div 
+              className="relative aspect-video overflow-hidden rounded-2xl cursor-pointer group"
+              onClick={() => openZoomModal(section.image!, section.title, section.title)}
+            >
               <Image
                 src={section.image}
                 alt={section.title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="100vw"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl" />
+              <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ZoomIn className="h-4 w-4 text-gray-700" />
+              </div>
             </div>
           )}
         </section>
@@ -266,6 +316,15 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({
           </Button>
         </div>
       )}
+
+      {/* Image Zoom Modal */}
+      <ImageZoomModal
+        isOpen={zoomModal.isOpen}
+        onClose={closeZoomModal}
+        imageSrc={zoomModal.imageSrc}
+        imageAlt={zoomModal.imageAlt}
+        title={zoomModal.title}
+      />
     </article>
   );
 };

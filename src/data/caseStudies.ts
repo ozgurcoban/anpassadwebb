@@ -69,7 +69,7 @@ export const palermoProject: DetailedCaseStudy = {
       afterDescription:
         'Från plats 25 till top 3 på Google när någon söker "pizza uppsala". Nya gäster varje dag.',
       value: '73% fler besökare från Google',
-      beforeImage: '/images/palermo-case/palermo-seo-before.png',
+      beforeImage: '/images/palermo-case/palermo-seo-before.webp',
       afterImage: '/images/palermo-case/palermo-seo-after.png',
     },
     {
