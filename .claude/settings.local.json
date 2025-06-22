@@ -10,7 +10,8 @@
       "Bash(npm run build:*)",
       "Bash(timeout 10s npm run dev)",
       "Bash(true)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(npm run lint:*)"
     ],
     "deny": []
   }
