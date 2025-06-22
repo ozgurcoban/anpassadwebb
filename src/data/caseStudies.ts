@@ -74,7 +74,8 @@ export const palermoProject: DetailedCaseStudy = {
     },
     {
       title: 'Alltid uppdaterad',
-      subtitle: 'Innehåll du styr själv från mobilen i en och samma cms',
+      subtitle:
+        'Innehåll du styr själv från mobilen eller datorn. Allt i ett verktyg.',
       value: 'Sparar 10 timmar per månad',
       image: '/images/palermo-cms-demo.jpg',
       features: [

@@ -7,7 +7,7 @@ const BlogComponents: React.FC = () => {
   return (
     <>
       <BlogHeroSection />
-      {/* Posts section is rendered in page.tsx as it needs server-side data */}
+      {/* Featured posts and main posts sections are rendered in page.tsx as they need server-side data */}
     </>
   );
 };

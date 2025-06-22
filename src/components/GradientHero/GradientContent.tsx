@@ -14,11 +14,18 @@ export function GradientContent({
   return (
     <div className="relative z-10 px-4 lg:px-8">
       <div className="relative grid min-h-[inherit] overflow-hidden pb-16 pt-20 md:pb-20 md:pt-24">
-        <div className="relative flex items-center px-6">
+        <div className={cn(
+          "relative flex items-center px-6",
+          {
+            'justify-start': textAlign === 'left',
+            'justify-center': textAlign === 'center', 
+            'justify-end': textAlign === 'right',
+          }
+        )}>
           <div
             className={cn(
               'grid max-w-4xl gap-y-8 p-8 md:gap-y-10 md:p-12',
-              CONTENT_ALIGNMENT[textAlign],
+              textAlign === 'center' ? '' : CONTENT_ALIGNMENT[textAlign],
               ALIGNMENT_CLASSES[textAlign],
             )}
           >
@@ -48,7 +55,14 @@ export function GradientContent({
             </div>
 
             {secondaryCTA && (
-              <div className="flex flex-col items-start gap-4 sm:flex-row">
+              <div className={cn(
+                "flex flex-col gap-4 sm:flex-row",
+                {
+                  'items-start': textAlign === 'left',
+                  'items-center': textAlign === 'center',
+                  'items-end': textAlign === 'right',
+                }
+              )}>
                 <Button
                   asChild
                   variant="secondary"

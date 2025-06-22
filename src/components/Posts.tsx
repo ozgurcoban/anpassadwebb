@@ -1,17 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { type Post } from '@/lib/mdx';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { formatDateWithFallback } from '@/utils/formattedDate';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
-import { Badge } from '@/components/ui/badge';
 import { blogConfig } from '@/lib/blog-config';
+import { FadeInView } from '@/components/ui/FadeInView';
 
 type PostsProps = {
   posts: Post[];
@@ -23,8 +16,8 @@ export async function Posts({
   locale = blogConfig.defaultLocale,
 }: PostsProps) {
   return (
-    <div className="grid grid-cols-1 gap-8 [grid-template-rows:auto_1fr_auto_auto] md:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => {
+    <div id="posts" className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post, index) => {
         const {
           slug,
           frontmatter: { title, description, date, tags, image, imageAlt },
@@ -32,14 +25,21 @@ export async function Posts({
         } = post;
 
         return (
-          <article
+          <FadeInView
             key={slug}
-            className="group grid overflow-hidden rounded-xl bg-white shadow-sm transition-all [grid-row:span_4] [grid-template-rows:subgrid] hover:shadow-md dark:bg-gray-800"
+            delay={index * 0.1}
+            duration={0.6}
+            enableHover
+            as="article"
+            className="group relative overflow-hidden rounded-2xl bg-white/70 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 dark:bg-gray-800/70 dark:border-gray-700/30"
           >
-            {/* Image - Row 1 */}
+            {/* Background Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-purple-50/20 to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-blue-900/20 dark:via-purple-900/10 dark:to-pink-900/20" />
+            
+            {/* Image */}
             <Link
               href={`/posts/${slug}`}
-              className="relative h-48 w-full overflow-hidden"
+              className="relative block h-56 w-full overflow-hidden rounded-t-2xl"
             >
               {image ? (
                 <>
@@ -48,53 +48,78 @@ export async function Posts({
                     alt={imageAlt || title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-all duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-300/20 via-purple-300/20 to-pink-300/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </>
               ) : (
-                <div className="h-full w-full bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700" />
+                <div className="h-full w-full bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-16 h-16 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
               )}
+              
+              {/* Reading Time Badge */}
+              <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {readingTime.text}
+              </div>
             </Link>
 
-            {/* Content - Row 2 */}
-            <div className="flex flex-col p-6">
-              <Link href={`/posts/${slug}`} className="flex-grow">
-                <h3 className="mb-2 font-heading text-xl font-semibold transition-colors group-hover:text-primary">
+            {/* Content */}
+            <div className="relative p-6 space-y-4">
+              <Link href={`/posts/${slug}`} className="space-y-3 block">
+                <h3 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-300">
                   {title && capitalizeFirstLetter(title)}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
                   {description}
                 </p>
               </Link>
-            </div>
 
-            {/* Meta - Row 3 */}
-            <div className="flex items-center gap-2 px-6 pb-4 text-sm text-gray-500 dark:text-gray-500">
-              <span>{formatDateWithFallback(date, locale)}</span>
-              <span>•</span>
-              <span>{readingTime.text}</span>
-            </div>
+              {/* Meta Info */}
+              <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                <time dateTime={date} className="flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {formatDateWithFallback(date, locale)}
+                </time>
+                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span className="flex items-center gap-1">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {readingTime.text}
+                </span>
+              </div>
 
-            {/* Tags - Row 4 */}
-            <div className="border-t border-gray-100 px-6 py-4 dark:border-gray-700">
-              {tags && tags.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
+              {/* Tags */}
+              {tags && tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {tags.slice(0, 3).map((tag) => (
                     <Link
                       key={tag}
                       href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 px-3 py-1 text-xs font-medium text-gray-700 transition-all hover:from-blue-100 hover:via-purple-100 hover:to-pink-100 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 dark:text-gray-300"
+                      className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-xs font-medium text-gray-700 hover:from-blue-200 hover:via-purple-200 hover:to-pink-200 transition-all duration-300 border border-white/50 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 dark:text-gray-300 dark:border-gray-600/50"
                     >
-                      {tag}
+                      #{tag}
                     </Link>
                   ))}
+                  {tags.length > 3 && (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+                      +{tags.length - 3}
+                    </span>
+                  )}
                 </div>
-              ) : (
-                <div className="h-6" />
               )}
             </div>
-          </article>
+
+            {/* Bottom Gradient */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-700"></div>
+          </FadeInView>
         );
       })}
     </div>
