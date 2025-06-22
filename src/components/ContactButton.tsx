@@ -9,9 +9,10 @@ import { Button } from './ui/button';
 
 type ContactButtonProps = {
   className?: string;
+  text?: string;
 };
 
-export const ContactButton: React.FC<ContactButtonProps> = ({ className }) => {
+export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 'Kontakta oss' }) => {
   const setDialog = useDialog((state) => state.setDialog);
 
   const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,7 +42,7 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className }) => {
 
   return (
     <RainbowModalButton className={className} onClick={openModal}>
-      Kontakta oss
+      {text}
     </RainbowModalButton>
   );
 };

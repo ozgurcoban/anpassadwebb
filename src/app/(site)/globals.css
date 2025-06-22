@@ -120,7 +120,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
     }
     25% {
@@ -134,11 +135,35 @@
   .animate-float {
     animation: float 10s ease-in-out infinite;
   }
+
+  /* Ribbon styles */
+  .ribbon-wrapper {
+    @apply absolute right-0 top-2 z-10 h-[100px] w-[100px] overflow-hidden;
+  }
+
+  .ribbon {
+    @apply absolute -right-[40px] top-[16px] w-[180px] rotate-45 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white shadow-lg transition-all duration-300 hover:shadow-xl;
+    background: linear-gradient(45deg, #7c3aed, #9333ea, #a855f7);
+    line-height: 1.2;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .ribbon:hover {
+    @apply scale-105;
+  }
+
+  @media (max-width: 768px) {
+    .ribbon {
+      @apply text-[9px] py-2 w-[160px] -right-[35px] top-[14px];
+    }
+  }
 }
 
 @layer base {
   :root {
-    --background: 240, 20%, 98%; /* Very light neutral with subtle blue undertone */
+    --background:
+      240, 20%, 98%; /* Very light neutral with subtle blue undertone */
 
     --foreground: 20 14.3% 10%; /* Lite ljusare för att undvika för skarp kontrast */
 
