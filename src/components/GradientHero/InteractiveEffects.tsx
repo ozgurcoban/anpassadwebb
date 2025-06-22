@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { lerp } from '@/lib/animation-utils';
 
 interface Particle {
   id: number;
@@ -143,9 +144,6 @@ export function InteractiveEffects({
     let orbAnimationId: number;
     const startTime = Date.now();
 
-    const lerp = (start: number, end: number, factor: number) => {
-      return start + (end - start) * factor;
-    };
 
     const animateOrbs = () => {
       const elapsed = (Date.now() - startTime) / 1000;

@@ -1,39 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { type FloatingElementsProps } from './types';
-
-// Helper function to calculate magnetic transform based on mouse position
-const calculateMagneticTransform = (
-  elementPos: { x: number; y: number },
-  mousePos: { x: number; y: number },
-  isHovering: boolean,
-  containerSize: { width: number; height: number },
-  magneticRadius: number = 150,
-  strength: number = 0.3
-): string => {
-  if (!isHovering) return 'translate3d(0px, 0px, 0) scale(1)';
-  
-  const mouseX = mousePos.x * containerSize.width;
-  const mouseY = mousePos.y * containerSize.height;
-  
-  const elementX = (elementPos.x / 100) * containerSize.width;
-  const elementY = (elementPos.y / 100) * containerSize.height;
-  
-  const deltaX = mouseX - elementX;
-  const deltaY = mouseY - elementY;
-  const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-  
-  if (distance > magneticRadius) {
-    return 'translate3d(0px, 0px, 0) scale(1)';
-  }
-  
-  const factor = (magneticRadius - distance) / magneticRadius;
-  const translateX = deltaX * factor * strength;
-  const translateY = deltaY * factor * strength;
-  const scale = 1 + (factor * 0.1);
-  
-  return `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
-};
+import { calculateMagneticTransform } from '@/lib/animation-utils';
+import { type FloatingElementsProps, MAGNETIC_CONFIG, FLOATING_CONFIG } from './types';
 
 const CodeSnippet = ({ 
   code, 
@@ -55,8 +23,8 @@ const CodeSnippet = ({
     mousePosition,
     isHovering,
     containerSize,
-    120,
-    0.2
+    MAGNETIC_CONFIG.CODE_SNIPPET_RADIUS,
+    MAGNETIC_CONFIG.CODE_SNIPPET_STRENGTH
   );
 
   return (
@@ -94,8 +62,8 @@ const FloatingSymbol = ({
     mousePosition,
     isHovering,
     containerSize,
-    100,
-    0.25
+    MAGNETIC_CONFIG.SYMBOL_RADIUS,
+    MAGNETIC_CONFIG.SYMBOL_STRENGTH
   );
 
   return (
@@ -158,8 +126,7 @@ export function FloatingElements({
   isHovering,
   mousePosition,
 }: FloatingElementsProps) {
-  // Estimate container size - we could make this more precise by getting actual measurements
-  const containerSize = { width: 1200, height: 800 };
+  const containerSize = FLOATING_CONFIG.CONTAINER_SIZE;
   return (
     <>
       {/* Interactive Blobs */}
@@ -170,7 +137,9 @@ export function FloatingElements({
           mousePosition={mousePosition}
           className="left-[5%] top-[15%] h-80 w-80"
           colors={[0, 1]}
-          magneticStrength={0.1}
+          translateMultiplier={FLOATING_CONFIG.BLOB_TRANSLATE_MULTIPLIERS[0]}
+          scaleMultiplier={FLOATING_CONFIG.BLOB_SCALE_MULTIPLIERS[0]}
+          magneticStrength={FLOATING_CONFIG.BLOB_MAGNETIC_STRENGTHS[0]}
         />
         
         <InteractiveBlob
@@ -179,9 +148,9 @@ export function FloatingElements({
           mousePosition={mousePosition}
           className="right-[0%] top-[40%] h-[26rem] w-[26rem]"
           colors={[1, 2]}
-          translateMultiplier={{ x: -50, y: 80 }}
-          scaleMultiplier={0.1}
-          magneticStrength={0.06}
+          translateMultiplier={FLOATING_CONFIG.BLOB_TRANSLATE_MULTIPLIERS[1]}
+          scaleMultiplier={FLOATING_CONFIG.BLOB_SCALE_MULTIPLIERS[1]}
+          magneticStrength={FLOATING_CONFIG.BLOB_MAGNETIC_STRENGTHS[1]}
         />
         
         <InteractiveBlob
@@ -190,9 +159,9 @@ export function FloatingElements({
           mousePosition={mousePosition}
           className="bottom-[-5%] left-[25%] h-[22rem] w-[22rem]"
           colors={[2, 0]}
-          translateMultiplier={{ x: 40, y: -50 }}
-          scaleMultiplier={0.1}
-          magneticStrength={0.08}
+          translateMultiplier={FLOATING_CONFIG.BLOB_TRANSLATE_MULTIPLIERS[2]}
+          scaleMultiplier={FLOATING_CONFIG.BLOB_SCALE_MULTIPLIERS[2]}
+          magneticStrength={FLOATING_CONFIG.BLOB_MAGNETIC_STRENGTHS[2]}
         />
 
       </div>
