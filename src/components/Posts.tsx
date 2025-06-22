@@ -11,7 +11,7 @@ type PostsProps = {
   locale?: string;
 };
 
-export async function Posts({
+export function Posts({
   posts,
   locale = blogConfig.defaultLocale,
 }: PostsProps) {

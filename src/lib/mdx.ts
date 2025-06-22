@@ -76,7 +76,9 @@ export function getAllPosts(): Post[] {
 
 export function getPostsByTag(tag: string): Post[] {
   return getAllPosts().filter(post => 
-    post.frontmatter.tags.includes(tag)
+    post.frontmatter.tags.some(postTag => 
+      postTag.toLowerCase() === tag.toLowerCase()
+    )
   )
 }
 
