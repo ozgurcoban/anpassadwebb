@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 const BlogHeroSection = () => {
-  // Unik färgkombination för bloggen: Teal-Cyan-Blue
-  const blogColors = ['#14b8a6', '#06b6d4', '#3b82f6'];
+  // Använd samma färger som logo för konsistens
+  const blogColors = ['#3b82f6', '#8b5cf6', '#ec4899'];
   // Kontrastfärger för partiklar: Rosa-Orange-Gul för att sticka ut
   const particleColors = ['#f472b6', '#fb7185', '#fbbf24'];
   
@@ -38,24 +38,16 @@ const BlogHeroSection = () => {
           <div className="text-center max-w-4xl space-y-8">
             <div className="space-y-6">
               <h1
-                className="font-quicksand text-5xl font-medium text-white md:text-6xl lg:text-7xl xl:text-8xl"
-                style={{
-                  filter:
-                    'drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 30px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(147,51,234,0.3))',
-                }}
+                className="font-quicksand text-5xl font-medium text-gray-900 dark:text-white md:text-6xl lg:text-7xl xl:text-8xl"
               >
                 Insikter &{' '}
-                <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   inspiration
                 </span>
               </h1>
 
               <p
-                className="max-w-2xl mx-auto text-xl font-light leading-relaxed text-white/90 md:text-2xl lg:text-3xl"
-                style={{
-                  textShadow:
-                    '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6), 0 4px 4px rgba(0,0,0,0.9)',
-                }}
+                className="max-w-2xl mx-auto text-xl font-light leading-relaxed text-gray-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
               >
                 Här delar vi med oss av nyheter, insikter och tips om webbdesign, SEO och digital marknadsföring
               </p>
@@ -66,8 +58,7 @@ const BlogHeroSection = () => {
                 asChild
                 variant="secondary"
                 size="lg"
-                className="relative bg-black/30 text-white backdrop-blur-sm transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-r before:from-teal-500 before:via-cyan-500 before:to-blue-500 before:p-[1px] before:opacity-70 hover:bg-black/40 hover:before:opacity-100"
-                style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+                className="bg-gray-900 text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
               >
                 <Link href="/tag">Utforska kategorier</Link>
               </Button>

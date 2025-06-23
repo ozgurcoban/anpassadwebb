@@ -31,22 +31,14 @@ export function GradientContent({
           >
             <div className="space-y-6">
             <h1 
-              className="font-quicksand text-5xl font-medium text-white md:text-6xl lg:text-7xl xl:text-8xl"
-              style={{
-                filter:
-                  'drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 30px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(147,51,234,0.3))',
-              }}
+              className="font-quicksand text-5xl font-medium text-gray-900 dark:text-white md:text-6xl lg:text-7xl xl:text-8xl"
             >
               {title}
             </h1>
 
             {description && (
               <p 
-                className="max-w-2xl text-xl font-light leading-relaxed text-white/90 md:text-2xl lg:text-3xl"
-                style={{
-                  textShadow:
-                    '0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6), 0 4px 4px rgba(0,0,0,0.9)',
-                }}
+                className="max-w-2xl text-xl font-light leading-relaxed text-gray-700 dark:text-gray-200 md:text-2xl lg:text-3xl"
               >
                 {description}
               </p>
@@ -67,8 +59,7 @@ export function GradientContent({
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="relative bg-black/30 text-white backdrop-blur-sm transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 before:p-[1px] before:opacity-70 hover:bg-black/40 hover:before:opacity-100"
-                  style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+                  className="bg-gray-900 text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                 >
                   <Link href={secondaryCTA.href}>{secondaryCTA.text}</Link>
                 </Button>

@@ -20,7 +20,7 @@ const PackagesListSection = () => {
           </Text>
           {packagesConfig.introDescription && (
             <div className="mt-8 max-w-4xl mx-auto">
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 rounded-2xl p-6 md:p-8 border border-blue-100 dark:border-blue-900/50 shadow-sm">
+              <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 rounded-lg p-6 md:p-8 border border-blue-100 dark:border-blue-900/50 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-lg">

@@ -36,69 +36,71 @@ const Hero = () => {
           className="object-cover object-center"
         />
         
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <svg className="h-full w-full" preserveAspectRatio="none">
+        {/* Modern Dot Pattern */}
+        <div className="absolute inset-0 opacity-40">
+          <svg className="h-full w-full" preserveAspectRatio="xMidYMid slice">
             <defs>
+              {/* Gradient definitions using light colors for dark background */}
+              <radialGradient id="hero-dot-gradient-1">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                <stop offset="70%" stopColor="#ffffff" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="hero-dot-gradient-2">
+                <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.8" />
+                <stop offset="70%" stopColor="#fbbf24" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="hero-dot-gradient-3">
+                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.8" />
+                <stop offset="70%" stopColor="#60a5fa" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
+              </radialGradient>
+              
+              {/* Blur filters */}
+              <filter id="hero-dot-blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" />
+              </filter>
+              <filter id="hero-dot-blur-soft">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+              </filter>
+              
               <pattern
-                id="hero-mesh-pattern"
+                id="hero-modern-dots"
                 x="0"
                 y="0"
-                width="50"
-                height="50"
+                width="100"
+                height="100"
                 patternUnits="userSpaceOnUse"
               >
-                {/* Small dots */}
-                <circle cx="0" cy="0" r="1" fill="white" opacity="0.8" />
-                <circle cx="25" cy="0" r="1" fill="white" opacity="0.8" />
-                <circle cx="50" cy="0" r="1" fill="white" opacity="0.8" />
-                <circle cx="0" cy="25" r="1" fill="white" opacity="0.8" />
-                <circle cx="25" cy="25" r="1.5" fill="white" opacity="1.0" />
-                <circle cx="50" cy="25" r="1" fill="white" opacity="0.8" />
-                <circle cx="0" cy="50" r="1" fill="white" opacity="0.8" />
-                <circle cx="25" cy="50" r="1" fill="white" opacity="0.8" />
-                <circle cx="50" cy="50" r="1" fill="white" opacity="0.8" />
-
-                {/* Connecting lines */}
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="25"
-                  y2="25"
-                  stroke="white"
-                  strokeWidth="0.5"
-                  opacity="0.5"
-                />
-                <line
-                  x1="50"
-                  y1="0"
-                  x2="25"
-                  y2="25"
-                  stroke="white"
-                  strokeWidth="0.5"
-                  opacity="0.5"
-                />
-                <line
-                  x1="0"
-                  y1="50"
-                  x2="25"
-                  y2="25"
-                  stroke="white"
-                  strokeWidth="0.5"
-                  opacity="0.5"
-                />
-                <line
-                  x1="50"
-                  y1="50"
-                  x2="25"
-                  y2="25"
-                  stroke="white"
-                  strokeWidth="0.5"
-                  opacity="0.5"
-                />
+                {/* Large focal dots with blur */}
+                <circle cx="20" cy="20" r="3" fill="url(#hero-dot-gradient-1)" filter="url(#hero-dot-blur-soft)" opacity="0.9" />
+                <circle cx="80" cy="50" r="3.5" fill="url(#hero-dot-gradient-2)" filter="url(#hero-dot-blur-soft)" opacity="0.8" />
+                <circle cx="50" cy="85" r="3" fill="url(#hero-dot-gradient-3)" filter="url(#hero-dot-blur-soft)" opacity="0.9" />
+                
+                {/* Medium accent dots */}
+                <circle cx="35" cy="10" r="2" fill="url(#hero-dot-gradient-2)" filter="url(#hero-dot-blur)" opacity="0.7" />
+                <circle cx="65" cy="25" r="2" fill="url(#hero-dot-gradient-3)" filter="url(#hero-dot-blur)" opacity="0.6" />
+                <circle cx="10" cy="45" r="2" fill="url(#hero-dot-gradient-1)" filter="url(#hero-dot-blur)" opacity="0.7" />
+                <circle cx="90" cy="70" r="2" fill="url(#hero-dot-gradient-2)" filter="url(#hero-dot-blur)" opacity="0.6" />
+                <circle cx="25" cy="75" r="2" fill="url(#hero-dot-gradient-3)" filter="url(#hero-dot-blur)" opacity="0.7" />
+                
+                {/* Small atmospheric dots */}
+                <circle cx="5" cy="30" r="1.2" fill="url(#hero-dot-gradient-3)" opacity="0.5" />
+                <circle cx="45" cy="5" r="1.2" fill="url(#hero-dot-gradient-1)" opacity="0.5" />
+                <circle cx="70" cy="45" r="1.2" fill="url(#hero-dot-gradient-2)" opacity="0.4" />
+                <circle cx="15" cy="65" r="1.2" fill="url(#hero-dot-gradient-1)" opacity="0.5" />
+                <circle cx="95" cy="15" r="1.2" fill="url(#hero-dot-gradient-3)" opacity="0.4" />
+                <circle cx="55" cy="60" r="1.2" fill="url(#hero-dot-gradient-2)" opacity="0.5" />
+                <circle cx="85" cy="90" r="1.2" fill="url(#hero-dot-gradient-1)" opacity="0.4" />
+                
+                {/* Tiny detail dots */}
+                <circle cx="30" cy="50" r="0.8" fill="url(#hero-dot-gradient-2)" opacity="0.4" />
+                <circle cx="60" cy="40" r="0.8" fill="url(#hero-dot-gradient-3)" opacity="0.4" />
+                <circle cx="75" cy="75" r="0.8" fill="url(#hero-dot-gradient-1)" opacity="0.4" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#hero-mesh-pattern)" />
+            <rect width="100%" height="100%" fill="url(#hero-modern-dots)" />
           </svg>
         </div>
 

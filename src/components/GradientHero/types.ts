@@ -58,9 +58,9 @@ export interface GradientContentProps {
 }
 
 export const COLOR_SCHEMES: Record<ColorScheme, string[]> = {
-  'blue-purple': ['#3b82f6', '#8b5cf6', '#6366f1'],
-  'purple-pink': ['#8b5cf6', '#ec4899', '#a855f7'],
-  'pink-orange': ['#ec4899', '#f97316', '#f472b6'],
+  'blue-purple': ['#3b82f6', '#8b5cf6', '#ec4899'],
+  'purple-pink': ['#8b5cf6', '#ec4899', '#f472b6'],
+  'pink-orange': ['#ec4899', '#f97316', '#fbbf24'],
   'blue-green': ['#3b82f6', '#10b981', '#06b6d4'],
   custom: [],
 };
