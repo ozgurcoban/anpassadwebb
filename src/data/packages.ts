@@ -16,6 +16,15 @@ export interface Package {
   badgeText?: string;
 }
 
+export interface PackagesConfig {
+  introDescription?: string;
+}
+
+export const packagesConfig: PackagesConfig = {
+  introDescription:
+    'Vi bygger smart så att era löpande kostnader startar lågt. Först betalar ni bara för domän (~150kr/år). När trafiken ökar och ni vill ha full CMS-kontroll uppgraderar vi - då har ni redan sett ROI från hemsidan.',
+};
+
 export const packages: Package[] = [
   {
     id: 'startklar',
