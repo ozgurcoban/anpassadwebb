@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback, MouseEvent, TouchEvent } from 'react';
 import { cn } from '@/lib/utils';
+import { MoveHorizontal } from 'lucide-react';
 
 type HeaderPosition = 'top' | 'bottom';
 
@@ -218,30 +219,8 @@ export default function BeforeAfterSlider({
                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
               }}
             >
-              {/* Arrow Icons */}
-              <svg
-                className="absolute inset-0 w-full h-full p-2"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M26 15L19 22L26 29"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-gray-800"
-                />
-                <path
-                  d="M18 15L25 22L18 29"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-gray-800"
-                />
-              </svg>
+              {/* Arrow Icon */}
+              <MoveHorizontal className="absolute inset-0 w-full h-full p-3 text-gray-800" />
             </div>
           </div>
         </div>

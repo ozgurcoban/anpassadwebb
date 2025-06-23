@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { Card } from '@/components/ui/card';
-import { TrendingUp, Search, ShoppingCart } from 'lucide-react';
+import { TrendingUp, Palette, Users } from 'lucide-react';
 
 interface StatCard {
   icon: React.ReactNode;
@@ -24,7 +24,7 @@ const QuickWinsSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -42,27 +42,28 @@ const QuickWinsSection = () => {
       color: 'text-green-600',
     },
     {
-      icon: <Search className="h-8 w-8" />,
-      value: '0% → 100%',
-      label: 'mobilanpassad',
+      icon: <Palette className="h-8 w-8" />,
+      value: '90-tal → 2025',
+      label: 'modern design',
       color: 'text-blue-600',
     },
     {
-      icon: <ShoppingCart className="h-8 w-8" />,
-      value: '45% fler',
-      label: 'beställningar online',
+      icon: <Users className="h-8 w-8" />,
+      value: '200% ökning',
+      label: 'av webbtrafiken',
       color: 'text-purple-600',
     },
   ];
 
   return (
-    <Section className="py-16 md:py-20" ref={sectionRef}>
-      <SectionContainer>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {stats.map((stat, index) => (
+    <Section className="py-16 md:py-20">
+      <div ref={sectionRef}>
+        <SectionContainer>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {stats.map((stat, index) => (
             <Card
               key={index}
-              className={`p-6 text-center transition-all duration-700 transform ${
+              className={`transform p-6 text-center transition-all duration-700 ${
                 isVisible
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-10 opacity-0'
@@ -71,7 +72,7 @@ const QuickWinsSection = () => {
                 transitionDelay: `${index * 100}ms`,
               }}
             >
-              <div className={`flex justify-center mb-4 ${stat.color}`}>
+              <div className={`mb-4 flex justify-center ${stat.color}`}>
                 {stat.icon}
               </div>
               <div className="space-y-2">
@@ -82,6 +83,7 @@ const QuickWinsSection = () => {
           ))}
         </div>
       </SectionContainer>
+      </div>
     </Section>
   );
 };
