@@ -17,8 +17,8 @@ const services = [
   },
   {
     icon: MousePointerClick,
-    heading: 'Konverterar besökare',
-    title: 'Optimerade hemsidor för att förvandla besökare till kunder',
+    heading: 'Låga driftkostnader',
+    title: 'Växer med er – små kostnader först, mer när ni tjänar mer.',
   },
 ];
 
@@ -41,9 +41,7 @@ const ServicesSection = () => {
               key={index}
               className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-sm transition-all hover:shadow-md dark:bg-gray-800"
             >
-              <div
-                className="mb-6 inline-flex rounded-xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 p-4 shadow-lg transition-transform group-hover:scale-110"
-              >
+              <div className="mb-6 inline-flex rounded-xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 p-4 shadow-lg transition-transform group-hover:scale-110">
                 <service.icon className="h-8 w-8 text-white" />
               </div>
 
@@ -56,21 +54,20 @@ const ServicesSection = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
           <Text className="mb-2 text-gray-600 dark:text-gray-400">
-            Palermo klättrade från plats 25 till 4 för &quot;pizza uppsala&quot;.
+            Palermo klättrade från plats 25 till 4 för &quot;pizza
+            uppsala&quot;.
           </Text>
           <Text className="mb-4 text-gray-600 dark:text-gray-400">
             Vi stod för webb, SEO och sidstruktur.
           </Text>
-          <Link 
-            href="/case/palermo-uppsala" 
+          <Link
+            href="/case/palermo-uppsala"
             className="group inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
           >
-            <Text className="font-medium">
-              Läs caset här
-            </Text>
+            <Text className="font-medium">Läs caset här</Text>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
