@@ -122,12 +122,12 @@ export const palermoProject: DetailedCaseStudy = {
       subtitle: 'Design som gör gäster hungriga',
       beforeTitle: 'Förut',
       beforeDescription:
-        'Svårnavigerad meny. Innehållet var rörigt och oöverskådligt.',
+        'Svårnavigerad meny. Innehållet var rörigt och oöverskådligt. Samt att den inte var anpassad för mobil. Det gjorde att många gäster tappade intresset innan de ens beställt.',
       afterTitle: 'Nu',
       afterDescription:
         'Vi tog fram en menystruktur för mobil som sorterar innehållet i “chips” (kategorier) och döljer onödigt brus, så att det blir lätt att hitta exakt det man är sugen på.',
       value: '45% fler beställningar online',
-      beforeImage: '/images/palermo-menu-before.jpg',
+      beforeImage: '/images/palermo-case/palermo-menu-before.webp',
       afterImage: '/images/palermo-menu-after.jpg',
     },
   ],

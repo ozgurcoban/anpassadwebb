@@ -293,4 +293,27 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
       #7fc5de 100%
     );
   }
+
+  /* CSS Subgrid support for menu comparison */
+  @supports (grid-template-rows: subgrid) {
+    .menu-comparison-grid {
+      grid-template-rows: auto auto 1fr;
+    }
+  }
+
+  /* Fallback for browsers without subgrid support */
+  @supports not (grid-template-rows: subgrid) {
+    .menu-comparison-grid > * {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .menu-comparison-grid > * > :nth-child(2) {
+      min-height: 100px;
+    }
+    
+    .menu-comparison-grid > * > :last-child {
+      flex: 1;
+    }
+  }
 }
