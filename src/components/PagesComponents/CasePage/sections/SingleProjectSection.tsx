@@ -9,9 +9,10 @@ const SingleProjectSection = () => {
   const { beforeImage, afterImage } = palermoProject;
 
   return (
-    <Section className="py-16" id="before-after-section">
-      {/* BeforeAfter Slider - Full width dramatic intro */}
-      {beforeImage && afterImage && (
+    <div id="before-after-section">
+      <Section className="py-16">
+        {/* BeforeAfter Slider - Full width dramatic intro */}
+        {beforeImage && afterImage && (
         <div className="w-full">
           <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
             <BeforeAfterSlider
@@ -29,6 +30,7 @@ const SingleProjectSection = () => {
         </div>
       )}
     </Section>
+    </div>
   );
 };
 

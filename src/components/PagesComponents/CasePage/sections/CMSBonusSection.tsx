@@ -4,7 +4,16 @@ import React, { useState } from 'react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { Card } from '@/components/ui/card';
-import { Smartphone, Globe, Clock, Save, Check, Menu, Calendar, Settings } from 'lucide-react';
+import {
+  Smartphone,
+  Globe,
+  Clock,
+  Save,
+  Check,
+  Menu,
+  Calendar,
+  Settings,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Text from '@/components/ui/Text';
 
@@ -24,11 +33,11 @@ const CMSBonusSection = () => {
       id: 'mobile',
       icon: <Smartphone className="h-5 w-5" />,
       title: 'Ändra från mobilen',
-      description: 'Uppdatera menyn var som helst, när som helst',
+      description: 'Uppdatera direkt i mobilen - var du än befinner dig',
       mockupContent: (
-        <div className="h-full flex flex-col">
+        <div className="flex h-full flex-col">
           {/* Header */}
-          <div className="bg-white border-b p-3">
+          <div className="border-b bg-white p-3">
             <div className="flex items-center justify-between">
               <Menu className="h-5 w-5" />
               <span className="text-xs font-medium">Redigera meny</span>
@@ -36,18 +45,20 @@ const CMSBonusSection = () => {
             </div>
           </div>
           {/* Content */}
-          <div className="flex-1 bg-gray-50 p-4 space-y-3">
-            <div className="bg-white rounded-lg p-3 border-2 border-primary">
-              <div className="text-xs font-medium mb-1">Pizza Margherita</div>
-              <input 
-                type="text" 
-                value="125 kr" 
-                className="text-sm bg-gray-100 rounded px-2 py-1 w-full"
+          <div className="flex-1 space-y-3 bg-gray-50 p-4">
+            <div className="rounded-lg border-2 border-primary bg-white p-3">
+              <div className="mb-1 text-xs font-medium">Pizza Margherita</div>
+              <input
+                type="text"
+                value="125 kr"
+                className="w-full rounded bg-gray-100 px-2 py-1 text-sm"
                 readOnly
               />
             </div>
-            <div className="bg-white rounded-lg p-3">
-              <div className="text-xs text-gray-600 mb-1">Pizza Capricciosa</div>
+            <div className="rounded-lg bg-white p-3">
+              <div className="mb-1 text-xs text-gray-600">
+                Pizza Capricciosa
+              </div>
               <div className="text-sm">135 kr</div>
             </div>
           </div>
@@ -55,7 +66,10 @@ const CMSBonusSection = () => {
           <div className="bg-gray-200 p-2">
             <div className="grid grid-cols-10 gap-1">
               {[...'1234567890'].map((key) => (
-                <div key={key} className="bg-white rounded text-xs p-1 text-center">
+                <div
+                  key={key}
+                  className="rounded bg-white p-1 text-center text-xs"
+                >
                   {key}
                 </div>
               ))}
@@ -67,33 +81,39 @@ const CMSBonusSection = () => {
     {
       id: 'customizable',
       icon: <Globe className="h-5 w-5" />,
-      title: '100% anpassningsbar',
+      title: 'Designa precis som du vill',
       description: 'Skräddarsydd för dina specifika behov',
       mockupContent: (
         <div className="h-full bg-gray-50 p-4">
           <div className="space-y-3">
-            <div className="bg-white rounded-lg p-3 shadow-sm">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm">
+              <div className="mb-2 flex items-center gap-2">
                 <Menu className="h-4 w-4 text-primary" />
                 <span className="text-xs font-medium">Menyhantering</span>
               </div>
-              <div className="text-xs text-gray-600">Pizza, Pasta, Sallader</div>
+              <div className="text-xs text-gray-600">
+                Pizza, Pasta, Sallader
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-3 shadow-sm">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm">
+              <div className="mb-2 flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-primary" />
                 <span className="text-xs font-medium">Öppettider</span>
               </div>
               <div className="text-xs text-gray-600">Mån-Fre: 11-22</div>
             </div>
-            <div className="bg-white rounded-lg p-3 shadow-sm">
-              <div className="flex items-center gap-2 mb-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm">
+              <div className="mb-2 flex items-center gap-2">
                 <Settings className="h-4 w-4 text-primary" />
                 <span className="text-xs font-medium">Språkinställningar</span>
               </div>
-              <div className="flex gap-2 mt-1">
-                <span className="text-xs bg-primary/10 px-2 py-1 rounded">🇸🇪 Svenska</span>
-                <span className="text-xs bg-gray-100 px-2 py-1 rounded">🇬🇧 English</span>
+              <div className="mt-1 flex gap-2">
+                <span className="rounded bg-primary/10 px-2 py-1 text-xs">
+                  🇸🇪 Svenska
+                </span>
+                <span className="rounded bg-gray-100 px-2 py-1 text-xs">
+                  🇬🇧 English
+                </span>
               </div>
             </div>
           </div>
@@ -103,16 +123,16 @@ const CMSBonusSection = () => {
     {
       id: 'timesaver',
       icon: <Clock className="h-5 w-5" />,
-      title: 'Sparar 10 timmar/månad',
-      description: 'Ingen mer väntan på utvecklare',
+      title: 'Skydd mot fel',
+      description: 'Systemet säger till om något inte stämmer',
       mockupContent: (
         <div className="h-full bg-gray-50 p-4">
           <div className="space-y-3">
             {/* Quick edit */}
-            <div className="bg-white rounded-lg p-3 shadow-sm">
-              <div className="text-xs font-medium mb-2">Dagens lunch</div>
-              <textarea 
-                className="w-full text-xs bg-gray-100 rounded p-2"
+            <div className="rounded-lg bg-white p-3 shadow-sm">
+              <div className="mb-2 text-xs font-medium">Dagens lunch</div>
+              <textarea
+                className="w-full rounded bg-gray-100 p-2 text-xs"
                 rows={3}
                 value="Pasta Carbonara - 95 kr
 Caesarsallad - 89 kr
@@ -121,14 +141,16 @@ Veckans soppa - 79 kr"
               />
             </div>
             {/* Success notification */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+            <div className="rounded-lg border border-green-200 bg-green-50 p-3">
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-green-600" />
-                <span className="text-xs text-green-800">Ändringar publicerade!</span>
+                <span className="text-xs text-green-800">
+                  Ändringar publicerade!
+                </span>
               </div>
             </div>
             {/* Time saved */}
-            <div className="bg-primary/10 rounded-lg p-3 text-center">
+            <div className="rounded-lg bg-primary/10 p-3 text-center">
               <div className="text-lg font-bold text-primary">2 minuter</div>
               <div className="text-xs text-gray-600">istället för 2 timmar</div>
             </div>
@@ -141,53 +163,60 @@ Veckans soppa - 79 kr"
   return (
     <Section className="py-16 md:py-20">
       <SectionContainer>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Bonusen: De styr allt själva</h2>
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold">
+              Bonusen: De styr allt själva
+            </h2>
             <Text className="text-2xl font-semibold text-primary">
               Uppdatera menyn från soffan
             </Text>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2 items-center">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Mobile Mockup */}
             <div className="relative order-2 lg:order-1">
-              <div className="aspect-[9/16] max-w-sm mx-auto bg-gradient-to-br from-gray-900 to-gray-700 rounded-[3rem] p-4 shadow-2xl">
-                <div className="h-full w-full bg-white rounded-[2.5rem] overflow-hidden relative">
+              <div className="mx-auto aspect-[9/16] max-w-sm rounded-[3rem] bg-gradient-to-br from-gray-900 to-gray-700 p-4 shadow-2xl">
+                <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-white">
                   {/* Dynamic content based on selected feature */}
                   <div className="absolute inset-0">
-                    {features.find(f => f.id === activeFeature)?.mockupContent}
+                    {
+                      features.find((f) => f.id === activeFeature)
+                        ?.mockupContent
+                    }
                   </div>
-                  
+
                   {/* Phone notch */}
-                  <div className="absolute top-0 inset-x-0 h-6 bg-black rounded-b-2xl"></div>
+                  <div className="absolute inset-x-0 top-0 h-6 rounded-b-2xl bg-black"></div>
                 </div>
               </div>
             </div>
 
             {/* Features List */}
-            <div className="space-y-4 order-1 lg:order-2">
+            <div className="order-1 space-y-4 lg:order-2">
               {features.map((feature) => (
-                <Card 
-                  key={feature.id} 
+                <Card
+                  key={feature.id}
                   className={cn(
-                    "p-6 flex gap-4 items-start cursor-pointer transition-all",
-                    activeFeature === feature.id 
-                      ? "border-primary shadow-lg scale-[1.02]" 
-                      : "hover:shadow-md hover:scale-[1.01]"
+                    'flex cursor-pointer items-start gap-4 p-6 transition-all',
+                    activeFeature === feature.id
+                      ? 'scale-[1.02] border-primary shadow-lg'
+                      : 'hover:scale-[1.01] hover:shadow-md',
                   )}
                   onClick={() => setActiveFeature(feature.id)}
                 >
-                  <div className={cn(
-                    "flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center transition-colors",
-                    activeFeature === feature.id
-                      ? "bg-primary text-white"
-                      : "bg-primary/10 text-primary"
-                  )}>
+                  <div
+                    className={cn(
+                      'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-colors',
+                      activeFeature === feature.id
+                        ? 'bg-primary text-white'
+                        : 'bg-primary/10 text-primary',
+                    )}
+                  >
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{feature.title}</h3>
+                    <h3 className="mb-1 font-semibold">{feature.title}</h3>
                     <Text className="text-muted-foreground">
                       {feature.description}
                     </Text>

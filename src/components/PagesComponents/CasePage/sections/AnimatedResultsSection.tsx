@@ -76,12 +76,13 @@ const AnimatedResultsSection = () => {
         }, stepDuration);
       });
     }
-  }, [isVisible]);
+  }, [isVisible, results]);
 
   return (
-    <Section className="py-20 bg-muted/30" ref={sectionRef}>
-      <SectionContainer>
-        <div className="text-center mb-12">
+    <Section className="py-20 bg-muted/30">
+      <div ref={sectionRef}>
+        <SectionContainer>
+          <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Resultat som räknas</h2>
           <Text className="text-lg text-muted-foreground">
             Konkreta siffror som visar på verklig förändring
@@ -101,6 +102,7 @@ const AnimatedResultsSection = () => {
           ))}
         </div>
       </SectionContainer>
+      </div>
     </Section>
   );
 };

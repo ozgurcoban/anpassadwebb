@@ -166,7 +166,7 @@ const MenuRevolutionSection = () => {
       <SectionContainer>
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Menyrevolutionen</h2>
+            <h2 className="mb-4 text-3xl font-bold">Menyevolutionen</h2>
             <Text className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Design som gör gäster hungriga
             </Text>
