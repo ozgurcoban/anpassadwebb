@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import readingTime from 'reading-time'
+import { Redis } from '@upstash/redis'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 const pagesDirectory = path.join(process.cwd(), 'content/pages')
@@ -146,5 +147,30 @@ export function getPageBySlug(slug: string): { slug: string; frontmatter: any; c
     slug,
     frontmatter: data,
     content
+  }
+}
+
+export async function getMostReadPosts(limit: number = 3): Promise<Post[]> {
+  try {
+    const posts = getAllPosts()
+    const redis = Redis.fromEnv()
+    
+    // Get view counts for all posts
+    const postsWithViews = await Promise.all(
+      posts.map(async (post) => {
+        const views = await redis.get<number>(`post:${post.slug}:views`) || 0
+        return { ...post, views }
+      })
+    )
+    
+    // Sort by views and return top posts
+    return postsWithViews
+      .sort((a, b) => b.views - a.views)
+      .slice(0, limit)
+      .map(({ views, ...post }) => post)
+  } catch (error) {
+    console.error('Error fetching most read posts:', error)
+    // Fallback to featured posts if KV is not available
+    return getFeaturedPosts(limit)
   }
 }

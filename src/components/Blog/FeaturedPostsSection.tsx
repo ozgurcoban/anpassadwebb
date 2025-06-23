@@ -1,11 +1,11 @@
-import { getFeaturedPosts } from '@/lib/mdx';
+import { getMostReadPosts } from '@/lib/mdx';
 import { Posts } from '@/components/Posts';
 import { FadeInView } from '@/components/ui/FadeInView';
 
 export const revalidate = 60;
 
 const FeaturedPostsSection = async () => {
-  const posts = getFeaturedPosts(3);
+  const posts = await getMostReadPosts(3);
   
   if (!posts || posts.length === 0) {
     return null;
@@ -28,7 +28,7 @@ const FeaturedPostsSection = async () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Handplockade artiklar som hjälper dig att förstå webbutveckling och SEO bättre
+            Våra mest lästa artiklar som hjälper dig att förstå webbutveckling och SEO bättre
           </p>
         </FadeInView>
         <Posts posts={posts} />
