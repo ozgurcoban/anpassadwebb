@@ -22,7 +22,7 @@ export default function GradientHero({
   verticalCenter = false,
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
-  
+
   const {
     containerRef,
     mousePosition,
@@ -36,7 +36,7 @@ export default function GradientHero({
   return (
     <section
       className={cn(
-        'relative mx-auto max-w-screen-2xl px-4 lg:px-8',
+        'relative mx-auto max-w-screen-2xl px-4 lg:px-8 -mt-16',
         className,
       )}
     >
