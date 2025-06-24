@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ContactButton } from '@/components/ContactButton';
 import { type GradientContentProps, ALIGNMENT_CLASSES, CONTENT_ALIGNMENT } from './types';
+import { TEXT_SHADOWS } from './constants';
 
 export function GradientContent({
   title,
@@ -42,7 +43,7 @@ export function GradientContent({
                 isImageBackground ? "text-white" : "text-gray-900 dark:text-white"
               )}
               style={isImageBackground ? {
-                filter: 'drop-shadow(2px 2px 8px rgba(0,0,0,0.95)) drop-shadow(0 0 40px rgba(0,0,0,0.8)) drop-shadow(0 0 80px rgba(147,51,234,0.4))',
+                filter: TEXT_SHADOWS.TITLE,
               } : undefined}
             >
               {title}
@@ -56,7 +57,7 @@ export function GradientContent({
                   isImageBackground ? "text-white/90" : "text-gray-700 dark:text-gray-200"
                 )}
                 style={isImageBackground ? {
-                  textShadow: '0 2px 25px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,0.7), 0 4px 6px rgba(0,0,0,0.95)',
+                  textShadow: TEXT_SHADOWS.DESCRIPTION,
                 } : undefined}
               >
                 {description}
