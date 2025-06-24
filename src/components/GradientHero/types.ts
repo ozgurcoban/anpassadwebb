@@ -8,7 +8,7 @@ export type ColorScheme =
   | 'custom';
 
 export interface GradientHeroProps {
-  title: string;
+  title: React.ReactNode;
   description?: string;
   colorScheme?: ColorScheme;
   customColors?: string[];
@@ -20,6 +20,13 @@ export interface GradientHeroProps {
   };
   className?: string;
   minHeight?: string;
+  backgroundImage?: {
+    src: any; // StaticImageData from next/image
+    alt: string;
+    priority?: boolean;
+  };
+  overlayOpacity?: number; // Control overlay opacity for image variants
+  verticalCenter?: boolean; // Control vertical centering
 }
 
 export interface GradientBackgroundProps {
@@ -37,6 +44,12 @@ export interface GradientBackgroundProps {
   };
   containerRef: React.RefObject<HTMLDivElement | null>;
   isLowPerformance?: boolean;
+  backgroundImage?: {
+    src: any; // StaticImageData from next/image
+    alt: string;
+    priority?: boolean;
+  };
+  overlayOpacity?: number;
 }
 
 export interface FloatingElementsProps {
@@ -47,7 +60,7 @@ export interface FloatingElementsProps {
 }
 
 export interface GradientContentProps {
-  title: string;
+  title: React.ReactNode;
   description?: string;
   textAlign: 'left' | 'center' | 'right';
   secondaryCTA?: {
@@ -55,6 +68,7 @@ export interface GradientContentProps {
     href: string;
   };
   transformedColors: string[];
+  verticalCenter?: boolean;
 }
 
 export const COLOR_SCHEMES: Record<ColorScheme, string[]> = {

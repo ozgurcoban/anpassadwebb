@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TagHeroSection from './sections/TagHeroSection';
+import GradientHero from '@/components/GradientHero';
 
 interface TagComponentsProps {
   title: string;
@@ -11,10 +11,27 @@ interface TagComponentsProps {
   ctaHref?: string;
 }
 
-const TagComponents: React.FC<TagComponentsProps> = (props) => {
+const TagComponents: React.FC<TagComponentsProps> = ({ 
+  title, 
+  description, 
+  showCTA, 
+  ctaText, 
+  ctaHref 
+}) => {
   return (
     <>
-      <TagHeroSection {...props} />
+      <GradientHero
+        title={title}
+        description={description}
+        colorScheme="blue-green"
+        textAlign="center"
+        minHeight="40vh"
+        verticalCenter={true}
+        secondaryCTA={showCTA && ctaText && ctaHref ? {
+          text: ctaText,
+          href: ctaHref
+        } : undefined}
+      />
     </>
   );
 };

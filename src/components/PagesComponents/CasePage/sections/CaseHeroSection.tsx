@@ -7,7 +7,7 @@ const CaseHeroSection = () => {
       description="Se hur en klassisk kvarterskrog blev enklare att hitta, besöka och beställa från"
       colorScheme="blue-purple"
       particleColors={['#ff6b6b', '#4ecdc4', '#ffe66d']}
-      textAlign="center"
+      textAlign="left"
       minHeight="60vh"
       secondaryCTA={{
         text: 'Se transformationen',

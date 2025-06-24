@@ -4,7 +4,6 @@ import useDialog from '@/hooks/useDialog';
 import ContactForm from './ContactForm';
 import React from 'react';
 import Link from 'next/link';
-import { RainbowModalButton } from './ui/RainbowButton/RainbowModalButton';
 import { Button } from './ui/button';
 
 type ContactButtonProps = {
@@ -41,8 +40,13 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 
   };
 
   return (
-    <RainbowModalButton className={className} onClick={openModal}>
+    <Button 
+      variant="rainbow" 
+      size="lg" 
+      className={className} 
+      onClick={openModal}
+    >
       {text}
-    </RainbowModalButton>
+    </Button>
   );
 };

@@ -17,6 +17,9 @@ export default function GradientHero({
   secondaryCTA,
   className,
   minHeight = '80vh',
+  backgroundImage,
+  overlayOpacity = 0.8,
+  verticalCenter = false,
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
   
@@ -46,6 +49,8 @@ export default function GradientHero({
         handlers={handlers}
         containerRef={containerRef}
         isLowPerformance={isLowPerformance}
+        backgroundImage={backgroundImage}
+        overlayOpacity={overlayOpacity}
       >
         <GradientContent
           title={title}
@@ -53,6 +58,8 @@ export default function GradientHero({
           textAlign={textAlign}
           secondaryCTA={secondaryCTA}
           transformedColors={transformedColors}
+          isImageBackground={!!backgroundImage}
+          verticalCenter={verticalCenter}
         />
       </GradientBackground>
     </section>

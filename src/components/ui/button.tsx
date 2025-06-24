@@ -25,6 +25,12 @@ const buttonVariants = cva(
           // dark mode colors
           "dark:text-white dark:bg-[linear-gradient(#121213,#121213),linear-gradient(90deg,theme('colors.red.500'),theme('colors.purple.500'),theme('colors.blue.500'),theme('colors.cyan.500'),theme('colors.lime.500'),theme('colors.orange.500'))]",
         ),
+        glass: cn(
+          'relative bg-black/50 text-white backdrop-blur-sm transition-all duration-300',
+          'before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 before:p-[1px] before:opacity-90',
+          'hover:bg-black/60 hover:before:opacity-100',
+          '[text-shadow:0_2px_10px_rgba(0,0,0,0.8)]'
+        ),
       },
       size: {
         default: 'h-10 px-4 py-2',
