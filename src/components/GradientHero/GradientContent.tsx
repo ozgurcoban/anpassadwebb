@@ -56,9 +56,6 @@ export function GradientContent({
                   textAlign === 'center' ? "max-w-2xl mx-auto" : "max-w-2xl",
                   isImageBackground ? "text-white/90" : "text-gray-700 dark:text-gray-200"
                 )}
-                style={isImageBackground ? {
-                  textShadow: TEXT_SHADOWS.DESCRIPTION,
-                } : undefined}
               >
                 {description}
               </p>
