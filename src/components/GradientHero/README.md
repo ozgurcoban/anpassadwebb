@@ -7,7 +7,7 @@ A high-performance, interactive gradient hero component with floating elements a
 - ✅ **Performance Optimized**: Separated hooks, React.memo, and GPU acceleration
 - ✅ **Context-based**: Eliminates prop drilling with React Context
 - ✅ **Modular Architecture**: Split into focused, reusable hooks
-- ✅ **TypeScript**: Fully typed with improved interfaces  
+- ✅ **TypeScript**: Fully typed with improved interfaces
 - ✅ **Responsive**: Works across all devices with performance detection
 - ✅ **Compound Components**: Flexible API for complex layouts
 
@@ -17,16 +17,16 @@ A high-performance, interactive gradient hero component with floating elements a
 import GradientHero from '@/components/GradientHero';
 
 <GradientHero
-  title="Welcome to Digital Studio"
+  title="Welcome to Anpassad Webb"
   description="Creating digital experiences that matter"
   colorScheme="purple-pink"
   textAlign="left"
   minHeight="60vh"
   secondaryCTA={{
-    text: "Learn More",
-    href: "/about"
+    text: 'Learn More',
+    href: '/about',
   }}
-/>
+/>;
 ```
 
 ## Advanced Usage (Compound Components)
@@ -47,24 +47,27 @@ import { GradientHeroCompound } from '@/components/GradientHero';
     <GradientHeroCompound.Floating />
     <GradientHeroCompound.Interactive />
   </GradientHeroCompound.Background>
-</GradientHeroCompound.Root>
+</GradientHeroCompound.Root>;
 ```
 
 ## Architecture
 
 ### Hooks
+
 - `useInteractiveGradient` - Main orchestrator hook
 - `usePerformanceDetection` - Device capability detection
 - `useMouseTracking` - Mouse position and interaction tracking
 - `useColorTransformation` - Color calculations and memoization
 
 ### Components
+
 - `GradientBackground` - Background with gradients and patterns
 - `GradientContent` - Text content with glassmorphism styling
 - `FloatingElements` - Animated blobs and code snippets
 - `InteractiveEffects` - Mouse-following particles and orbs
 
 ### Context
+
 - `GradientHeroContext` - Eliminates prop drilling across components
 
 ## Performance Features
@@ -78,7 +81,7 @@ import { GradientHeroCompound } from '@/components/GradientHero';
 ## Color Schemes
 
 - `blue-purple` - Blue to purple gradient
-- `purple-pink` - Purple to pink gradient  
+- `purple-pink` - Purple to pink gradient
 - `pink-orange` - Pink to orange gradient
 - `blue-green` - Blue to green gradient
 - `custom` - Use your own colors with `customColors` prop
@@ -86,6 +89,7 @@ import { GradientHeroCompound } from '@/components/GradientHero';
 ## Props
 
 ### GradientHeroProps
+
 ```tsx
 interface GradientHeroProps {
   title: string;
@@ -105,6 +109,7 @@ interface GradientHeroProps {
 ## Browser Support
 
 Optimized for:
+
 - ✅ Chrome/Edge (with specific performance fixes)
 - ✅ Safari
 - ✅ Firefox
