@@ -4,14 +4,8 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="group relative flex size-16 items-center justify-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-105"
+      className="group relative flex size-16 items-center justify-center transition-all duration-300 hover:scale-105"
     >
-      {/* Subtle gradient accent */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      
-      {/* Clean glass effect */}
-      <div className="absolute inset-0 bg-white/5 dark:bg-white/10" />
-      
       <svg
         viewBox="0 0 70 60"
         className="relative z-10 h-10 w-10 transition-transform duration-300"
