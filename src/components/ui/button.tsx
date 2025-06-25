@@ -20,11 +20,15 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         rainbow: cn(
-          'animate-rainbow bg-[length:200%] transition-colors [background-clip:padding-box,border-box,border-box] [background-origin:border-box] [border:calc(0.08*1rem)_solid_transparent]',
-          // light mode colors
-          "text-black bg-[linear-gradient(#fff,#fff),linear-gradient(90deg,theme('colors.red.500'),theme('colors.purple.500'),theme('colors.blue.500'),theme('colors.cyan.500'),theme('colors.lime.500'),theme('colors.orange.500'))]",
-          // dark mode colors
-          "dark:text-white dark:bg-[linear-gradient(#121213,#121213),linear-gradient(90deg,theme('colors.red.500'),theme('colors.purple.500'),theme('colors.blue.500'),theme('colors.cyan.500'),theme('colors.lime.500'),theme('colors.orange.500'))]",
+          'relative z-10 overflow-hidden border-2 border-transparent transition-all',
+          // solid background colors
+          'bg-white text-black dark:bg-gray-900 dark:text-white',
+          // animated border gradient
+          "before:absolute before:inset-0 before:-z-20 before:animate-rainbow before:rounded-md before:bg-[linear-gradient(90deg,theme('colors.red.500'),theme('colors.orange.500'),theme('colors.yellow.500'),theme('colors.lime.500'),theme('colors.cyan.500'),theme('colors.blue.500'),theme('colors.purple.500'),theme('colors.red.500'))] before:bg-[length:200%] before:p-[2px]",
+          // inner background to create border effect
+          "after:absolute after:inset-[2px] after:-z-10 after:rounded-[calc(theme(borderRadius.md)-2px)] after:bg-white dark:after:bg-gray-900",
+          // blur effect on hover
+          "hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:before:blur-[2px]",
         ),
         glass: cn(
           'relative bg-black/50 text-white backdrop-blur-sm transition-all duration-300',

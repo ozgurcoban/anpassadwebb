@@ -1,21 +1,18 @@
 import Link from 'next/link';
-import { RainbowButton } from './RainbowButton';
-import { ButtonProps } from '../button';
+import { RainbowButton, RainbowButtonProps } from './RainbowButton';
 
 type RainbowLinkButtonProps = {
   href: string;
-  children: React.ReactNode;
-} & Omit<ButtonProps, 'onClick'>;
+} & RainbowButtonProps;
 
 const RainbowLinkButton: React.FC<RainbowLinkButtonProps> = ({
   href,
-  children,
   ...props
 }) => {
   return (
-    <Link href={href} passHref>
-      <RainbowButton {...props}>{children}</RainbowButton>
-    </Link>
+    <RainbowButton asChild {...props}>
+      <Link href={href} />
+    </RainbowButton>
   );
 };
 export default RainbowLinkButton;
