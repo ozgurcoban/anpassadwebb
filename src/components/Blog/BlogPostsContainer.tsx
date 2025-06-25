@@ -60,22 +60,20 @@ export function BlogPostsContainer({ posts, locale }: BlogPostsContainerProps) {
   }, [posts, searchQuery, selectedTags]);
 
   return (
-    <div className="lg:flex lg:gap-8">
-      {/* Sticky Sidebar with Filters */}
-      <aside className="lg:w-80 flex-shrink-0 mb-8 lg:mb-0">
-        <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500">
-          <BlogFilters
-            tags={allTags}
-            onSearch={handleSearch}
-            onTagFilter={handleTagFilter}
-            searchQuery={searchQuery}
-            selectedTags={selectedTags}
-          />
-        </div>
-      </aside>
+    <div className="space-y-8">
+      {/* Horizontal Filters Section */}
+      <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-4 md:p-6">
+        <BlogFilters
+          tags={allTags}
+          onSearch={handleSearch}
+          onTagFilter={handleTagFilter}
+          searchQuery={searchQuery}
+          selectedTags={selectedTags}
+        />
+      </div>
       
       {/* Posts Content */}
-      <main className="flex-1 min-w-0">
+      <div>
         {filteredPosts.length === 0 ? (
         <div className="text-center py-16">
           <div className="max-w-md mx-auto space-y-4">
@@ -94,19 +92,37 @@ export function BlogPostsContainer({ posts, locale }: BlogPostsContainerProps) {
         </div>
       ) : (
         <>
-          {(searchQuery || selectedTags.length > 0) && (
-            <div className="text-center py-4">
-              <p className="text-gray-600 dark:text-gray-400">
-                Visar {filteredPosts.length} av {posts.length} artiklar
-              </p>
+          {/* Results count and future pagination area */}
+          <div className="flex justify-between items-center mb-6">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {(searchQuery || selectedTags.length > 0) 
+                ? `Visar ${filteredPosts.length} av ${posts.length} artiklar`
+                : `${posts.length} artiklar`
+              }
+            </p>
+            
+            {/* Space reserved for future pagination controls */}
+            <div className="flex items-center gap-2">
+              {/* Pagination will be added here when needed */}
             </div>
-          )}
+          </div>
+          
           <Suspense fallback={<BlogPostsSkeleton count={filteredPosts.length} />}>
             <Posts posts={filteredPosts} locale={locale} />
           </Suspense>
+          
+          {/* Footer area for future pagination */}
+          {filteredPosts.length > 9 && (
+            <div className="mt-12 flex justify-center">
+              {/* Pagination component will be added here when we have more posts */}
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                {/* Placeholder for pagination */}
+              </div>
+            </div>
+          )}
         </>
       )}
-      </main>
+      </div>
     </div>
   );
 }
