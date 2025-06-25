@@ -227,7 +227,7 @@ export function InteractiveEffects({
               transform: `translate3d(${particle.x - particle.size / 2}px, ${particle.y - particle.size / 2}px, 0)`,
               width: particle.size,
               height: particle.size,
-              background: `radial-gradient(circle, ${effectColors[Math.floor(Math.random() * effectColors.length)]} 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${effectColors[0]} 0%, transparent 70%)`,
               opacity: particle.opacity,
               filter: 'blur(1px)',
               willChange: 'transform, opacity',

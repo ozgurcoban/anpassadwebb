@@ -6,6 +6,7 @@ import { useInteractiveGradient } from '@/lib/hooks/useInteractiveGradient';
 import { GradientBackground } from './GradientBackground';
 import { GradientContent } from './GradientContent';
 import { type GradientHeroProps, COLOR_SCHEMES } from './types';
+import { DEFAULT_PARTICLE_COLORS } from './constants';
 
 export default function GradientHero({
   title,
@@ -42,7 +43,7 @@ export default function GradientHero({
     >
       <GradientBackground
         transformedColors={transformedColors}
-        particleColors={particleColors}
+        particleColors={particleColors || DEFAULT_PARTICLE_COLORS}
         isHovering={isHovering}
         mousePosition={mousePosition}
         minHeight={minHeight}

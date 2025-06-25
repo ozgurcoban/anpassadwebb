@@ -1,4 +1,5 @@
 import GradientHero from '@/components/GradientHero';
+import { DEFAULT_PARTICLE_COLORS } from '@/components/GradientHero/constants';
 import heroImage from '../../../../../public/images/hero.webp';
 
 const HeroSection = () => {
@@ -15,6 +16,7 @@ const HeroSection = () => {
       }
       description="Vi skapar skräddarsydda hemsidor som laddar snabbt, rankar på Google och hjälper småföretag att växa online"
       colorScheme="blue-purple"
+      particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
       minHeight="80vh"
       backgroundImage={{

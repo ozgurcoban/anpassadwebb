@@ -36,3 +36,6 @@ export const TEXT_SHADOWS = {
   TITLE: '2px 2px 8px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(147,51,234,0.4)',
   DESCRIPTION: '0 2px 25px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,0.7), 0 4px 6px rgba(0,0,0,0.95)',
 } as const;
+
+// Default particle colors used across all hero sections
+export const DEFAULT_PARTICLE_COLORS = ['#3b82f6', '#8b5cf6', '#ec4899'];

@@ -1,4 +1,5 @@
 import GradientHero from '@/components/GradientHero';
+import { DEFAULT_PARTICLE_COLORS } from '@/components/GradientHero/constants';
 
 const BlogHeroSection = () => {
   return (
@@ -13,7 +14,7 @@ const BlogHeroSection = () => {
       }
       description="Här delar vi med oss av nyheter, insikter och tips om webbdesign, SEO och digital marknadsföring"
       colorScheme="blue-purple"
-      particleColors={['#f472b6', '#fb7185', '#fbbf24']}
+      particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="center"
       verticalCenter={true}
       minHeight="50vh"
