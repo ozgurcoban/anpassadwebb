@@ -5,6 +5,7 @@ import Text from '@/components/ui/Text';
 import { packages, packagesConfig } from '@/data/packages';
 import { ContactButton } from '@/components/ContactButton';
 import { cn } from '@/lib/utils';
+import { Card, CardContent } from '@/components/ui/card';
 
 const PackagesListSection = () => {
   return (
@@ -20,18 +21,20 @@ const PackagesListSection = () => {
           </Text>
           {packagesConfig.introDescription && (
             <div className="mt-8 max-w-4xl mx-auto">
-              <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 rounded-lg p-6 md:p-8 border border-blue-100 dark:border-blue-900/50 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-lg">
-                      <TrendingUp className="w-6 h-6 text-white" />
+              <Card className="bg-muted/50">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-sm">
+                        <TrendingUp className="w-6 h-6 text-primary-foreground" />
+                      </div>
                     </div>
+                    <Text className="flex-1 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">
+                      {packagesConfig.introDescription}
+                    </Text>
                   </div>
-                  <Text className="flex-1 text-gray-800 dark:text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
-                    {packagesConfig.introDescription}
-                  </Text>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           )}
         </header>
