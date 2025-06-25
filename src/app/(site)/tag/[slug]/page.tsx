@@ -36,9 +36,6 @@ const SingleTagPage = async (props: PageProps) => {
       <TagComponents
         title={`Artiklar inom ${tagName}`}
         description={`Utforska alla våra artiklar inom kategorin ${tagName}. Hitta djupgående guider, tips och insikter.`}
-        showCTA={true}
-        ctaText="Alla kategorier"
-        ctaHref="/tag"
       />
       
       {posts?.length > 0 ? (

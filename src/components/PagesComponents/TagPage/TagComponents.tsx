@@ -6,17 +6,11 @@ import GradientHero from '@/components/GradientHero';
 interface TagComponentsProps {
   title: string;
   description: string;
-  showCTA?: boolean;
-  ctaText?: string;
-  ctaHref?: string;
 }
 
 const TagComponents: React.FC<TagComponentsProps> = ({ 
   title, 
-  description, 
-  showCTA, 
-  ctaText, 
-  ctaHref 
+  description
 }) => {
   return (
     <>
@@ -27,10 +21,6 @@ const TagComponents: React.FC<TagComponentsProps> = ({
         textAlign="center"
         minHeight="40vh"
         verticalCenter={true}
-        secondaryCTA={showCTA && ctaText && ctaHref ? {
-          text: ctaText,
-          href: ctaHref
-        } : undefined}
       />
     </>
   );
