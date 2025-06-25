@@ -46,7 +46,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${open_sans.variable} ${montserrat.variable} ${quicksand.variable} bg-background flex min-h-svh flex-col overflow-y-scroll`}
+        className={`${open_sans.variable} ${montserrat.variable} ${quicksand.variable} bg-gradient-to-br from-slate-50 to-stone-50 dark:from-slate-900 dark:to-stone-900 flex min-h-svh flex-col overflow-y-scroll`}
       >
         <Providers>
           <Header />

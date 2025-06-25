@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <Link
       href="/"
-      className="group relative flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-sm border border-slate-200/50 dark:from-slate-900 dark:to-slate-800 dark:border-slate-700/50 transition-all duration-300 hover:scale-105 hover:shadow-md"
+      className="group relative flex size-16 items-center justify-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-105"
     >
       {/* Subtle gradient accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -14,7 +14,7 @@ const Logo = () => {
       
       <svg
         viewBox="0 0 70 60"
-        className="relative z-10 h-16 w-16 transition-transform duration-300"
+        className="relative z-10 h-10 w-10 transition-transform duration-300"
       >
         <defs>
           {/* Professional gradient with subtle colors */}

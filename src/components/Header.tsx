@@ -4,7 +4,7 @@ import { links } from '@/utils/links';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-[20] flex items-center justify-between px-8 pt-8 pb-4">
+    <header className="sticky top-0 z-[20] flex items-center justify-between px-8 pt-8 pb-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-[0_2px_4px_-1px_rgb(0,0,0,0.06)] dark:shadow-[0_2px_4px_-1px_rgb(0,0,0,0.2)] relative after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-slate-200/50 after:to-transparent dark:after:via-slate-600/50">
       <div className="size-15">
         <Logo />
       </div>
