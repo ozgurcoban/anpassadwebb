@@ -21,10 +21,9 @@
     background: linear-gradient(
       135deg,
       #ffd700,
-      /* Ljusgul likt element från "unika" gradienten */ #ff8c00,
-      /* Orange från vissa delar av bilden */ #ff69b4,
-      /* Ljusrosa nyans från dörrarna */ #1e90ff
-        /* Ljusblå nyans som matchar de kalla tonerna */
+      #ff8c00,
+      #ff69b4,
+      #1e90ff
     );
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
@@ -155,102 +154,114 @@
 
   @media (max-width: 768px) {
     .ribbon {
-      @apply text-[9px] py-2 w-[160px] -right-[35px] top-[14px];
+      @apply -right-[35px] top-[14px] w-[160px] py-2 text-[9px];
     }
   }
 }
 
 @layer base {
   :root {
-    --background:
-      240, 20%, 98%; /* Very light neutral with subtle blue undertone */
+    /* Backgrounds */
+    --background: 240 20% 98%; /* Behåll nuvarande ljusa bakgrund */
+    --foreground: 248 11% 15%; /* Mörkgrå (slate-900) för bra kontrast */
 
-    --foreground: 20 14.3% 10%; /* Lite ljusare för att undvika för skarp kontrast */
+    /* Card & Popover */
+    --card: 0 0% 100%; /* Ren vit som header */
+    --card-foreground: 248 11% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 248 11% 15%;
 
-    --card: 240 15% 99%; /* Slightly lighter than background for subtle depth */
-    --card-foreground: 20 14.3% 10%; /* Matchar den nya förgrunden */
+    /* Primary - Lila för CTA */
+    --primary: 271 81% 56%; /* #8b5cf6 - Lila */
+    --primary-foreground: 0 0% 100%; /* Vit text på lila */
 
-    --popover: 240 15% 99%; /* Match card background for consistency */
-    --popover-foreground: 20 14.3% 10%;
+    /* Secondary - Rosa för hover/active states */
+    --secondary: 328 85% 70%; /* #ec4899 - Rosa */
+    --secondary-foreground: 0 0% 100%;
 
-    /* --primary: 210 35% 55%;  */
-    --primary: 210 35% 55%;
+    /* Accent - Blå för highlights */
+    --accent: 217 91% 60%; /* #3b82f6 - Blå */
+    --accent-foreground: 0 0% 100%;
 
-    /* --primary: 195 60% 60%; */
-    /* HSL: 195, 60%, 60%
-En ljusare och mer livfull blågrön ton som känns fräsch och modern, perfekt för att dra uppmärksamhet till knappen men samtidigt harmonisera med de varma färgerna. */
+    /* Muted - Ljus lila-grå */
+    --muted: 270 20% 96%; /* Ljus lila-grå bakgrund */
+    --muted-foreground: 248 11% 40%; /* Slate-700 för text */
 
-    /* --primary: 210 50% 50%; */
-    /*
-HSL: 210, 50%, 50%
-En modern blåton som är något mörkare men som ger en sofistikerad och kall kontrast till de varmare elementen på din webbplats. */
+    /* Destructive - Harmonisk röd */
+    --destructive: 346 84% 55%; /* Varm röd som passar med rosa */
+    --destructive-foreground: 0 0% 100%;
 
-    --primary-foreground: 60 9.1% 98%; /* Håll förgrund ljus för bra läsbarhet */
+    /* Borders & Inputs */
+    --border: 248 6% 90%; /* Slate-200 */
+    --input: 248 6% 90%;
+    --ring: 271 81% 56%; /* Matchar primary */
 
-    --secondary: 240 10% 96%; /* Neutral secondary that harmonizes with new background */
-    --secondary-foreground: 24 9.8% 12%; /* Lite mörkare för att stå ut mot sekundärfärgen */
+    --radius: 0.5rem;
 
-    --muted: 240 12% 92%; /* Subtle muted tone that complements the color scheme */
-    --muted-foreground: 25 5.3% 44.7%; /* Behåll detta, det har en bra kontrast */
+    /* Charts - Gradient från loggan */
+    --chart-1: 217 91% 60%; /* Blå */
+    --chart-2: 271 81% 56%; /* Lila */
+    --chart-3: 328 85% 70%; /* Rosa */
+    --chart-4: 193 82% 60%; /* Cyan */
+    --chart-5: 43 96% 56%; /* Gul */
 
-    --accent: 270 20% 94%; /* Subtle purple accent that echoes the logo gradient */
-    --accent-foreground: 24 9.8% 12%; /* Lite mörkare, matchar nya sekundärföreground */
+    /* Shadows & Gradients */
+    --shadow: 248 9% 40% / 15%;
+    --gradient-from: 271 81% 56%; /* Lila */
+    --gradient-to: 328 85% 70%; /* Rosa */
 
-    --destructive: 0 84.2% 58%; /* Lättare för att matcha primärfärgen */
-    --destructive-foreground: 60 9.1% 98%;
-
-    --border: 240 9% 91%; /* Neutral border that works with new color scheme */
-    --input: 240 9% 91%; /* Match border for consistency */
-
-    --ring: 20 14.3% 10%; /* Mörkare ring för bättre kontrast mot bakgrund */
-
-    --radius: 0.5rem; /* Behåll samma */
-
-    /* Justera diagramfärger för att passa in med övriga ändringar */
-    --chart-1: 12 76% 58%; /* Lite mörkare för att skapa bättre kontrast */
-    --chart-2: 173 58% 36%;
-    --chart-3: 197 37% 22%;
-    --chart-4: 43 74% 62%;
-    --chart-5: 27 87% 64%;
-
-    --shadow: 220 14% 40% / 60%; /* Behåll samma */
-
-    --gradient-from: 210 50% 50%;
-    --gradient-to: 195 60% 60%;
-
-    --link: 210, 50%, 50%; /* Example color for light mode (HSL) */
-    --link-hover: 210, 70%, 40%; /* Example hover color for light mode (HSL) */
+    /* Links */
+    --link: 271 81% 56%; /* Lila för länkar */
+    --link-hover: 328 85% 70%; /* Rosa hover */
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 60 9.1% 97.8%;
-    --primary-foreground: 24 9.8% 10%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 24 5.7% 82.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --shadow: 0 0% 40% / 19%;
-
-    --link: 200, 80%, 70%; /* Example color for dark mode (HSL) */
-    --link-hover: 200, 90%, 40%; /* Example hover color for dark mode (HSL) */
+    /* Dark backgrounds */
+    --background: 248 11% 7%; /* Nästan svart med slate-ton */
+    --foreground: 248 6% 95%; /* Ljus grå text */
+    
+    /* Card & Popover */
+    --card: 248 11% 10%; /* Något ljusare än background */
+    --card-foreground: 248 6% 95%;
+    --popover: 248 11% 10%;
+    --popover-foreground: 248 6% 95%;
+    
+    /* Primary - Ljusare lila för dark mode */
+    --primary: 272 72% 65%; /* #a78bfa - Ljusare lila */
+    --primary-foreground: 248 11% 7%;
+    
+    /* Secondary - Ljusare rosa */
+    --secondary: 327 73% 75%; /* #f472b6 - Ljusare rosa */
+    --secondary-foreground: 248 11% 7%;
+    
+    /* Accent - Ljusare blå */
+    --accent: 213 94% 68%; /* #60a5fa - Ljusare blå */
+    --accent-foreground: 248 11% 7%;
+    
+    /* Muted */
+    --muted: 248 11% 15%; /* Mörkgrå */
+    --muted-foreground: 248 6% 65%;
+    
+    /* Destructive */
+    --destructive: 346 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 248 11% 18%; /* Subtle border */
+    --input: 248 11% 18%;
+    --ring: 272 72% 65%; /* Matchar primary */
+    
+    /* Charts - Ljusare för dark mode */
+    --chart-1: 213 94% 68%; /* Ljus blå */
+    --chart-2: 272 72% 65%; /* Ljus lila */
+    --chart-3: 327 73% 75%; /* Ljus rosa */
+    --chart-4: 192 79% 65%; /* Ljus cyan */
+    --chart-5: 43 93% 65%; /* Ljus gul */
+    
+    /* Shadows & Links */
+    --shadow: 0 0% 0% / 40%;
+    --link: 272 72% 65%; /* Ljus lila */
+    --link-hover: 327 73% 75%; /* Ljus rosa hover */
   }
 }
 
@@ -307,11 +318,11 @@ En modern blåton som är något mörkare men som ger en sofistikerad och kall k
       display: flex;
       flex-direction: column;
     }
-    
+
     .menu-comparison-grid > * > :nth-child(2) {
       min-height: 100px;
     }
-    
+
     .menu-comparison-grid > * > :last-child {
       flex: 1;
     }
