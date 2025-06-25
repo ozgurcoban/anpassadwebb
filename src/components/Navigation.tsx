@@ -91,7 +91,7 @@ function NavLink({ href, label, isActive }: NavLinkProps) {
             'relative transition-all duration-700 ease-out',
             isActive 
               ? 'text-transparent' 
-              : 'text-muted-foreground',
+              : 'text-muted-foreground dark:text-white/70',
             !isActive && 'group-hover:text-foreground'
           )}
           style={{

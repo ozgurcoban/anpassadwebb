@@ -22,6 +22,12 @@ export const PRIMARY_GRADIENT = {
   
   // For gradient text over images (lighter colors)
   textLight: 'bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent',
+  
+  // Light background gradient (for icons, etc)
+  backgroundLight: 'bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300',
+  
+  // Adaptive background gradient (light in light mode, darker in dark mode)
+  backgroundAdaptive: 'bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 dark:from-blue-500 dark:via-purple-500 dark:to-pink-500',
 } as const;
 
 /**

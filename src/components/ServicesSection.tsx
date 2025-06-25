@@ -1,8 +1,11 @@
-import { Zap, Users, MousePointerClick, ArrowRight } from 'lucide-react';
+import { Zap, Users, TrendingDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Section from './ui/Section';
 import SectionContainer from './ui/SectionContainer';
 import Text from './ui/Text';
+import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
+import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
 
 const services = [
   {
@@ -16,7 +19,7 @@ const services = [
     title: 'Strategisk design som gör det lätt att kontakta dig',
   },
   {
-    icon: MousePointerClick,
+    icon: TrendingDown,
     heading: 'Låga driftkostnader',
     title: 'Växer med er – små kostnader först, mer när ni tjänar mer.',
   },
@@ -24,52 +27,53 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <Section variant="wide" className="bg-gray-50 dark:bg-gray-900/50">
+    <Section variant="wide" className="bg-muted/50">
       <SectionContainer>
-        <header className="mb-12 text-center">
+        <header className="mb-8 text-center">
           <Text as="h2" size="xl" className="mb-4">
             Vad vi erbjuder
           </Text>
-          <Text className="text-gray-600 dark:text-gray-400">
+          <Text className="text-muted-foreground">
             Inga tekniska termer, bara lösningar som fungerar
           </Text>
         </header>
 
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-sm transition-all hover:shadow-md dark:bg-gray-800"
+              className="group relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
             >
-              <div className="mb-6 inline-flex rounded-xl bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 p-4 shadow-lg transition-transform group-hover:scale-110">
-                <service.icon className="h-8 w-8 text-white" />
-              </div>
+              <CardContent className="p-8">
+                <div className={`mb-6 inline-flex rounded-xl ${PRIMARY_GRADIENT.backgroundAdaptive} p-4 shadow-lg shadow-purple-500/20 transition-transform group-hover:scale-110`}>
+                  <service.icon className="h-10 w-10 text-white" />
+                </div>
 
-              <Text as="h3" className="mb-2 text-xl font-semibold">
-                {service.heading}
-              </Text>
-              <Text className="text-gray-600 dark:text-gray-400">
-                {service.title}
-              </Text>
-            </div>
+                <Text as="h3" className="mb-2 text-xl font-semibold">
+                  {service.heading}
+                </Text>
+                <Text className="text-muted-foreground">
+                  {service.title}
+                </Text>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <Text className="mb-2 text-gray-600 dark:text-gray-400">
+          <Text className="mb-2 text-muted-foreground">
             Palermo klättrade från plats 25 till 4 för &quot;pizza
             uppsala&quot;.
           </Text>
-          <Text className="mb-4 text-gray-600 dark:text-gray-400">
+          <Text className="mb-4 text-muted-foreground">
             Vi stod för webb, SEO och sidstruktur.
           </Text>
-          <Link
-            href="/case/palermo-uppsala"
-            className="group inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            <Text className="font-medium">Läs caset här</Text>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <Button variant="outline" size="lg" asChild className="group">
+            <Link href="/case">
+              Läs caset här
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </SectionContainer>
     </Section>
