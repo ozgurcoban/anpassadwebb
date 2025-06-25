@@ -28,6 +28,12 @@ export const PRIMARY_GRADIENT = {
   
   // Adaptive background gradient (light in light mode, darker in dark mode)
   backgroundAdaptive: 'bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 dark:from-blue-500 dark:via-purple-500 dark:to-pink-500',
+  
+  // Light gradient for softer CTAs (400 weight)
+  light: 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400',
+  
+  // For pseudo-elements with light colors
+  beforeLight: 'before:bg-gradient-to-r before:from-blue-400 before:via-purple-400 before:to-pink-400',
 } as const;
 
 /**

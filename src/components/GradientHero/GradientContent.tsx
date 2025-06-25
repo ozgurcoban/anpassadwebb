@@ -78,7 +78,7 @@ export function GradientContent({
               {secondaryCTA && (
                 <Button
                   asChild
-                  variant="glass"
+                  variant={secondaryCTA.variant || "glass"}
                   size="lg"
                   className="w-full sm:w-auto"
                 >

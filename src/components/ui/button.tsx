@@ -36,6 +36,12 @@ const buttonVariants = cva(
           `hover:bg-black/60 hover:before:${GRADIENT_OPACITY.hover}`,
           '[text-shadow:0_2px_10px_rgba(0,0,0,0.8)]'
         ),
+        'glass-light': cn(
+          'relative bg-black/40 text-white backdrop-blur-sm transition-all duration-300',
+          `before:absolute before:inset-0 before:-z-10 before:rounded-md ${PRIMARY_GRADIENT.beforeLight} before:p-[1px] before:opacity-70`,
+          'hover:bg-black/50 hover:before:opacity-90',
+          '[text-shadow:0_2px_10px_rgba(0,0,0,0.8)]'
+        ),
       },
       size: {
         default: 'h-10 px-4 py-2',

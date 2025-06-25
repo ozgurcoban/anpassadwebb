@@ -17,6 +17,7 @@ export interface GradientHeroProps {
   secondaryCTA?: {
     text: string;
     href: string;
+    variant?: 'glass' | 'glass-light';
   };
   className?: string;
   minHeight?: string;
@@ -66,6 +67,7 @@ export interface GradientContentProps {
   secondaryCTA?: {
     text: string;
     href: string;
+    variant?: 'glass' | 'glass-light';
   };
   transformedColors: string[];
   verticalCenter?: boolean;

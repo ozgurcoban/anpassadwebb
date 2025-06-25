@@ -10,6 +10,7 @@ const PackagesHeroSection = () => {
       secondaryCTA={{
         text: 'Kontakta oss',
         href: '#paket',
+        variant: 'glass-light',
       }}
     />
   );

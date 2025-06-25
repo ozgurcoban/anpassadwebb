@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Mail, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import Logo from './Navbar/Logo';
 import { ContactButton } from './ContactButton';
 import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
@@ -7,6 +10,16 @@ import { links } from '@/utils/links';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  
+  const isActive = (href: string) => {
+    // Mark 'Hem' as active when on legal pages
+    if (href === '/' && (pathname === '/villkor' || pathname === '/integritetspolicy')) {
+      return true;
+    }
+    if (href === '/') return pathname === href;
+    return pathname.startsWith(href);
+  };
 
   return (
     <footer className="relative mt-16 w-full bg-gradient-to-b from-background via-muted/30 to-muted/50 dark:from-background dark:via-slate-900/50 dark:to-slate-900">
@@ -33,7 +46,7 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Snabblänkar</h3>
               <nav className="flex flex-col gap-3">
-                {links.filter(link => link.label !== 'Blogg').map((link) => (
+                {links.filter(link => link.label !== 'Blogg' && !isActive(link.href)).map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
