@@ -17,7 +17,7 @@ export default function GradientHero({
   textAlign = 'left',
   secondaryCTA,
   className,
-  minHeight = '80vh',
+  minHeight,
   backgroundImage,
   overlayOpacity = 0.8,
   verticalCenter = false,

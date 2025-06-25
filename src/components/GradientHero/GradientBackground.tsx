@@ -24,9 +24,12 @@ export function GradientBackground({
   return (
     <div
       ref={containerRef}
-      className="relative flex overflow-hidden lg:rounded-lg bg-gray-50 dark:bg-gray-900/50"
+      className={cn(
+        "relative flex overflow-hidden lg:rounded-lg bg-gray-50 dark:bg-gray-900/50",
+        !minHeight && "min-h-fit"
+      )}
       style={{ 
-        minHeight,
+        ...(minHeight && { minHeight }),
         willChange: isHovering ? 'contents' : 'auto'
       }}
       onMouseMove={handlers.onMouseMove}

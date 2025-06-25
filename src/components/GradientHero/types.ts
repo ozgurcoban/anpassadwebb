@@ -34,7 +34,7 @@ export interface GradientBackgroundProps {
   particleColors?: string[];
   isHovering: boolean;
   mousePosition: MousePosition;
-  minHeight: string;
+  minHeight?: string;
   children: React.ReactNode;
   handlers: {
     onMouseMove: (e: React.MouseEvent<HTMLDivElement>) => void;

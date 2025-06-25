@@ -17,10 +17,10 @@ const BlogHeroSection = () => {
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="center"
       verticalCenter={true}
-      minHeight="50vh"
+      minHeight="45vh"
       secondaryCTA={{
-        text: "Utforska kategorier",
-        href: "/tag"
+        text: 'Utforska kategorier',
+        href: '/tag',
       }}
     />
   );

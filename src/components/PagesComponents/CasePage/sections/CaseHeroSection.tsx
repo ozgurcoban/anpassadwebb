@@ -9,7 +9,6 @@ const CaseHeroSection = () => {
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
-      minHeight="60vh"
       secondaryCTA={{
         text: 'Se transformationen',
         href: '#before-after-section',

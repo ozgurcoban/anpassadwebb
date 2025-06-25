@@ -20,7 +20,7 @@ export function GradientContent({
       "relative z-10 px-4 lg:px-8",
       verticalCenter && "flex flex-1 items-center"
     )}>
-      <div className={verticalCenter ? "w-full" : "relative flex min-h-[inherit] items-center justify-center overflow-hidden py-16 md:py-20"}>
+      <div className={verticalCenter ? "w-full" : "relative flex items-center justify-center overflow-hidden py-20 md:py-24 lg:py-32"}>
         <div className={cn(
           "relative w-full max-w-7xl px-6",
           textAlign !== 'center' && "flex items-center",
