@@ -60,16 +60,23 @@ export function BlogPostsContainer({ posts, locale }: BlogPostsContainerProps) {
   }, [posts, searchQuery, selectedTags]);
 
   return (
-    <div className="space-y-8">
-      <BlogFilters
-        tags={allTags}
-        onSearch={handleSearch}
-        onTagFilter={handleTagFilter}
-        searchQuery={searchQuery}
-        selectedTags={selectedTags}
-      />
+    <div className="lg:flex lg:gap-8">
+      {/* Sticky Sidebar with Filters */}
+      <aside className="lg:w-80 flex-shrink-0 mb-8 lg:mb-0">
+        <div className="lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500">
+          <BlogFilters
+            tags={allTags}
+            onSearch={handleSearch}
+            onTagFilter={handleTagFilter}
+            searchQuery={searchQuery}
+            selectedTags={selectedTags}
+          />
+        </div>
+      </aside>
       
-      {filteredPosts.length === 0 ? (
+      {/* Posts Content */}
+      <main className="flex-1 min-w-0">
+        {filteredPosts.length === 0 ? (
         <div className="text-center py-16">
           <div className="max-w-md mx-auto space-y-4">
             <div className="w-24 h-24 mx-auto bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 rounded-full flex items-center justify-center dark:from-gray-700 dark:via-gray-600 dark:to-gray-700">
@@ -99,6 +106,7 @@ export function BlogPostsContainer({ posts, locale }: BlogPostsContainerProps) {
           </Suspense>
         </>
       )}
+      </main>
     </div>
   );
 }

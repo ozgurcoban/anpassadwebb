@@ -8,8 +8,8 @@ const PackagesHeroSection = () => {
       colorScheme="purple-pink"
       textAlign="left"
       secondaryCTA={{
-        text: "Se våra paket",
-        href: "#paket"
+        text: 'Kontakta oss',
+        href: '#paket',
       }}
     />
   );

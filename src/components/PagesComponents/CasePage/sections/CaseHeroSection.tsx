@@ -9,10 +9,6 @@ const CaseHeroSection = () => {
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
-      secondaryCTA={{
-        text: 'Se transformationen',
-        href: '#before-after-section',
-      }}
     />
   );
 };

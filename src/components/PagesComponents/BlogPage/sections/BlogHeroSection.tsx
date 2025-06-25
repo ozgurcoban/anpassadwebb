@@ -18,10 +18,6 @@ const BlogHeroSection = () => {
       textAlign="center"
       verticalCenter={true}
       minHeight="45vh"
-      secondaryCTA={{
-        text: 'Utforska kategorier',
-        href: '/tag',
-      }}
     />
   );
 };

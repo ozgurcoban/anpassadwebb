@@ -14,11 +14,11 @@ export default async function PostsPage() {
       {posts?.length > 0 && (
         <Section className="bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-900/50">
           <div className="container mx-auto px-4">
-            <header className="mb-12 text-center">
+            <header className="mb-8 lg:mb-12 text-center lg:text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Alla artiklar
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0">
                 Bläddra igenom våra senaste tips och guider
               </p>
             </header>
