@@ -38,7 +38,7 @@ export function GradientContent({
             <div className="space-y-6">
             <h1 
               className={cn(
-                "font-quicksand text-5xl font-medium md:text-6xl lg:text-7xl xl:text-8xl",
+                "text-5xl font-medium md:text-6xl lg:text-7xl xl:text-8xl",
                 isImageBackground ? "text-white drop-shadow-2xl" : "text-foreground"
               )}
               style={isImageBackground ? {

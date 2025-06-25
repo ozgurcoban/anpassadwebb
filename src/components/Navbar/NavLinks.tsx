@@ -34,6 +34,10 @@ const NavLinks: React.FC<NavLinkProps> = ({
 }) => {
   const pathname = usePathname();
   const isActive = (href: string) => {
+    // Mark 'Hem' as active when on legal pages
+    if (href === '/' && (pathname === '/villkor' || pathname === '/integritetspolicy')) {
+      return true;
+    }
     if (href === '/') return pathname === href;
     return pathname.startsWith(href);
   };

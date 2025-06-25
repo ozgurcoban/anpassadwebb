@@ -11,7 +11,7 @@ const config = {
   theme: {
     fontFamily: {
       body: ['var(--font-open-sans)', 'ui-sans-serif', 'system-ui'],
-      heading: ['var(--font-montserrat)', 'ui-sans-serif', 'system-ui'],
+      heading: ['var(--font-quicksand)', 'ui-sans-serif', 'system-ui'],
       quicksand: ['var(--font-quicksand)', 'ui-sans-serif', 'system-ui'],
     },
     container: {
