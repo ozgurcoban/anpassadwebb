@@ -1,5 +1,6 @@
 import GradientHero from '@/components/GradientHero';
 import { DEFAULT_PARTICLE_COLORS } from '@/components/GradientHero/constants';
+import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
 import heroImage from '../../../../../public/images/hero.webp';
 
 const HeroSection = () => {
@@ -8,7 +9,7 @@ const HeroSection = () => {
       title={
         <>
           Hemsidor som{' '}
-          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text !text-transparent [text-shadow:none]">
             funkar
           </span>{' '}
           på riktigt
