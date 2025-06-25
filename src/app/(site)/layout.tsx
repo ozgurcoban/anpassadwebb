@@ -50,7 +50,7 @@ export default async function RootLayout({
       >
         <Providers>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="mt-4 flex-grow md:mt-8">{children}</main>
           <Footer />
           <Modal />
         </Providers>
