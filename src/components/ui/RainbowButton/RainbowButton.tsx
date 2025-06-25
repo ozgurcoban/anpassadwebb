@@ -7,7 +7,7 @@ export const RainbowButton: React.FC<RainbowButtonProps> = ({
   ...props
 }) => {
   return (
-    <Button variant="rainbow" size="lg" {...props}>
+    <Button variant="rainbow" {...props}>
       {children}
     </Button>
   );

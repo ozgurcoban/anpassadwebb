@@ -20,11 +20,11 @@ const buttonVariants = cva(
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         rainbow: cn(
-          'relative z-10 overflow-hidden border-2 border-transparent transition-all',
+          'relative z-10 overflow-hidden transition-all',
           // solid background colors
           'bg-white text-black dark:bg-gray-900 dark:text-white',
           // animated border gradient
-          "before:absolute before:inset-0 before:-z-20 before:animate-rainbow before:rounded-md before:bg-[linear-gradient(90deg,theme('colors.red.500'),theme('colors.orange.500'),theme('colors.yellow.500'),theme('colors.lime.500'),theme('colors.cyan.500'),theme('colors.blue.500'),theme('colors.purple.500'),theme('colors.red.500'))] before:bg-[length:200%] before:p-[2px]",
+          "before:absolute before:inset-0 before:-z-20 before:animate-rainbow before:rounded-md before:bg-[linear-gradient(90deg,theme('colors.blue.500'),theme('colors.purple.500'),theme('colors.pink.500'),theme('colors.purple.500'),theme('colors.blue.500'),theme('colors.cyan.500'),theme('colors.blue.500'))] before:bg-[length:200%] before:p-[2px]",
           // inner background to create border effect
           "after:absolute after:inset-[2px] after:-z-10 after:rounded-[calc(theme(borderRadius.md)-2px)] after:bg-white dark:after:bg-gray-900",
           // blur effect on hover
