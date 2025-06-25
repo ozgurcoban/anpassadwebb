@@ -14,20 +14,20 @@ const HeroSection = () => {
           på riktigt
         </>
       }
-      description="Vi skapar skräddarsydda hemsidor som laddar snabbt, rankar på Google och hjälper småföretag att växa online"
+      description="Vi skapar skräddarsydda hemsidor som laddar snabbt, rankar på Google och hjälper småföretag i Uppsala att växa online"
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
       minHeight="80vh"
       backgroundImage={{
         src: heroImage,
-        alt: "Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik.",
-        priority: true
+        alt: 'Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik.',
+        priority: true,
       }}
       overlayOpacity={0.85}
       secondaryCTA={{
-        text: "Se vårt arbete",
-        href: "#arbete"
+        text: 'Se vårt arbete',
+        href: '#arbete',
       }}
       verticalCenter={true}
     />
