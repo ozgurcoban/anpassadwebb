@@ -7,6 +7,6 @@ export const links: NavLinks[] = [
   { href: '/', label: 'Hem' },
   { href: '/paket', label: 'Paket' },
   { href: '/case', label: 'Case' },
-  { href: '/posts', label: 'Blogg' },
+  { href: '/blogg', label: 'Blogg' },
   { href: '/kontakt', label: 'Kontakt' },
 ];

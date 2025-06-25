@@ -13,7 +13,7 @@ export function TagBadge({ tag, variant = "outline", className }: TagBadgeProps)
   return (
     <Link
       className={badgeVariants({ variant, className })}
-      href={`/tag/${slug}`}
+      href={`/blogg/tag/${slug}`}
     >
       #{tag.toLowerCase()}
     </Link>

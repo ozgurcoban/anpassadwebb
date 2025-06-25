@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ locale = blogConfig.defaultLocale }) =>
         <ContactButton />
       </FadeInView>
       <FadeInView delay={0.8}>
-        <Link href="/posts" className='text-link hover:text-link-hover'>&larr; {getLabel('allPosts', locale)}</Link>
+        <Link href="/blogg" className='text-link hover:text-link-hover'>&larr; {getLabel('allPosts', locale)}</Link>
       </FadeInView>
     </CardFooter>
   );

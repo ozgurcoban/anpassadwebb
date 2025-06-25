@@ -159,7 +159,7 @@ export function BlogFilters({
 
       {/* Explore all categories link */}
       <Link 
-        href="/tag" 
+        href="/blogg/tag" 
         className="block w-full text-center px-4 py-2 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
       >
         Visa alla kategorier →

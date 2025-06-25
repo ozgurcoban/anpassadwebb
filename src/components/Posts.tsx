@@ -38,7 +38,7 @@ export function Posts({
             
             {/* Image */}
             <Link
-              href={`/posts/${slug}`}
+              href={`/blogg/${slug}`}
               className="relative block h-56 w-full overflow-hidden rounded-t-2xl"
             >
               {image ? (
@@ -70,7 +70,7 @@ export function Posts({
 
             {/* Content */}
             <div className="relative p-6 space-y-4">
-              <Link href={`/posts/${slug}`} className="space-y-3 block">
+              <Link href={`/blogg/${slug}`} className="space-y-3 block">
                 <h3 className="text-2xl font-bold leading-tight text-gray-900 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-300">
                   {title && capitalizeFirstLetter(title)}
                 </h3>
@@ -102,7 +102,7 @@ export function Posts({
                   {tags.slice(0, 3).map((tag) => (
                     <Link
                       key={tag}
-                      href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/blogg/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
                       className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-xs font-medium text-gray-700 hover:from-blue-200 hover:via-purple-200 hover:to-pink-200 transition-all duration-300 border border-white/50 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 dark:text-gray-300 dark:border-gray-600/50"
                     >
                       #{tag}

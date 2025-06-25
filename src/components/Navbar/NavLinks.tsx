@@ -34,7 +34,8 @@ const NavLinks: React.FC<NavLinkProps> = ({
 }) => {
   const pathname = usePathname();
   const isActive = (href: string) => {
-    return href === pathname;
+    if (href === '/') return pathname === href;
+    return pathname.startsWith(href);
   };
 
   return (

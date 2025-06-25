@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
           {tags.map((tag) => (
             <Link
               key={tag}
-              href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/blogg/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <Badge 
                 variant="outline" 

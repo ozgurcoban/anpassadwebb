@@ -11,7 +11,7 @@ export function useTrackPostView(slug: string) {
     
     const trackView = async () => {
       try {
-        await fetch(`/api/posts/${slug}/views`, {
+        await fetch(`/api/blogg/${slug}/views`, {
           method: 'POST',
         });
         hasTracked.current = true;

@@ -22,7 +22,7 @@ const Tags = async ({ tags }: { tags: Tag[] }) => {
             as="div"
             className="group"
           >
-            <Link href={`/tag/${slug}`} className="block">
+            <Link href={`/blogg/tag/${slug}`} className="block">
               <div className="relative overflow-hidden rounded-2xl bg-white/70 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 dark:bg-gray-800/70 dark:border-gray-700/30 p-6">
                 {/* Background Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/30 via-green-50/20 to-teal-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-emerald-900/20 dark:via-green-900/10 dark:to-teal-900/20" />
