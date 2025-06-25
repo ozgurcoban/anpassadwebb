@@ -21,10 +21,10 @@ export const GradientShapes = React.memo(function GradientShapes({ transformedCo
         return (
           <div
             key={index}
-            className={`absolute rounded-xl opacity-5 ${position.size}`}
+            className={`absolute rounded-lg opacity-5 backdrop-blur-sm ${position.size}`}
             style={{
               ...position,
-              background: `linear-gradient(135deg, ${transformedColors[colorIndex]}50, ${transformedColors[nextColorIndex]}50, ${transformedColors[lastColorIndex]}50)`,
+              background: `linear-gradient(135deg, ${transformedColors[colorIndex]}33, ${transformedColors[nextColorIndex]}33, ${transformedColors[lastColorIndex]}33)`,
               filter: `blur(${40 + index * 5}px)`,
             }}
           />

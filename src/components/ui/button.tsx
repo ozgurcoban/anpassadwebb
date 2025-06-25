@@ -3,6 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
+import { PRIMARY_GRADIENT, GRADIENT_OPACITY } from '@/lib/gradient-constants';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -27,8 +28,8 @@ const buttonVariants = cva(
         ),
         glass: cn(
           'relative bg-black/50 text-white backdrop-blur-sm transition-all duration-300',
-          'before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-pink-500 before:p-[1px] before:opacity-90',
-          'hover:bg-black/60 hover:before:opacity-100',
+          `before:absolute before:inset-0 before:-z-10 before:rounded-md ${PRIMARY_GRADIENT.before} before:p-[1px] before:${GRADIENT_OPACITY.button}`,
+          `hover:bg-black/60 hover:before:${GRADIENT_OPACITY.hover}`,
           '[text-shadow:0_2px_10px_rgba(0,0,0,0.8)]'
         ),
       },

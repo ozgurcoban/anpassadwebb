@@ -9,7 +9,7 @@ export const GradientOverlay = React.memo(function GradientOverlay({ transformed
   return (
     <>
       {/* Glass effect overlay */}
-      <div className="absolute inset-0 bg-white/5 dark:bg-white/10" />
+      <div className="absolute inset-0 bg-background/5 dark:bg-background/10" />
       
       {/* Static gradient background */}
       <div className="absolute inset-0">

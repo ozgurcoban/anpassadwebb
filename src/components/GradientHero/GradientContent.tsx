@@ -11,16 +11,15 @@ export function GradientContent({
   description,
   textAlign,
   secondaryCTA,
-  transformedColors,
   isImageBackground = false,
   verticalCenter = false,
-}: GradientContentProps & { isImageBackground?: boolean }) {
+}: Omit<GradientContentProps, 'transformedColors'> & { isImageBackground?: boolean }) {
   return (
     <div className={cn(
-      "relative z-10 px-4 lg:px-8",
+      "relative z-10 px-6 lg:px-8",
       verticalCenter && "flex flex-1 items-center"
     )}>
-      <div className={verticalCenter ? "w-full" : "relative flex items-center justify-center overflow-hidden py-20 md:py-24 lg:py-32"}>
+      <div className={verticalCenter ? "w-full" : "relative flex items-center justify-center py-16 md:py-20 lg:py-24"}>
         <div className={cn(
           "relative w-full max-w-7xl px-6",
           textAlign !== 'center' && "flex items-center",
@@ -40,10 +39,10 @@ export function GradientContent({
             <h1 
               className={cn(
                 "font-quicksand text-5xl font-medium md:text-6xl lg:text-7xl xl:text-8xl",
-                isImageBackground ? "text-white" : "text-gray-900 dark:text-white"
+                isImageBackground ? "text-white drop-shadow-2xl" : "text-foreground"
               )}
               style={isImageBackground ? {
-                filter: TEXT_SHADOWS.TITLE,
+                textShadow: TEXT_SHADOWS.TITLE,
               } : undefined}
             >
               {title}
@@ -54,7 +53,7 @@ export function GradientContent({
                 className={cn(
                   "text-xl font-light leading-relaxed md:text-2xl lg:text-3xl",
                   textAlign === 'center' ? "max-w-2xl mx-auto" : "max-w-2xl",
-                  isImageBackground ? "text-white/90" : "text-gray-700 dark:text-gray-200"
+                  isImageBackground ? "text-white/90 drop-shadow-lg" : "text-muted-foreground"
                 )}
               >
                 {description}
@@ -79,12 +78,9 @@ export function GradientContent({
               {secondaryCTA && (
                 <Button
                   asChild
-                  variant={isImageBackground ? "glass" : "secondary"}
+                  variant="glass"
                   size="lg"
-                  className={cn(
-                    "w-full sm:w-auto",
-                    !isImageBackground && "bg-gray-900 text-white transition-all duration-300 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
-                  )}
+                  className="w-full sm:w-auto"
                 >
                   <Link href={secondaryCTA.href} className="inline-flex items-center gap-2">
                     {secondaryCTA.text}

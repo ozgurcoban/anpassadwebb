@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { NavLinks } from '@/utils/links';
 import { cn } from '@/lib/utils';
+import { PRIMARY_GRADIENT, GRADIENT_OPACITY } from '@/lib/gradient-constants';
 
 // Style constants
 const navStyles = {
@@ -18,7 +19,11 @@ const navStyles = {
     'transition-all duration-300',
     'hover:shadow-xl hover:shadow-foreground/10',
   ),
-  bubble: 'pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75 will-change-transform',
+  bubble: cn(
+    'pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform',
+    PRIMARY_GRADIENT.withOpacity,
+    GRADIENT_OPACITY.navigation
+  ),
   bubbleTransition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
 };
 

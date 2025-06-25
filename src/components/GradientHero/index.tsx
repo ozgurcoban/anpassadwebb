@@ -58,7 +58,6 @@ export default function GradientHero({
           description={description}
           textAlign={textAlign}
           secondaryCTA={secondaryCTA}
-          transformedColors={transformedColors}
           isImageBackground={!!backgroundImage}
           verticalCenter={verticalCenter}
         />
