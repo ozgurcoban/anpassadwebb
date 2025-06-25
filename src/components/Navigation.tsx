@@ -10,13 +10,13 @@ import { cn } from '@/lib/utils';
 const navStyles = {
   container: cn(
     'relative hidden rounded-full pr-[2px] md:flex',
-    'bg-white/80 dark:bg-slate-900/80',
+    'bg-background/80',
     'backdrop-blur-md',
-    'border border-slate-200/30 dark:border-slate-700/30',
+    'border border-border/30',
     'shadow-sm',
     '[clip-path:inset(0_round_9999px)]',
     'transition-all duration-300',
-    'hover:shadow-xl hover:shadow-slate-900/15 dark:hover:shadow-slate-100/10',
+    'hover:shadow-xl hover:shadow-foreground/10',
   ),
   bubble: 'pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75 will-change-transform',
   bubbleTransition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
@@ -86,8 +86,8 @@ function NavLink({ href, label, isActive }: NavLinkProps) {
             'relative transition-all duration-700 ease-out',
             isActive 
               ? 'text-transparent' 
-              : 'text-gray-700 dark:text-gray-400',
-            !isActive && 'group-hover:text-gray-900 dark:group-hover:text-gray-200'
+              : 'text-muted-foreground',
+            !isActive && 'group-hover:text-foreground'
           )}
           style={{
             transitionDelay: isActive ? '100ms' : '400ms',

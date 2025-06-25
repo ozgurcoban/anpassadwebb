@@ -17,39 +17,16 @@
     color: hsl(var(--background)); /* Använd "background" för texten */
   }
 
-  .subhero-background {
-    background: linear-gradient(
-      135deg,
-      #ffd700,
-      #ff8c00,
-      #ff69b4,
-      #1e90ff
-    );
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-  }
-
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
   .logo-gradient-animated {
     background: linear-gradient(
       90deg,
-      #f2b8b4 0%,
-      #fc8a52 20%,
-      #f3de66 40%,
-      #3dbb98 60%,
-      #3dcfd1 80%,
-      #7fc5de 100%
+      hsl(var(--chart-3)) 0%,
+      hsl(var(--chart-1)) 20%,
+      hsl(var(--chart-5)) 40%,
+      hsl(var(--chart-4)) 60%,
+      hsl(var(--accent)) 80%,
+      hsl(var(--primary)) 100%
     );
     background-size: 200% 100%;
     animation: gradientAnimation 8s ease infinite;
@@ -58,14 +35,14 @@
   .logo-gradient-modern {
     background: linear-gradient(
       135deg,
-      #f472b6 0%,
-      #ec4899 10%,
-      #facc15 30%,
-      #fbbf24 40%,
-      #14b8a6 60%,
-      #06b6d4 70%,
-      #818cf8 90%,
-      #a78bfa 100%
+      hsl(var(--secondary)) 0%,
+      hsl(var(--chart-3)) 10%,
+      hsl(var(--chart-5)) 30%,
+      hsl(var(--chart-5)) 40%,
+      hsl(var(--chart-4)) 60%,
+      hsl(var(--accent)) 70%,
+      hsl(var(--primary)) 90%,
+      hsl(var(--chart-2)) 100%
     );
     background-size: 300% 300%;
     animation: gradientFlow 6s ease infinite;
@@ -142,7 +119,7 @@
 
   .ribbon {
     @apply absolute -right-[40px] top-[16px] w-[180px] rotate-45 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white shadow-lg transition-all duration-300 hover:shadow-xl;
-    background: linear-gradient(45deg, #7c3aed, #9333ea, #a855f7);
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--chart-2)), hsl(var(--secondary)));
     line-height: 1.2;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -209,6 +186,11 @@
     --shadow: 248 9% 40% / 15%;
     --gradient-from: 271 81% 56%; /* Lila */
     --gradient-to: 328 85% 70%; /* Rosa */
+    
+    /* Hero gradients */
+    --gradient-hero-1: 217 91% 60%; /* Blå */
+    --gradient-hero-2: 271 81% 56%; /* Lila */
+    --gradient-hero-3: 328 85% 70%; /* Rosa */
 
     /* Links */
     --link: 271 81% 56%; /* Lila för länkar */
@@ -285,23 +267,23 @@
   .bg-gradient-180 {
     background: linear-gradient(
       180deg,
-      #f2b8b4 0%,
-      #fc8a52 20%,
-      #f3de66 40%,
-      #3dbb98 60%,
-      #3dcfd1 80%,
-      #7fc5de 100%
+      hsl(var(--chart-3)) 0%,
+      hsl(var(--chart-1)) 20%,
+      hsl(var(--chart-5)) 40%,
+      hsl(var(--chart-4)) 60%,
+      hsl(var(--accent)) 80%,
+      hsl(var(--primary)) 100%
     );
   }
   .bg-gradient-90 {
     background: linear-gradient(
       90deg,
-      #f2b8b4 0%,
-      #fc8a52 20%,
-      #f3de66 40%,
-      #3dbb98 60%,
-      #3dcfd1 80%,
-      #7fc5de 100%
+      hsl(var(--chart-3)) 0%,
+      hsl(var(--chart-1)) 20%,
+      hsl(var(--chart-5)) 40%,
+      hsl(var(--chart-4)) 60%,
+      hsl(var(--accent)) 80%,
+      hsl(var(--primary)) 100%
     );
   }
 

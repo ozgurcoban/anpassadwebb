@@ -72,10 +72,10 @@ export interface GradientContentProps {
 }
 
 export const COLOR_SCHEMES: Record<ColorScheme, string[]> = {
-  'blue-purple': ['#3b82f6', '#8b5cf6', '#ec4899'],
-  'purple-pink': ['#8b5cf6', '#ec4899', '#f472b6'],
-  'pink-orange': ['#ec4899', '#f97316', '#fbbf24'],
-  'blue-green': ['#3b82f6', '#10b981', '#06b6d4'],
+  'blue-purple': ['hsl(217 91% 60%)', 'hsl(271 81% 56%)', 'hsl(328 85% 70%)'], // accent, primary, secondary
+  'purple-pink': ['hsl(271 81% 56%)', 'hsl(328 85% 70%)', 'hsl(327 73% 75%)'], // primary, secondary, light-secondary
+  'pink-orange': ['hsl(328 85% 70%)', 'hsl(25 95% 53%)', 'hsl(43 96% 56%)'], // secondary, orange, chart-5
+  'blue-green': ['hsl(217 91% 60%)', 'hsl(142 71% 45%)', 'hsl(192 91% 48%)'], // accent, green, cyan
   custom: [],
 };
 
