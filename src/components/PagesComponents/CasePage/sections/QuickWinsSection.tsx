@@ -39,19 +39,19 @@ const QuickWinsSection = () => {
       icon: <TrendingUp className="h-8 w-8" />,
       value: 'Från plats 25 → 4',
       label: 'på Google för "pizza uppsala"',
-      color: 'text-green-600',
+      color: 'text-blue-500',
     },
     {
       icon: <Palette className="h-8 w-8" />,
       value: '90-tal → 2025',
       label: 'modern design',
-      color: 'text-blue-600',
+      color: 'text-purple-500',
     },
     {
       icon: <Smartphone className="h-8 w-8" />,
       value: 'Styr själva',
       label: 'enkelt från mobilen',
-      color: 'text-purple-600',
+      color: 'text-pink-500',
     },
   ];
 
