@@ -8,6 +8,12 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 
 const PackagesListSection = () => {
+  const shadowColorMap: Record<string, string> = {
+    'from-blue-500': 'shadow-blue-500/20',
+    'from-purple-500': 'shadow-purple-500/20',
+    'from-pink-500': 'shadow-pink-500/20',
+  };
+
   return (
     <div id="paket">
       <Section variant="wide" className="bg-gray-50 dark:bg-gray-900/50">
@@ -26,7 +32,7 @@ const PackagesListSection = () => {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-sm">
-                        <TrendingUp className="w-6 h-6 text-primary-foreground" />
+                        <TrendingUp className="w-8 h-8 text-primary-foreground" />
                       </div>
                     </div>
                     <Text className="flex-1 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">
@@ -65,10 +71,11 @@ const PackagesListSection = () => {
                 <div
                   className={cn(
                     "inline-flex rounded-xl p-4 shadow-lg transition-transform group-hover:scale-110",
-                    `bg-gradient-to-r ${pkg.gradientFrom} ${pkg.gradientVia} ${pkg.gradientTo}`
+                    `bg-gradient-to-r ${pkg.gradientFrom} ${pkg.gradientVia} ${pkg.gradientTo}`,
+                    shadowColorMap[pkg.gradientFrom] || ''
                   )}
                 >
-                  <Sparkles className="h-8 w-8 text-white" />
+                  <Sparkles className="h-10 w-10 text-white" />
                 </div>
               </div>
 

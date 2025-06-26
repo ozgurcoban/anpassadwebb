@@ -17,7 +17,7 @@ export const GradientOverlay = React.memo(function GradientOverlay({ transformed
           className="absolute inset-0"
           style={{
             opacity: OPACITY.GRADIENT_BACKGROUND,
-            background: `linear-gradient(-45deg, 
+            backgroundImage: `linear-gradient(-45deg, 
               ${transformedColors[0]}, 
               ${transformedColors[1]}, 
               ${transformedColors[2]}, 
@@ -34,7 +34,7 @@ export const GradientOverlay = React.memo(function GradientOverlay({ transformed
         className="absolute inset-0"
         style={{
           opacity: OPACITY.GRADIENT_BACKGROUND,
-          background: `radial-gradient(circle at 30% 50%, ${transformedColors[2]}40 0%, transparent 50%), 
+          backgroundImage: `radial-gradient(circle at 30% 50%, ${transformedColors[2]}40 0%, transparent 50%), 
                      radial-gradient(circle at 70% 80%, ${transformedColors[1]}30 0%, transparent 50%)`,
         }}
       />

@@ -5,6 +5,7 @@ export type ColorScheme =
   | 'purple-pink'
   | 'pink-orange'
   | 'blue-green'
+  | 'primary-gradient'
   | 'custom';
 
 export interface GradientHeroProps {
@@ -78,6 +79,7 @@ export const COLOR_SCHEMES: Record<ColorScheme, string[]> = {
   'purple-pink': ['hsl(var(--primary))', 'hsl(var(--secondary))', 'hsl(var(--accent))'],
   'pink-orange': ['hsl(var(--secondary))', 'hsl(var(--destructive))', 'hsl(var(--accent))'],
   'blue-green': ['hsl(var(--accent))', 'hsl(var(--primary))', 'hsl(var(--secondary))'],
+  'primary-gradient': ['#60a5fa', '#a78bfa', '#f472b6'], // blue-400, purple-400, pink-400
   custom: [],
 };
 
