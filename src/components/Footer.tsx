@@ -97,8 +97,8 @@ const Footer = () => {
                   href="mailto:info@anpassadwebb.se"
                   className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <div className={`rounded-lg ${PRIMARY_GRADIENT.backgroundAdaptive} p-2 transition-transform group-hover:scale-110`}>
-                    <Mail className="h-4 w-4 text-white" />
+                  <div className="rounded-lg bg-primary brightness-90 p-2 transition-transform group-hover:scale-110">
+                    <Mail className="h-4 w-4 text-white" strokeWidth={1.5} />
                   </div>
                   <span>info@anpassadwebb.se</span>
                 </a>
@@ -106,14 +106,14 @@ const Footer = () => {
                   href="tel:+46701234567"
                   className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <div className={`rounded-lg ${PRIMARY_GRADIENT.backgroundAdaptive} p-2 transition-transform group-hover:scale-110`}>
-                    <Phone className="h-4 w-4 text-white" />
+                  <div className="rounded-lg bg-primary brightness-90 p-2 transition-transform group-hover:scale-110">
+                    <Phone className="h-4 w-4 text-white" strokeWidth={1.5} />
                   </div>
                   <span>070-123 45 67</span>
                 </a>
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <div className={`rounded-lg ${PRIMARY_GRADIENT.backgroundAdaptive} p-2`}>
-                    <MapPin className="h-4 w-4 text-white" />
+                  <div className="rounded-lg bg-primary brightness-90 p-2">
+                    <MapPin className="h-4 w-4 text-white" strokeWidth={1.5} />
                   </div>
                   <span>Uppsala, Sverige</span>
                 </div>

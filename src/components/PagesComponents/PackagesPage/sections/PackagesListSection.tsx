@@ -32,7 +32,7 @@ const PackagesListSection = () => {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-sm">
-                        <TrendingUp className="w-8 h-8 text-primary-foreground" />
+                        <TrendingUp className="w-8 h-8 text-primary-foreground" strokeWidth={1.5} />
                       </div>
                     </div>
                     <Text className="flex-1 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">
@@ -75,7 +75,7 @@ const PackagesListSection = () => {
                     shadowColorMap[pkg.gradientFrom] || ''
                   )}
                 >
-                  <Sparkles className="h-10 w-10 text-white" />
+                  <Sparkles className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
               </div>
 
@@ -96,7 +96,7 @@ const PackagesListSection = () => {
               {/* Features - each feature is a separate grid item */}
               {pkg.features.slice(0, 6).map((feature, idx) => (
                 <div key={idx} className="grid grid-cols-[auto,1fr] gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" strokeWidth={1.5} />
                   <Text className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {feature}
                   </Text>

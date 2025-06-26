@@ -45,8 +45,8 @@ const ServicesSection = () => {
               className="group relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
             >
               <CardContent className="p-8">
-                <div className={`mb-6 inline-flex rounded-xl ${PRIMARY_GRADIENT.backgroundAdaptive} p-4 shadow-lg shadow-purple-500/20 transition-transform group-hover:scale-110`}>
-                  <service.icon className="h-10 w-10 text-white" />
+                <div className="mb-6 inline-flex rounded-xl p-4 transition-transform group-hover:scale-110">
+                  <service.icon className="h-10 w-10 text-primary" strokeWidth={1.5} />
                 </div>
 
                 <Text as="h3" className="mb-2 text-xl font-semibold">

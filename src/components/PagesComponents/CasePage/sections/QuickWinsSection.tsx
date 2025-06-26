@@ -36,19 +36,19 @@ const QuickWinsSection = () => {
 
   const stats: StatCard[] = [
     {
-      icon: <TrendingUp className="h-8 w-8" />,
+      icon: <TrendingUp className="h-8 w-8" strokeWidth={1.5} />,
       value: 'Från plats 25 → 4',
       label: 'på Google för "pizza uppsala"',
       color: 'text-blue-500',
     },
     {
-      icon: <Palette className="h-8 w-8" />,
+      icon: <Palette className="h-8 w-8" strokeWidth={1.5} />,
       value: '90-tal → 2025',
       label: 'modern design',
       color: 'text-purple-500',
     },
     {
-      icon: <Smartphone className="h-8 w-8" />,
+      icon: <Smartphone className="h-8 w-8" strokeWidth={1.5} />,
       value: 'Styr själva',
       label: 'enkelt från mobilen',
       color: 'text-pink-500',
