@@ -7,6 +7,7 @@ import { DotPattern } from './DotPattern';
 import { GradientShapes } from './GradientShapes';
 import { GradientOverlay } from './GradientOverlay';
 import { OPACITY } from './constants';
+import { LAYOUT, getContainerStyles, NOISE_TEXTURE } from './styles';
 
 export function GradientBackground({
   transformedColors,
@@ -20,19 +21,18 @@ export function GradientBackground({
   isLowPerformance = false,
   backgroundImage,
   overlayOpacity,
+  darkMode = false,
 }: GradientBackgroundProps) {
   return (
     <div
       ref={containerRef}
       className={cn(
-        "relative flex overflow-hidden rounded-lg bg-background/50 backdrop-blur-sm",
-        "border border-border/50",
+        LAYOUT.background.base,
+        darkMode ? LAYOUT.background.darkMode : LAYOUT.background.default,
+        LAYOUT.background.border,
         !minHeight && "min-h-[500px]"
       )}
-      style={{ 
-        ...(minHeight && { minHeight }),
-        willChange: isHovering ? 'contents' : 'auto'
-      }}
+      style={getContainerStyles(minHeight, isHovering)}
       onMouseMove={handlers.onMouseMove}
       onMouseEnter={handlers.onMouseEnter}
       onMouseLeave={handlers.onMouseLeave}
@@ -50,8 +50,8 @@ export function GradientBackground({
           />
         )}
         
-        {/* Gradient background elements (only for non-image backgrounds) */}
-        {!backgroundImage && (
+        {/* Gradient background elements (only for non-image backgrounds or dark mode) */}
+        {(!backgroundImage || darkMode) && (
           <>
             <GradientOverlay transformedColors={transformedColors} />
             <GradientShapes transformedColors={transformedColors} />
@@ -68,9 +68,9 @@ export function GradientBackground({
 
         {/* Noise Texture - subtle */}
         <div
-          className="absolute inset-0 opacity-5 mix-blend-overlay"
+          className={NOISE_TEXTURE.className}
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: NOISE_TEXTURE.dataUri,
           }}
         />
       </div>

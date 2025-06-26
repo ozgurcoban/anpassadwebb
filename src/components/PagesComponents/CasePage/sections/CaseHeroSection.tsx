@@ -6,9 +6,10 @@ const CaseHeroSection = () => {
     <GradientHero
       title="Från osynlig till omtyckt - Palermos digitala resa"
       description="Se hur en klassisk kvarterskrog i Uppsala blev enklare att hitta, besöka och beställa från"
-      colorScheme="primary-gradient"
+      colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
+      overlayOpacity={0.85}
     />
   );
 };

@@ -6,9 +6,10 @@ const ContactHeroSection = () => {
     <GradientHero
       title="Kontakta oss"
       description="Har du frågor eller vill diskutera ditt nästa projekt? Vi finns här för att hjälpa dig ta nästa steg i din digitala resa."
-      colorScheme="primary-gradient"
+      colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
+      overlayOpacity={0.85}
     />
   );
 };

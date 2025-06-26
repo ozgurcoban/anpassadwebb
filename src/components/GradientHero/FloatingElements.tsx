@@ -1,7 +1,8 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { calculateMagneticTransform } from '@/lib/animation-utils';
-import { type FloatingElementsProps, MAGNETIC_CONFIG, FLOATING_CONFIG } from './types';
+import { type FloatingElementsProps } from './types';
+import { MAGNETIC_CONFIG, FLOATING_CONFIG } from './animations';
 
 const CodeSnippet = ({ 
   code, 

@@ -7,6 +7,7 @@ import { GradientBackground } from './GradientBackground';
 import { GradientContent } from './GradientContent';
 import { type GradientHeroProps, COLOR_SCHEMES } from './types';
 import { DEFAULT_PARTICLE_COLORS } from './constants';
+import { LAYOUT, SPACING } from './styles';
 
 export default function GradientHero({
   title,
@@ -21,6 +22,7 @@ export default function GradientHero({
   backgroundImage,
   overlayOpacity = 0.8,
   verticalCenter = false,
+  darkMode = false,
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
   
@@ -37,7 +39,9 @@ export default function GradientHero({
   return (
     <section
       className={cn(
-        'relative mx-auto max-w-screen-2xl px-4 lg:px-8',
+        LAYOUT.container,
+        SPACING.section.mobile,
+        SPACING.section.desktop,
         className,
       )}
     >
@@ -52,13 +56,14 @@ export default function GradientHero({
         isLowPerformance={isLowPerformance}
         backgroundImage={backgroundImage}
         overlayOpacity={overlayOpacity}
+        darkMode={darkMode}
       >
         <GradientContent
           title={title}
           description={description}
           textAlign={textAlign}
           secondaryCTA={secondaryCTA}
-          isImageBackground={!!backgroundImage}
+          isImageBackground={!!backgroundImage || darkMode}
           verticalCenter={verticalCenter}
         />
       </GradientBackground>

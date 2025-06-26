@@ -1,4 +1,4 @@
-import { MAGNETIC_CONFIG } from '@/components/GradientHero/types';
+import { MAGNETIC_CONFIG } from '@/components/GradientHero/animations';
 
 /**
  * Calculates magnetic transform effect for floating elements

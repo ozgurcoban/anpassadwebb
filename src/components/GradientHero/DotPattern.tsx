@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { IMAGE_BACKGROUND_COLORS } from './constants';
 
 interface DotPatternProps {
   transformedColors: string[];
@@ -10,7 +11,7 @@ interface DotPatternProps {
 export const DotPattern = React.memo(function DotPattern({ transformedColors, isImageBackground, className }: DotPatternProps) {
   // Define colors based on background type
   const dotColors = isImageBackground 
-    ? ['hsl(var(--background))', 'hsl(var(--accent))', 'hsl(var(--primary))'] // Theme colors for image backgrounds
+    ? IMAGE_BACKGROUND_COLORS
     : transformedColors;
 
   return (

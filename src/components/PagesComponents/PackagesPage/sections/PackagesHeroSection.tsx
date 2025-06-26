@@ -6,13 +6,13 @@ const PackagesHeroSection = () => {
     <GradientHero
       title="Paket som passar din verksamhet"
       description="Från enkel startsida till komplett digital lösning. Välj det paket som passar dina behov och budget."
-      colorScheme="primary-gradient"
+      colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
       secondaryCTA={{
         text: 'Kontakta oss',
-        href: '#paket',
-        variant: 'glass-light',
+        href: '/kontakt',
+        variant: undefined, // This will use the default button variant (primary)
       }}
     />
   );
