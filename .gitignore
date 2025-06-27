@@ -38,5 +38,8 @@ next-env.d.ts
 
 /palermo-repo
 
+# Ignore servers directory during build
+/servers/
+/lighthouse/
 # claude local settings
 .claude/settings.local.json

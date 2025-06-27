@@ -1,0 +1,7 @@
+# Ignore servers directory during Vercel build
+servers/
+_servers_backup/
+
+# Other files to ignore
+*.log
+.DS_Store
