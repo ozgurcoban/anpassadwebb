@@ -185,9 +185,6 @@ Veckans soppa - 79 kr"
                         ?.mockupContent
                     }
                   </div>
-
-                  {/* Phone notch */}
-                  <div className="absolute inset-x-0 top-0 h-6 rounded-b-2xl bg-black"></div>
                 </div>
               </div>
             </div>

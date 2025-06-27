@@ -162,7 +162,7 @@ const MenuRevolutionSection = () => {
   );
 
   return (
-    <Section className="bg-muted/30 py-16 md:py-20">
+    <Section className="bg-gradient-to-b from-background to-muted/20 py-16 md:py-20">
       <SectionContainer>
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
@@ -175,7 +175,7 @@ const MenuRevolutionSection = () => {
           {/* Grid container with subgrid support */}
           <div className="menu-comparison-grid grid gap-8 lg:grid-cols-2 lg:grid-rows-[auto_auto_1fr]">
             {/* Before - Old Menu */}
-            <Card className="bg-muted/50 p-6 lg:row-span-3 lg:grid lg:grid-rows-subgrid">
+            <Card className="border-muted/50 bg-card/50 p-6 shadow-sm lg:row-span-3 lg:grid lg:grid-rows-subgrid">
               <Text className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                 Förut
               </Text>
@@ -186,7 +186,7 @@ const MenuRevolutionSection = () => {
 
               {menuStory?.beforeImage && (
                 <div
-                  className="group relative max-h-[800px] cursor-pointer overflow-y-auto rounded-lg bg-white"
+                  className="group relative max-h-[800px] cursor-pointer overflow-y-auto rounded-lg border border-border bg-card shadow-sm transition-all duration-200 hover:shadow-md"
                   onClick={() =>
                     openZoomModal(
                       menuStory.beforeImage!,
@@ -212,8 +212,8 @@ const MenuRevolutionSection = () => {
             </Card>
 
             {/* After - New Interactive Menu */}
-            <Card className="bg-primary/5 p-6 lg:row-span-3 lg:grid lg:grid-rows-subgrid">
-              <Text className="text-sm font-medium uppercase tracking-wider text-primary">
+            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 p-6 shadow-sm lg:row-span-3 lg:grid lg:grid-rows-subgrid">
+              <Text className="text-sm font-medium uppercase tracking-wider bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Nu
               </Text>
               <Text className="py-4 text-lg lg:min-h-[100px]">
@@ -223,7 +223,7 @@ const MenuRevolutionSection = () => {
 
               {/* Interactive Menu Demo */}
               <div className="flex h-full flex-col">
-                <div className="flex max-h-[800px] flex-col overflow-y-auto rounded-lg bg-white p-4 shadow-sm">
+                <div className="flex max-h-[800px] flex-col overflow-y-auto rounded-lg border border-border bg-card p-4 shadow-sm">
                   <Text className="mb-4 font-semibold">
                     Klicka på kategorierna för att filtrera menyn:
                   </Text>
@@ -234,10 +234,9 @@ const MenuRevolutionSection = () => {
                     <Badge
                       variant={showAll ? 'default' : 'outline'}
                       className={cn(
-                        'cursor-pointer px-4 py-2 text-sm font-medium transition-all duration-200 hover:scale-105',
-                        showAll
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'border-2 hover:border-primary/50 hover:bg-primary/5',
+                        'cursor-pointer h-auto px-4 py-2 font-medium transition-all duration-200 transform-gpu',
+                        showAll && 'shadow-md hover:shadow-lg hover:shadow-primary/25 hover:scale-105',
+                        !showAll && 'hover:scale-105 hover:border-primary hover:shadow-md hover:shadow-primary/20',
                       )}
                       onClick={handleShowAll}
                     >
@@ -254,10 +253,9 @@ const MenuRevolutionSection = () => {
                           key={category.id}
                           variant={isSelected ? 'default' : 'outline'}
                           className={cn(
-                            'cursor-pointer px-4 py-2 text-sm font-medium transition-all duration-200 hover:scale-105',
-                            isSelected
-                              ? 'bg-primary text-primary-foreground shadow-sm'
-                              : 'border-2 hover:border-primary/50 hover:bg-primary/5',
+                            'cursor-pointer h-auto px-4 py-2 font-medium transition-all duration-200 transform-gpu',
+                            isSelected && 'shadow-md hover:shadow-lg hover:shadow-primary/25 hover:scale-105',
+                            !isSelected && 'hover:scale-105 hover:border-primary hover:shadow-md hover:shadow-primary/20',
                           )}
                           onClick={() => handleCategoryToggle(category.id)}
                         >
@@ -279,7 +277,7 @@ const MenuRevolutionSection = () => {
                   )}
 
                   {/* Menu items display - flex-1 to fill remaining space */}
-                  <div className="flex-1 overflow-y-auto rounded-lg bg-muted/50 p-3">
+                  <div className="flex-1 overflow-y-auto rounded-lg bg-muted/30 p-3">
                     {getVisibleItems().length === 0 ? (
                       <Text className="py-8 text-center text-muted-foreground">
                         Välj en kategori för att se rätter
@@ -295,17 +293,17 @@ const MenuRevolutionSection = () => {
                                 );
                                 return (
                                   <div key={categoryId}>
-                                    <h3 className="mb-2 text-lg font-semibold text-foreground">
+                                    <h3 className="mb-3 text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                                       {category?.label}
                                     </h3>
                                     <div className="space-y-2">
                                       {items.map((item, index) => (
                                         <div
                                           key={`${categoryId}-${index}`}
-                                          className="rounded-lg bg-white p-3 shadow-sm transition-shadow hover:shadow-md"
+                                          className="group rounded-lg border border-border/50 bg-card p-3 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 hover:bg-gradient-to-br hover:from-card hover:to-primary/5"
                                         >
                                           <div className="mb-1 flex items-start justify-between">
-                                            <h4 className="font-medium">
+                                            <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
                                               {item.name}
                                             </h4>
                                             <span className="font-bold text-primary">
@@ -340,10 +338,10 @@ const MenuRevolutionSection = () => {
                                     {items.map((item, index) => (
                                       <div
                                         key={`${categoryId}-${index}`}
-                                        className="rounded-lg bg-white p-3 shadow-sm transition-shadow hover:shadow-md"
+                                        className="group rounded-lg border border-border/50 bg-card p-3 shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 hover:bg-gradient-to-br hover:from-card hover:to-primary/5"
                                       >
                                         <div className="mb-1 flex items-start justify-between">
-                                          <h4 className="font-medium">
+                                          <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
                                             {item.name}
                                           </h4>
                                           <span className="font-bold text-primary">
@@ -369,9 +367,11 @@ const MenuRevolutionSection = () => {
 
           {/* Result highlight */}
           <div className="mt-12 text-center">
-            <Text className="text-3xl font-bold text-primary">
-              {menuStory?.value || '45% fler beställningar online'}
-            </Text>
+            <Card className="mx-auto max-w-md border-primary/20 bg-gradient-to-r from-primary/10 to-secondary/10 p-6 shadow-lg">
+              <Text className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                {menuStory?.value || '45% fler beställningar online'}
+              </Text>
+            </Card>
           </div>
         </div>
       </SectionContainer>

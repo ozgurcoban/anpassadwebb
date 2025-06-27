@@ -12,7 +12,8 @@
       "Bash(true)",
       "Bash(git add:*)",
       "Bash(npm run lint:*)",
-      "mcp__palermo-filesystem__write_file"
+      "mcp__palermo-filesystem__write_file",
+      "mcp__palermo-filesystem__read_multiple_files"
     ],
     "deny": []
   }
