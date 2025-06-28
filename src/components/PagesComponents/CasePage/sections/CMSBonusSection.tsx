@@ -1,19 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
 import { Card } from '@/components/ui/card';
-import {
-  Smartphone,
-  Globe,
-  Clock,
-  Save,
-  Check,
-  Menu,
-  Calendar,
-  Settings,
-} from 'lucide-react';
+import { Smartphone, Globe, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Text from '@/components/ui/Text';
 
@@ -35,46 +27,14 @@ const CMSBonusSection = () => {
       title: 'Ändra från mobilen',
       description: 'Uppdatera direkt i mobilen - var du än befinner dig',
       mockupContent: (
-        <div className="flex h-full flex-col">
-          {/* Header */}
-          <div className="border-b bg-white p-3">
-            <div className="flex items-center justify-between">
-              <Menu className="h-5 w-5" />
-              <span className="text-xs font-medium">Redigera meny</span>
-              <Save className="h-5 w-5 text-primary" />
-            </div>
-          </div>
-          {/* Content */}
-          <div className="flex-1 space-y-3 bg-gray-50 p-4">
-            <div className="rounded-lg border-2 border-primary bg-white p-3">
-              <div className="mb-1 text-xs font-medium">Pizza Margherita</div>
-              <input
-                type="text"
-                value="125 kr"
-                className="w-full rounded bg-gray-100 px-2 py-1 text-sm"
-                readOnly
-              />
-            </div>
-            <div className="rounded-lg bg-white p-3">
-              <div className="mb-1 text-xs text-gray-600">
-                Pizza Capricciosa
-              </div>
-              <div className="text-sm">135 kr</div>
-            </div>
-          </div>
-          {/* Keyboard mockup */}
-          <div className="bg-gray-200 p-2">
-            <div className="grid grid-cols-10 gap-1">
-              {[...'1234567890'].map((key) => (
-                <div
-                  key={key}
-                  className="rounded bg-white p-1 text-center text-xs"
-                >
-                  {key}
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="relative h-full w-full bg-black">
+          <Image
+            src="/images/palermo-case/cms-mobile-edit1.webp"
+            alt="CMS mobile editing interface showing menu editing functionality"
+            fill
+            className="-m-[1px] scale-[1.01] object-fill"
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
         </div>
       ),
     },
@@ -84,77 +44,33 @@ const CMSBonusSection = () => {
       title: 'Designa precis som du vill',
       description: 'Skräddarsydd för dina specifika behov',
       mockupContent: (
-        <div className="h-full bg-gray-50 p-4">
-          <div className="space-y-3">
-            <div className="rounded-lg bg-white p-3 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <Menu className="h-4 w-4 text-primary" />
-                <span className="text-xs font-medium">Menyhantering</span>
-              </div>
-              <div className="text-xs text-gray-600">
-                Pizza, Pasta, Sallader
-              </div>
-            </div>
-            <div className="rounded-lg bg-white p-3 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-primary" />
-                <span className="text-xs font-medium">Öppettider</span>
-              </div>
-              <div className="text-xs text-gray-600">Mån-Fre: 11-22</div>
-            </div>
-            <div className="rounded-lg bg-white p-3 shadow-sm">
-              <div className="mb-2 flex items-center gap-2">
-                <Settings className="h-4 w-4 text-primary" />
-                <span className="text-xs font-medium">Språkinställningar</span>
-              </div>
-              <div className="mt-1 flex gap-2">
-                <span className="rounded bg-primary/10 px-2 py-1 text-xs">
-                  🇸🇪 Svenska
-                </span>
-                <span className="rounded bg-gray-100 px-2 py-1 text-xs">
-                  🇬🇧 English
-                </span>
-              </div>
-            </div>
-          </div>
+        <div className="relative h-full w-full bg-black">
+          <Image
+            src="/images/palermo-case/cms-mobile-edit2.png"
+            alt="CMS mobile customization interface"
+            fill
+            className="-m-[1px] scale-[1.01] object-fill"
+            sizes="(max-width: 768px) 100vw, 400px"
+            unoptimized={true}
+          />
         </div>
       ),
     },
     {
       id: 'timesaver',
       icon: <Clock className="h-5 w-5" />,
-      title: 'Skydd mot fel',
+      title: 'Skydd mot misstag',
       description: 'Systemet säger till om något inte stämmer',
       mockupContent: (
-        <div className="h-full bg-gray-50 p-4">
-          <div className="space-y-3">
-            {/* Quick edit */}
-            <div className="rounded-lg bg-white p-3 shadow-sm">
-              <div className="mb-2 text-xs font-medium">Dagens lunch</div>
-              <textarea
-                className="w-full rounded bg-gray-100 p-2 text-xs"
-                rows={3}
-                value="Pasta Carbonara - 95 kr
-Caesarsallad - 89 kr
-Veckans soppa - 79 kr"
-                readOnly
-              />
-            </div>
-            {/* Success notification */}
-            <div className="rounded-lg border border-green-200 bg-green-50 p-3">
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-green-600" />
-                <span className="text-xs text-green-800">
-                  Ändringar publicerade!
-                </span>
-              </div>
-            </div>
-            {/* Time saved */}
-            <div className="rounded-lg bg-primary/10 p-3 text-center">
-              <div className="text-lg font-bold text-primary">2 minuter</div>
-              <div className="text-xs text-gray-600">istället för 2 timmar</div>
-            </div>
-          </div>
+        <div className="relative h-full w-full bg-black">
+          <Image
+            src="/images/palermo-case/cms-mobile-edit3.png"
+            alt="CMS mobile error protection interface"
+            fill
+            className="-m-[1px] scale-[1.01] object-fill"
+            sizes="(max-width: 768px) 100vw, 400px"
+            unoptimized={true}
+          />
         </div>
       ),
     },
@@ -176,8 +92,14 @@ Veckans soppa - 79 kr"
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Mobile Mockup */}
             <div className="relative order-2 lg:order-1">
-              <div className="mx-auto aspect-[9/16] max-w-sm rounded-[3rem] bg-gradient-to-br from-gray-900 to-gray-700 p-4 shadow-2xl">
-                <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-white">
+              <div
+                className="relative mx-auto aspect-[9/16] max-w-sm overflow-hidden rounded-[2.1rem] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 p-2 shadow-2xl"
+                style={{ height: 'calc(100% - 2px)' }}
+              >
+                {/* Metallic shine overlay */}
+                <div className="pointer-events-none absolute inset-0 rounded-[2.1rem] bg-gradient-to-tr from-transparent via-white/10 to-transparent" />
+                <div className="pointer-events-none absolute left-0 top-0 h-1/3 w-full rounded-t-[2.1rem] bg-gradient-to-b from-white/20 to-transparent" />
+                <div className="relative h-full w-full overflow-hidden rounded-[1.9rem] bg-black">
                   {/* Dynamic content based on selected feature */}
                   <div className="absolute inset-0">
                     {
