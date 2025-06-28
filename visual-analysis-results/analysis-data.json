@@ -1,0 +1,2625 @@
+{
+  "timestamp": "2025-06-28T22:21:28.109Z",
+  "pages": {
+    "Homepage": {
+      "url": "http://localhost:3000/",
+      "screenshot": "visual-analysis-results/homepage-screenshot.png",
+      "timestamp": "2025-06-28T22:21:32.147Z",
+      "analysis": {
+        "colors": {
+          "uniqueColors": [
+            "rgb(255, 255, 255)",
+            "rgb(16, 16, 20)",
+            "rgb(242, 241, 243)",
+            "rgba(16, 16, 20, 0.9)",
+            "rgba(16, 16, 20, 0.8)",
+            "rgba(0, 0, 0, 0)",
+            "rgba(255, 255, 255, 0.7)",
+            "rgba(35, 34, 42, 0.3)",
+            "rgba(255, 255, 255, 0.1)",
+            "rgb(245, 158, 11)",
+            "rgb(192, 132, 252)",
+            "rgba(16, 16, 20, 0.5)",
+            "rgba(255, 255, 255, 0.9)",
+            "rgb(17, 24, 39)",
+            "rgba(0, 0, 0, 0.5)",
+            "rgba(35, 34, 42, 0.5)",
+            "rgb(162, 160, 171)",
+            "rgb(23, 23, 28)",
+            "rgb(170, 101, 230)",
+            "rgb(156, 163, 175)",
+            "rgba(31, 41, 55, 0.7)",
+            "rgba(0, 0, 0, 0.6)",
+            "rgb(209, 213, 219)"
+          ],
+          "colorUsage": [
+            {
+              "color": "rgb(242, 241, 243)",
+              "count": 210
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "count": 63
+            },
+            {
+              "color": "rgb(162, 160, 171)",
+              "count": 40
+            },
+            {
+              "color": "rgb(170, 101, 230)",
+              "count": 13
+            },
+            {
+              "color": "rgb(156, 163, 175)",
+              "count": 13
+            },
+            {
+              "color": "rgb(209, 213, 219)",
+              "count": 12
+            },
+            {
+              "color": "rgb(245, 158, 11)",
+              "count": 10
+            },
+            {
+              "color": "rgba(0, 0, 0, 0)",
+              "count": 6
+            },
+            {
+              "color": "rgba(255, 255, 255, 0.7)",
+              "count": 4
+            },
+            {
+              "color": "rgb(23, 23, 28)",
+              "count": 3
+            }
+          ]
+        },
+        "hierarchy": {
+          "headings": {
+            "h1": [
+              {
+                "text": "Hemsidor som funkar på riktigt",
+                "fontSize": "96px",
+                "fontWeight": "500",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 285.59375,
+                  "left": 368,
+                  "width": 896,
+                  "height": 192
+                },
+                "visible": true
+              }
+            ],
+            "h2": [
+              {
+                "text": "Vad vi erbjuder",
+                "fontSize": "30px",
+                "fontWeight": "500",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 995.1875,
+                  "left": 320,
+                  "width": 1280,
+                  "height": 41.25
+                },
+                "visible": true
+              },
+              {
+                "text": "Senaste från bloggen",
+                "fontSize": "30px",
+                "fontWeight": "500",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1850.4375,
+                  "left": 320,
+                  "width": 1280,
+                  "height": 41.25
+                },
+                "visible": false
+              }
+            ],
+            "h3": [
+              {
+                "text": "Snabb & Google-vänlig",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1249.4375,
+                  "left": 353,
+                  "width": 339.328125,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Användarvänlig",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1249.4375,
+                  "left": 790.328125,
+                  "width": 339.328125,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Låga driftkostnader",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1249.4375,
+                  "left": 1227.65625,
+                  "width": 339.34375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Welcome to MDX",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2296.6875,
+                  "left": 341,
+                  "width": 363.328125,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Getting Started with Next.js 14",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2296.6875,
+                  "left": 778.328125,
+                  "width": 363.328125,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "SEO Best Practices for 2024",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2296.6875,
+                  "left": 1215.65625,
+                  "width": 363.34375,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Snabblänkar",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2675.6875,
+                  "left": 851.1875,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Våra tjänster",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2675.6875,
+                  "left": 1116.796875,
+                  "width": 217.59375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Kontakt",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2675.6875,
+                  "left": 1382.390625,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              }
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "zIndexLayers": [
+            {
+              "tagName": "OL",
+              "className": "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+              "zIndex": 100,
+              "position": {
+                "top": 1048,
+                "left": 1500,
+                "width": 420,
+                "height": 32
+              }
+            },
+            {
+              "tagName": "HEADER",
+              "className": "sticky top-0 z-[20] bg-background/90 backdrop-blur-sm shadow-sm dark:shadow-md relative after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/50 after:to-transparent transition-transform duration-300 ease-out will-change-transform",
+              "zIndex": 20,
+              "position": {
+                "top": 0,
+                "left": 0,
+                "width": 1920,
+                "height": 112
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 734.140625,
+                "width": 80.03125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 814.171875,
+                "width": 94.0625,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 908.234375,
+                "width": 85.921875,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 994.15625,
+                "width": 97.984375,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 44,
+                "left": 332,
+                "width": 40,
+                "height": 40
+              }
+            },
+            {
+              "tagName": "SPAN",
+              "className": "pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75",
+              "zIndex": 10,
+              "position": {
+                "top": 38,
+                "left": 735.140625,
+                "width": 80.03125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 64,
+                "left": 1579.984375,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "headingCount": {
+            "h1": 1,
+            "h2": 2,
+            "h3": 9,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0
+          }
+        },
+        "spacingTypography": {
+          "commonMargins": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 69
+            },
+            {
+              "pattern": "0px 192px 0px 192px",
+              "count": 5
+            },
+            {
+              "pattern": "0px 96px 0px 96px",
+              "count": 4
+            },
+            {
+              "pattern": "0px 0px 24px 0px",
+              "count": 3
+            },
+            {
+              "pattern": "24px 0px 0px 0px",
+              "count": 2
+            }
+          ],
+          "commonPaddings": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 67
+            },
+            {
+              "pattern": "0px 32px 0px 32px",
+              "count": 6
+            },
+            {
+              "pattern": "32px 32px 32px 32px",
+              "count": 3
+            },
+            {
+              "pattern": "16px 16px 16px 16px",
+              "count": 3
+            },
+            {
+              "pattern": "4px 12px 4px 12px",
+              "count": 3
+            }
+          ],
+          "typography": [
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "24px",
+              "fontWeight": "400",
+              "count": 49
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "18px",
+              "lineHeight": "36px",
+              "fontWeight": "400",
+              "count": 7
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "20px",
+              "fontWeight": "400",
+              "count": 5
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "12px",
+              "lineHeight": "16px",
+              "fontWeight": "500",
+              "count": 3
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "26px",
+              "fontWeight": "400",
+              "count": 3
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "30px",
+              "lineHeight": "36px",
+              "fontWeight": "300",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "22.75px",
+              "fontWeight": "400",
+              "count": 1
+            }
+          ]
+        },
+        "ctas": {
+          "totalCTAs": 5,
+          "aboveFoldCTAs": 3,
+          "ctaElements": [
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 649.59375,
+                "left": 368,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 442.65625,
+                "centerY": 671.59375
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "KontaktKontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52,
+                "centerX": 1149.9921875,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "0px",
+                "padding": "16px 24px 16px 24px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Toggle theme",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 44,
+                "left": 1559.984375,
+                "width": 40,
+                "height": 40,
+                "centerX": 1579.984375,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(35, 34, 42, 0.3)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "12px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2810.4375,
+                "left": 320,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 394.65625,
+                "centerY": 2832.4375
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 2783.6875,
+                "left": 851.1875,
+                "width": 217.609375,
+                "height": 20,
+                "centerX": 959.9921875,
+                "centerY": 2793.6875
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(162, 160, 171)",
+                "fontSize": "14px",
+                "fontWeight": "400",
+                "borderRadius": "0px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            }
+          ]
+        },
+        "accessibility": {
+          "violations": 3,
+          "passes": 40,
+          "contrastIssues": [],
+          "summary": {
+            "totalIssues": 3,
+            "byImpact": {
+              "critical": 0,
+              "serious": 2,
+              "moderate": 1,
+              "minor": 0
+            }
+          }
+        }
+      }
+    },
+    "Contact": {
+      "url": "http://localhost:3000/kontakt",
+      "screenshot": "visual-analysis-results/contact-screenshot.png",
+      "timestamp": "2025-06-28T22:21:35.632Z",
+      "analysis": {
+        "colors": {
+          "uniqueColors": [
+            "rgb(255, 255, 255)",
+            "rgb(16, 16, 20)",
+            "rgb(242, 241, 243)",
+            "rgba(16, 16, 20, 0.9)",
+            "rgba(16, 16, 20, 0.8)",
+            "rgba(255, 255, 255, 0.7)",
+            "rgba(0, 0, 0, 0)",
+            "rgba(35, 34, 42, 0.3)",
+            "rgba(255, 255, 255, 0.1)",
+            "rgb(245, 158, 11)",
+            "rgb(192, 132, 252)",
+            "rgba(16, 16, 20, 0.5)",
+            "rgba(16, 16, 20, 0.2)",
+            "rgba(255, 255, 255, 0.9)",
+            "rgb(162, 160, 171)",
+            "rgb(238, 145, 196)",
+            "rgb(59, 59, 59)",
+            "rgb(170, 101, 230)",
+            "rgba(255, 255, 255, 0.5)",
+            "rgb(147, 51, 234)",
+            "rgb(219, 39, 119)",
+            "rgb(17, 24, 39)"
+          ],
+          "colorUsage": [
+            {
+              "color": "rgb(242, 241, 243)",
+              "count": 201
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "count": 53
+            },
+            {
+              "color": "rgb(162, 160, 171)",
+              "count": 43
+            },
+            {
+              "color": "rgb(245, 158, 11)",
+              "count": 10
+            },
+            {
+              "color": "rgb(147, 51, 234)",
+              "count": 7
+            },
+            {
+              "color": "rgb(238, 145, 196)",
+              "count": 6
+            },
+            {
+              "color": "rgba(255, 255, 255, 0.7)",
+              "count": 4
+            },
+            {
+              "color": "rgb(170, 101, 230)",
+              "count": 4
+            },
+            {
+              "color": "rgba(255, 255, 255, 0.5)",
+              "count": 3
+            },
+            {
+              "color": "rgb(219, 39, 119)",
+              "count": 3
+            }
+          ]
+        },
+        "hierarchy": {
+          "headings": {
+            "h1": [
+              {
+                "text": "Kontakta oss",
+                "fontSize": "96px",
+                "fontWeight": "500",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 289,
+                  "left": 305,
+                  "width": 672,
+                  "height": 96
+                },
+                "visible": true
+              }
+            ],
+            "h2": [
+              {
+                "text": "Vi vill höra från dig",
+                "fontSize": "48px",
+                "fontWeight": "700",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 782,
+                  "left": 512,
+                  "width": 896,
+                  "height": 48
+                },
+                "visible": true
+              }
+            ],
+            "h3": [
+              {
+                "text": "Eller boka ett möte direkt",
+                "fontSize": "36px",
+                "fontWeight": "700",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2005,
+                  "left": 512,
+                  "width": 896,
+                  "height": 40
+                },
+                "visible": false
+              },
+              {
+                "text": "Snabblänkar",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2678,
+                  "left": 851.1875,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Våra tjänster",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2678,
+                  "left": 1116.796875,
+                  "width": 217.59375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Kontakt",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2678,
+                  "left": 1382.390625,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              }
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "zIndexLayers": [
+            {
+              "tagName": "OL",
+              "className": "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+              "zIndex": 100,
+              "position": {
+                "top": 1048,
+                "left": 1500,
+                "width": 420,
+                "height": 32
+              }
+            },
+            {
+              "tagName": "HEADER",
+              "className": "sticky top-0 z-[20] bg-background/90 backdrop-blur-sm shadow-sm dark:shadow-md relative after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/50 after:to-transparent transition-transform duration-300 ease-out will-change-transform",
+              "zIndex": 20,
+              "position": {
+                "top": 0,
+                "left": 0,
+                "width": 1920,
+                "height": 112
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 734.140625,
+                "width": 80.03125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 814.171875,
+                "width": 94.0625,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 908.234375,
+                "width": 85.921875,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 994.15625,
+                "width": 97.984375,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 44,
+                "left": 332,
+                "width": 40,
+                "height": 40
+              }
+            },
+            {
+              "tagName": "SPAN",
+              "className": "pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75",
+              "zIndex": 10,
+              "position": {
+                "top": 38,
+                "left": 1093.140625,
+                "width": 115.703125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 64,
+                "left": 1579.984375,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "headingCount": {
+            "h1": 1,
+            "h2": 1,
+            "h3": 4,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0
+          }
+        },
+        "spacingTypography": {
+          "commonMargins": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 47
+            },
+            {
+              "pattern": "8px 0px 0px 0px",
+              "count": 5
+            },
+            {
+              "pattern": "12px 0px 0px 0px",
+              "count": 4
+            },
+            {
+              "pattern": "0px 192px 0px 192px",
+              "count": 3
+            },
+            {
+              "pattern": "0px 96px 0px 96px",
+              "count": 2
+            }
+          ],
+          "commonPaddings": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 57
+            },
+            {
+              "pattern": "0px 32px 0px 32px",
+              "count": 3
+            },
+            {
+              "pattern": "24px 24px 24px 24px",
+              "count": 3
+            },
+            {
+              "pattern": "8px 8px 8px 8px",
+              "count": 3
+            },
+            {
+              "pattern": "80px 0px 80px 0px",
+              "count": 2
+            }
+          ],
+          "typography": [
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "24px",
+              "fontWeight": "400",
+              "count": 38
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "20px",
+              "fontWeight": "400",
+              "count": 5
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "20px",
+              "lineHeight": "32.5px",
+              "fontWeight": "400",
+              "count": 2
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "30px",
+              "lineHeight": "36px",
+              "fontWeight": "300",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "22.75px",
+              "fontWeight": "400",
+              "count": 1
+            }
+          ]
+        },
+        "ctas": {
+          "totalCTAs": 6,
+          "aboveFoldCTAs": 2,
+          "ctaElements": [
+            {
+              "text": "KontaktKontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52,
+                "centerX": 1149.9921875,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "0px",
+                "padding": "16px 24px 16px 24px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Toggle theme",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 44,
+                "left": 1559.984375,
+                "width": 40,
+                "height": 40,
+                "centerX": 1579.984375,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(35, 34, 42, 0.3)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "12px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Välj ett alternativ (valfritt)",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1405,
+                "left": 624,
+                "width": 672,
+                "height": 50,
+                "centerX": 960,
+                "centerY": 1430
+              },
+              "styles": {
+                "backgroundColor": "rgb(238, 145, 196)",
+                "color": "rgb(162, 160, 171)",
+                "fontSize": "16px",
+                "fontWeight": "400",
+                "borderRadius": "6px",
+                "padding": "24px 12px 24px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2362,
+                "left": 885.34375,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 960,
+                "centerY": 2384
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2812.75,
+                "left": 320,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 394.65625,
+                "centerY": 2834.75
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Skicka",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1741,
+                "left": 624,
+                "width": 75.234375,
+                "height": 40,
+                "centerX": 661.6171875,
+                "centerY": 1761
+              },
+              "styles": {
+                "backgroundColor": "rgb(170, 101, 230)",
+                "color": "rgb(16, 16, 20)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "8px 16px 8px 16px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            }
+          ]
+        },
+        "accessibility": {
+          "violations": 5,
+          "passes": 41,
+          "contrastIssues": [
+            {
+              "id": "color-contrast",
+              "impact": "serious",
+              "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+              "occurrences": 3,
+              "examples": [
+                {
+                  "html": "<input type=\"email\" class=\"flex h-10 w-full rounded-md border-input px-3 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-secondary py-6 text-base shadow-inner border\" placeholder=\"din@epost.se\" id=\"«Rl7mlbl7»-form-item\" aria-describedby=\"«Rl7mlbl7»-form-item-description\" aria-invalid=\"false\" name=\"email\" value=\"\">",
+                  "target": [
+                    "#«Rl7mlbl7»-form-item"
+                  ],
+                  "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #f2f1f3, background color: #ee91c4, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "html": "<input type=\"url\" class=\"flex h-10 w-full rounded-md border-input px-3 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 border bg-secondary py-6 text-base shadow-inner\" placeholder=\"https://dinhemsida.se (valfritt)\" id=\"«Rt7mlbl7»-form-item\" aria-describedby=\"«Rt7mlbl7»-form-item-description\" aria-invalid=\"false\" name=\"website\" value=\"\">",
+                  "target": [
+                    "#«Rt7mlbl7»-form-item"
+                  ],
+                  "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.96 (foreground color: #f2f1f3, background color: #ee91c4, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                },
+                {
+                  "html": "<span style=\"pointer-events:none\">Välj ett alternativ (valfritt)</span>",
+                  "target": [
+                    "#«R157mlbl7»-form-item > span"
+                  ],
+                  "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 1.16 (foreground color: #a2a0ab, background color: #ee91c4, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "totalIssues": 5,
+            "byImpact": {
+              "critical": 0,
+              "serious": 4,
+              "moderate": 1,
+              "minor": 0
+            }
+          }
+        }
+      }
+    },
+    "Packages": {
+      "url": "http://localhost:3000/paket",
+      "screenshot": "visual-analysis-results/packages-screenshot.png",
+      "timestamp": "2025-06-28T22:21:39.177Z",
+      "analysis": {
+        "colors": {
+          "uniqueColors": [
+            "rgb(255, 255, 255)",
+            "rgb(16, 16, 20)",
+            "rgb(242, 241, 243)",
+            "rgba(16, 16, 20, 0.9)",
+            "rgba(16, 16, 20, 0.8)",
+            "rgba(255, 255, 255, 0.7)",
+            "rgba(0, 0, 0, 0)",
+            "rgba(35, 34, 42, 0.3)",
+            "rgba(255, 255, 255, 0.1)",
+            "rgb(245, 158, 11)",
+            "rgb(192, 132, 252)",
+            "rgba(16, 16, 20, 0.5)",
+            "rgba(16, 16, 20, 0.2)",
+            "rgba(255, 255, 255, 0.9)",
+            "rgb(17, 24, 39)",
+            "rgba(17, 24, 39, 0.5)",
+            "rgb(156, 163, 175)",
+            "rgba(35, 34, 42, 0.5)",
+            "rgb(170, 101, 230)",
+            "rgb(162, 160, 171)",
+            "rgb(31, 41, 55)",
+            "rgb(34, 197, 94)",
+            "rgb(209, 213, 219)"
+          ],
+          "colorUsage": [
+            {
+              "color": "rgb(242, 241, 243)",
+              "count": 245
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "count": 82
+            },
+            {
+              "color": "rgb(34, 197, 94)",
+              "count": 54
+            },
+            {
+              "color": "rgb(162, 160, 171)",
+              "count": 35
+            },
+            {
+              "color": "rgb(156, 163, 175)",
+              "count": 24
+            },
+            {
+              "color": "rgb(245, 158, 11)",
+              "count": 10
+            },
+            {
+              "color": "rgb(17, 24, 39)",
+              "count": 6
+            },
+            {
+              "color": "rgb(16, 16, 20)",
+              "count": 4
+            },
+            {
+              "color": "rgba(255, 255, 255, 0.7)",
+              "count": 4
+            },
+            {
+              "color": "rgb(170, 101, 230)",
+              "count": 4
+            }
+          ]
+        },
+        "hierarchy": {
+          "headings": {
+            "h1": [
+              {
+                "text": "Paket som passar din verksamhet",
+                "fontSize": "96px",
+                "fontWeight": "500",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 289,
+                  "left": 305,
+                  "width": 896,
+                  "height": 192
+                },
+                "visible": true
+              }
+            ],
+            "h2": [
+              {
+                "text": "Välj rätt paket för din verksamhet",
+                "fontSize": "30px",
+                "fontWeight": "500",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 962,
+                  "left": 320,
+                  "width": 1280,
+                  "height": 41.25
+                },
+                "visible": true
+              }
+            ],
+            "h3": [
+              {
+                "text": "Grundpaket \"Startklar\"",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1409.25,
+                  "left": 344,
+                  "width": 357.328125,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Premiumpaket \"Tillväxtturbo\"",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1409.25,
+                  "left": 781.328125,
+                  "width": 357.328125,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Skräddarsytt paket",
+                "fontSize": "20px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 1409.25,
+                  "left": 1218.65625,
+                  "width": 357.34375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Snabblänkar",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2605.5,
+                  "left": 851.1875,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Våra tjänster",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2605.5,
+                  "left": 1116.796875,
+                  "width": 217.59375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Kontakt",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2605.5,
+                  "left": 1382.390625,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              }
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "zIndexLayers": [
+            {
+              "tagName": "OL",
+              "className": "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+              "zIndex": 100,
+              "position": {
+                "top": 1048,
+                "left": 1500,
+                "width": 420,
+                "height": 32
+              }
+            },
+            {
+              "tagName": "HEADER",
+              "className": "sticky top-0 z-[20] bg-background/90 backdrop-blur-sm shadow-sm dark:shadow-md relative after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/50 after:to-transparent transition-transform duration-300 ease-out will-change-transform",
+              "zIndex": 20,
+              "position": {
+                "top": 0,
+                "left": 0,
+                "width": 1920,
+                "height": 112
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 734.140625,
+                "width": 80.03125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 814.171875,
+                "width": 94.0625,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 908.234375,
+                "width": 85.921875,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 994.15625,
+                "width": 97.984375,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 44,
+                "left": 332,
+                "width": 40,
+                "height": 40
+              }
+            },
+            {
+              "tagName": "SPAN",
+              "className": "pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75",
+              "zIndex": 10,
+              "position": {
+                "top": 38,
+                "left": 815.171875,
+                "width": 94.0625,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 64,
+                "left": 1579.984375,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "headingCount": {
+            "h1": 1,
+            "h2": 1,
+            "h3": 6,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0
+          }
+        },
+        "spacingTypography": {
+          "commonMargins": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 103
+            },
+            {
+              "pattern": "24px 0px 0px 0px",
+              "count": 5
+            },
+            {
+              "pattern": "0px 192px 0px 192px",
+              "count": 4
+            },
+            {
+              "pattern": "16px 0px 0px 0px",
+              "count": 4
+            },
+            {
+              "pattern": "0px 96px 0px 96px",
+              "count": 3
+            }
+          ],
+          "commonPaddings": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 105
+            },
+            {
+              "pattern": "0px 32px 0px 32px",
+              "count": 4
+            },
+            {
+              "pattern": "24px 24px 24px 24px",
+              "count": 3
+            },
+            {
+              "pattern": "16px 16px 16px 16px",
+              "count": 3
+            },
+            {
+              "pattern": "20px 0px 0px 0px",
+              "count": 3
+            }
+          ],
+          "typography": [
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "24px",
+              "fontWeight": "400",
+              "count": 67
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "22.75px",
+              "fontWeight": "400",
+              "count": 19
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "18px",
+              "lineHeight": "36px",
+              "fontWeight": "400",
+              "count": 6
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "20px",
+              "fontWeight": "500",
+              "count": 5
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "30px",
+              "lineHeight": "36px",
+              "fontWeight": "300",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "20px",
+              "lineHeight": "28px",
+              "fontWeight": "500",
+              "count": 1
+            }
+          ]
+        },
+        "ctas": {
+          "totalCTAs": 9,
+          "aboveFoldCTAs": 3,
+          "ctaElements": [
+            {
+              "text": "KontaktKontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52,
+                "centerX": 1149.9921875,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "0px",
+                "padding": "16px 24px 16px 24px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 617,
+                "left": 305,
+                "width": 117.3125,
+                "height": 40,
+                "centerX": 363.65625,
+                "centerY": 637
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "8px 16px 8px 16px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Toggle theme",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 44,
+                "left": 1559.984375,
+                "width": 40,
+                "height": 40,
+                "centerX": 1579.984375,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(35, 34, 42, 0.3)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "12px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Kontakta oss för offert",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2001.5,
+                "left": 1218.65625,
+                "width": 357.34375,
+                "height": 44,
+                "centerX": 1397.328125,
+                "centerY": 2023.5
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Från 15 000 kr",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2001.5,
+                "left": 344,
+                "width": 357.328125,
+                "height": 44,
+                "centerX": 522.6640625,
+                "centerY": 2023.5
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Från 35 000 kr",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2001.5,
+                "left": 781.328125,
+                "width": 357.328125,
+                "height": 44,
+                "centerX": 959.9921875,
+                "centerY": 2023.5
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Få gratis rådgivning",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2273.5,
+                "left": 862.84375,
+                "width": 194.3125,
+                "height": 44,
+                "centerX": 960,
+                "centerY": 2295.5
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2740.25,
+                "left": 320,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 394.65625,
+                "centerY": 2762.25
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 2713.5,
+                "left": 851.1875,
+                "width": 217.609375,
+                "height": 20,
+                "centerX": 959.9921875,
+                "centerY": 2723.5
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(162, 160, 171)",
+                "fontSize": "14px",
+                "fontWeight": "400",
+                "borderRadius": "0px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            }
+          ]
+        },
+        "accessibility": {
+          "violations": 3,
+          "passes": 37,
+          "contrastIssues": [],
+          "summary": {
+            "totalIssues": 3,
+            "byImpact": {
+              "critical": 0,
+              "serious": 2,
+              "moderate": 1,
+              "minor": 0
+            }
+          }
+        }
+      }
+    },
+    "Blog": {
+      "url": "http://localhost:3000/blogg",
+      "screenshot": "visual-analysis-results/blog-screenshot.png",
+      "timestamp": "2025-06-28T22:21:42.805Z",
+      "analysis": {
+        "colors": {
+          "uniqueColors": [
+            "rgb(255, 255, 255)",
+            "rgb(16, 16, 20)",
+            "rgb(242, 241, 243)",
+            "rgba(16, 16, 20, 0.9)",
+            "rgba(16, 16, 20, 0.8)",
+            "rgba(255, 255, 255, 0.7)",
+            "rgba(0, 0, 0, 0)",
+            "rgba(35, 34, 42, 0.3)",
+            "rgba(255, 255, 255, 0.1)",
+            "rgb(245, 158, 11)",
+            "rgb(192, 132, 252)",
+            "rgba(16, 16, 20, 0.5)",
+            "rgba(16, 16, 20, 0.2)",
+            "rgba(255, 255, 255, 0.9)",
+            "rgb(209, 213, 219)",
+            "rgba(31, 41, 55, 0.7)",
+            "rgba(0, 0, 0, 0.6)",
+            "rgb(156, 163, 175)",
+            "rgba(31, 41, 55, 0.5)",
+            "rgb(55, 65, 81)",
+            "rgb(96, 165, 250)",
+            "rgb(162, 160, 171)",
+            "rgb(17, 24, 39)",
+            "rgb(170, 101, 230)"
+          ],
+          "colorUsage": [
+            {
+              "color": "rgb(242, 241, 243)",
+              "count": 280
+            },
+            {
+              "color": "rgb(255, 255, 255)",
+              "count": 66
+            },
+            {
+              "color": "rgb(162, 160, 171)",
+              "count": 37
+            },
+            {
+              "color": "rgb(209, 213, 219)",
+              "count": 36
+            },
+            {
+              "color": "rgb(156, 163, 175)",
+              "count": 29
+            },
+            {
+              "color": "rgb(245, 158, 11)",
+              "count": 10
+            },
+            {
+              "color": "rgba(0, 0, 0, 0)",
+              "count": 8
+            },
+            {
+              "color": "rgb(55, 65, 81)",
+              "count": 7
+            },
+            {
+              "color": "rgba(31, 41, 55, 0.7)",
+              "count": 6
+            },
+            {
+              "color": "rgba(0, 0, 0, 0.6)",
+              "count": 6
+            }
+          ]
+        },
+        "hierarchy": {
+          "headings": {
+            "h1": [
+              {
+                "text": "Insikter & inspiration",
+                "fontSize": "96px",
+                "fontWeight": "500",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 196,
+                  "left": 512,
+                  "width": 896,
+                  "height": 192
+                },
+                "visible": true
+              }
+            ],
+            "h2": [
+              {
+                "text": "Våra mest populära inlägg",
+                "fontSize": "48px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 700,
+                  "left": 336,
+                  "width": 1248,
+                  "height": 48
+                },
+                "visible": true
+              },
+              {
+                "text": "Alla artiklar",
+                "fontSize": "36px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 1562,
+                  "left": 336,
+                  "width": 1248,
+                  "height": 40
+                },
+                "visible": false
+              }
+            ],
+            "h3": [
+              {
+                "text": "Welcome to MDX",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 1141,
+                  "left": 357,
+                  "width": 352.65625,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Getting Started with Next.js 14",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 1141,
+                  "left": 783.65625,
+                  "width": 352.671875,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "SEO Best Practices for 2024",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 1141,
+                  "left": 1210.328125,
+                  "width": 352.65625,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Welcome to MDX",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2241,
+                  "left": 357,
+                  "width": 352.65625,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Getting Started with Next.js 14",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2241,
+                  "left": 783.65625,
+                  "width": 352.671875,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "SEO Best Practices for 2024",
+                "fontSize": "24px",
+                "fontWeight": "700",
+                "color": "rgb(255, 255, 255)",
+                "position": {
+                  "top": 2241,
+                  "left": 1210.328125,
+                  "width": 352.65625,
+                  "height": 30
+                },
+                "visible": false
+              },
+              {
+                "text": "Snabblänkar",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2694,
+                  "left": 851.1875,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Våra tjänster",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2694,
+                  "left": 1116.796875,
+                  "width": 217.59375,
+                  "height": 28
+                },
+                "visible": false
+              },
+              {
+                "text": "Kontakt",
+                "fontSize": "18px",
+                "fontWeight": "600",
+                "color": "rgb(242, 241, 243)",
+                "position": {
+                  "top": 2694,
+                  "left": 1382.390625,
+                  "width": 217.609375,
+                  "height": 28
+                },
+                "visible": false
+              }
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "zIndexLayers": [
+            {
+              "tagName": "OL",
+              "className": "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+              "zIndex": 100,
+              "position": {
+                "top": 1048,
+                "left": 1500,
+                "width": 420,
+                "height": 32
+              }
+            },
+            {
+              "tagName": "HEADER",
+              "className": "sticky top-0 z-[20] bg-background/90 backdrop-blur-sm shadow-sm dark:shadow-md relative after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/50 after:to-transparent transition-transform duration-300 ease-out will-change-transform",
+              "zIndex": 20,
+              "position": {
+                "top": 0,
+                "left": 0,
+                "width": 1920,
+                "height": 112
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 734.140625,
+                "width": 80.03125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 814.171875,
+                "width": 94.0625,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 908.234375,
+                "width": 85.921875,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 994.15625,
+                "width": 97.984375,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "A",
+              "className": "group relative z-20 flex items-center px-6 py-4 text-sm font-medium uppercase tracking-wide outline-none transition-transform duration-300 ease-out hover:scale-[1.01]",
+              "zIndex": 20,
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 44,
+                "left": 332,
+                "width": 40,
+                "height": 40
+              }
+            },
+            {
+              "tagName": "SPAN",
+              "className": "pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform bg-gradient-to-r from-blue-500/80 via-purple-500/80 to-pink-500/80 opacity-75",
+              "zIndex": 10,
+              "position": {
+                "top": 38,
+                "left": 995.15625,
+                "width": 97.984375,
+                "height": 52
+              }
+            },
+            {
+              "tagName": "svg",
+              "className": {},
+              "zIndex": 10,
+              "position": {
+                "top": 64,
+                "left": 1579.984375,
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "headingCount": {
+            "h1": 1,
+            "h2": 2,
+            "h3": 9,
+            "h4": 0,
+            "h5": 0,
+            "h6": 0
+          }
+        },
+        "spacingTypography": {
+          "commonMargins": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 100
+            },
+            {
+              "pattern": "0px 192px 0px 192px",
+              "count": 3
+            },
+            {
+              "pattern": "0px 96px 0px 96px",
+              "count": 2
+            },
+            {
+              "pattern": "32px 0px 0px 0px",
+              "count": 2
+            },
+            {
+              "pattern": "0px 320px 0px 320px",
+              "count": 2
+            }
+          ],
+          "commonPaddings": [
+            {
+              "pattern": "0px 0px 0px 0px",
+              "count": 94
+            },
+            {
+              "pattern": "4px 12px 4px 12px",
+              "count": 6
+            },
+            {
+              "pattern": "16px 20px 16px 20px",
+              "count": 6
+            },
+            {
+              "pattern": "0px 32px 0px 32px",
+              "count": 4
+            },
+            {
+              "pattern": "8px 8px 8px 8px",
+              "count": 3
+            }
+          ],
+          "typography": [
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "24px",
+              "fontWeight": "400",
+              "count": 56
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "20px",
+              "fontWeight": "500",
+              "count": 10
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "12px",
+              "lineHeight": "16px",
+              "fontWeight": "500",
+              "count": 6
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "16px",
+              "lineHeight": "26px",
+              "fontWeight": "400",
+              "count": 6
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "30px",
+              "lineHeight": "36px",
+              "fontWeight": "300",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "20px",
+              "lineHeight": "28px",
+              "fontWeight": "400",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "18px",
+              "lineHeight": "28px",
+              "fontWeight": "400",
+              "count": 1
+            },
+            {
+              "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+              "fontSize": "14px",
+              "lineHeight": "22.75px",
+              "fontWeight": "400",
+              "count": 1
+            }
+          ]
+        },
+        "ctas": {
+          "totalCTAs": 11,
+          "aboveFoldCTAs": 2,
+          "ctaElements": [
+            {
+              "text": "KontaktKontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 38,
+                "left": 1092.140625,
+                "width": 115.703125,
+                "height": 52,
+                "centerX": 1149.9921875,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "0px",
+                "padding": "16px 24px 16px 24px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Toggle theme",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 44,
+                "left": 1559.984375,
+                "width": 40,
+                "height": 40,
+                "centerX": 1579.984375,
+                "centerY": 64
+              },
+              "styles": {
+                "backgroundColor": "rgba(35, 34, 42, 0.3)",
+                "color": "rgb(242, 241, 243)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "12px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": true,
+                "completelyVisible": true,
+                "percentageVisible": 100
+              }
+            },
+            {
+              "text": "Kontakta oss",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 2828.75,
+                "left": 320,
+                "width": 149.3125,
+                "height": 44,
+                "centerX": 394.65625,
+                "centerY": 2850.75
+              },
+              "styles": {
+                "backgroundColor": "rgb(17, 24, 39)",
+                "color": "rgb(255, 255, 255)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "6px",
+                "padding": "0px 32px 0px 32px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Digital Marketing",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 422.625,
+                "width": 136.046875,
+                "height": 32,
+                "centerX": 490.6484375,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Kontakt",
+              "type": "A",
+              "href": "http://localhost:3000/kontakt",
+              "position": {
+                "top": 2834,
+                "left": 851.1875,
+                "width": 217.609375,
+                "height": 20,
+                "centerX": 959.9921875,
+                "centerY": 2844
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(162, 160, 171)",
+                "fontSize": "14px",
+                "fontWeight": "400",
+                "borderRadius": "0px",
+                "padding": "0px 0px 0px 0px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Next.js",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 630.265625,
+                "width": 69.796875,
+                "height": 32,
+                "centerX": 665.1640625,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "+ 1 fler",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 837.859375,
+                "width": 68.9375,
+                "height": 32,
+                "centerX": 872.328125,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "color": "rgb(96, 165, 250)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "React",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 708.0625,
+                "width": 61.8125,
+                "height": 32,
+                "centerX": 738.96875,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "MDX",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 566.671875,
+                "width": 55.59375,
+                "height": 32,
+                "centerX": 594.46875,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "Blog",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 361,
+                "width": 53.625,
+                "height": 32,
+                "centerX": 387.8125,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            },
+            {
+              "text": "SEO",
+              "type": "BUTTON",
+              "href": null,
+              "position": {
+                "top": 1803,
+                "left": 777.875,
+                "width": 51.984375,
+                "height": 32,
+                "centerX": 803.8671875,
+                "centerY": 1819
+              },
+              "styles": {
+                "backgroundColor": "rgb(55, 65, 81)",
+                "color": "rgb(209, 213, 219)",
+                "fontSize": "14px",
+                "fontWeight": "500",
+                "borderRadius": "8px",
+                "padding": "6px 12px 6px 12px"
+              },
+              "visibility": {
+                "aboveFold": false,
+                "completelyVisible": false,
+                "percentageVisible": 0
+              }
+            }
+          ]
+        },
+        "accessibility": {
+          "violations": 3,
+          "passes": 42,
+          "contrastIssues": [],
+          "summary": {
+            "totalIssues": 3,
+            "byImpact": {
+              "critical": 0,
+              "serious": 2,
+              "moderate": 1,
+              "minor": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

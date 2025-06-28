@@ -154,7 +154,7 @@ const ContactForm: React.FC = () => {
                 <FormControl>
                   <Input
                     className={clsx(
-                      'bg-secondary py-6 text-base text-secondary shadow-inner',
+                      'bg-muted py-6 text-base shadow-inner',
                       form.formState.errors.name && 'border-destructive',
                       'border',
                     )}
@@ -182,7 +182,7 @@ const ContactForm: React.FC = () => {
                 <FormControl>
                   <Input
                     className={clsx(
-                      'bg-secondary py-6 text-base shadow-inner',
+                      'bg-muted py-6 text-base shadow-inner',
                       form.formState.errors.email && 'border-destructive',
                       'border',
                     )}
@@ -210,7 +210,7 @@ const ContactForm: React.FC = () => {
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="border bg-secondary py-6 text-base shadow-inner"
+                    className="border bg-muted py-6 text-base shadow-inner"
                     placeholder="https://dinhemsida.se (valfritt)"
                     type="url"
                     {...field}
@@ -235,7 +235,7 @@ const ContactForm: React.FC = () => {
                 </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
-                    <SelectTrigger className="bg-secondary py-6 text-base shadow-inner">
+                    <SelectTrigger className="bg-muted py-6 text-base shadow-inner">
                       <SelectValue placeholder="Välj ett alternativ (valfritt)" />
                     </SelectTrigger>
                   </FormControl>
@@ -268,7 +268,7 @@ const ContactForm: React.FC = () => {
                 <FormControl>
                   <Textarea
                     className={clsx(
-                      'bg-secondary text-base shadow-inner',
+                      'bg-muted text-base shadow-inner',
                       form.formState.errors.message && 'border-destructive',
                       'border',
                     )}

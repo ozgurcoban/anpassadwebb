@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ContactButton } from '@/components/ContactButton';
 import { RainbowButton } from '@/components/ui/RainbowButton/RainbowButton';
+import ValueProposition from '@/components/ValueProposition';
 import { type GradientContentProps, ALIGNMENT_CLASSES, CONTENT_ALIGNMENT } from './types';
 import { getTextShadow, TEXT_SHADOWS } from './constants';
 import { getTextStyles, SPACING, LAYOUT } from './styles';
@@ -15,6 +16,7 @@ export function GradientContent({
   secondaryCTA,
   isImageBackground = false,
   verticalCenter = false,
+  showValueProposition = false,
 }: Omit<GradientContentProps, 'transformedColors'> & { isImageBackground?: boolean }) {
   return (
     <div className={cn(
@@ -54,6 +56,16 @@ export function GradientContent({
             )}
 
         </div>
+
+        {showValueProposition && (
+          <ValueProposition 
+            variant="dark" 
+            className={cn(
+              "mt-8 mb-4 max-w-3xl",
+              textAlign === 'center' && "mx-auto"
+            )}
+          />
+        )}
 
         <div className={cn(
               "flex flex-col gap-4",

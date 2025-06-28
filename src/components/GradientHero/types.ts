@@ -30,6 +30,7 @@ export interface GradientHeroProps {
   overlayOpacity?: number; // Control overlay opacity for image variants
   verticalCenter?: boolean; // Control vertical centering
   darkMode?: boolean; // Force dark background without image
+  showValueProposition?: boolean; // Show value proposition below description
 }
 
 export interface GradientBackgroundProps {
@@ -74,6 +75,7 @@ export interface GradientContentProps {
   };
   transformedColors: string[];
   verticalCenter?: boolean;
+  showValueProposition?: boolean;
 }
 
 export const COLOR_SCHEMES: Record<ColorScheme, string[]> = {

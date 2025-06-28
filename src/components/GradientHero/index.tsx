@@ -23,6 +23,7 @@ export default function GradientHero({
   overlayOpacity = 0.8,
   verticalCenter = false,
   darkMode = false,
+  showValueProposition = false,
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
   
@@ -65,6 +66,7 @@ export default function GradientHero({
           secondaryCTA={secondaryCTA}
           isImageBackground={!!backgroundImage || darkMode}
           verticalCenter={verticalCenter}
+          showValueProposition={showValueProposition}
         />
       </GradientBackground>
     </section>

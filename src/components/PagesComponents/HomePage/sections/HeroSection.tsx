@@ -15,7 +15,7 @@ const HeroSection = () => {
           på riktigt
         </>
       }
-      description="Vi skapar skräddarsydda hemsidor som laddar snabbt, rankar på Google och hjälper småföretag i Uppsala att växa online"
+      description="Vi skapar skräddarsydda hemsidor som laddar snabbt, rankar på Google och hjälper småföretag i Uppsala att växa online."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
@@ -31,6 +31,7 @@ const HeroSection = () => {
         href: '#arbete',
       }}
       verticalCenter={true}
+      showValueProposition={true}
     />
   );
 };

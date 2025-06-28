@@ -22,7 +22,7 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 
       title: 'Kontakta oss',
       description: (
         <>
-          Fyll i formuläret nedan så återkommer vi inom kort.{' '}
+          Fyll i formuläret nedan så återkommer vi inom 24 timmar.{' '}
           <Link
             onClick={(e) => {
               setDialog({ isOpen: false });
