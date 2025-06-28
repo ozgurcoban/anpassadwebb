@@ -42,6 +42,7 @@ export function InteractiveEffects({
     orb1: { x: 0, y: 0, targetX: 0, targetY: 0 },
     orb2: { x: 0, y: 0, targetX: 0, targetY: 0 },
   });
+  const [orbsInitialized, setOrbsInitialized] = useState(false);
 
   const createParticle = (x: number, y: number): Particle => ({
     id: Math.random(),
@@ -137,6 +138,20 @@ export function InteractiveEffects({
       const targetCursorX = mousePosition.x * rect.width;
       const targetCursorY = mousePosition.y * rect.height;
 
+      // Initialize orb positions on first run
+      if (!orbsInitialized) {
+        const orb1InitX = targetCursorX + Math.sin(elapsed * 2) * 60;
+        const orb1InitY = targetCursorY + Math.cos(elapsed * 2) * 60;
+        const orb2InitX = targetCursorX + Math.sin(elapsed * 3 + Math.PI) * 80;
+        const orb2InitY = targetCursorY + Math.cos(elapsed * 3 + Math.PI) * 80;
+        
+        setOrbPositions({
+          orb1: { x: orb1InitX, y: orb1InitY, targetX: orb1InitX, targetY: orb1InitY },
+          orb2: { x: orb2InitX, y: orb2InitY, targetX: orb2InitX, targetY: orb2InitY },
+        });
+        setOrbsInitialized(true);
+      }
+
       setOrbPositions((prev) => {
         // Calculate target positions (cursor + circular motion)
         const orb1TargetX = targetCursorX + Math.sin(elapsed * 2) * 60;
@@ -174,7 +189,7 @@ export function InteractiveEffects({
         cancelAnimationFrame(orbAnimationId);
       }
     };
-  }, [mousePosition, containerRef]);
+  }, [mousePosition, containerRef, orbsInitialized]);
 
   const rect = containerRef.current?.getBoundingClientRect();
   if (!rect) return null;
