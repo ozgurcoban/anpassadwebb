@@ -42,6 +42,29 @@ const buttonVariants = cva(
           'hover:bg-black/50 hover:before:opacity-90',
           '[text-shadow:0_2px_10px_rgba(0,0,0,0.8)]'
         ),
+        'ghost-hero': cn(
+          'border-2 border-white/80 bg-transparent text-white transition-all duration-300',
+          'hover:bg-white/10 hover:border-white',
+          '[text-shadow:0_2px_8px_rgba(0,0,0,0.5)]'
+        ),
+        'outline-hero': cn(
+          'border-2 border-primary bg-white text-primary transition-all duration-300',
+          'hover:bg-primary/5 hover:border-primary/80',
+          'dark:border-primary dark:bg-transparent dark:text-white dark:hover:bg-primary/10'
+        ),
+        'glass-hero': cn(
+          'relative bg-white/10 text-white backdrop-blur-md transition-all duration-300',
+          'border border-white/20',
+          'before:absolute before:inset-0 before:-z-10 before:rounded-md',
+          'before:bg-gradient-to-r before:from-primary/20 before:via-secondary/20 before:to-accent/20',
+          'hover:bg-white/20 hover:border-white/30',
+          '[text-shadow:0_2px_8px_rgba(0,0,0,0.5)]'
+        ),
+        'secondary-solid': cn(
+          'bg-secondary text-secondary-foreground transition-all duration-300',
+          'hover:bg-secondary/90 hover:shadow-lg hover:shadow-secondary/25',
+          'active:scale-95'
+        ),
       },
       size: {
         default: 'h-10 px-4 py-2',

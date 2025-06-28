@@ -80,11 +80,24 @@ export function GradientContent({
                 <ContactButton className="w-full sm:w-auto" />
               ) : (
                 secondaryCTA && (
-                  <RainbowButton asChild>
-                    <Link href={secondaryCTA.href}>
-                      {secondaryCTA.text}
-                    </Link>
-                  </RainbowButton>
+                  secondaryCTA.variant === 'rainbow' || !secondaryCTA.variant ? (
+                    <RainbowButton asChild>
+                      <Link href={secondaryCTA.href}>
+                        {secondaryCTA.text}
+                      </Link>
+                    </RainbowButton>
+                  ) : (
+                    <Button
+                      asChild
+                      variant={secondaryCTA.variant}
+                      size="lg"
+                      className="w-full sm:w-auto"
+                    >
+                      <Link href={secondaryCTA.href}>
+                        {secondaryCTA.text}
+                      </Link>
+                    </Button>
+                  )
                 )
               )}
               

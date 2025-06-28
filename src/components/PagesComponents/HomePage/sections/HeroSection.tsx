@@ -29,6 +29,7 @@ const HeroSection = () => {
       secondaryCTA={{
         text: 'Se vårt arbete',
         href: '#arbete',
+        variant: 'ghost-hero',
       }}
       verticalCenter={true}
       showValueProposition={true}
