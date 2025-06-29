@@ -12,7 +12,7 @@ const PackagesHeroSection = () => {
       secondaryCTA={{
         text: 'Jämför paket',
         href: '#paket',
-        variant: 'outline-hero',
+        variant: 'ghost-hero',
       }}
     />
   );

@@ -39,7 +39,10 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Skräddarsydda hemsidor som hjälper företag i Uppsala att växa online.
               </p>
-              <ContactButton className="w-full sm:w-auto" />
+              <ContactButton 
+                variant="ghost-hero" 
+                className="w-full sm:w-auto !text-foreground dark:!text-white !border-foreground/20 dark:!border-white/80 hover:!bg-accent hover:!border-foreground/40 dark:hover:!bg-white/10 dark:hover:!border-white ![text-shadow:none] dark:[text-shadow:0_2px_8px_rgba(0,0,0,0.5)]" 
+              />
             </div>
 
             {/* Quick links */}

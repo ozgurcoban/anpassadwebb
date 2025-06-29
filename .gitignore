@@ -41,5 +41,6 @@ next-env.d.ts
 # Ignore servers directory during build
 /servers/
 /lighthouse/
+visual-analysis-results/
 # claude local settings
 .claude/settings.local.json

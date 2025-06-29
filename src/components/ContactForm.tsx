@@ -38,9 +38,23 @@ const schema = z.object({
   
   website: z
     .string()
-    .url({ message: 'Ogiltig URL' })
     .optional()
-    .or(z.literal('')),
+    .refine(
+      (val) => {
+        if (!val || val === '') return true;
+        try {
+          const url = new URL(val);
+          // Check if it has a valid domain with TLD
+          const hostname = url.hostname;
+          // Must have at least one dot and valid TLD
+          const domainRegex = /^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+          return domainRegex.test(hostname);
+        } catch {
+          return false;
+        }
+      },
+      { message: 'Ogiltig webbadress' }
+    ),
     
   source: z.enum([
     'google',
@@ -76,6 +90,7 @@ const ContactForm: React.FC = () => {
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       email: '',
@@ -211,9 +226,16 @@ const ContactForm: React.FC = () => {
                 <FormControl>
                   <Input
                     className="border bg-muted py-6 text-base shadow-inner"
-                    placeholder="https://dinhemsida.se (valfritt)"
-                    type="url"
+                    placeholder="dinhemsida.se (valfritt)"
+                    type="text"
                     {...field}
+                    onBlur={(e) => {
+                      const value = e.target.value.trim();
+                      if (value && !value.startsWith('http://') && !value.startsWith('https://')) {
+                        field.onChange(`https://${value}`);
+                      }
+                      field.onBlur();
+                    }}
                   />
                 </FormControl>
                 <div className="min-h-2">
