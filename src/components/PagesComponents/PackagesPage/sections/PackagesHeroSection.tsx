@@ -10,9 +10,9 @@ const PackagesHeroSection = () => {
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
       secondaryCTA={{
-        text: 'Kontakta oss',
-        href: '/kontakt',
-        variant: undefined, // This will use the default button variant (primary)
+        text: 'Jämför paket',
+        href: '#paket',
+        variant: 'outline-hero',
       }}
     />
   );

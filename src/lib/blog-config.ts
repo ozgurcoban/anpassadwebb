@@ -1,5 +1,5 @@
 export const blogConfig = {
-  siteName: 'ByteSpark',
+  siteName: 'Anpassad Webb',
   postsPerPage: 12,
   defaultLocale: 'sv-SE',
   fallbackDate: '2025-01-01',
@@ -25,11 +25,14 @@ export const blogConfig = {
       byTag: 'Posts tagged with',
       noPostsFound: 'No posts found',
       loading: 'Loading...',
-    }
-  }
+    },
+  },
 } as const;
 
-export function getLabel(key: keyof typeof blogConfig.labels.sv, locale: string = blogConfig.defaultLocale): string {
+export function getLabel(
+  key: keyof typeof blogConfig.labels.sv,
+  locale: string = blogConfig.defaultLocale,
+): string {
   const lang = locale.startsWith('sv') ? 'sv' : 'en';
   return blogConfig.labels[lang][key];
 }

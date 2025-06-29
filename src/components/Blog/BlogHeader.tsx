@@ -46,13 +46,9 @@ const Header: React.FC<HeaderProps> = ({
             <Link
               key={tag}
               href={`/blogg/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+              className="inline-flex items-center px-3 py-1 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-primary/70 text-sm font-medium transition-all duration-300 whitespace-nowrap dark:text-gray-300 dark:hover:text-primary/80 no-underline"
             >
-              <Badge 
-                variant="outline" 
-                className="text-base rounded-full px-3 py-1 transition duration-300 ease-in-out hover:border-secondary hover:bg-secondary hover:text-primary"
-              >
-                {tag}
-              </Badge>
+              #{tag}
             </Link>
           ))}
         </FadeInView>

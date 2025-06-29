@@ -102,7 +102,7 @@ export function Posts({
                       <Link
                         key={tag}
                         href={`/blogg/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-xs font-medium text-gray-700 hover:from-blue-200 hover:via-purple-200 hover:to-pink-200 transition-all duration-300 border border-white/50 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 dark:text-gray-300 dark:border-gray-600/50 whitespace-nowrap"
+                        className="inline-flex items-center px-3 py-1 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-primary/70 text-xs font-medium transition-all duration-300 whitespace-nowrap dark:text-gray-300 dark:hover:text-primary/80 no-underline"
                       >
                         #{tag}
                       </Link>
