@@ -119,6 +119,7 @@ const PackagesListSection = () => {
                 <ContactButton 
                   className="w-full justify-center"
                   text={pkg.id === 'skraddarsytt' ? "Kontakta oss för offert" : pkg.price}
+                  variant="outline-hero"
                 />
               </div>
             </div>
