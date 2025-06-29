@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { AlertCircle } from 'lucide-react';
 import Text from '@/components/ui/Text';
 
@@ -15,7 +16,11 @@ const ChallengeSection = () => {
     <Section className="py-16 bg-muted/30">
       <SectionContainer>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">Utmaningen</h2>
+          <SectionHeading
+            title="Utmaningen"
+            className="mb-6"
+            titleClassName="mb-4 text-3xl font-bold text-left"
+          />
           
           <Text className="text-lg mb-6">
             Palermo hade en hemsida som inte fungerade på mobiler. Google straffade dem för det. 

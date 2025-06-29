@@ -108,21 +108,8 @@ export function GradientContent({
                   size="lg"
                   className="w-full sm:w-auto"
                 >
-                  <Link href={secondaryCTA.href} className="inline-flex items-center gap-2">
+                  <Link href={secondaryCTA.href}>
                     {secondaryCTA.text}
-                    <svg
-                      className="h-4 w-4 transition-transform group-hover:translate-y-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
                   </Link>
                 </Button>
               )}

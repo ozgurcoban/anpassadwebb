@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Section from './ui/Section';
 import SectionContainer from './ui/SectionContainer';
 import Text from './ui/Text';
+import SectionHeading from './ui/SectionHeading';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
@@ -29,14 +30,10 @@ const ServicesSection = () => {
   return (
     <Section variant="wide" className="bg-muted/50">
       <SectionContainer>
-        <header className="mb-8 text-center">
-          <Text as="h2" size="xl" className="mb-4">
-            Vad vi erbjuder
-          </Text>
-          <Text className="text-muted-foreground">
-            Inga tekniska termer, bara lösningar som fungerar
-          </Text>
-        </header>
+        <SectionHeading
+          title="Vad vi erbjuder"
+          subtitle="Inga tekniska termer, bara lösningar som fungerar"
+        />
 
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service, index) => (

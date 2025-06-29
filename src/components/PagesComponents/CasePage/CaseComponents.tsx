@@ -8,10 +8,10 @@ import ChallengeSection from './sections/ChallengeSection';
 import SolutionSection from './sections/SolutionSection';
 import MenuRevolutionSection from './sections/MenuRevolutionSection';
 import CMSBonusSection from './sections/CMSBonusSection';
-import AnimatedResultsSection from './sections/AnimatedResultsSection';
 import { palermoProject } from '@/data/caseStudies';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import CTASection from './sections/CTASection';
 
 const CaseComponents: React.FC = () => {
@@ -24,7 +24,6 @@ const CaseComponents: React.FC = () => {
       <SolutionSection />
       <MenuRevolutionSection />
       <CMSBonusSection />
-      <AnimatedResultsSection />
       
       {/* Testimonial Section */}
       {palermoProject.testimonial && (
@@ -53,11 +52,12 @@ const CaseComponents: React.FC = () => {
       {palermoProject.aboutSection && (
         <Section className="py-16 bg-muted/30">
           <SectionContainer>
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <h3 className="text-3xl font-medium">{palermoProject.aboutSection.title}</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                {palermoProject.aboutSection.content}
-              </p>
+            <div className="max-w-3xl mx-auto">
+              <SectionHeading 
+                title={palermoProject.aboutSection.title}
+                subtitle={palermoProject.aboutSection.content}
+                as="h3"
+              />
             </div>
           </SectionContainer>
         </Section>
@@ -68,9 +68,11 @@ const CaseComponents: React.FC = () => {
         <Section className="py-16">
           <SectionContainer>
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-medium">{palermoProject.processSection.subtitle}</h3>
-              </div>
+              <SectionHeading 
+                title={palermoProject.processSection.subtitle}
+                as="h3"
+                className="mb-12"
+              />
               <div className="grid gap-6 md:grid-cols-2">
                 {palermoProject.processSection.steps.map((step, index) => (
                   <div key={index} className="flex gap-4">

@@ -2,6 +2,7 @@ import { CheckCircle2, Sparkles, TrendingUp } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
 import Text from '@/components/ui/Text';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { packages, packagesConfig } from '@/data/packages';
 import { ContactButton } from '@/components/ContactButton';
 import { cn } from '@/lib/utils';
@@ -18,13 +19,12 @@ const PackagesListSection = () => {
     <div id="paket">
       <Section variant="wide" className="bg-gray-50 dark:bg-gray-900/50">
         <SectionContainer>
-        <header className="mb-12 text-center">
-          <Text as="h2" size="xl" className="mb-4">
-            Välj rätt paket för din verksamhet
-          </Text>
-          <Text className="text-gray-600 dark:text-gray-400">
-            Transparent prissättning, inga dolda avgifter
-          </Text>
+        <header className="mb-12">
+          <SectionHeading
+            title="Välj rätt paket för din verksamhet"
+            subtitle="Transparent prissättning, inga dolda avgifter"
+            subtitleClassName="text-gray-600 dark:text-gray-400"
+          />
           {packagesConfig.introDescription && (
             <div className="mt-8 max-w-4xl mx-auto">
               <Card className="bg-muted/50">

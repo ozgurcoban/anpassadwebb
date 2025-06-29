@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback, MouseEvent, TouchEvent } from 'react';
 import { cn } from '@/lib/utils';
 import { MoveHorizontal } from 'lucide-react';
+import SectionHeading from '@/components/ui/SectionHeading';
 
 type HeaderPosition = 'top' | 'bottom';
 
@@ -106,29 +107,19 @@ export default function BeforeAfterSlider({
     }
   }, [isDragging, handleMouseMove, handleTouchMove]);
 
-  // Header component
+  // Header component using SectionHeading
   const Header = () => {
     if (!title && !description) return null;
     
     return (
-      <div className="mb-4">
-        {title && (
-          <h3 className={cn(
-            'text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100',
-            titleClassName
-          )}>
-            {title}
-          </h3>
-        )}
-        {description && (
-          <p className={cn(
-            'mt-2 text-base text-gray-600 dark:text-gray-400',
-            descriptionClassName
-          )}>
-            {description}
-          </p>
-        )}
-      </div>
+      <SectionHeading
+        title={title || ''}
+        subtitle={description}
+        as="h3"
+        className="mb-4"
+        titleClassName={cn('text-3xl font-bold', titleClassName)}
+        subtitleClassName={cn('text-base', descriptionClassName)}
+      />
     );
   };
 

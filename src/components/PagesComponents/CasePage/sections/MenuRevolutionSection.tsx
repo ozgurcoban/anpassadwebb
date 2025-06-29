@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
@@ -165,12 +166,10 @@ const MenuRevolutionSection = () => {
     <Section className="bg-gradient-to-b from-background to-muted/20 py-16 md:py-20">
       <SectionContainer>
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Menyevolutionen</h2>
-            <Text className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Design som gör gäster hungriga
-            </Text>
-          </div>
+          <SectionHeading
+            title="Menyevolutionen"
+            subtitle="Design som gör gäster hungriga"
+          />
 
           {/* Grid container with subgrid support */}
           <div className="menu-comparison-grid grid gap-8 lg:grid-cols-2 lg:grid-rows-[auto_auto_1fr]">
@@ -365,14 +364,6 @@ const MenuRevolutionSection = () => {
             </Card>
           </div>
 
-          {/* Result highlight */}
-          <div className="mt-12 text-center">
-            <Card className="mx-auto max-w-md border-primary/20 bg-gradient-to-r from-primary/10 to-secondary/10 p-6 shadow-lg">
-              <Text className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                {menuStory?.value || '45% fler beställningar online'}
-              </Text>
-            </Card>
-          </div>
         </div>
       </SectionContainer>
 

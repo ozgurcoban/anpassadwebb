@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/card';
 import { Zap, Settings, Target } from 'lucide-react';
 import Text from '@/components/ui/Text';
@@ -34,12 +35,10 @@ const SolutionSection = () => {
   return (
     <Section className="py-16 md:py-20">
       <SectionContainer>
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Vår lösning</h2>
-          <Text className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Tre enkla steg som förändrade allt för Palermo
-          </Text>
-        </div>
+        <SectionHeading
+          title="Vår lösning"
+          subtitle="Tre enkla steg som förändrade allt för Palermo"
+        />
 
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
           {solutions.map((solution, index) => (

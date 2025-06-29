@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/card';
 import { Smartphone, Globe, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -80,14 +81,11 @@ const CMSBonusSection = () => {
     <Section className="py-16 md:py-20">
       <SectionContainer>
         <div className="mx-auto max-w-5xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Bonusen: De styr allt själva
-            </h2>
-            <Text className="text-2xl font-semibold text-primary">
-              Uppdatera menyn från soffan
-            </Text>
-          </div>
+          <SectionHeading
+            title="Bonusen: De styr allt själva"
+            subtitle="Uppdatera menyn från soffan"
+            subtitleClassName="text-2xl font-semibold text-primary mx-auto max-w-2xl"
+          />
 
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Mobile Mockup */}
