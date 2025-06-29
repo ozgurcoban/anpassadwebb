@@ -13,6 +13,9 @@ const PackagesListSection = () => {
     'from-blue-500': 'shadow-blue-500/20',
     'from-purple-500': 'shadow-purple-500/20',
     'from-pink-500': 'shadow-pink-500/20',
+    'from-brand-blue': 'shadow-brand-blue/20',
+    'from-brand-purple': 'shadow-brand-purple/20',
+    'from-brand-pink': 'shadow-brand-pink/20',
   };
 
   return (
@@ -31,8 +34,8 @@ const PackagesListSection = () => {
                 <CardContent className="p-6 md:p-8">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-sm">
-                        <TrendingUp className="w-8 h-8 text-primary-foreground" strokeWidth={1.5} />
+                      <div className="w-12 h-12 bg-brand-purple rounded-full flex items-center justify-center shadow-sm">
+                        <TrendingUp className="w-8 h-8 text-brand-purple-foreground" strokeWidth={1.5} />
                       </div>
                     </div>
                     <Text className="flex-1 text-muted-foreground text-lg md:text-xl leading-relaxed font-medium">

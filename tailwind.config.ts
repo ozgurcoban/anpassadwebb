@@ -60,6 +60,21 @@ const config = {
           DEFAULT: 'hsl(var(--link))',
           hover: 'hsl(var(--link-hover))',
         },
+        'brand-purple': {
+          DEFAULT: 'hsl(var(--brand-purple))',
+          foreground: 'hsl(var(--brand-purple-foreground))',
+          light: 'hsl(var(--brand-purple-light))',
+        },
+        'brand-pink': {
+          DEFAULT: 'hsl(var(--brand-pink))',
+          foreground: 'hsl(var(--brand-pink-foreground))',
+          light: 'hsl(var(--brand-pink-light))',
+        },
+        'brand-blue': {
+          DEFAULT: 'hsl(var(--brand-blue))',
+          foreground: 'hsl(var(--brand-blue-foreground))',
+          light: 'hsl(var(--brand-blue-light))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

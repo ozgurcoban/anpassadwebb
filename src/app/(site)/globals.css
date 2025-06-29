@@ -199,6 +199,19 @@
     /* Links */
     --link: 271 81% 56%; /* Lila för länkar */
     --link-hover: 328 85% 70%; /* Rosa hover */
+
+    /* Brand colors - för QuickWins och Paket */
+    --brand-purple: 258 90% 66%; /* #8B5CF6 - Samma som primary */
+    --brand-purple-foreground: 0 0% 100%;
+    --brand-pink: 328 85% 70%; /* #ec4899 - Samma som secondary */
+    --brand-pink-foreground: 0 0% 100%;
+    --brand-blue: 217 91% 60%; /* #3b82f6 - Samma som accent */
+    --brand-blue-foreground: 0 0% 100%;
+    
+    /* Ljusare brand-färger för gradienter */
+    --brand-purple-light: 258 90% 78%; /* Ljusare lila */
+    --brand-pink-light: 328 85% 80%; /* Ljusare rosa */
+    --brand-blue-light: 217 91% 75%; /* Ljusare blå */
   }
 
   .dark {
@@ -248,6 +261,14 @@
     --shadow: 0 0% 0% / 40%;
     --link: 272 72% 65%; /* Ljus lila */
     --link-hover: 327 73% 75%; /* Ljus rosa hover */
+
+    /* Brand colors - för QuickWins och Paket (dark mode) */
+    --brand-purple: 272 72% 65%; /* #a78bfa - Ljusare lila */
+    --brand-purple-foreground: 248 11% 7%;
+    --brand-pink: 327 73% 75%; /* #f472b6 - Ljusare rosa */
+    --brand-pink-foreground: 248 11% 7%;
+    --brand-blue: 213 94% 68%; /* #60a5fa - Ljusare blå */
+    --brand-blue-foreground: 248 11% 7%;
   }
 }
 

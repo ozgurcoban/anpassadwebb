@@ -9,7 +9,7 @@ const HeroSection = () => {
       title={
         <>
           Hemsidor som{' '}
-          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text !text-transparent [text-shadow:none]">
+          <span className="bg-gradient-to-r from-brand-blue-light via-brand-purple-light to-brand-pink-light bg-clip-text !text-transparent [text-shadow:none]">
             funkar
           </span>{' '}
           på riktigt
