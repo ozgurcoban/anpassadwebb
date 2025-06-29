@@ -41,7 +41,7 @@ export interface DetailedCaseStudy extends CaseStudy {
 export const palermoProject: DetailedCaseStudy = {
   id: 'palermo-restaurant',
   title: 'Palermo',
-  client: 'Italiensk restaurang i Stockholm',
+  client: 'Klassisk restaurang, pizzeria och bar i Uppsala',
   description:
     'Från osynlig till fullbokad. Se hur rätt digital strategi förändrade allt.',
   longDescription: 'Tre enkla förändringar som gav Palermo 85% fler gäster.',
@@ -51,7 +51,7 @@ export const palermoProject: DetailedCaseStudy = {
   imageAlt: 'Palermo restaurang',
   beforeImage: '/images/palermo-case/palermo-before.png',
   afterImage: '/images/palermo-case/palermo-after.png',
-  link: 'https://palermo.se',
+  link: 'https://palermo-uppsala.se',
   featured: true,
   results: [
     { metric: 'Fler bokningar', value: '+85%' },

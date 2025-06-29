@@ -53,10 +53,10 @@ const PackagesListSection = () => {
           }}
         >
           {packages.map((pkg) => (
-            <div
+            <Card
               key={pkg.id}
               className={cn(
-                "group relative rounded-xl bg-white p-6 transition-all hover:shadow-lg dark:bg-gray-800",
+                "group relative transition-all hover:shadow-lg",
                 pkg.popular ? "shadow-md ring-2 ring-purple-500/20" : "shadow-sm",
                 "grid"
               )}
@@ -65,7 +65,7 @@ const PackagesListSection = () => {
                 gridRow: 'span 12'
               }}
             >
-
+              <CardContent className="p-6 grid" style={{ gridTemplateRows: 'subgrid', gridRow: 'span 12' }}>
               {/* Package icon/badge */}
               <div className="text-center">
                 <div
@@ -122,7 +122,8 @@ const PackagesListSection = () => {
                   variant="outline-hero"
                 />
               </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 

@@ -3,6 +3,7 @@ import Text from '@/components/ui/Text';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { ContactButton } from '@/components/ContactButton';
 import { Calendar, Clock, MessageCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const MeetingSection = () => {
   return (
@@ -17,24 +18,30 @@ const MeetingSection = () => {
         />
         
         <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-          <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-white/50 backdrop-blur-sm">
-            <Calendar className="h-8 w-8 text-purple-600" />
-            <Text as="p" className="text-sm text-muted-foreground">
-              Välj tid som passar dig
-            </Text>
-          </div>
-          <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-white/50 backdrop-blur-sm">
-            <Clock className="h-8 w-8 text-pink-600" />
-            <Text as="p" className="text-sm text-muted-foreground">
-              30 minuters kostnadsfri konsultation
-            </Text>
-          </div>
-          <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-white/50 backdrop-blur-sm">
-            <MessageCircle className="h-8 w-8 text-purple-600" />
-            <Text as="p" className="text-sm text-muted-foreground">
-              Diskutera ditt projekt
-            </Text>
-          </div>
+          <Card className="bg-white/50 backdrop-blur-sm border-white/20">
+            <CardContent className="flex flex-col items-center space-y-3 p-6">
+              <Calendar className="h-8 w-8 text-purple-600" />
+              <Text as="p" className="text-sm text-muted-foreground">
+                Välj tid som passar dig
+              </Text>
+            </CardContent>
+          </Card>
+          <Card className="bg-white/50 backdrop-blur-sm border-white/20">
+            <CardContent className="flex flex-col items-center space-y-3 p-6">
+              <Clock className="h-8 w-8 text-pink-600" />
+              <Text as="p" className="text-sm text-muted-foreground">
+                30 minuters kostnadsfri konsultation
+              </Text>
+            </CardContent>
+          </Card>
+          <Card className="bg-white/50 backdrop-blur-sm border-white/20">
+            <CardContent className="flex flex-col items-center space-y-3 p-6">
+              <MessageCircle className="h-8 w-8 text-purple-600" />
+              <Text as="p" className="text-sm text-muted-foreground">
+                Diskutera ditt projekt
+              </Text>
+            </CardContent>
+          </Card>
         </div>
         
         <ContactButton className="mx-auto" />
