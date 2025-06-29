@@ -111,6 +111,34 @@
     animation: float 10s ease-in-out infinite;
   }
 
+  /* Brand gradient utilities */
+  .bg-brand-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-blue)) 0%,
+      hsl(var(--brand-purple)) 50%,
+      hsl(var(--brand-pink)) 100%
+    );
+  }
+
+  .bg-brand-gradient-subtle {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-blue) / 0.1) 0%,
+      hsl(var(--brand-purple) / 0.1) 50%,
+      hsl(var(--brand-pink) / 0.1) 100%
+    );
+  }
+
+  .bg-brand-gradient-hover {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-blue-light)) 0%,
+      hsl(var(--brand-purple-light)) 50%,
+      hsl(var(--brand-pink-light)) 100%
+    );
+  }
+
   /* Ribbon styles */
   .ribbon-wrapper {
     @apply absolute right-0 top-2 z-10 h-[100px] w-[100px] overflow-hidden;
@@ -152,24 +180,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 248 11% 15%;
 
-    /* Primary - Lila för CTA */
+    /* Primary - Brand Purple för CTA (behåller samma som brand-purple) */
     --primary: 258 90% 66%; /* #8B5CF6 - Lila */
     --primary-foreground: 0 0% 100%; /* Vit text på lila */
 
-    /* Secondary - Rosa för hover/active states */
-    --secondary: 328 85% 70%; /* #ec4899 - Rosa */
+    /* Secondary - Mjukare rosa variant för kompletterande element */
+    --secondary: 328 60% 75%; /* Dämpad rosa som harmoniserar med lila */
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent - Blå för highlights */
-    --accent: 217 91% 60%; /* #3b82f6 - Blå */
-    --accent-foreground: 0 0% 100%;
+    /* Accent - Neutral grå med lila undertoner för highlights */
+    --accent: 270 20% 85%; /* Ljus lila-grå som harmoniserar */
+    --accent-foreground: 270 25% 20%; /* Mörk lila-grå text */
 
-    /* Muted - Ljus lila-grå */
-    --muted: 270 20% 96%; /* Ljus lila-grå bakgrund */
-    --muted-foreground: 248 11% 40%; /* Slate-700 för text */
+    /* Muted - Ljus lila-grå med purple undertoner */
+    --muted: 270 25% 94%; /* Ljus lila-grå bakgrund med mer purple */
+    --muted-foreground: 270 15% 35%; /* Lila-grå text för bättre harmoni */
 
-    /* Destructive - Harmonisk röd */
-    --destructive: 346 84% 55%; /* Varm röd som passar med rosa */
+    /* Destructive - Harmonisk röd-rosa */
+    --destructive: 340 75% 58%; /* Röd med rosa undertoner för harmoni */
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
@@ -179,12 +207,12 @@
 
     --radius: 0.5rem;
 
-    /* Charts - Gradient från loggan */
-    --chart-1: 217 91% 60%; /* Blå */
-    --chart-2: 271 81% 56%; /* Lila */
-    --chart-3: 328 85% 70%; /* Rosa */
-    --chart-4: 193 82% 60%; /* Cyan */
-    --chart-5: 43 96% 56%; /* Gul */
+    /* Charts - Harmonisk gradient som matchar brand colors */
+    --chart-1: 217 91% 60%; /* Brand Blue */
+    --chart-2: 258 90% 66%; /* Brand Purple */
+    --chart-3: 328 85% 70%; /* Brand Pink */
+    --chart-4: 280 70% 65%; /* Lila-blå mellan färg */
+    --chart-5: 290 75% 68%; /* Rosa-lila mellan färg */
 
     /* Shadows & Gradients */
     --shadow: 248 9% 40% / 15%;
@@ -225,24 +253,24 @@
     --popover: 248 11% 10%;
     --popover-foreground: 248 6% 95%;
 
-    /* Primary - Ljusare lila för dark mode */
-    --primary: 272 72% 65%; /* #a78bfa - Ljusare lila */
+    /* Primary - Brand Purple ljusare variant för dark mode */
+    --primary: 258 85% 75%; /* Ljusare version av brand purple */
     --primary-foreground: 248 11% 7%;
 
-    /* Secondary - Ljusare rosa */
-    --secondary: 327 73% 75%; /* #f472b6 - Ljusare rosa */
+    /* Secondary - Harmonisk ljus rosa */
+    --secondary: 328 65% 80%; /* Mjuk ljus rosa som matchar */
     --secondary-foreground: 248 11% 7%;
 
-    /* Accent - Ljusare blå */
-    --accent: 213 94% 68%; /* #60a5fa - Ljusare blå */
-    --accent-foreground: 248 11% 7%;
+    /* Accent - Mörk lila-grå för dark mode */
+    --accent: 270 18% 25%; /* Mörk lila-grå som harmoniserar */
+    --accent-foreground: 270 15% 85%; /* Ljus lila-grå text */
 
-    /* Muted */
-    --muted: 248 11% 15%; /* Mörkgrå */
-    --muted-foreground: 248 6% 65%;
+    /* Muted - Mörk lila-grå med purple undertoner */
+    --muted: 270 15% 15%; /* Mörk lila-grå */
+    --muted-foreground: 270 10% 70%; /* Ljus lila-grå text */
 
-    /* Destructive */
-    --destructive: 346 75% 60%;
+    /* Destructive - Harmonisk röd-rosa för dark mode */
+    --destructive: 340 70% 65%; /* Ljusare röd-rosa för dark mode */
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
@@ -250,12 +278,12 @@
     --input: 248 11% 18%;
     --ring: 272 72% 65%; /* Matchar primary */
 
-    /* Charts - Ljusare för dark mode */
-    --chart-1: 213 94% 68%; /* Ljus blå */
-    --chart-2: 272 72% 65%; /* Ljus lila */
-    --chart-3: 327 73% 75%; /* Ljus rosa */
-    --chart-4: 192 79% 65%; /* Ljus cyan */
-    --chart-5: 43 93% 65%; /* Ljus gul */
+    /* Charts - Harmoniska ljusare varianter för dark mode */
+    --chart-1: 217 85% 70%; /* Brand Blue ljusare */
+    --chart-2: 258 85% 75%; /* Brand Purple ljusare */
+    --chart-3: 328 80% 78%; /* Brand Pink ljusare */
+    --chart-4: 280 75% 72%; /* Lila-blå mellan färg ljusare */
+    --chart-5: 290 78% 75%; /* Rosa-lila mellan färg ljusare */
 
     /* Shadows & Links */
     --shadow: 0 0% 0% / 40%;

@@ -20,9 +20,10 @@ const navStyles = {
   ),
   bubble: cn(
     'pointer-events-none absolute inset-y-0 left-0 z-10 rounded-full will-change-transform',
-    'bg-secondary', // Using secondary (pink) for active states as defined in theme
-    'shadow-lg shadow-secondary/20', // Subtle shadow for depth
-    'transition-all duration-300'
+    'bg-gradient-to-r from-brand-purple to-brand-pink', // Gradient matching logo
+    'opacity-95', // Slight transparency for depth
+    'transition-all duration-300',
+    'before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-r before:from-brand-purple/20 before:to-brand-pink/20 before:blur-xl before:-z-10' // Glow effect
   ),
   bubbleTransition: 'transform 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6), width 600ms cubic-bezier(0.68, -0.6, 0.32, 1.6)',
 };
