@@ -9,6 +9,11 @@ import { type GradientContentProps, ALIGNMENT_CLASSES, CONTENT_ALIGNMENT } from 
 import { getTextShadow, TEXT_SHADOWS } from './constants';
 import { getTextStyles, SPACING, LAYOUT } from './styles';
 
+interface ExtendedGradientContentProps extends Omit<GradientContentProps, 'transformedColors'> {
+  isImageBackground?: boolean;
+  children?: React.ReactNode;
+}
+
 export function GradientContent({
   title,
   description,
@@ -17,7 +22,8 @@ export function GradientContent({
   isImageBackground = false,
   verticalCenter = false,
   showValueProposition = false,
-}: Omit<GradientContentProps, 'transformedColors'> & { isImageBackground?: boolean }) {
+  children,
+}: ExtendedGradientContentProps) {
   return (
     <div className={cn(
       LAYOUT.content.wrapper,
@@ -65,6 +71,15 @@ export function GradientContent({
               textAlign === 'center' && "mx-auto"
             )}
           />
+        )}
+
+        {children && (
+          <div className={cn(
+            "mt-6",
+            textAlign === 'center' && "mx-auto"
+          )}>
+            {children}
+          </div>
         )}
 
         <div className={cn(

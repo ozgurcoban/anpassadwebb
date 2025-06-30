@@ -14,7 +14,8 @@
       "Bash(npm run lint:*)",
       "mcp__palermo-filesystem__write_file",
       "mcp__palermo-filesystem__read_multiple_files",
-      "Bash(npm start)"
+      "Bash(npm start)",
+      "mcp__zen__listmodels"
     ],
     "deny": []
   }

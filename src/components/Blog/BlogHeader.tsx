@@ -14,6 +14,7 @@ type HeaderProps = {
   published: string;
   readingTime?: string;
   locale?: string;
+  hideTitle?: boolean;
 };
 
 const Header: React.FC<HeaderProps> = ({
@@ -23,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({
   published,
   readingTime,
   locale = blogConfig.defaultLocale,
+  hideTitle = false,
 }) => {
   return (
     <CardHeader className="mx-auto max-w-4xl py-0">
@@ -53,14 +55,14 @@ const Header: React.FC<HeaderProps> = ({
           ))}
         </FadeInView>
       )}
-      {title ? (
+      {title && !hideTitle ? (
         <FadeInView delay={0.5}>
           <CardTitle className="mt-4 break-words text-4xl leading-normal text-card-foreground">
             {capitalizeFirstLetter(title)}
           </CardTitle>
         </FadeInView>
       ) : null}
-      {subtitle ? (
+      {subtitle && !hideTitle ? (
         <FadeInView as="div" delay={0.75}>
           <CardDescription className="mt-4 text-pretty text-xl leading-relaxed tracking-tight text-card-foreground">
             {subtitle}

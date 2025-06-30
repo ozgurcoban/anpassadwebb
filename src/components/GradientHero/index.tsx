@@ -24,6 +24,7 @@ export default function GradientHero({
   verticalCenter = false,
   darkMode = false,
   showValueProposition = false,
+  children,
 }: GradientHeroProps) {
   const colors = customColors || COLOR_SCHEMES[colorScheme];
   
@@ -67,7 +68,9 @@ export default function GradientHero({
           isImageBackground={!!backgroundImage || darkMode}
           verticalCenter={verticalCenter}
           showValueProposition={showValueProposition}
-        />
+        >
+          {children}
+        </GradientContent>
       </GradientBackground>
     </section>
   );

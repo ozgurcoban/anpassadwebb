@@ -83,7 +83,6 @@ export function GradientBackground({
           transformedColors={transformedColors}
           particleColors={particleColors}
           containerRef={containerRef}
-          onMouseClick={handlers.onClick}
           hasBackgroundImage={!!backgroundImage}
         />
       )}
