@@ -185,7 +185,7 @@ const MenuRevolutionSection = () => {
 
               {menuStory?.beforeImage && (
                 <div
-                  className="group relative max-h-[800px] cursor-pointer overflow-y-auto rounded-lg border border-border bg-card shadow-sm transition-all duration-200 hover:shadow-md"
+                  className="group relative max-h-[60dvh] md:max-h-[800px] cursor-pointer overflow-y-auto rounded-lg border border-border bg-card shadow-sm transition-all duration-200 hover:shadow-md"
                   onClick={() =>
                     openZoomModal(
                       menuStory.beforeImage!,
@@ -222,7 +222,7 @@ const MenuRevolutionSection = () => {
 
               {/* Interactive Menu Demo */}
               <div className="flex h-full flex-col">
-                <div className="flex max-h-[800px] flex-col overflow-y-auto rounded-lg border border-border bg-card p-4 shadow-sm">
+                <div className="flex max-h-[72dvh] md:max-h-[800px] flex-col overflow-y-auto rounded-lg border border-border bg-card p-4 shadow-sm">
                   <Text className="mb-4 font-semibold">
                     Klicka på kategorierna för att filtrera menyn:
                   </Text>
