@@ -1,20 +1,10 @@
 import { useEffect, useCallback } from 'react';
+import { useImageZoomContext } from '../context/ImageZoomContext';
+import { useImageZoom } from './useImageZoom';
 
-interface UseKeyboardControlsProps {
-  isOpen: boolean;
-  zoomIn: () => void;
-  zoomOut: () => void;
-  fitToScreen: () => void;
-  onClose: () => void;
-}
-
-export function useKeyboardControls({
-  isOpen,
-  zoomIn,
-  zoomOut,
-  fitToScreen,
-  onClose,
-}: UseKeyboardControlsProps): void {
+export function useKeyboardControls(): void {
+  const { isOpen, onClose } = useImageZoomContext();
+  const { zoomIn, zoomOut, fitToScreen } = useImageZoom();
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (!isOpen) return;
 

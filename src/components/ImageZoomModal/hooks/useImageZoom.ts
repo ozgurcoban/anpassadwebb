@@ -1,55 +1,46 @@
-import { useState, useCallback, useRef } from 'react';
-import { Position, UseImageZoomResult } from '../types';
+import { useCallback } from 'react';
+import { UseImageZoomResult } from '../types';
 import { ZOOM_SETTINGS, INTERACTION_THRESHOLDS } from '../constants';
+import { useImageZoomContext } from '../context/ImageZoomContext';
+import { useInteractionContext } from '../context/InteractionContext';
+import { updateImageTransform, calculateFitToScreenScale, clampScale } from '../utils/transformUtils';
+import { useToolbarVisibility } from './useToolbarVisibility';
 
-interface UseImageZoomProps {
-  imageRef: React.RefObject<HTMLImageElement>;
-  containerRef: React.RefObject<HTMLDivElement>;
-  showToolbar: () => void;
-  isDragging: boolean;
-}
+export function useImageZoom(): UseImageZoomResult {
+  const {
+    imageRef,
+    containerRef,
+    scale,
+    setScale,
+    position,
+    setPosition,
+    currentPositionRef,
+    isDragging,
+  } = useImageZoomContext();
+  
+  const { showToolbar } = useToolbarVisibility();
+  const { recordZoomAction } = useInteractionContext();
 
-export function useImageZoom({
-  imageRef,
-  containerRef,
-  showToolbar,
-  isDragging,
-}: UseImageZoomProps): UseImageZoomResult {
-  const [scale, setScale] = useState(1);
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const currentPositionRef = useRef<Position>({ x: 0, y: 0 });
-
-  const updateImageTransform = useCallback((x: number, y: number, currentScale: number) => {
-    if (imageRef.current) {
-      imageRef.current.style.transform = `scale(${currentScale}) translate(${x / currentScale}px, ${y / currentScale}px)`;
-    }
+  const updateTransform = useCallback((x: number, y: number, currentScale: number) => {
+    updateImageTransform(imageRef.current, { x, y }, currentScale);
   }, [imageRef]);
 
   const fitToScreen = useCallback(() => {
-    if (!imageRef.current || !containerRef.current) return;
-    
-    const container = containerRef.current;
-    const containerRect = container.getBoundingClientRect();
-    const img = imageRef.current;
-    
-    const naturalWidth = img.naturalWidth;
-    const naturalHeight = img.naturalHeight;
-    
-    if (naturalWidth === 0 || naturalHeight === 0) return;
-    
-    const scaleX = containerRect.width / naturalWidth;
-    const scaleY = containerRect.height / naturalHeight;
-    const newScale = Math.min(scaleX, scaleY, ZOOM_SETTINGS.maxScale);
+    const newScale = calculateFitToScreenScale(
+      imageRef.current,
+      containerRef.current,
+      ZOOM_SETTINGS.maxScale
+    );
     
     setScale(newScale);
     setPosition({ x: 0, y: 0 });
     currentPositionRef.current = { x: 0, y: 0 };
     
     if (!isDragging) {
-      updateImageTransform(0, 0, newScale);
+      updateTransform(0, 0, newScale);
     }
     showToolbar();
-  }, [imageRef, containerRef, isDragging, updateImageTransform, showToolbar]);
+  }, [imageRef, containerRef, isDragging, updateTransform, showToolbar, setScale, setPosition, currentPositionRef]);
 
   const handleWheel = useCallback((e: React.WheelEvent) => {
     if (Math.abs(e.deltaY) < INTERACTION_THRESHOLDS.minWheelDelta) {
@@ -57,36 +48,37 @@ export function useImageZoom({
     }
     
     const delta = e.deltaY > 0 ? -ZOOM_SETTINGS.scaleStep : ZOOM_SETTINGS.scaleStep;
-    const newScale = Math.min(Math.max(scale + delta, ZOOM_SETTINGS.minScale), ZOOM_SETTINGS.maxScale);
+    const newScale = clampScale(scale + delta, ZOOM_SETTINGS.minScale, ZOOM_SETTINGS.maxScale);
     setScale(newScale);
+    recordZoomAction();
     
     if (!isDragging) {
-      updateImageTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
+      updateTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
     }
     showToolbar();
-  }, [scale, isDragging, updateImageTransform, showToolbar]);
+  }, [scale, isDragging, updateTransform, showToolbar, setScale, currentPositionRef, recordZoomAction]);
 
   const zoomIn = useCallback(() => {
     setScale(prev => {
-      const newScale = Math.min(prev + ZOOM_SETTINGS.scaleStep, ZOOM_SETTINGS.maxScale);
+      const newScale = clampScale(prev + ZOOM_SETTINGS.scaleStep, ZOOM_SETTINGS.minScale, ZOOM_SETTINGS.maxScale);
       if (!isDragging) {
-        updateImageTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
+        updateTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
       }
       return newScale;
     });
     showToolbar();
-  }, [isDragging, updateImageTransform, showToolbar]);
+  }, [isDragging, updateTransform, showToolbar, setScale, currentPositionRef]);
 
   const zoomOut = useCallback(() => {
     setScale(prev => {
-      const newScale = Math.max(prev - ZOOM_SETTINGS.scaleStep, ZOOM_SETTINGS.minScale);
+      const newScale = clampScale(prev - ZOOM_SETTINGS.scaleStep, ZOOM_SETTINGS.minScale, ZOOM_SETTINGS.maxScale);
       if (!isDragging) {
-        updateImageTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
+        updateTransform(currentPositionRef.current.x, currentPositionRef.current.y, newScale);
       }
       return newScale;
     });
     showToolbar();
-  }, [isDragging, updateImageTransform, showToolbar]);
+  }, [isDragging, updateTransform, showToolbar, setScale, currentPositionRef]);
 
   return {
     scale,
@@ -95,6 +87,6 @@ export function useImageZoom({
     zoomOut,
     fitToScreen,
     handleWheel,
-    updateImageTransform,
+    updateImageTransform: updateTransform,
   };
 }
