@@ -10,17 +10,17 @@ interface CloseButtonProps {
 }
 
 export const CloseButton = React.memo(({ onClose, showToolbar }: CloseButtonProps) => (
-  <div className="absolute top-4 right-4 z-50">
+  <div className="absolute top-2 right-2 md:top-4 md:right-4 z-50">
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
           variant="secondary"
-          size="sm"
+          size="icon"
           onClick={onClose}
-          className="bg-black/60 hover:bg-black/70 text-white border-0 backdrop-blur-sm font-bold transition-all duration-200"
+          className="bg-black/60 hover:bg-black/70 text-white border-0 backdrop-blur-sm font-bold transition-all duration-200 h-8 w-8 md:h-10 md:w-10"
           onMouseEnter={showToolbar}
         >
-          <X className="h-6 w-6" />
+          <X className="h-5 w-5 md:h-6 md:w-6" />
         </Button>
       </TooltipTrigger>
       <TooltipContent>

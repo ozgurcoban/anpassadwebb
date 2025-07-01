@@ -24,7 +24,7 @@ export const ZoomToolbar = React.memo(({
 }: ZoomToolbarProps) => (
   <div 
     className={cn(
-      "absolute top-4 left-4 right-16 z-50 flex items-center justify-between bg-black/30 backdrop-blur-sm rounded-lg px-3 py-2 transition-opacity duration-300",
+      "absolute top-2 left-2 right-14 md:top-4 md:left-4 md:right-16 z-50 hidden md:flex items-center justify-between transition-opacity duration-300",
       isToolbarVisible ? "opacity-100" : "opacity-0 pointer-events-none"
     )}
     onMouseEnter={showToolbar}
@@ -33,17 +33,17 @@ export const ZoomToolbar = React.memo(({
       {/* Title space is handled by DialogTitle */}
     </div>
     
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 md:gap-2 bg-black/30 backdrop-blur-sm rounded-lg px-2 py-1 md:px-3 md:py-2">
       <Tooltip>
         <TooltipTrigger asChild>
           <Button
             variant="secondary"
-            size="sm"
+            size="icon"
             onClick={zoomOut}
             disabled={scale <= ZOOM_SETTINGS.minScale}
-            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200"
+            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200 h-8 w-8 md:h-9 md:w-9"
           >
-            <ZoomOut className="h-5 w-5" />
+            <ZoomOut className="h-4 w-4 md:h-5 md:w-5" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -55,12 +55,12 @@ export const ZoomToolbar = React.memo(({
         <TooltipTrigger asChild>
           <Button
             variant="secondary"
-            size="sm"
+            size="icon"
             onClick={zoomIn}
             disabled={scale >= ZOOM_SETTINGS.maxScale}
-            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200"
+            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200 h-8 w-8 md:h-9 md:w-9"
           >
-            <ZoomIn className="h-5 w-5" />
+            <ZoomIn className="h-4 w-4 md:h-5 md:w-5" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -72,11 +72,11 @@ export const ZoomToolbar = React.memo(({
         <TooltipTrigger asChild>
           <Button
             variant="secondary"
-            size="sm"
+            size="icon"
             onClick={fitToScreen}
-            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200"
+            className="bg-white/30 hover:bg-white/40 text-white border-0 backdrop-blur-sm transition-all duration-200 h-8 w-8 md:h-9 md:w-9"
           >
-            <Maximize2 className="h-5 w-5" />
+            <Maximize2 className="h-4 w-4 md:h-5 md:w-5" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
