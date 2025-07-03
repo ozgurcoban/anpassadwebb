@@ -66,6 +66,12 @@ interface PostFrontmatter {
   featured?: boolean;
   image?: string;
   imageAlt?: string;
+  thumbnail?: string;
+  contentMedia?: {
+    type: 'image' | 'video';
+    src: string;
+    alt?: string;
+  };
 }
 
 interface Post {

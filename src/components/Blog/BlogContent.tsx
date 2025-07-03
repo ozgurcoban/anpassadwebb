@@ -17,10 +17,15 @@ type ContentProps = {
   content: string;
   image?: string;
   imageAlt?: string;
+  contentMedia?: {
+    type: 'image' | 'video';
+    src: string;
+    alt?: string;
+  };
   className?: string;
 };
 
-const Content: React.FC<ContentProps> = ({ content, image, imageAlt, className }) => {
+const Content: React.FC<ContentProps> = ({ content, image, imageAlt, contentMedia, className }) => {
   const [mdxSource, setMdxSource] = useState<any>(null);
   const components = useMDXComponents({});
 
@@ -42,7 +47,7 @@ const Content: React.FC<ContentProps> = ({ content, image, imageAlt, className }
 
   return (
     <CardContent className={cn("px-4 md:px-8 lg:px-16 xl:px-32", className)}>
-      {image && (
+      {contentMedia && (
         <FadeInView
           delay={0.6}
           duration={0.8}
@@ -50,21 +55,34 @@ const Content: React.FC<ContentProps> = ({ content, image, imageAlt, className }
           as="figure"
         >
           <div className="relative mt-4 w-full aspect-video">
-            <Image
-              src={image}
-              alt={imageAlt || ''}
-              fill
-              className="rounded-lg object-cover"
-            />
+            {contentMedia.type === 'video' ? (
+              <video
+                className="w-full h-full rounded-lg object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={contentMedia.src} type="video/mp4" />
+                Din webbläsare stödjer inte video.
+              </video>
+            ) : (
+              <Image
+                src={contentMedia.src}
+                alt={contentMedia.alt || ''}
+                fill
+                className="rounded-lg object-cover"
+              />
+            )}
           </div>
-          {imageAlt && (
+          {contentMedia.alt && (
             <FadeInView
               as="figcaption"
               delay={0.6}
               duration={0.8}
               className="mt-4 text-sm text-center text-muted-foreground"
             >
-              {imageAlt}
+              {contentMedia.alt}
             </FadeInView>
           )}
           <Separator className="my-4" />

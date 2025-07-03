@@ -22,7 +22,7 @@ export function Posts({
       {posts.map((post, index) => {
         const {
           slug,
-          frontmatter: { title, description, date, tags, image, imageAlt },
+          frontmatter: { title, description, date, tags, image, imageAlt, thumbnail },
           readingTime,
         } = post;
 
@@ -43,10 +43,10 @@ export function Posts({
               href={`/blogg/${slug}`}
               className="relative block h-56 w-full overflow-hidden rounded-t-2xl"
             >
-              {image ? (
+              {(thumbnail || image) ? (
                 <>
                   <Image
-                    src={image}
+                    src={thumbnail || image}
                     alt={imageAlt || title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -21,7 +21,7 @@ type PostProps = {
 
 export default function Post({ post, locale = blogConfig.defaultLocale }: PostProps) {
   const { frontmatter, content, readingTime } = post;
-  const { title, description, tags, date, image, imageAlt } = frontmatter;
+  const { title, description, tags, date, image, imageAlt, contentMedia } = frontmatter;
   const [isSaved, setIsSaved] = useState(false);
 
   const handleSave = () => {
@@ -48,17 +48,29 @@ export default function Post({ post, locale = blogConfig.defaultLocale }: PostPr
       <ReadingProgress />
       
       <article className="relative">
-        {/* Hero Section with Image */}
+        {/* Hero Section with Image/Video */}
         <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
           {image ? (
             <>
-              <Image
-                src={image}
-                alt={imageAlt || title}
-                fill
-                className="object-cover"
-                priority
-              />
+              {image.endsWith('.mp4') || image.endsWith('.webm') ? (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={image} type={`video/${image.split('.').pop()}`} />
+                </video>
+              ) : (
+                <Image
+                  src={image}
+                  alt={imageAlt || title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
             </>
           ) : (
@@ -141,6 +153,7 @@ export default function Post({ post, locale = blogConfig.defaultLocale }: PostPr
               content={content} 
               image={image} 
               imageAlt={imageAlt || title}
+              contentMedia={contentMedia}
               className="prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-lg"
             />
             
