@@ -51,22 +51,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     
     // HTML element overrides with enhanced reader-friendly styles
     h1: ({ children }) => (
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-8 text-gray-900 dark:text-gray-100">
+      <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-8 text-gray-900 dark:text-gray-100">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="scroll-m-20 text-3xl font-bold tracking-tight first:mt-0 mb-6 mt-10 text-gray-900 dark:text-gray-100">
+      <h2 className="text-3xl font-bold tracking-tight first:mt-0 mb-6 mt-10 text-gray-900 dark:text-gray-100">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-4 mt-8 text-gray-900 dark:text-gray-100">
+      <h3 className="text-2xl font-semibold tracking-tight mb-4 mt-8 text-gray-900 dark:text-gray-100">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mb-3 mt-6 text-gray-900 dark:text-gray-100">
+      <h4 className="text-xl font-semibold tracking-tight mb-3 mt-6 text-gray-900 dark:text-gray-100">
         {children}
       </h4>
     ),
