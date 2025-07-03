@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --chatgpt-filter: none;
+  }
+  
+  .dark {
+    --chatgpt-filter: brightness(0) invert(1);
+  }
+}
+
 @layer components {
   .container {
     @apply mx-auto max-w-6xl md:px-6 xl:max-w-7xl;
