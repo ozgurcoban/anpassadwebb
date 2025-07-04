@@ -1,21 +1,48 @@
 import Link from "next/link";
-import { badgeVariants } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { getTagClasses } from "@/lib/styles/blog";
 
 interface TagBadgeProps {
   tag: string;
-  variant?: "default" | "secondary" | "destructive" | "outline";
+  variant?: "default" | "selected" | "outline" | "muted" | "counter";
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  showHash?: boolean;
+  onClick?: () => void;
   className?: string;
 }
 
-export function TagBadge({ tag, variant = "outline", className }: TagBadgeProps) {
+export function TagBadge({ 
+  tag, 
+  variant = "outline", 
+  size = "md",
+  href,
+  showHash = true,
+  onClick,
+  className 
+}: TagBadgeProps) {
   const slug = tag.toLowerCase().replace(/\s+/g, '-');
+  const defaultHref = `/blogg/tag/${slug}`;
+  const classes = cn(getTagClasses(variant, size), className);
+  const content = `${showHash ? '#' : ''}${tag}`;
+  
+  if (onClick) {
+    return (
+      <button
+        onClick={onClick}
+        className={cn(classes, "cursor-pointer")}
+      >
+        {content}
+      </button>
+    );
+  }
   
   return (
     <Link
-      className="inline-flex items-center px-3 py-1 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-primary/70 text-sm font-medium transition-all duration-300 whitespace-nowrap dark:text-gray-300 dark:hover:text-primary/80 no-underline"
-      href={`/blogg/tag/${slug}`}
+      className={cn(classes, "no-underline whitespace-nowrap")}
+      href={href || defaultHref}
     >
-      #{tag}
+      {content}
     </Link>
   );
 }

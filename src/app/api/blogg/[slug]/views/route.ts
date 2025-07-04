@@ -1,7 +1,27 @@
-import { Redis } from '@upstash/redis';
 import { NextRequest, NextResponse } from 'next/server';
 
-// Initialize Redis
+// Temporärt avaktiverad Redis - returnerar mock-data
+// TODO: Aktivera Redis när KV_REST_API_URL och KV_REST_API_TOKEN är konfigurerade
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  // Temporärt returnera mock-data
+  return NextResponse.json({ views: 0 });
+}
+
+export async function POST(
+  request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  // Temporärt returnera mock-data
+  return NextResponse.json({ views: 1 });
+}
+
+/* Original kod - aktivera när Redis är konfigurerat:
+import { Redis } from '@upstash/redis';
+
 const redis = Redis.fromEnv();
 
 export async function GET(
@@ -40,3 +60,4 @@ export async function POST(
     return NextResponse.json({ error: 'Failed to increment views' }, { status: 500 });
   }
 }
+*/

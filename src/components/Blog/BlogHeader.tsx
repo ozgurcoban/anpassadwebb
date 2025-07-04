@@ -3,8 +3,7 @@ import { FadeInView } from '@/components/ui/FadeInView';
 import { formatDateWithFallback } from '@/utils/formattedDate';
 import React from 'react';
 import { capitalizeFirstLetter } from '@/utils/stringUtils';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
+import { TagBadge } from './TagBadge';
 import { blogConfig, getLabel } from '@/lib/blog-config';
 
 type HeaderProps = {
@@ -45,13 +44,12 @@ const Header: React.FC<HeaderProps> = ({
       {tags && Array.isArray(tags) && tags.length > 0 && (
         <FadeInView delay={0.3} className="mt-8 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <Link
+            <TagBadge
               key={tag}
-              href={`/blogg/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-              className="inline-flex items-center px-3 py-1 rounded-full bg-muted text-muted-foreground hover:bg-muted/80 hover:text-primary/70 text-sm font-medium transition-all duration-300 whitespace-nowrap dark:text-gray-300 dark:hover:text-primary/80 no-underline"
-            >
-              #{tag}
-            </Link>
+              tag={tag}
+              variant="outline"
+              size="md"
+            />
           ))}
         </FadeInView>
       )}

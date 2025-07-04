@@ -3,24 +3,29 @@
 import { type Post } from '@/lib/mdx';
 import { Card } from '@/components/ui/card';
 import Header from './BlogHeader';
-import Content from './BlogContent';
+import BlogContentClient from './BlogContentClient';
 import Footer from './BlogFooter';
 import { blogConfig } from '@/lib/blog-config';
 import { ReadingProgress } from './ReadingProgress';
 import { FadeInView } from '@/components/ui/FadeInView';
 import { ArrowLeft, BookmarkPlus, Share2 } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { MediaDisplay } from '@/components/ui/MediaDisplay';
+import { GradientOverlay } from '@/components/ui/GradientOverlay';
+import { blogStyles, getButtonClasses, getCardClasses } from '@/lib/styles/blog';
+import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 type PostProps = {
   post: Post;
+  mdxSource: MDXRemoteSerializeResult;
   locale?: string;
 };
 
-export default function Post({
+export default function BlogPostClient({
   post,
+  mdxSource,
   locale = blogConfig.defaultLocale,
 }: PostProps) {
   const { frontmatter, content, readingTime } = post;
@@ -62,42 +67,27 @@ export default function Post({
       <article className="relative">
         {/* Hero Section with Image/Video */}
         <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-          {image ? (
-            <>
-              {image.endsWith('.mp4') || image.endsWith('.webm') ? (
-                <video
-                  className="absolute inset-0 h-full w-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src={image}
-                    type={`video/${image.split('.').pop()}`}
-                  />
-                </video>
-              ) : (
-                <Image
-                  src={image}
-                  alt={imageAlt || title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/60" />
-            </>
-          ) : (
-            <div className="h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600" />
-          )}
+          <MediaDisplay
+            src={image}
+            alt={imageAlt || title}
+            priority
+            containerClassName="w-full h-full"
+            className="object-cover"
+            fallback={
+              <div className={cn("h-full bg-gradient-to-br", blogStyles.gradients.primary)} />
+            }
+          />
+          {image && <GradientOverlay variant="dark" />}
 
           {/* Navigation Bar */}
           <div className="absolute left-0 right-0 top-0 z-10 p-6">
             <div className="mx-auto flex max-w-5xl items-center justify-between">
               <Link
                 href="/blogg"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                className={cn(
+                  "inline-flex items-center gap-2 px-4 py-2 text-white",
+                  getButtonClasses('light')
+                )}
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span className="text-sm font-medium">
@@ -109,10 +99,8 @@ export default function Post({
                 <button
                   onClick={handleSave}
                   className={cn(
-                    'rounded-lg p-2 backdrop-blur-sm transition-all',
-                    isSaved
-                      ? 'bg-purple-600 text-white hover:bg-purple-700'
-                      : 'bg-white/10 text-white hover:bg-white/20',
+                    'p-2',
+                    getButtonClasses(isSaved ? 'active' : 'light')
                   )}
                   aria-label="Spara artikel"
                 >
@@ -120,7 +108,7 @@ export default function Post({
                 </button>
                 <button
                   onClick={handleShare}
-                  className="rounded-lg bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                  className={cn("p-2 text-white", getButtonClasses('light'))}
                   aria-label="Dela artikel"
                 >
                   <Share2 className="h-5 w-5" />
@@ -151,7 +139,11 @@ export default function Post({
 
         {/* Main Content */}
         <div className="relative z-10 mx-auto -mt-8 max-w-5xl px-4 sm:px-6 lg:px-8">
-          <Card className="prose prose-lg mx-auto max-w-full bg-white/95 shadow-2xl backdrop-blur-sm dark:bg-gray-800/95">
+          <Card className={cn(
+            blogStyles.prose.base,
+            "mx-auto max-w-full",
+            getCardClasses('transparent')
+          )}>
             {title && date ? (
               <Header
                 title={title}
@@ -166,12 +158,13 @@ export default function Post({
               <p>Missing header information</p>
             )}
 
-            <Content
-              content={content}
-              image={image}
-              imageAlt={imageAlt || title}
+            <BlogContentClient
+              mdxSource={mdxSource}
               contentMedia={contentMedia}
-              className="prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-lg prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-headings:text-gray-100 dark:prose-p:text-gray-300"
+              className={cn(
+                blogStyles.prose.headings,
+                blogStyles.prose.paragraphs
+              )}
             />
 
             <Footer locale={locale} />

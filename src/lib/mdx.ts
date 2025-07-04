@@ -157,6 +157,11 @@ export function getPageBySlug(slug: string): { slug: string; frontmatter: any; c
 }
 
 export async function getMostReadPosts(limit: number = 3): Promise<Post[]> {
+  // Temporärt avaktiverad - returnerar featured posts istället
+  // TODO: Aktivera Redis när miljövariabler är konfigurerade
+  return getFeaturedPosts(limit);
+  
+  /* Original kod - aktivera när Redis är konfigurerat:
   try {
     const posts = getAllPosts()
     const redis = Redis.fromEnv()
@@ -179,4 +184,5 @@ export async function getMostReadPosts(limit: number = 3): Promise<Post[]> {
     // Fallback to featured posts if KV is not available
     return getFeaturedPosts(limit)
   }
+  */
 }

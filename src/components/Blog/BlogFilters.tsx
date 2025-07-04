@@ -4,7 +4,8 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
+import { getTagClasses } from '@/lib/styles/blog';
 
 interface BlogFiltersProps {
   tags: string[];
@@ -99,11 +100,10 @@ export function BlogFilters({
               <button
                 key={tag}
                 onClick={() => handleTagToggle(tag)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isSelected
-                    ? 'bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
-                }`}
+                className={cn(
+                  "py-1.5 rounded-lg",
+                  getTagClasses(isSelected ? 'selected' : 'muted', 'lg')
+                )}
               >
                 {tag}
               </button>
@@ -136,7 +136,11 @@ export function BlogFilters({
             <button
               key={tag}
               onClick={() => handleTagToggle(tag)}
-              className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50"
+              className={cn(
+                "inline-flex items-center gap-1",
+                getTagClasses('selected', 'sm'),
+                "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50"
+              )}
             >
               {tag}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
