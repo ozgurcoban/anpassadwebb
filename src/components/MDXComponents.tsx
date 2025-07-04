@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { type MDXComponents } from 'mdx/types'
 import { KeyTakeawayBox } from '@/components/Blog/KeyTakeawayBox'
+import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Info, AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -10,6 +11,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Custom components
     Image,
+    ImageWithOverlayCaption,
     KeyTakeaway: KeyTakeawayBox,
     
     // Alert components for different types of callouts
@@ -147,6 +149,40 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: () => (
       <hr className="my-10 border-gray-200 dark:border-gray-800" />
     ),
+    img: ({ src, alt, ...props }) => {
+      // If alt text contains figcaption marker, render as figure with caption
+      if (alt && alt.includes('|')) {
+        const [altText, caption] = alt.split('|').map((s: string) => s.trim());
+        return (
+          <figure className="my-8">
+            <div className="relative w-full aspect-video">
+              <Image
+                src={src || ''}
+                alt={altText}
+                fill
+                className="rounded-lg object-cover"
+                {...props}
+              />
+            </div>
+            <figcaption className="mt-3 mx-auto max-w-2xl rounded-lg bg-gray-100 dark:bg-gray-900 px-4 py-2 text-center text-sm text-gray-700 dark:text-gray-300">
+              {caption}
+            </figcaption>
+          </figure>
+        );
+      }
+      // Regular image without caption
+      return (
+        <div className="relative my-8 w-full aspect-video">
+          <Image
+            src={src || ''}
+            alt={alt || ''}
+            fill
+            className="rounded-lg object-cover"
+            {...props}
+          />
+        </div>
+      );
+    },
     table: ({ children }) => (
       <div className="my-8 w-full overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800">
         <table className="w-full">
@@ -163,6 +199,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <td className="border-b border-gray-200 dark:border-gray-800 px-6 py-4 text-gray-700 dark:text-gray-300 [&[align=center]]:text-center [&[align=right]]:text-right">
         {children}
       </td>
+    ),
+    figure: (props) => (
+      <figure {...props} className={cn(props.className)} />
     ),
     ...components,
   }

@@ -103,6 +103,20 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         rainbow: 'rainbow 5s infinite linear',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            img: {
+              marginTop: '0',
+              marginBottom: '2em',
+            },
+            figure: {
+              marginTop: '0',
+              marginBottom: '2em',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],

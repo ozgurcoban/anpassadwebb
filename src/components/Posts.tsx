@@ -46,7 +46,7 @@ export function Posts({
               {(thumbnail || image) ? (
                 <>
                   <Image
-                    src={thumbnail || image}
+                    src={thumbnail || image || ''}
                     alt={imageAlt || title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

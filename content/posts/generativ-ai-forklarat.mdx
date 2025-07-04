@@ -16,6 +16,7 @@ contentMedia:
 ---
 
 import Image from 'next/image';
+import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption';
 
 Klockan är sent på kvällen. Du sitter framför datorn eller telefonen och försöker formulera det där viktiga mejlet. Orden vill inte riktigt komma. I morgon ska du dessutom hinna skriva ett inlägg till sociala medier, svara på en offertförfrågan och ta tag i ett ärende med Skatteverket eller någon annan myndighet.
 
@@ -65,7 +66,7 @@ Det finns många AI-verktyg, men här är tre som är särskilt användbara för
   alt="ChatGPT logotyp"
   width={60}
   height={60}
-  className="mt-4 mb-2 object-contain"
+  className="mb-2 mt-4 object-contain"
   style={{ filter: 'var(--chatgpt-filter)' }}
 />
 
@@ -81,7 +82,7 @@ Det finns många AI-verktyg, men här är tre som är särskilt användbara för
   alt="Claude logotyp"
   width={60}
   height={60}
-  className="mt-4 mb-2 object-contain"
+  className="mb-2 mt-4 object-contain"
 />
 
 - **Sammanfattar långa texter tydligt** - t.ex. rapporter, avtal eller e-posttrådar
@@ -96,7 +97,7 @@ Det finns många AI-verktyg, men här är tre som är särskilt användbara för
   alt="Gemini logotyp"
   width={60}
   height={60}
-  className="mt-4 mb-2 object-contain"
+  className="mb-2 mt-4 object-contain"
 />
 
 - **Kopplad till Google** - kan ge uppdaterad information, källor och fakta
@@ -114,12 +115,12 @@ Alla tre fungerar på liknande sätt: du skriver vad du vill ha hjälp med, och 
 
 ## Dags att testa själv
 
-<Image
+<ImageWithOverlayCaption
   src="/images/blog/chatgpt-review.png"
   alt="Exempel på en konversation med ChatGPT där användaren ber om hjälp med kundkommunikation"
-  width={800}
-  height={600}
-  className="my-8 rounded-lg shadow-lg"
+  caption="ChatGPT hjälper till med att formulera ett professionellt kundsvar"
+  width={1902}
+  height={2144}
 />
 
 Du behöver inte kunna allt från början. Testa med en enkel uppgift:

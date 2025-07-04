@@ -80,7 +80,7 @@ const Content: React.FC<ContentProps> = ({ content, image, imageAlt, contentMedi
               as="figcaption"
               delay={0.6}
               duration={0.8}
-              className="mt-4 text-sm text-center text-muted-foreground"
+              className="mt-4 mx-auto max-w-2xl rounded-lg bg-gray-100 dark:bg-gray-900 px-4 py-2 text-center text-sm text-gray-700 dark:text-gray-300"
             >
               {contentMedia.alt}
             </FadeInView>
@@ -89,7 +89,7 @@ const Content: React.FC<ContentProps> = ({ content, image, imageAlt, contentMedi
         </FadeInView>
       )}
       {mdxSource && (
-        <FadeInView className="prose prose-lg dark:prose-invert max-w-none">
+        <FadeInView className="prose prose-lg dark:prose-invert max-w-none prose-img:!mt-0 prose-figure:!mt-0">
           <MDXRemote {...mdxSource} components={components} />
         </FadeInView>
       )}
