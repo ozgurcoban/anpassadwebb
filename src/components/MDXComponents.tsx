@@ -50,23 +50,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     
     // HTML element overrides with enhanced reader-friendly styles
-    h1: ({ children }) => (
-      <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-8 text-gray-900 dark:text-gray-100">
+    h1: ({ children, ...props }) => (
+      <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-8 text-gray-900 dark:text-gray-100" {...props}>
         {children}
       </h1>
     ),
-    h2: ({ children }) => (
-      <h2 className="text-3xl font-bold tracking-tight first:mt-0 mb-6 mt-10 text-gray-900 dark:text-gray-100">
+    h2: ({ children, ...props }) => (
+      <h2 className="text-3xl font-bold tracking-tight first:mt-0 mb-6 mt-10 text-gray-900 dark:text-gray-100" {...props}>
         {children}
       </h2>
     ),
-    h3: ({ children }) => (
-      <h3 className="text-2xl font-semibold tracking-tight mb-4 mt-8 text-gray-900 dark:text-gray-100">
+    h3: ({ children, ...props }) => (
+      <h3 className="text-2xl font-semibold tracking-tight mb-4 mt-8 text-gray-900 dark:text-gray-100" {...props}>
         {children}
       </h3>
     ),
-    h4: ({ children }) => (
-      <h4 className="text-xl font-semibold tracking-tight mb-3 mt-6 text-gray-900 dark:text-gray-100">
+    h4: ({ children, ...props }) => (
+      <h4 className="text-xl font-semibold tracking-tight mb-3 mt-6 text-gray-900 dark:text-gray-100" {...props}>
         {children}
       </h4>
     ),
@@ -76,13 +76,24 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </p>
     ),
     a: ({ href, children }) => {
-      const isInternal = href && (href.startsWith('/') || href.startsWith('#'))
+      const isAnchor = href && href.startsWith('#')
+      const isInternal = href && href.startsWith('/') && !isAnchor
       
       const className = cn(
         "font-medium underline underline-offset-4 transition-colors",
         "text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
       )
       
+      // For anchor links, use regular <a> tag
+      if (isAnchor) {
+        return (
+          <a href={href} className={className}>
+            {children}
+          </a>
+        )
+      }
+      
+      // For internal links, use Next.js Link
       if (isInternal) {
         return (
           <Link href={href} className={className}>
@@ -91,6 +102,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         )
       }
       
+      // For external links
       return (
         <a 
           href={href}

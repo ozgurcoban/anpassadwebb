@@ -44,7 +44,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
         className={`${open_sans.variable} ${montserrat.variable} ${quicksand.variable} bg-gradient-to-br from-slate-50 to-stone-50 dark:from-slate-900 dark:to-stone-900 flex min-h-svh flex-col overflow-y-scroll`}
       >
