@@ -1,9 +1,10 @@
 import Section from '@/components/ui/Section';
 import Text from '@/components/ui/Text';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { ContactButton } from '@/components/ContactButton';
 import { Calendar, Clock, MessageCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const MeetingSection = () => {
   return (
@@ -44,7 +45,11 @@ const MeetingSection = () => {
           </Card>
         </div>
         
-        <ContactButton className="mx-auto" />
+        <Link href="/boka-mote">
+          <Button variant="rainbow" size="lg" className="mx-auto">
+            Boka möte direkt
+          </Button>
+        </Link>
       </div>
     </Section>
   );

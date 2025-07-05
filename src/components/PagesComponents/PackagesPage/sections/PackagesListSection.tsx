@@ -7,6 +7,8 @@ import { packages, packagesConfig } from '@/data/packages';
 import { ContactButton } from '@/components/ContactButton';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const PackagesListSection = () => {
   const shadowColorMap: Record<string, string> = {
@@ -138,7 +140,11 @@ const PackagesListSection = () => {
           <Text className="mb-6 text-gray-600 dark:text-gray-400">
             Vi hjälper dig hitta rätt lösning för dina behov och budget.
           </Text>
-          <ContactButton className="mx-auto" text="Få gratis rådgivning" />
+          <Link href="/boka-mote">
+            <Button variant="rainbow" size="lg" className="mx-auto">
+              Få gratis rådgivning
+            </Button>
+          </Link>
         </div>
       </SectionContainer>
     </Section>
