@@ -8,7 +8,7 @@ import Footer from './BlogFooter';
 import { blogConfig } from '@/lib/blog-config';
 import { ReadingProgress } from './ReadingProgress';
 import { FadeInView } from '@/components/ui/FadeInView';
-import { ArrowLeft, BookmarkPlus, Share2 } from 'lucide-react';
+import { ArrowLeft, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -31,7 +31,6 @@ export default function BlogPostClient({
   const { frontmatter, content, readingTime } = post;
   const { title, description, tags, date, image, imageAlt, contentMedia } =
     frontmatter;
-  const [isSaved, setIsSaved] = useState(false);
 
   // Fix scroll position on navigation
   useEffect(() => {
@@ -41,22 +40,38 @@ export default function BlogPostClient({
     }
   }, []);
 
-  const handleSave = () => {
-    setIsSaved(!isSaved);
-    // In a real app, this would save to user's reading list
-  };
-
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: title,
-          text: description,
-          url: window.location.href,
-        });
-      } catch (err) {
-        console.log('Error sharing:', err);
+    const shareUrl = window.location.href;
+    const shareData = {
+      title: title,
+      text: description || title,
+      url: shareUrl,
+    };
+
+    try {
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        // Fallback: kopiera länken till clipboard om det stöds
+        await navigator.clipboard.writeText(shareUrl);
+        
+        // Visa en temporär bekräftelse
+        const button = document.querySelector('[aria-label="Dela artikel"]');
+        if (button) {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<svg class="h-6 w-6 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+          setTimeout(() => {
+            button.innerHTML = originalText;
+          }, 2000);
+        }
+      } else {
+        // Om varken Web Share eller Clipboard fungerar, använd mailto
+        window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + '\n\n' + shareUrl)}`;
       }
+    } catch (err) {
+      console.error('Error sharing:', err);
+      // Vid fel, använd mailto som fallback
+      window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + '\n\n' + shareUrl)}`;
     }
   };
 
@@ -95,25 +110,17 @@ export default function BlogPostClient({
                 </span>
               </Link>
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={handleSave}
-                  className={cn(
-                    'p-2',
-                    getButtonClasses(isSaved ? 'active' : 'light')
-                  )}
-                  aria-label="Spara artikel"
-                >
-                  <BookmarkPlus className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={handleShare}
-                  className={cn("p-2 text-white", getButtonClasses('light'))}
-                  aria-label="Dela artikel"
-                >
-                  <Share2 className="h-5 w-5" />
-                </button>
-              </div>
+              <button
+                onClick={handleShare}
+                className={cn(
+                  "p-3 md:p-2 text-white z-20",
+                  getButtonClasses('light'),
+                  "active:scale-95 active:bg-white/30"
+                )}
+                aria-label="Dela artikel"
+              >
+                <Share2 className="h-6 w-6 md:h-5 md:w-5" />
+              </button>
             </div>
           </div>
 
