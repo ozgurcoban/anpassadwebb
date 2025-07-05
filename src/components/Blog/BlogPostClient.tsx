@@ -51,6 +51,7 @@ export default function BlogPostClient({
     try {
       if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
+        return; // Stoppa här efter lyckad delning
       } else if (navigator.clipboard && navigator.clipboard.writeText) {
         // Fallback: kopiera länken till clipboard om det stöds
         await navigator.clipboard.writeText(shareUrl);
@@ -64,14 +65,18 @@ export default function BlogPostClient({
             button.innerHTML = originalText;
           }, 2000);
         }
+        return; // Stoppa här efter lyckad kopiering
       } else {
         // Om varken Web Share eller Clipboard fungerar, använd mailto
         window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + '\n\n' + shareUrl)}`;
       }
     } catch (err) {
-      console.error('Error sharing:', err);
-      // Vid fel, använd mailto som fallback
-      window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + '\n\n' + shareUrl)}`;
+      // Bara logga fel om användaren inte avbröt delningen
+      if (err instanceof Error && err.name !== 'AbortError') {
+        console.error('Error sharing:', err);
+        // Vid fel (men inte avbrytning), använd mailto som fallback
+        window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + '\n\n' + shareUrl)}`;
+      }
     }
   };
 
