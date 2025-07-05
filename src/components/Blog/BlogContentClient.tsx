@@ -59,7 +59,8 @@ const BlogContentClient: React.FC<ContentProps> = ({ mdxSource, contentMedia, cl
           blogStyles.prose.headings,
           blogStyles.prose.paragraphs,
           blogStyles.prose.dark,
-          "prose-img:!mt-0 prose-figure:!mt-0"
+          "prose-img:!mt-0 prose-figure:!mt-0",
+          !contentMedia && "mt-8"
         )}
       >
         <MDXRemote {...mdxSource} components={components} />
