@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import readingTime from 'reading-time'
 import { Redis } from '@upstash/redis'
+import { slugify } from '@/lib/utils'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 const pagesDirectory = path.join(process.cwd(), 'content/pages')
@@ -114,7 +115,7 @@ export function getAllTags(): Array<{ name: string; slug: string; count: number 
   return Array.from(tagCounts.entries())
     .map(([name, count]) => ({
       name,
-      slug: name.toLowerCase().replace(/\s+/g, '-'),
+      slug: slugify(name),
       count
     }))
     .sort((a, b) => b.count - a.count)

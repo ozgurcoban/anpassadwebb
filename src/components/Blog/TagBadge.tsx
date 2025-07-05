@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn, slugify } from "@/lib/utils";
 import { getTagClasses } from "@/lib/styles/blog";
 
 interface TagBadgeProps {
@@ -21,7 +21,7 @@ export function TagBadge({
   onClick,
   className 
 }: TagBadgeProps) {
-  const slug = tag.toLowerCase().replace(/\s+/g, '-');
+  const slug = slugify(tag);
   const defaultHref = `/blogg/tag/${slug}`;
   const classes = cn(getTagClasses(variant, size), className);
   const content = `${showHash ? '#' : ''}${tag}`;
