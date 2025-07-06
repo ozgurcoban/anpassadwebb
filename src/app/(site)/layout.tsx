@@ -7,6 +7,8 @@ import Modal from '@/components/Modal';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import CookieBanner from '@/components/CookieBanner';
 import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent';
+import { Analytics } from '@/components/Analytics';
+import { ScrollTracker } from '@/components/ScrollTracker';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -60,6 +62,8 @@ export default async function RootLayout({
           <CookieBanner />
         </Providers>
         <GoogleAnalyticsConsent />
+        <Analytics />
+        <ScrollTracker />
       </body>
     </html>
   );

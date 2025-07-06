@@ -5,10 +5,12 @@ import { Button } from '@/components/ui/button';
 import { ContactButton } from '@/components/ContactButton';
 import { RainbowButton } from '@/components/ui/RainbowButton/RainbowButton';
 import ValueProposition from '@/components/ValueProposition';
+import { TrackedButton } from '@/components/TrackedLink';
 import { type GradientContentProps, ALIGNMENT_CLASSES, CONTENT_ALIGNMENT } from './types';
 import { getTextShadow, TEXT_SHADOWS } from './constants';
 import { getTextStyles, SPACING, LAYOUT } from './styles';
 import { ChevronDown } from 'lucide-react';
+import { trackCTAClick } from '@/lib/gtag';
 
 interface ExtendedGradientContentProps extends Omit<GradientContentProps, 'transformedColors'> {
   isImageBackground?: boolean;
@@ -28,6 +30,7 @@ export function GradientContent({
   children,
 }: ExtendedGradientContentProps) {
   const handleScrollDown = () => {
+    trackCTAClick('Scroll Down', 'hero_scroll_indicator');
     window.scrollTo({
       top: window.innerHeight,
       behavior: 'smooth'
@@ -111,31 +114,31 @@ export function GradientContent({
                       </Link>
                     </RainbowButton>
                   ) : (
-                    <Button
-                      asChild
+                    <TrackedButton
+                      href={secondaryCTA.href}
                       variant={secondaryCTA.variant}
                       size="lg"
                       className="w-full sm:w-auto"
+                      trackingLabel={secondaryCTA.text}
+                      trackingLocation="hero_secondary_cta"
                     >
-                      <Link href={secondaryCTA.href}>
-                        {secondaryCTA.text}
-                      </Link>
-                    </Button>
+                      {secondaryCTA.text}
+                    </TrackedButton>
                   )
                 )
               )}
               
               {secondaryCTA && isImageBackground && (
-                <Button
-                  asChild
+                <TrackedButton
+                  href={secondaryCTA.href}
                   variant={secondaryCTA.variant || "glass"}
                   size="lg"
                   className="w-full sm:w-auto"
+                  trackingLabel={secondaryCTA.text}
+                  trackingLocation="hero_image_secondary_cta"
                 >
-                  <Link href={secondaryCTA.href}>
-                    {secondaryCTA.text}
-                  </Link>
-                </Button>
+                  {secondaryCTA.text}
+                </TrackedButton>
               )}
         </div>
       </div>

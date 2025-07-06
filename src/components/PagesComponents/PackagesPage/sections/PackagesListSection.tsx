@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { TrackedButton } from '@/components/TrackedLink';
 
 const PackagesListSection = () => {
   const shadowColorMap: Record<string, string> = {
@@ -141,11 +142,16 @@ const PackagesListSection = () => {
           <Text className="mb-6 text-gray-600 dark:text-gray-400">
             Vi hjälper dig hitta rätt lösning för dina behov och budget.
           </Text>
-          <Link href="/boka-mote">
-            <Button variant="rainbow" size="lg" className="mx-auto">
-              Få gratis rådgivning
-            </Button>
-          </Link>
+          <TrackedButton
+            href="/boka-mote"
+            variant="rainbow"
+            size="lg"
+            className="mx-auto"
+            trackingLabel="Få gratis rådgivning"
+            trackingLocation="packages_bottom_cta"
+          >
+            Få gratis rådgivning
+          </TrackedButton>
         </div>
       </SectionContainer>
     </Section>
