@@ -5,6 +5,7 @@ import ContactForm from './ContactForm';
 import React from 'react';
 import Link from 'next/link';
 import { Button } from './ui/button';
+import { trackPackageSelection, trackCTAClick } from '@/lib/gtag';
 
 type ContactButtonProps = {
   className?: string;
@@ -18,6 +19,15 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 
 
   const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    
+    // Track CTA click
+    trackCTAClick(text, 'contact_button');
+    
+    // Track package selection if a package is selected
+    if (packageName) {
+      trackPackageSelection(packageName);
+    }
+    
     setDialog({
       isOpen: true,
       onClose: () => setDialog({ isOpen: false }),

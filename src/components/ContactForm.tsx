@@ -28,6 +28,7 @@ import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { trackContactFormSubmission } from '@/lib/gtag';
 
 const schema = z.object({
   name: z
@@ -131,6 +132,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
 
       if (response.ok) {
         const responseData = await response.json();
+
+        // Track successful form submission
+        trackContactFormSubmission(data.selectedPackage || 'no_package');
 
         // Introduced a delay before resetting and closing the dialog
         await delay(600);
