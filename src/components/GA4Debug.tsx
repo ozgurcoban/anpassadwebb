@@ -56,7 +56,7 @@ export default function GA4Debug() {
       
       // Call original gtag
       if (originalGtag) {
-        originalGtag.apply(window, args);
+        originalGtag.apply(window, args as any);
       }
     };
 
@@ -169,7 +169,7 @@ export default function GA4Debug() {
           <div className="overflow-y-auto max-h-[400px] p-3">
             {events.length === 0 ? (
               <p className="text-sm text-muted-foreground text-center py-4">
-                No events captured yet. Navigate the site or click &quot;Test All Events&quot;.
+                No events captured yet. Navigate the site or click {'"'}Test All Events{'"'}.
               </p>
             ) : (
               <div className="space-y-2">

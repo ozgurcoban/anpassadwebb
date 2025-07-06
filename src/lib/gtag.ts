@@ -7,7 +7,7 @@ export const initializeGtag = () => {
   window.dataLayer = window.dataLayer || []
   if (!window.gtag) {
     window.gtag = function() {
-      window.dataLayer.push(arguments)
+      window.dataLayer?.push(arguments)
     }
   }
   window.gtag('js', new Date())
