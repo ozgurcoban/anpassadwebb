@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
-  ContactFormSubmissionEmail,
+  AdminEmailTemplate,
   UserConfirmationEmail,
 } from '@/components/EmailTemplates';
 import { Resend } from 'resend';
@@ -20,65 +20,81 @@ const getSourceLabel = (source?: string): string | undefined => {
 
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
-  console.log('resend', resend);
 
   try {
-    const { name, email, website, source, message } =
+    const { name, email, website, source, selectedPackage, message } =
       await req.json();
-
-    console.log('Received data:', {
-      name,
-      email,
-      website,
-      source,
-      message,
-    });
 
     // Skapa två e-postmeddelanden som ska skickas samtidigt
     const emailToAdmin = resend.emails.send({
-      from: 'Anpassad Webb <contact@anpassadwebb.se>',
-      to: 'contact@anpassadwebb.se', // Ändra till administratörens e-postadress
-      subject: `${name} har skickat ett meddelande till Anpassad Webb`,
-      react: ContactFormSubmissionEmail({
+      from: 'Anpassad Webb <info@anpassadwebb.se>',
+      to: 'info@anpassadwebb.se', // Ändra till administratörens e-postadress
+      subject: `Nytt meddelande från ${name} - Anpassad Webb`,
+      react: AdminEmailTemplate({
         name,
         email,
         website,
         source: getSourceLabel(source),
+        selectedPackage,
         message,
       }) as React.ReactElement<any>,
     });
 
     const emailToUser = resend.emails.send({
-      from: 'Anpassad Webb <contact@anpassadwebb.se>',
+      from: 'Anpassad Webb <info@anpassadwebb.se>',
       to: `${email}`,
       subject: 'Bekräftelse på din förfrågan',
       react: UserConfirmationEmail({
         name,
         email,
+        selectedPackage,
         message,
       }) as React.ReactElement<any>,
     });
 
-    // Använd Promise.allSettled för att vänta på att båda e-postmeddelandena skickas
-    const results = await Promise.allSettled([emailToAdmin, emailToUser]);
+    // Skicka e-post individuellt och kolla resultat
+    const [adminResult, userResult] = await Promise.all([emailToAdmin, emailToUser]);
 
-    // Kontrollera om någon av e-postmeddelandena misslyckades att skickas
-    const errors = results.filter((result) => result.status === 'rejected');
+    // Kolla om något mail misslyckades
+    let adminError = false;
+    let userError = false;
 
-    if (errors.length > 0) {
-      console.error('Error sending emails:', errors);
+    if ('error' in adminResult && adminResult.error) {
+      adminError = true;
+    }
+    if ('error' in userResult && userResult.error) {
+      userError = true;
+    }
+
+    // Om admin-mail misslyckades men användar-mail gick igenom
+    if (adminError && !userError) {
       return NextResponse.json(
-        { message: 'Fel vid skickande av e-post' },
+        { 
+          message: 'Bekräftelsemail skickat men administratörsnotifikation misslyckades',
+          warning: true 
+        },
+        { status: 200 },
+      );
+    }
+
+    // Om båda misslyckades
+    if (adminError && userError) {
+      return NextResponse.json(
+        { message: 'Kunde inte skicka e-post' },
         { status: 500 },
       );
     }
 
+    // Allt gick bra
     return NextResponse.json(
-      { message: 'E-postmeddelanden skickade' },
+      { 
+        message: 'E-postmeddelanden skickade',
+        adminEmailId: 'id' in adminResult ? adminResult.id : null,
+        userEmailId: 'id' in userResult ? userResult.id : null
+      },
       { status: 200 },
     );
   } catch (error) {
-    console.error('Server error:', error);
     return NextResponse.json({ error: 'Serverfel' }, { status: 500 });
   }
 }

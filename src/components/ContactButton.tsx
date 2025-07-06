@@ -10,9 +10,10 @@ type ContactButtonProps = {
   className?: string;
   text?: string;
   variant?: 'rainbow' | 'ghost-hero' | 'outline-hero' | 'glass-hero' | 'secondary-solid';
+  packageName?: string;
 };
 
-export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 'Kontakta oss', variant = 'rainbow' }) => {
+export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 'Kontakta oss', variant = 'rainbow', packageName }) => {
   const setDialog = useDialog((state) => state.setDialog);
 
   const openModal = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,7 +37,7 @@ export const ContactButton: React.FC<ContactButtonProps> = ({ className, text = 
           </Link>
         </>
       ),
-      children: <ContactForm />,
+      children: <ContactForm selectedPackage={packageName} />,
     });
   };
 

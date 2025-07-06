@@ -64,6 +64,8 @@ const schema = z.object({
     'website',
     'other'
   ]).optional(),
+  
+  selectedPackage: z.string().optional(),
     
   message: z
     .string()
@@ -82,7 +84,11 @@ const schema = z.object({
 //   },
 // );
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  selectedPackage?: string;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ selectedPackage }) => {
   const { toast } = useToast();
   const { onClose } = useDialog();
 
@@ -96,6 +102,7 @@ const ContactForm: React.FC = () => {
       email: '',
       website: '',
       source: undefined,
+      selectedPackage: selectedPackage || '',
       message: '',
     },
   });
@@ -121,11 +128,9 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(data),
       });
-      console.log('response:', response);
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log('responseData:', responseData);
 
         // Introduced a delay before resetting and closing the dialog
         await delay(600);
@@ -139,10 +144,9 @@ const ContactForm: React.FC = () => {
         });
       } else {
         const { error } = await response.json();
-        console.log('Error:', error);
       }
     } catch (error) {
-      console.log(error);
+      // Error handled silently
     }
   };
 
@@ -157,6 +161,15 @@ const ContactForm: React.FC = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="mt-4 flex flex-col sm:gap-y-2"
         >
+          {/* Selected Package Display */}
+          {selectedPackage && (
+            <div className="mb-4 p-4 bg-accent/10 border border-accent/20 rounded-lg">
+              <p className="text-sm font-medium text-accent">
+                Du har valt: <span className="font-semibold">{selectedPackage}</span>
+              </p>
+            </div>
+          )}
+          
           {/* Name */}
           <FormField
             control={form.control}
