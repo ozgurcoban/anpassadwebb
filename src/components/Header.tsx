@@ -2,6 +2,7 @@
 
 import { Logo, DarkMode } from './Navbar';
 import Navigation from './Navigation';
+import MobileMenuSheet from './MobileMenuSheet';
 import { links } from '@/utils/links';
 import { useAutoHideHeader } from '@/hooks/useAutoHideHeader';
 
@@ -22,6 +23,7 @@ const Header = () => {
 
           <div className="flex items-center gap-4">
             <DarkMode />
+            <MobileMenuSheet />
           </div>
         </div>
       </div>
