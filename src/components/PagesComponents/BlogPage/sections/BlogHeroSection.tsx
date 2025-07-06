@@ -23,7 +23,7 @@ const BlogHeroSection = () => {
         particleColors={DEFAULT_PARTICLE_COLORS}
         textAlign="center"
         verticalCenter={true}
-        minHeight="50vh"
+        minHeight="70vh"
         overlayOpacity={0.85}
       >
         {/* Feature Pills */}

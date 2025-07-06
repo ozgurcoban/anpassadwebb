@@ -68,6 +68,7 @@ export default function GradientHero({
           isImageBackground={!!backgroundImage || darkMode}
           verticalCenter={verticalCenter}
           showValueProposition={showValueProposition}
+          showScrollIndicator={!!minHeight && minHeight.includes('vh') && parseInt(minHeight) >= 80}
         >
           {children}
         </GradientContent>

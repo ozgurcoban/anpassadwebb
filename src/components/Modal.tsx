@@ -6,11 +6,9 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { AnimatedButton } from './ui/Buttons';
 import useDialog from '@/hooks/useDialog';
 // import { Button } from './ui/button';
 
@@ -29,16 +27,6 @@ const Modal = () => {
           </DialogDescription>
         </DialogHeader>
         {children}
-        <DialogFooter>
-          <AnimatedButton
-            variant="outline"
-            type="button"
-            onClick={onClose}
-            className="hidden sm:block"
-          >
-            Stäng
-          </AnimatedButton>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

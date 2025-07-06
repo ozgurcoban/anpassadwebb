@@ -314,13 +314,16 @@ const ContactForm: React.FC = () => {
               disabled={isSubmitting}
               type="submit"
               className="shadow-md"
+              variant="default"
+              size="lg"
             >
-              Skicka
-              {isSubmitting ?? (
-                <span>
-                  <Loader2 className="size-5 animate-spin" />
-                  Skickar
-                </span>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 size-4 animate-spin" />
+                  Skickar...
+                </>
+              ) : (
+                'Skicka meddelande'
               )}
             </AnimatedButton>
           </div>

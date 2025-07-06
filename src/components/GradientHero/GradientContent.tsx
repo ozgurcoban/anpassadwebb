@@ -8,10 +8,12 @@ import ValueProposition from '@/components/ValueProposition';
 import { type GradientContentProps, ALIGNMENT_CLASSES, CONTENT_ALIGNMENT } from './types';
 import { getTextShadow, TEXT_SHADOWS } from './constants';
 import { getTextStyles, SPACING, LAYOUT } from './styles';
+import { ChevronDown } from 'lucide-react';
 
 interface ExtendedGradientContentProps extends Omit<GradientContentProps, 'transformedColors'> {
   isImageBackground?: boolean;
   children?: React.ReactNode;
+  showScrollIndicator?: boolean;
 }
 
 export function GradientContent({
@@ -22,8 +24,15 @@ export function GradientContent({
   isImageBackground = false,
   verticalCenter = false,
   showValueProposition = false,
+  showScrollIndicator = false,
   children,
 }: ExtendedGradientContentProps) {
+  const handleScrollDown = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
   return (
     <div className={cn(
       LAYOUT.content.wrapper,
@@ -130,6 +139,21 @@ export function GradientContent({
               )}
         </div>
       </div>
+      
+      {showScrollIndicator && (
+        <button
+          onClick={handleScrollDown}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all duration-300 animate-fade-in-delayed"
+          aria-label="Scrolla ner till innehåll"
+        >
+          <ChevronDown 
+            className="h-8 w-8 md:h-10 md:w-10 animate-bounce" 
+            style={{
+              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+            }}
+          />
+        </button>
+      )}
     </div>
   );
 }

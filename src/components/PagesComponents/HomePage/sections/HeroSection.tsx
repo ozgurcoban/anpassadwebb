@@ -19,7 +19,7 @@ const HeroSection = () => {
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
-      minHeight="64vh"
+      minHeight="85vh"
       backgroundImage={{
         src: heroImage,
         alt: 'Datorskärm med datorkod i rörelse, som symboliserar modern webbutveckling och teknik.',
