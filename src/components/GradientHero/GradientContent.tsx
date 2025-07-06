@@ -45,108 +45,121 @@ export function GradientContent({
     )}>
       <div
         className={cn(
-          'w-full max-w-7xl mx-auto px-6 grid',
-          SPACING.grid.gap,
-          SPACING.grid.padding,
-          textAlign === 'center' ? 'place-items-center text-center' : textAlign === 'left' ? 'place-items-start text-left' : 'place-items-end text-right',
+          'w-full max-w-7xl mx-auto px-6',
+          'pt-12 md:pt-8',
+          'pb-24 md:pb-0',
           verticalCenter && "my-auto"
         )}
       >
-        <div className="space-y-6 max-w-4xl">
-          <h1 
-              className={getTextStyles('title', true)} // Always use white text
-              style={{
-                textShadow: getTextShadow(TEXT_SHADOWS.TITLE),
-              }}
-            >
-              {title}
-            </h1>
-
-            {description && (
-              <p 
-                className={cn(
-                  getTextStyles('description', true), // Always use white text
-                  textAlign === 'center' ? "max-w-2xl mx-auto" : "max-w-2xl"
-                )}
-              >
-                {description}
-              </p>
-            )}
-
-        </div>
-
-        {showValueProposition && (
-          <ValueProposition 
-            variant="dark" 
-            className={cn(
-              "mt-8 mb-4 max-w-3xl",
-              textAlign === 'center' && "mx-auto"
-            )}
-          />
-        )}
-
-        {children && (
-          <div className={cn(
-            "mt-6",
-            textAlign === 'center' && "mx-auto"
-          )}>
-            {children}
-          </div>
-        )}
-
         <div className={cn(
-              "flex flex-col gap-4",
-              textAlign !== 'center' && "sm:flex-row",
-              {
-                'items-start': textAlign === 'left',
-                'items-center justify-center': textAlign === 'center',
-                'items-end': textAlign === 'right',
-              }
-            )}>
-              {isImageBackground ? (
-                <ContactButton className="w-full sm:w-auto" />
-              ) : (
-                secondaryCTA && (
-                  secondaryCTA.variant === 'rainbow' || !secondaryCTA.variant ? (
-                    <RainbowButton asChild>
-                      <Link href={secondaryCTA.href}>
-                        {secondaryCTA.text}
-                      </Link>
-                    </RainbowButton>
-                  ) : (
-                    <TrackedButton
-                      href={secondaryCTA.href}
-                      variant={secondaryCTA.variant}
-                      size="lg"
-                      className="w-full sm:w-auto"
-                      trackingLabel={secondaryCTA.text}
-                      trackingLocation="hero_secondary_cta"
+          "space-y-8 lg:space-y-12"
+        )}>
+          {/* Main content */}
+          <div className={cn(
+            "grid",
+            "lg:grid-cols-[1.618fr,1fr] lg:gap-12 lg:items-center",
+            textAlign === 'center' ? 'place-items-center text-center lg:text-left lg:place-items-start' : textAlign === 'left' ? 'place-items-start text-left' : 'place-items-end text-right'
+          )}>
+            {/* Left Column - Title, Description, Buttons */}
+            <div className="space-y-6 md:space-y-8">
+              <div className="space-y-4 md:space-y-6 max-w-4xl">
+                <h1 
+                    className={getTextStyles('title', true)} // Always use white text
+                    style={{
+                      textShadow: getTextShadow(TEXT_SHADOWS.TITLE),
+                    }}
+                  >
+                    {title}
+                  </h1>
+
+                  {description && (
+                    <p 
+                      className={cn(
+                        getTextStyles('description', true), // Always use white text
+                        textAlign === 'center' ? "max-w-full md:max-w-lg lg:max-w-xl mx-auto lg:mx-0" : "max-w-full md:max-w-lg lg:max-w-xl"
+                      )}
                     >
-                      {secondaryCTA.text}
-                    </TrackedButton>
-                  )
-                )
+                      {description}
+                    </p>
+                  )}
+              </div>
+
+
+              {children && (
+                <div className={cn(
+                  "mt-4 md:mt-6",
+                  textAlign === 'center' && "mx-auto lg:mx-0"
+                )}>
+                  {children}
+                </div>
               )}
-              
-              {secondaryCTA && isImageBackground && (
-                <TrackedButton
-                  href={secondaryCTA.href}
-                  variant={secondaryCTA.variant || "glass"}
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  trackingLabel={secondaryCTA.text}
-                  trackingLocation="hero_image_secondary_cta"
-                >
-                  {secondaryCTA.text}
-                </TrackedButton>
-              )}
+
+              <div className={cn(
+                    "flex flex-col gap-4 mt-8 md:mt-0",
+                    textAlign !== 'center' && "sm:flex-row",
+                    {
+                      'items-start': textAlign === 'left',
+                      'items-center justify-center lg:justify-start': textAlign === 'center',
+                      'items-end': textAlign === 'right',
+                    }
+                  )}>
+                    {isImageBackground ? (
+                      <ContactButton className="w-full sm:w-auto" />
+                    ) : (
+                      secondaryCTA && (
+                        secondaryCTA.variant === 'rainbow' || !secondaryCTA.variant ? (
+                          <RainbowButton asChild>
+                            <Link href={secondaryCTA.href}>
+                              {secondaryCTA.text}
+                            </Link>
+                          </RainbowButton>
+                        ) : (
+                          <TrackedButton
+                            href={secondaryCTA.href}
+                            variant={secondaryCTA.variant}
+                            size="lg"
+                            className="w-full sm:w-auto"
+                            trackingLabel={secondaryCTA.text}
+                            trackingLocation="hero_secondary_cta"
+                          >
+                            {secondaryCTA.text}
+                          </TrackedButton>
+                        )
+                      )
+                    )}
+                    
+                    {secondaryCTA && isImageBackground && (
+                      <TrackedButton
+                        href={secondaryCTA.href}
+                        variant={secondaryCTA.variant || "glass"}
+                        size="lg"
+                        className="w-full sm:w-auto"
+                        trackingLabel={secondaryCTA.text}
+                        trackingLocation="hero_image_secondary_cta"
+                      >
+                        {secondaryCTA.text}
+                      </TrackedButton>
+                    )}
+              </div>
+            </div>
+          </div>
+
+          {/* ValueProposition - Below main content on tablet and desktop */}
+          {showValueProposition && (
+            <div className="hidden md:block">
+              <ValueProposition 
+                variant="dark" 
+                className="w-full max-w-4xl"
+              />
+            </div>
+          )}
         </div>
       </div>
       
       {showScrollIndicator && (
         <button
           onClick={handleScrollDown}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all duration-300 animate-fade-in-delayed"
+          className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-all duration-300 animate-fade-in-delayed"
           aria-label="Scrolla ner till innehåll"
         >
           <ChevronDown 

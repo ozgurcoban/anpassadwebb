@@ -41,7 +41,7 @@ export default function ValueProposition({
 }: ValuePropositionProps) {
   return (
     <div className={cn(
-      "grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6",
+      "grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6",
       className
     )}>
       {benefits.map((benefit, index) => {
@@ -50,30 +50,30 @@ export default function ValueProposition({
           <div
             key={index}
             className={cn(
-              "flex flex-col items-center text-center space-y-2",
+              "flex flex-col items-center text-center space-y-1.5",
               "transform transition-transform duration-300 hover:scale-105"
             )}
           >
             <div className={cn(
-              "p-3 rounded-full",
+              "p-2 md:p-3 rounded-full",
               variant === 'dark' 
                 ? "bg-white/10 backdrop-blur-sm" 
                 : "bg-primary/10"
             )}>
               <Icon className={cn(
-                "h-5 w-5",
+                "h-4 w-4 md:h-5 md:w-5",
                 variant === 'dark' ? "text-white" : "text-primary"
               )} />
             </div>
             <div>
               <h3 className={cn(
-                "font-semibold text-sm",
+                "font-semibold text-xs md:text-sm",
                 variant === 'dark' ? "text-white" : "text-foreground"
               )}>
                 {benefit.title}
               </h3>
               <p className={cn(
-                "text-xs mt-0.5",
+                "text-[10px] md:text-xs mt-0.5",
                 variant === 'dark' 
                   ? "text-white/70" 
                   : "text-muted-foreground"

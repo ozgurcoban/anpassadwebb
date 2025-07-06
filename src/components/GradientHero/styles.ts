@@ -3,12 +3,12 @@ import { cn } from '@/lib/utils';
 // Typography scales - Mobile First
 export const TYPOGRAPHY = {
   title: {
-    base: 'font-medium text-5xl md:text-6xl lg:text-7xl xl:text-8xl',
+    base: 'font-medium text-4xl md:text-6xl lg:text-7xl xl:text-8xl',
     withImage: 'text-white drop-shadow-2xl',
     default: 'text-foreground'
   },
   description: {
-    base: 'font-light leading-relaxed text-xl md:text-2xl lg:text-3xl',
+    base: 'font-light leading-relaxed text-base md:text-xl lg:text-2xl xl:text-3xl',
     withImage: 'text-white/90 drop-shadow-lg',
     default: 'text-muted-foreground'
   }

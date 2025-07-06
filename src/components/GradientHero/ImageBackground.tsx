@@ -23,7 +23,7 @@ export function ImageBackground({
         fill
         priority={priority}
         placeholder="blur"
-        className="object-cover object-center"
+        className="object-cover"
       />
       
       {/* Purple/Pink Overlay - matching the original Hero */}
