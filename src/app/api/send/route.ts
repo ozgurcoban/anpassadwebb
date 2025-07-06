@@ -5,40 +5,51 @@ import {
 } from '@/components/EmailTemplates';
 import { Resend } from 'resend';
 
+// Map source values to readable labels
+const getSourceLabel = (source?: string): string | undefined => {
+  const sourceMap: Record<string, string> = {
+    'google': 'Google-sökning',
+    'recommendation': 'Rekommendation',
+    'ai': 'ChatGPT/AI',
+    'social': 'Sociala medier',
+    'website': 'Annan webbsida',
+    'other': 'Annat'
+  };
+  return source ? sourceMap[source] || source : undefined;
+};
+
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   console.log('resend', resend);
 
   try {
-    const { name, business, email, message, marketingSource, otherSource } =
+    const { name, email, website, source, message } =
       await req.json();
 
     console.log('Received data:', {
       name,
-      business,
       email,
+      website,
+      source,
       message,
-      marketingSource,
-      otherSource,
     });
 
     // Skapa två e-postmeddelanden som ska skickas samtidigt
     const emailToAdmin = resend.emails.send({
-      from: 'Özbyte <contact@ozbyte.se>',
-      to: 'contact@ozbyte.se', // Ändra till administratörens e-postadress
-      subject: `${name} har skickat ett meddelande till Özbyte`,
+      from: 'Anpassad Webb <contact@anpassadwebb.se>',
+      to: 'contact@anpassadwebb.se', // Ändra till administratörens e-postadress
+      subject: `${name} har skickat ett meddelande till Anpassad Webb`,
       react: ContactFormSubmissionEmail({
         name,
-        business,
         email,
+        website,
+        source: getSourceLabel(source),
         message,
-        marketingSource,
-        otherSource,
       }) as React.ReactElement<any>,
     });
 
     const emailToUser = resend.emails.send({
-      from: 'Özbyte <contact@ozbyte.se>',
+      from: 'Anpassad Webb <contact@anpassadwebb.se>',
       to: `${email}`,
       subject: 'Bekräftelse på din förfrågan',
       react: UserConfirmationEmail({

@@ -179,7 +179,7 @@ const PrivacyPolicyPage = () => {
                   Google Analytics Opt-out Browser Add-on
                 </a>
               </li>
-              <li>Aktivera "Do Not Track" i din webbläsare</li>
+              <li>Aktivera &quot;Do Not Track&quot; i din webbläsare</li>
               <li>Blockera cookies i dina webbläsarinställningar</li>
             </ul>
           </div>

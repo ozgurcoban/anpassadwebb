@@ -2,43 +2,38 @@
 
 export type EmailTemplateProps = {
   name: string;
-  business?: string;
   email: string;
+  website?: string;
+  source?: string;
   message: string;
-  marketingSource?: string;
-  otherSource?: string;
 };
 
 export const ContactFormSubmissionEmail: React.FC<EmailTemplateProps> = ({
   name,
-  business,
   email,
+  website,
+  source,
   message,
-  marketingSource,
-  otherSource,
 }) => (
   <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
     <h2>Meddelande från {name}</h2>
     <p>
-      <strong>Företag:</strong> {business || 'N/A'}
-    </p>
-    <p>
       <strong>Email:</strong> {email}
     </p>
+    {website && (
+      <p>
+        <strong>Hemsida:</strong> {website}
+      </p>
+    )}
+    {source && (
+      <p>
+        <strong>Hittade oss via:</strong> {source}
+      </p>
+    )}
     <p>
       <strong>Meddelande:</strong>
     </p>
     <p>{message}</p>
-    {marketingSource && (
-      <p>
-        <strong>Marknadsföringskälla:</strong> {marketingSource}
-      </p>
-    )}
-    {otherSource && (
-      <p>
-        <strong>Andra källor:</strong> {otherSource}
-      </p>
-    )}
   </div>
 );
 
@@ -49,7 +44,7 @@ export const UserConfirmationEmail: React.FC<EmailTemplateProps> = ({
   <div>
     <h2>Hej {name},</h2>
     <p>
-      Tack för att du kontaktar oss på Özbyte! Vi är glada att ha dig med oss.
+      Tack för att du kontaktar oss på Anpassad Webb! Vi är glada att ha dig med oss.
     </p>
     <p>
       Vi har mottagit ditt meddelande och kommer att svara så snart som möjligt.
