@@ -5,6 +5,7 @@ import { Mail, MapPin, ArrowRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Logo from './Navbar/Logo';
 import { ContactButton } from './ContactButton';
+import CookiePreferencesButton from './CookiePreferencesButton';
 import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
 import { links } from '@/utils/links';
 
@@ -148,6 +149,7 @@ const Footer = () => {
                 >
                   Integritetspolicy
                 </Link>
+                <CookiePreferencesButton className="text-sm text-muted-foreground transition-colors hover:text-foreground" />
               </nav>
             </div>
           </div>

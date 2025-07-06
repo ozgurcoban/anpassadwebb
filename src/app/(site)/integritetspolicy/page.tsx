@@ -105,9 +105,8 @@ const PrivacyPolicyPage = () => {
           <div>
             <h3 className="text-lg font-semibold">Typer av cookies vi använder:</h3>
             <ul className="ml-6 mt-2 list-disc space-y-2">
-              <li><strong>Nödvändiga cookies:</strong> Krävs för webbplatsens grundläggande funktioner</li>
-              <li><strong>Analytiska cookies:</strong> Hjälper oss förstå hur webbplatsen används (Google Analytics)</li>
-              <li><strong>Funktionella cookies:</strong> Kommer ihåg dina preferenser</li>
+              <li><strong>Nödvändiga cookies:</strong> Krävs för webbplatsens grundläggande funktioner inklusive sessionshantering, säkerhet och tema-preferenser</li>
+              <li><strong>Analytiska cookies:</strong> Google Analytics 4 för att förstå hur webbplatsen används (kräver ditt samtycke)</li>
             </ul>
           </div>
         </div>

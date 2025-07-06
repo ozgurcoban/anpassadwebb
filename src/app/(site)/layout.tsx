@@ -5,9 +5,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
 import MobileBottomNav from '@/components/MobileBottomNav';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import CookieBanner from '@/components/CookieBanner';
+import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent';
 import type { Metadata } from 'next';
-import GA4Debug from '@/components/GA4Debug';
 
 export const metadata: Metadata = {
   title: 'Anpassad Webb - Skräddarsydda hemsidor för företag',
@@ -57,12 +57,10 @@ export default async function RootLayout({
           <Footer />
           <Modal />
           <MobileBottomNav />
-          <GA4Debug />
+          <CookieBanner />
         </Providers>
+        <GoogleAnalyticsConsent />
       </body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
     </html>
   );
 }

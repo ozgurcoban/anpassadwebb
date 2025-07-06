@@ -1,8 +1,30 @@
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
 
-// Initialize gtag if it doesn't exist
+// Check if analytics cookies are allowed
+const isAnalyticsAllowed = () => {
+  if (typeof window === 'undefined') return false
+  
+  try {
+    const consent = localStorage.getItem('cookie-consent')
+    if (!consent) return false
+    
+    const parsed = JSON.parse(consent)
+    return parsed?.hasConsented && parsed?.preferences?.analytics === true
+  } catch (error) {
+    console.error('Error checking cookie consent:', error)
+    return false
+  }
+}
+
+// Initialize gtag if it doesn't exist and consent is given
 export const initializeGtag = () => {
   if (typeof window === 'undefined') return
+  
+  // Check for analytics consent
+  if (!isAnalyticsAllowed()) {
+    console.log('GA4: Analytics cookies not allowed')
+    return
+  }
   
   window.dataLayer = window.dataLayer || []
   if (!window.gtag) {
@@ -13,7 +35,21 @@ export const initializeGtag = () => {
   window.gtag('js', new Date())
   if (GA_TRACKING_ID) {
     window.gtag('config', GA_TRACKING_ID)
+    console.log('GA4: Initialized with tracking ID')
   }
+}
+
+// Disable GA4 (when consent is revoked)
+export const disableGtag = () => {
+  if (typeof window === 'undefined' || !GA_TRACKING_ID) return
+  
+  // Set the disable flag
+  (window as any)[`ga-disable-${GA_TRACKING_ID}`] = true
+  
+  // Clear existing data
+  window.dataLayer = []
+  
+  console.log('GA4: Disabled')
 }
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
@@ -21,6 +57,10 @@ export const pageview = (url: string) => {
   if (!GA_TRACKING_ID) {
     console.warn('GA4: No tracking ID configured')
     return
+  }
+  
+  if (!isAnalyticsAllowed()) {
+    return // Silently skip if no consent
   }
   
   if (typeof window === 'undefined' || !window.gtag) {
@@ -47,6 +87,10 @@ export const event = ({ action, category, label, value }: {
   if (!GA_TRACKING_ID) {
     console.warn('GA4: No tracking ID configured')
     return
+  }
+  
+  if (!isAnalyticsAllowed()) {
+    return // Silently skip if no consent
   }
   
   if (typeof window === 'undefined' || !window.gtag) {
