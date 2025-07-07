@@ -10,6 +10,7 @@ const ContactHeroSection = () => {
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
       overlayOpacity={0.85}
+      minHeight="min-h-[300px] md:min-h-[450px]"
     />
   );
 };
