@@ -112,7 +112,7 @@ const CMSBonusSection = () => {
                     key={feature.id}
                     className="flex-[0_0_90%] min-w-0 pl-4 first:pl-0"
                   >
-                    <Card className="h-full overflow-hidden">
+                    <Card className="h-full overflow-hidden flex flex-col">
                       {/* Compact header */}
                       <div className="p-4 flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
@@ -129,9 +129,9 @@ const CMSBonusSection = () => {
                       {/* Large mockup preview - natural size */}
                       <button 
                         onClick={() => setModalImage(feature.mockupContent)}
-                        className="relative w-full px-4 pb-4 group cursor-pointer"
+                        className="relative w-full group cursor-pointer flex-1 min-h-[500px]"
                       >
-                        <div className="relative h-[500px] rounded-lg overflow-hidden bg-gray-900">
+                        <div className="relative h-full overflow-hidden bg-gray-900">
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-[280px] h-full relative">
                               {feature.mockupContent}
