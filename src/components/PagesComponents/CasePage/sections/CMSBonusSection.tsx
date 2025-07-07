@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
@@ -23,7 +23,16 @@ const CMSBonusSection = () => {
   const [activeFeature, setActiveFeature] = useState('mobile');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalImage, setModalImage] = useState<React.ReactNode | null>(null);
+  const [modalIndex, setModalIndex] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  
+  // Touch handling for modal
+  const touchStartY = useRef(0);
+  const touchStartX = useRef(0);
+  const startTranslateX = useRef(0);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -93,6 +102,89 @@ const CMSBonusSection = () => {
     },
   ];
 
+  // Handle modal open
+  const openModal = (index: number) => {
+    setModalIndex(index);
+    setModalImage(true);
+    setTranslateX(-index * 100);
+  };
+
+  // Handle modal close
+  const closeModal = () => {
+    setModalImage(null);
+    setTranslateX(0);
+    setIsDragging(false);
+  };
+
+  // Handle touch events for swipe gestures
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchStartX.current = e.touches[0].clientX;
+    startTranslateX.current = translateX;
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - touchStartX.current;
+    const deltaY = e.touches[0].clientY - touchStartY.current;
+    
+    // If vertical movement is dominant, don't handle horizontal swipe
+    if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+    
+    // Calculate new position with resistance at edges
+    let newTranslateX = startTranslateX.current + (deltaX / window.innerWidth) * 100;
+    
+    // Add resistance at edges
+    if (newTranslateX > 0) {
+      newTranslateX = newTranslateX * 0.3; // Resistance at start
+    } else if (newTranslateX < -(features.length - 1) * 100) {
+      const overflow = newTranslateX + (features.length - 1) * 100;
+      newTranslateX = -(features.length - 1) * 100 + overflow * 0.3; // Resistance at end
+    }
+    
+    setTranslateX(newTranslateX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX.current;
+    const deltaY = touchEndY - touchStartY.current;
+    
+    // Swipe down to close
+    if (deltaY > 100 && Math.abs(deltaX) < 100) {
+      closeModal();
+      return;
+    }
+    
+    // Calculate which image to snap to
+    const threshold = 50; // pixels
+    const currentPosition = -translateX / 100;
+    let targetIndex = modalIndex;
+    
+    if (deltaX < -threshold && modalIndex < features.length - 1) {
+      targetIndex = modalIndex + 1;
+    } else if (deltaX > threshold && modalIndex > 0) {
+      targetIndex = modalIndex - 1;
+    } else {
+      // Snap back to current if swipe wasn't far enough
+      targetIndex = Math.round(currentPosition);
+    }
+    
+    // Ensure target is within bounds
+    targetIndex = Math.max(0, Math.min(features.length - 1, targetIndex));
+    
+    // Animate to target position
+    setModalIndex(targetIndex);
+    setTranslateX(-targetIndex * 100);
+  };
+
   return (
     <Section className="py-16 md:py-20">
       <SectionContainer>
@@ -128,7 +220,7 @@ const CMSBonusSection = () => {
 
                       {/* Large mockup preview - natural size */}
                       <button
-                        onClick={() => setModalImage(feature.mockupContent)}
+                        onClick={() => openModal(index)}
                         className="mobile-mockup-content group cursor-pointer"
                       >
                         <div className="relative h-full overflow-hidden bg-[#181818]">
@@ -230,21 +322,65 @@ const CMSBonusSection = () => {
       {/* Fullscreen Modal */}
       {modalImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setModalImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 animate-in fade-in duration-200"
+          onClick={closeModal}
+          ref={modalRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
+          {/* Drag handle indicator */}
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/30 rounded-full" />
+          
+          {/* Close button - bigger for mobile */}
           <button
-            className="absolute right-4 top-4 z-10 rounded-full p-2 text-white transition-colors hover:bg-white/10"
-            onClick={() => setModalImage(null)}
+            className="absolute right-4 top-4 z-10 rounded-full p-3 text-white transition-colors hover:bg-white/10 active:bg-white/20"
+            onClick={closeModal}
           >
-            <X className="h-8 w-8" />
+            <X className="h-10 w-10 md:h-8 md:w-8" />
           </button>
+          
+          {/* Image container */}
           <div
-            className="relative w-full max-w-sm"
+            className="relative w-full max-w-sm animate-in zoom-in-95 duration-200 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-[9/16] w-full overflow-hidden rounded-lg bg-gray-900">
-              {modalImage}
+            <div className="relative aspect-[9/16] w-full overflow-hidden rounded-lg">
+              {/* All images in a horizontal row */}
+              <div
+                className={cn(
+                  "absolute inset-0 flex transition-transform ease-out",
+                  isDragging ? "duration-0" : "duration-300"
+                )}
+                style={{ transform: `translateX(${translateX}%)` }}
+              >
+                {features.map((feature, index) => (
+                  <div
+                    key={feature.id}
+                    className="min-w-full relative bg-black"
+                  >
+                    {feature.mockupContent}
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Navigation dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  className={cn(
+                    "h-2 w-2 rounded-full transition-all",
+                    modalIndex === index ? "bg-white w-8" : "bg-white/40"
+                  )}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setModalIndex(index);
+                    setTranslateX(-index * 100);
+                  }}
+                />
+              ))}
             </div>
           </div>
         </div>
