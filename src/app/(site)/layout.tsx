@@ -4,7 +4,6 @@ import Providers from '@/providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
-import MobileBottomNav from '@/components/MobileBottomNav';
 import CookieBanner from '@/components/CookieBanner';
 import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent';
 import { Analytics } from '@/components/Analytics';
@@ -55,10 +54,9 @@ export default async function RootLayout({
       >
         <Providers>
           <Header />
-          <main className="mt-4 flex-grow md:mt-8 pb-20 md:pb-0">{children}</main>
+          <main className="mt-4 flex-grow md:mt-8">{children}</main>
           <Footer />
           <Modal />
-          <MobileBottomNav />
           <CookieBanner />
         </Providers>
         <GoogleAnalyticsConsent />
