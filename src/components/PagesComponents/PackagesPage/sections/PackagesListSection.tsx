@@ -1,3 +1,5 @@
+'use client';
+
 import { CheckCircle2, Sparkles, TrendingUp } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import SectionContainer from '@/components/ui/SectionContainer';
@@ -10,6 +12,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { TrackedButton } from '@/components/TrackedLink';
+import { useState, useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const PackagesListSection = () => {
   const shadowColorMap: Record<string, string> = {
@@ -20,6 +24,21 @@ const PackagesListSection = () => {
     'from-brand-purple': 'shadow-brand-purple/20',
     'from-brand-pink': 'shadow-brand-pink/20',
   };
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <div id="paket">
@@ -51,8 +70,110 @@ const PackagesListSection = () => {
           )}
         </header>
 
+        {/* Mobile Carousel */}
+        <div className="md:hidden overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {packages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className="min-w-0 flex-[0_0_85%] pl-4 first:pl-0 h-[600px]"
+              >
+                <Card
+                  className={cn(
+                    "group relative transition-all h-full",
+                    pkg.popular ? "shadow-md ring-2 ring-purple-500/20" : "shadow-sm"
+                  )}
+                >
+                  <CardContent className="p-4 h-full grid" 
+                    style={{
+                      gridTemplateRows: 'auto minmax(2rem, auto) minmax(3rem, auto) repeat(6, auto) auto auto',
+                      gap: '0.5rem'
+                    }}
+                  >
+                    {/* Package icon/badge */}
+                    <div className="text-center">
+                      <div
+                        className={cn(
+                          "inline-flex rounded-xl p-3 shadow-lg transition-transform group-hover:scale-110",
+                          `bg-gradient-to-r ${pkg.gradientFrom} ${pkg.gradientVia} ${pkg.gradientTo}`,
+                          shadowColorMap[pkg.gradientFrom] || ''
+                        )}
+                      >
+                        <Sparkles className="h-8 w-8 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+
+                    {/* Package name */}
+                    <div className="text-center flex items-center justify-center min-h-[2rem]">
+                      <Text as="h3" className="text-lg font-semibold">
+                        {pkg.name}
+                      </Text>
+                    </div>
+
+                    {/* Tagline */}
+                    <div className="text-center flex items-center justify-center min-h-[3rem]">
+                      <Text className="text-sm text-gray-600 dark:text-gray-400">
+                        {pkg.tagline}
+                      </Text>
+                    </div>
+
+                    {/* Features - each feature is a separate grid item */}
+                    {pkg.features.slice(0, 6).map((feature, idx) => (
+                      <div key={idx} className="grid grid-cols-[auto,1fr] gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                        <Text className="text-xs text-gray-600 dark:text-gray-400 leading-snug">
+                          {feature}
+                        </Text>
+                      </div>
+                    ))}
+                    {/* Fill empty feature slots */}
+                    {Array.from({ length: Math.max(0, 6 - pkg.features.length) }).map((_, idx) => (
+                      <div key={`empty-${idx}`} className="h-5" />
+                    ))}
+
+                    {/* Delivery time */}
+                    <div className="border-t border-gray-200 dark:border-gray-700 pt-3 text-center">
+                      <Text className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                        {pkg.delivery}
+                      </Text>
+                    </div>
+
+                    {/* CTA Button with integrated pricing */}
+                    <div>
+                      <ContactButton 
+                        className="w-full justify-center"
+                        text={pkg.id === 'skraddarsytt' ? "Kontakta oss för offert" : pkg.price}
+                        variant="outline-hero"
+                        packageName={pkg.name}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dot indicators for mobile */}
+        <div className="mt-4 flex justify-center gap-2 md:hidden">
+          {packages.map((_, index) => (
+            <button
+              key={index}
+              className={cn(
+                'h-2 transition-all duration-200',
+                selectedIndex === index
+                  ? 'w-8 rounded-full bg-primary'
+                  : 'w-2 rounded-full bg-gray-300 hover:bg-gray-400',
+              )}
+              onClick={() => emblaApi?.scrollTo(index)}
+              aria-label={`Go to package ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Desktop Grid */}
         <div 
-          className="grid gap-8 md:grid-cols-3"
+          className="hidden md:grid gap-8 md:grid-cols-3"
           style={{
             gridTemplateRows: 'auto auto auto repeat(6, auto) auto auto',
             rowGap: '1.75rem'

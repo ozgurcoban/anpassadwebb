@@ -17,16 +17,20 @@ const Modal = () => {
 
   return (
     <Dialog modal open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-svh gap-0 p-2 sm:mx-auto sm:max-w-lg sm:p-4 md:gap-4">
-        <DialogHeader className="mt-6">
-          <DialogTitle className="pl-2 text-left text-xl sm:text-2xl">
-            {title}
-          </DialogTitle>
-          <DialogDescription className="sm:text-md px-2 text-justify">
-            {description}
-          </DialogDescription>
-        </DialogHeader>
-        {children}
+      <DialogContent className="h-[100dvh] max-h-[100dvh] gap-0 overflow-y-auto p-0 sm:h-auto sm:max-h-[90vh] sm:max-w-lg sm:rounded-lg">
+        <div className="flex min-h-full flex-col p-4 sm:p-6">
+          <DialogHeader className="mb-4">
+            <DialogTitle className="text-left text-xl sm:text-2xl">
+              {title}
+            </DialogTitle>
+            <DialogDescription className="text-left text-sm sm:text-base">
+              {description}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 overflow-y-auto">
+            {children}
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
