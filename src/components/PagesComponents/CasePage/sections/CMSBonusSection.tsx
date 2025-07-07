@@ -40,7 +40,7 @@ const CMSBonusSection = () => {
   const features: CMSFeature[] = [
     {
       id: 'mobile',
-      icon: <Smartphone className="h-5 w-5" />,
+      icon: <Smartphone className="size-5" />,
       title: 'Ändra från mobilen',
       description: 'Uppdatera direkt i mobilen - var du än befinner dig',
       mockupContent: (
@@ -104,18 +104,18 @@ const CMSBonusSection = () => {
           />
 
           {/* Mobile Layout - Carousel */}
-          <div className="md:hidden">
+          <div className="mobile-mockup-wrapper md:hidden">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
                 {features.map((feature, index) => (
                   <div
                     key={feature.id}
-                    className="flex-[0_0_90%] min-w-0 pl-4 first:pl-0"
+                    className="mobile-mockup-slide min-w-0 flex-[0_0_90%] pl-4 first:pl-0"
                   >
-                    <Card className="h-full overflow-hidden flex flex-col">
+                    <Card className="mobile-mockup-card overflow-hidden">
                       {/* Compact header */}
-                      <div className="p-4 flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+                      <div className="mobile-mockup-header">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                           {feature.icon}
                         </div>
                         <div className="flex-1">
@@ -125,21 +125,21 @@ const CMSBonusSection = () => {
                           </Text>
                         </div>
                       </div>
-                      
+
                       {/* Large mockup preview - natural size */}
-                      <button 
+                      <button
                         onClick={() => setModalImage(feature.mockupContent)}
-                        className="relative w-full group cursor-pointer flex-1 min-h-[500px]"
+                        className="mobile-mockup-content group cursor-pointer"
                       >
-                        <div className="relative h-full overflow-hidden bg-gray-900">
+                        <div className="relative h-full overflow-hidden bg-[#181818]">
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-[280px] h-full relative">
+                            <div className="relative h-full w-[280px]">
                               {feature.mockupContent}
                             </div>
                           </div>
                         </div>
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-active:opacity-100 transition-opacity">
-                          <span className="bg-black/70 text-white px-3 py-1 rounded-full text-xs">
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 transition-opacity group-active:opacity-100">
+                          <span className="rounded-full bg-black/70 px-3 py-1 text-xs text-white">
                             Tryck för fullskärm
                           </span>
                         </div>
@@ -149,17 +149,17 @@ const CMSBonusSection = () => {
                 ))}
               </div>
             </div>
-            
+
             {/* Dot indicators */}
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="mt-4 flex justify-center gap-2">
               {features.map((_, index) => (
                 <button
                   key={index}
                   className={cn(
-                    "h-2 transition-all duration-200",
-                    selectedIndex === index 
-                      ? "bg-primary w-8 rounded-full" 
-                      : "bg-gray-300 w-2 rounded-full hover:bg-gray-400"
+                    'h-2 transition-all duration-200',
+                    selectedIndex === index
+                      ? 'w-8 rounded-full bg-primary'
+                      : 'w-2 rounded-full bg-gray-300 hover:bg-gray-400',
                   )}
                   onClick={() => emblaApi?.scrollTo(index)}
                   aria-label={`Go to slide ${index + 1}`}
@@ -169,7 +169,7 @@ const CMSBonusSection = () => {
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden md:grid items-center gap-8 lg:grid-cols-2">
+          <div className="hidden items-center gap-8 md:grid lg:grid-cols-2">
             {/* Mobile Mockup */}
             <div className="relative order-2 lg:order-1">
               <div
@@ -229,18 +229,21 @@ const CMSBonusSection = () => {
 
       {/* Fullscreen Modal */}
       {modalImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
           onClick={() => setModalImage(null)}
         >
-          <button 
-            className="absolute top-4 right-4 text-white z-10 p-2 hover:bg-white/10 rounded-full transition-colors"
+          <button
+            className="absolute right-4 top-4 z-10 rounded-full p-2 text-white transition-colors hover:bg-white/10"
             onClick={() => setModalImage(null)}
           >
             <X className="h-8 w-8" />
           </button>
-          <div className="relative max-w-sm w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="relative aspect-[9/16] w-full rounded-lg overflow-hidden bg-gray-900">
+          <div
+            className="relative w-full max-w-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative aspect-[9/16] w-full overflow-hidden rounded-lg bg-gray-900">
               {modalImage}
             </div>
           </div>
