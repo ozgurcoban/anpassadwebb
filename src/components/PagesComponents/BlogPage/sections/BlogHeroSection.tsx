@@ -24,7 +24,7 @@ const BlogHeroSection = () => {
         textAlign="center"
         verticalCenter={true}
         minHeight="min-h-[400px] md:min-h-[60vh] lg:min-h-[70vh]"
-        overlayOpacity={0.85}
+        overlayOpacity={0.9}
       >
         {/* Feature Pills */}
         <FadeInView delay={0.6} duration={0.8} className="mt-8 flex flex-wrap justify-center gap-3">
@@ -37,7 +37,7 @@ const BlogHeroSection = () => {
                 duration={0.6}
                 className={cn(
                   "inline-flex items-center gap-2 px-4 py-2 rounded-full",
-                  "bg-white/10 backdrop-blur-sm border border-white/20",
+                  "bg-white/15 backdrop-blur-sm border border-white/25",
                   "text-white text-sm font-medium",
                   "transition-all duration-300 hover:bg-white/20 hover:scale-105"
                 )}

@@ -130,21 +130,33 @@ export default function BlogPostClient({
           </div>
 
           {/* Title Section */}
-          <div className="absolute bottom-0 left-0 right-0 mb-6 p-8">
-            <div className="mx-auto max-w-5xl">
-              <FadeInView delay={0.2} duration={0.8}>
-                <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-                  {title}
-                </h1>
-              </FadeInView>
-
-              {description && (
-                <FadeInView delay={0.4} duration={0.8}>
-                  <p className="max-w-3xl text-xl leading-relaxed text-white/90">
-                    {description}
-                  </p>
+          <div className="absolute inset-0 flex items-center justify-center p-4 [@media(min-width:400px)]:p-8">
+            <div className="mx-auto max-w-5xl w-full">
+              <div>
+                <FadeInView delay={0.2} duration={0.8}>
+                  <h1 
+                    className="mb-4 text-2xl [@media(min-width:400px)]:text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
+                    style={{
+                      textShadow: '2px 2px 8px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.4)'
+                    }}
+                  >
+                    {title}
+                  </h1>
                 </FadeInView>
-              )}
+
+                {description && (
+                  <FadeInView delay={0.4} duration={0.8}>
+                    <p 
+                      className="max-w-3xl text-base [@media(min-width:400px)]:text-xl leading-relaxed text-white/90"
+                      style={{
+                        textShadow: '0 2px 25px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,0.7), 0 4px 6px rgba(0,0,0,0.95)'
+                      }}
+                    >
+                      {description}
+                    </p>
+                  </FadeInView>
+                )}
+              </div>
             </div>
           </div>
         </div>

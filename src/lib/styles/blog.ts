@@ -3,7 +3,7 @@ export const blogStyles = {
     primary: 'from-blue-600 via-purple-600 to-pink-600',
     primaryHover: 'from-blue-600 via-purple-600 to-pink-600',
     overlay: {
-      dark: 'from-black/20 via-black/30 to-black/60',
+      dark: 'from-black/30 via-black/40 to-black/70',
       light: 'from-transparent via-transparent to-black/30',
       card: 'from-blue-50/20 via-purple-50/10 to-pink-50/20 dark:from-blue-900/10 dark:via-purple-900/5 dark:to-pink-900/10'
     },
