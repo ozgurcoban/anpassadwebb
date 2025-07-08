@@ -28,7 +28,7 @@ const HeroSection = () => {
       overlayOpacity={0.85}
       secondaryCTA={{
         text: 'Se vårt arbete',
-        href: '#arbete',
+        href: '/case',
         variant: 'ghost-hero',
       }}
       verticalCenter={true}
