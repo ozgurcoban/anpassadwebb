@@ -5,7 +5,7 @@ const PackagesHeroSection = () => {
   return (
     <GradientHero
       title="Paket som passar din verksamhet"
-      description="Från enkel startsida till komplett digital lösning. Välj det paket som passar dina behov och budget."
+      description="Prisvärda hemsidor för företag i Uppsala. Från enkel startsida till komplett digital lösning - välj det paket som passar din budget."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"

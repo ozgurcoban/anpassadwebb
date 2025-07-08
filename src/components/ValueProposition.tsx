@@ -25,8 +25,8 @@ const benefits = [
   },
   {
     icon: MapPin,
-    title: 'Lokalt förankrad',
-    description: 'I Uppsala',
+    title: 'Webbutveckling Uppsala',
+    description: 'Lokal partner',
   },
 ];
 

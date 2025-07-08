@@ -5,7 +5,7 @@ const CaseHeroSection = () => {
   return (
     <GradientHero
       title="Från osynlig till omtyckt - Palermos digitala resa"
-      description="Se hur en klassisk kvarterskrog i Uppsala blev enklare att hitta, besöka och beställa från"
+      description="Se hur vi hjälpte en klassisk kvarterskrog i Uppsala bli enklare att hitta online. Ett lokalt samarbete för webbutveckling Uppsala."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"

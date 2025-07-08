@@ -32,26 +32,27 @@ const ServicesSection = () => {
       <SectionContainer>
         <SectionHeading
           title="Vad vi erbjuder"
-          subtitle="Inga tekniska termer, bara lösningar som fungerar"
+          subtitle="Webbutveckling i Uppsala - inga tekniska termer, bara lösningar som fungerar"
         />
 
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
+              className="group relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg"
             >
               <CardContent className="p-8">
                 <div className="mb-6 inline-flex rounded-xl p-4 transition-transform group-hover:scale-110">
-                  <service.icon className="h-10 w-10 text-primary" strokeWidth={1.5} />
+                  <service.icon
+                    className="h-10 w-10 text-primary"
+                    strokeWidth={1.5}
+                  />
                 </div>
 
                 <Text as="h3" className="mb-2 text-xl font-semibold">
                   {service.heading}
                 </Text>
-                <Text className="text-muted-foreground">
-                  {service.title}
-                </Text>
+                <Text className="text-muted-foreground">{service.title}</Text>
               </CardContent>
             </Card>
           ))}
@@ -59,7 +60,7 @@ const ServicesSection = () => {
 
         <div className="mt-16 text-center">
           <Text className="mb-2 text-muted-foreground">
-            Palermo klättrade från plats 25 till 4 för &quot;pizza
+            Palermo klättrade från plats 25 till 5 för &quot;pizza
             uppsala&quot;.
           </Text>
           <Text className="mb-4 text-muted-foreground">

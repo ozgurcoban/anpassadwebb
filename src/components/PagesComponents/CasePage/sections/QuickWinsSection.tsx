@@ -59,6 +59,11 @@ const QuickWinsSection = () => {
     <Section className="py-16 md:py-20">
       <div ref={sectionRef}>
         <SectionContainer>
+          <div className="mb-8 text-center">
+            <p className="text-lg text-muted-foreground">
+              Som lokal webbyrå i Uppsala förstår vi vikten av att synas där dina kunder söker
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {stats.map((stat, index) => (
               <Card

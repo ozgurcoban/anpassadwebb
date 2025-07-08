@@ -55,6 +55,7 @@ export default function BookingInfoSection() {
           
           <div className="mt-12 rounded-lg bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 p-8 text-center">
             <h3 className="mb-4 text-2xl font-semibold">Förbered dig för mötet</h3>
+            <p className="mb-4 text-muted-foreground">Som lokal webbyrå i Uppsala hjälper vi företag med hemsidor som syns</p>
             <ul className="mx-auto max-w-2xl space-y-2 text-left text-muted-foreground">
               <li className="flex items-start">
                 <span className="mr-2 text-primary">•</span>

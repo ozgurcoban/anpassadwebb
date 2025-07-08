@@ -12,7 +12,7 @@ export default function BookingHeroSection() {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Boka ett kostnadsfritt konsultationssamtal"
-          subtitle="Låt oss diskutera dina digitala mål och hur vi kan hjälpa dig att förverkliga dem. Välj en tid som passar dig så ses vi online."
+          subtitle="Boka möte för din hemsida i Uppsala. Låt oss diskutera dina digitala mål och hur vi kan hjälpa ditt företag att synas online."
           as="h1"
           titleClassName="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
           subtitleClassName="text-xl"

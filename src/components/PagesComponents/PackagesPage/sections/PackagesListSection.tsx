@@ -47,7 +47,7 @@ const PackagesListSection = () => {
         <header className="mb-12">
           <SectionHeading
             title="Välj rätt paket för din verksamhet"
-            subtitle="Transparent prissättning, inga dolda avgifter"
+            subtitle="Hemsidor i Uppsala med transparent prissättning - inga dolda avgifter"
             subtitleClassName="text-gray-600 dark:text-gray-400"
           />
           {packagesConfig.introDescription && (

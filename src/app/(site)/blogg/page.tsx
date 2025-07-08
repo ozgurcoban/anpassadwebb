@@ -1,8 +1,19 @@
+import { Metadata } from 'next';
 import { getAllPosts } from '@/lib/mdx';
 import { BlogComponents } from '@/components/PagesComponents/BlogPage';
 import { BlogPostsContainer } from '@/components/Blog/BlogPostsContainer';
 import FeaturedPostsSection from '@/components/Blog/FeaturedPostsSection';
 import Section from '@/components/ui/Section';
+
+export const metadata: Metadata = {
+  title: 'Blogg - AI & Digital marknadsföring för småföretagare | Anpassad Webb',
+  description: 'Praktiska guider om AI, webbutveckling och digital marknadsföring. Lär dig hur du som småföretagare kan växa online med enkla, beprövade strategier.',
+  openGraph: {
+    title: 'Blogg - AI & Digital marknadsföring för småföretagare',
+    description: 'Enkla guider och beprövade strategier för att lyckas digitalt - utan teknisk bakgrund.',
+    type: 'website',
+  },
+};
 
 export default async function PostsPage() {
   const posts = getAllPosts();

@@ -11,9 +11,9 @@ import { ScrollTracker } from '@/components/ScrollTracker';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Anpassad Webb - Skräddarsydda hemsidor för företag',
-  description: 'Vi skapar professionella, responsiva hemsidor som hjälper ditt företag att växa online.',
-  robots: 'noindex, nofollow',
+  title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
+  description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+  robots: 'index, follow',
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },

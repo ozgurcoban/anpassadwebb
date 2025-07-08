@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { BookingComponents } from "@/components/PagesComponents/BookingPage";
 
 export const metadata: Metadata = {
-  title: "Boka Möte | Anpassad Webb",
-  description: "Boka ett kostnadsfritt konsultationssamtal för att diskutera dina digitala behov och hur vi kan hjälpa dig att växa online.",
+  title: "Boka möte - Hemsida Uppsala | Webbyrå Uppsala",
+  description: "Boka kostnadsfri konsultation för din hemsida i Uppsala. Vi är en lokal webbyrå som hjälper företag med webbutveckling och digital marknadsföring.",
   openGraph: {
-    title: "Boka Möte | Anpassad Webb",
-    description: "Boka ett kostnadsfritt konsultationssamtal för att diskutera dina digitala behov",
+    title: "Boka möte - Hemsida Uppsala | Webbyrå Uppsala",
+    description: "Boka kostnadsfri konsultation med vår lokala webbyrå i Uppsala",
     type: "website",
   },
 };

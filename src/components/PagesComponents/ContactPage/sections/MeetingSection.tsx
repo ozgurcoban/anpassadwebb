@@ -14,7 +14,7 @@ const MeetingSection = () => {
         <div className="space-y-12 text-center">
           <SectionHeading
             title="Eller boka ett möte direkt"
-            subtitle="Föredrar du att boka in ett möte direkt? Klicka nedan för att välja en tid som passar dig."
+            subtitle="Träffa oss på vårt kontor i Uppsala eller via videomöte. Välj en tid som passar dig för en kostnadsfri konsultation."
             as="h3"
             titleClassName="text-3xl font-bold"
             subtitleClassName="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"

@@ -12,11 +12,11 @@ const ContactFormSection = () => {
         <div className="grid gap-16">
           <div className="space-y-10">
             <Text as="h2" className="text-center text-5xl font-bold tracking-tight">
-              Vi vill höra från dig
+              Kontakta din lokala webbyrå i Uppsala
             </Text>
             <Text as="p" className="text-center text-xl text-muted-foreground leading-relaxed">
-              Oavsett om du har en konkret idé eller bara vill utforska möjligheterna, 
-              är vi redo att lyssna och hjälpa till. Kontakta oss idag för en kostnadsfri konsultation.
+              Som lokal partner i Uppsala är vi alltid redo att lyssna och hjälpa till. 
+              Kontakta oss för en kostnadsfri konsultation om din nästa hemsida.
             </Text>
           </div>
           
