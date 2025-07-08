@@ -8,37 +8,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     {
       url: baseUrl,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2025-07-08'),
       changeFrequency: 'monthly' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/blogg`,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2025-07-08'),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/paket`,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2025-07-01'),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/case`,
-      lastModified: new Date('2025-01-01'),
+      lastModified: new Date('2025-07-01'),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/kontakt`,
-      lastModified: new Date('2024-12-01'),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'yearly' as const,
       priority: 0.6,
     },
     {
       url: `${baseUrl}/boka-mote`,
-      lastModified: new Date('2024-12-01'),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'yearly' as const,
       priority: 0.6,
     },
