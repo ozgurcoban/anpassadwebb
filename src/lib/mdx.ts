@@ -60,12 +60,18 @@ export function getPostBySlug(slug: string): Post | null {
   const { data, content } = matter(fileContents)
   
   const stats = readingTime(content)
+  
+  // Override the text with Swedish translation
+  const swedishStats = {
+    ...stats,
+    text: `${Math.ceil(stats.minutes)} min läsning`
+  }
 
   return {
     slug,
     frontmatter: data as PostFrontmatter,
     content,
-    readingTime: stats
+    readingTime: swedishStats
   }
 }
 

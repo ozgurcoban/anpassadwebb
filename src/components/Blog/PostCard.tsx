@@ -59,7 +59,7 @@ export function PostCard({ post, locale = blogConfig.defaultLocale, index = 0 }:
         <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-md">
           <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
             <Clock className="w-4 h-4" />
-            <span>{Math.ceil(readingTime.minutes)} min</span>
+            <span>{Math.ceil(readingTime.minutes)} min läsning</span>
           </div>
         </div>
       </Link>
