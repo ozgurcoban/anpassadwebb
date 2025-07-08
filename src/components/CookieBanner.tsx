@@ -88,7 +88,6 @@ export default function CookieBanner() {
                     <Link 
                       href="/integritetspolicy" 
                       className="underline hover:text-primary"
-                      onClick={() => setShowBanner(false)}
                     >
                       integritetspolicy
                     </Link>
