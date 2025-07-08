@@ -148,7 +148,7 @@ export const palermoProject: DetailedCaseStudy = {
     steps: [
       'Första steget är en dialog – Du berättar om dina mål och behov.',
       'Skiss och förslag tas fram – Du får se hur sidan kan se ut innan vi sätter igång.',
-      'Utveckling och godkännande – Tidsramen beror på paketets omfattning.',
+      'Utveckling och godkännande – Tidsramen beror på projektets omfattning.',
       'Långsiktig support – Vi hjälper gärna till med löpande underhåll och förbättringar.',
     ],
   },

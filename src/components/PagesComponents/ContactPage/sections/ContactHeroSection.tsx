@@ -5,7 +5,7 @@ const ContactHeroSection = () => {
   return (
     <GradientHero
       title="Kontakta oss"
-      description="Lokal webbyrå i Uppsala redo att hjälpa dig. Vi finns här för att diskutera ditt nästa projekt och hjälpa dig ta nästa steg i din digitala resa."
+      description="Vi finns här i Uppsala för att hjälpa dig med ditt nästa projekt. Låt oss diskutera hur vi kan förbättra din digitala närvaro."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
