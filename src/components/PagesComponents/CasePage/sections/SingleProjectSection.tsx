@@ -22,7 +22,7 @@ const SingleProjectSection = () => {
                 afterLabel="Nuvarande design"
                 className="rounded-2xl shadow-2xl"
                 aspectRatio="4/3"
-                title="Från osynlig till fullbokad"
+                title="Klassisk charm möter modern teknik"
                 description="Förr: En hemsida från 2011 som inte gick att hitta. Nu: Modern design som engagerar. Dra i reglaget för att se förändringen."
                 initialPosition={30}
               />

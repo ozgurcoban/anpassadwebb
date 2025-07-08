@@ -15,7 +15,7 @@ const HeroSection = () => {
           på riktigt
         </>
       }
-      description="Vi skapar skräddarsydda hemsidor i Uppsala som laddar snabbt, rankar på Google och är din lokala partner för hemsida Uppsala."
+      description="Vi skapar snabba, Google-optimerade hemsidor och är din lokala partner för webbutveckling i Uppsala."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"

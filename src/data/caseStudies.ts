@@ -43,7 +43,7 @@ export const palermoProject: DetailedCaseStudy = {
   title: 'Palermo',
   client: 'Klassisk restaurang, pizzeria och bar i Uppsala',
   description:
-    'Från osynlig till fullbokad. Se hur rätt digital strategi förändrade allt.',
+    'Från dold pärla till online-succé. Se hur vi lyfte deras digitala närvaro.',
   longDescription: 'Tre enkla förändringar som gav Palermo 85% fler gäster.',
   category: 'Restaurang',
   technologies: ['Syns på Google', 'Enkel att uppdatera', 'Säljer mer'],
@@ -146,10 +146,10 @@ export const palermoProject: DetailedCaseStudy = {
     title: 'Så här funkar det – din process',
     subtitle: 'Så här jobbar vi – snabbt, enkelt och utan krångel',
     steps: [
-      'Vi snackar kort – Du berättar vad du behöver, vi ställer rätt frågor.',
-      'Vi skissar en lösning – Du får se hur sidan kan se ut innan vi sätter igång.',
-      'Vi bygger klart och du godkänner – Oftast klart inom 1–2 veckor.',
-      'Du slipper tänka mer – Vi kan hjälpa med underhåll, uppdateringar och SEO om du vill.',
+      'Första steget är en dialog – Du berättar om dina mål och behov.',
+      'Skiss och förslag tas fram – Du får se hur sidan kan se ut innan vi sätter igång.',
+      'Utveckling och godkännande – Tidsramen beror på paketets omfattning.',
+      'Långsiktig support – Vi hjälper gärna till med löpande underhåll och förbättringar.',
     ],
   },
 };
