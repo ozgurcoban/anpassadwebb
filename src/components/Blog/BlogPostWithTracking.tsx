@@ -12,9 +12,7 @@ type BlogPostWithTrackingProps = {
 };
 
 export default function BlogPostWithTracking({ post, mdxSource, locale }: BlogPostWithTrackingProps) {
-  // Temporärt avaktiverad tills Redis är konfigurerat
-  // TODO: Aktivera när KV_REST_API_URL och KV_REST_API_TOKEN är konfigurerade
-  // useTrackPostView(post.slug);
+  useTrackPostView(post.slug);
   
   return <BlogPostClient post={post} mdxSource={mdxSource} locale={locale} />;
 }

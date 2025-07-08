@@ -6,6 +6,12 @@ export function useTrackPostView(slug: string) {
   const hasTracked = useRef(false);
 
   useEffect(() => {
+    // Skip tracking in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log('View tracking disabled in development');
+      return;
+    }
+
     // Only track once per page load
     if (hasTracked.current) return;
     
