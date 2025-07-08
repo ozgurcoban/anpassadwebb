@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate-logo": "node scripts/generate-logo.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -48,7 +49,6 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "resend": "^4.0.0",
-    "sharp": "^0.33.5",
     "styled-components": "^6.1.12",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
@@ -69,6 +69,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "puppeteer": "^24.11.1",
+    "sharp": "^0.34.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },

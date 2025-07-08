@@ -4,4 +4,4 @@ Allow: /
 # Disallow demo and test pages
 Disallow: /before-after-demo
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://anpassadwebb.se/sitemap.xml

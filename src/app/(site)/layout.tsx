@@ -8,12 +8,27 @@ import CookieBanner from '@/components/CookieBanner';
 import GoogleAnalyticsConsent from '@/components/GoogleAnalyticsConsent';
 import { Analytics } from '@/components/Analytics';
 import { ScrollTracker } from '@/components/ScrollTracker';
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/JsonLd';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://anpassadwebb.se'),
   title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
   description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
   robots: 'index, follow',
+  openGraph: {
+    type: 'website',
+    locale: 'sv_SE',
+    url: 'https://anpassadwebb.se',
+    siteName: 'Anpassad Webb',
+    title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
+    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
+    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+  },
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -48,10 +63,25 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="sv" suppressHydrationWarning className="scroll-smooth">
       <body
         className={`${open_sans.variable} ${montserrat.variable} ${quicksand.variable} bg-gradient-to-br from-slate-50 to-stone-50 dark:from-slate-900 dark:to-stone-900 flex min-h-svh flex-col overflow-y-scroll`}
       >
+        <OrganizationJsonLd
+          name="Anpassad Webb"
+          description="Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online."
+          url="https://anpassadwebb.se"
+          email="kontakt@anpassadwebb.se"
+          address={{
+            addressLocality: 'Uppsala',
+            addressCountry: 'SE',
+          }}
+        />
+        <WebSiteJsonLd
+          name="Anpassad Webb"
+          description="Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online."
+          url="https://anpassadwebb.se"
+        />
         <Providers>
           <Header />
           <main className="mt-4 flex-grow md:mt-8">{children}</main>
