@@ -67,7 +67,7 @@ export const palermoProject: DetailedCaseStudy = {
         'Ingen hittade restaurangen på Google. Potentiella gäster gick till konkurrenter.',
       afterTitle: 'Nu',
       afterDescription:
-        'Från plats 25 till top 3 på Google när någon söker "pizza uppsala". Nya gäster varje dag.',
+        'Från plats 25 till top 5 på Google när någon söker "pizza uppsala". Nya gäster varje dag.',
       value: '73% fler besökare från Google',
       beforeImage: '/images/palermo-case/palermo-seo-before.webp',
       afterImage: '/images/palermo-case/palermo-seo-after.png',
@@ -133,8 +133,8 @@ export const palermoProject: DetailedCaseStudy = {
   ],
   testimonial: {
     quote:
-      'Det bästa vi gjort för vår restaurang. Vi får nya gäster varje dag och sparar massor av tid.',
-    author: 'Marco Rossi',
+      'Professionellt bemötande och otroligt nöjd med resultatet. Menyn är enkel att uppdatera och sidan ser fantastisk ut på mobilen.',
+    author: 'Burhan Balikci',
     position: 'Ägare, Palermo',
   },
   aboutSection: {

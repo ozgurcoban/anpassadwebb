@@ -37,7 +37,7 @@ const QuickWinsSection = () => {
   const stats: StatCard[] = [
     {
       icon: <TrendingUp className="h-8 w-8" strokeWidth={1.5} />,
-      value: 'Från plats 25 → 4',
+      value: 'Från plats 25 → 5',
       label: 'på Google för "pizza uppsala"',
       color: 'text-brand-blue',
     },
@@ -61,7 +61,8 @@ const QuickWinsSection = () => {
         <SectionContainer>
           <div className="mb-8 text-center">
             <p className="text-lg text-muted-foreground">
-              Som lokal webbyrå i Uppsala förstår vi vikten av att synas där dina kunder söker
+              Som lokal webbyrå i Uppsala förstår vi vikten av att synas där
+              dina kunder söker
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
