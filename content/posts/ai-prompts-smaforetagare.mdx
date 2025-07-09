@@ -13,14 +13,15 @@ thumbnail: /images/blog/ai-prompts-hero.webp
 
 import Image from 'next/image';
 import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption';
+import { AIPrompt } from '@/components/Blog/AIPrompt';
 
 Du har förstått vad AI är. Du vet vad det kan spara. Nu är det dags att börja använda det – på riktigt. I det här inlägget får du konkreta exempel på hur du som småföretagare kan skriva effektiva prompts (kommandon) till AI, så att du får ut maximalt värde på minimal tid.
 
 Vi ger dig:
 
-* Mallar för vanliga uppgifter
-* Copy-paste-exempel
-* Vanliga nybörjarmisstag (och hur du undviker dem)
+- Mallar för vanliga uppgifter
+- Copy-paste-exempel
+- Vanliga nybörjarmisstag (och hur du undviker dem)
 
 Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar – oavsett om du driver en salong, pizzeria eller konsultverksamhet i Uppsala.
 
@@ -34,27 +35,31 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Svara på det här mejlet."
 
 **Bättre prompt:**
-"Skriv ett vänligt och professionellt svar till en kund som undrar om vi har några lediga tider för klippning nästa vecka. Vi är fullbokade fram till torsdag men har en lucka fredag kl 14. Tona det som ett personligt svar från en småföretagare i Uppsala. Här är kundens mejl:"
 
-> Hej! Jag tänkte höra om ni har någon ledig tid för klippning nästa vecka? Helst tidigare i veckan om möjligt.
-> /Eva
+<AIPrompt>
+Skriv ett vänligt och professionellt svar till en kund som undrar om vi har några lediga tider för klippning nästa vecka. Vi är fullbokade fram till torsdag men har en lucka fredag kl 14. Tona det som ett personligt svar från en småföretagare i Uppsala. Här är kundens mejl:
+
+Hej! Jag tänkte höra om ni har någon ledig tid för klippning nästa vecka? Helst tidigare i veckan om möjligt.
+/Eva
+
+</AIPrompt>
 
 **Svar som AI kan ge:**
 
 > Hej Eva,
-> 
+>
 > Tack för ditt mejl! Vad roligt att du vill boka tid hos oss. Just nu är vi fullbokade fram till torsdag, men vi har en ledig tid på fredag kl 14 som jag gärna reserverar åt dig om det passar.
-> 
+>
 > Hör av dig så snart du kan, så håller jag tiden åt dig.
-> 
+>
 > Vänliga hälsningar,
 > [Ditt namn] – [Salongsnamn]
 
 **Tips:**
 
-* Lägg in vad kunden sagt (i korthet) och vad du vill svara
-* Ange tonen: vänlig, tydlig, entusiastisk?
-* Tydliggör nästa steg
+- Lägg in vad kunden sagt (i korthet) och vad du vill svara
+- Ange tonen: vänlig, tydlig, entusiastisk?
+- Tydliggör nästa steg
 
 ## Exempel 2: Skapa en FAQ till hemsidan – på några sekunder
 
@@ -62,15 +67,25 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 
 **Bättre prompt i två steg:**
 
-**Första promten**: *Jag driver Lasses Städfirma i Uppsala. Läs vår hemsida www.lassesstadfirma.se och/eller googla så du förstår vad vi gör.*
+**Första promten**:
 
-**Uppföljande prompt:** *Skriv en enkel FAQ med svar på dessa ämnen: vad som ingår, nyckelhantering, veckostädning, städmaterial.*
+<AIPrompt>
+  _Jag driver Lasses Städfirma i Uppsala. Läs vår hemsida www.lassesstadfirma.se
+  och/eller googla så du förstår vad vi gör._
+</AIPrompt>
+
+**Uppföljande prompt:**
+
+<AIPrompt>
+  _Skriv en enkel FAQ med svar på dessa ämnen: vad som ingår, nyckelhantering,
+  veckostädning, städmaterial._
+</AIPrompt>
 
 **Tips:**
 
-* FAQ är perfekt för både SEO och kundservice
-* Skriv som om du svarade i telefon
-* Ju tydligare du är, desto bättre svar får du
+- FAQ är perfekt för både SEO och kundservice
+- Skriv som om du svarade i telefon
+- Ju tydligare du är, desto bättre svar får du
 
 ## Exempel 3: Skriv ett nyhetsbrev som faktiskt blir öppnat
 
@@ -78,13 +93,19 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Skriv ett nyhetsbrev till mina kunder."
 
 **Bättre prompt:**
-"Skriv ett personligt och lättsamt nyhetsbrev till mina stamkunder i Uppsala. Jag driver en salong där vi nu erbjuder 15% rabatt på klippning under juli. Nyhetsbrevet ska kännas lokalt och varmt – som att det kommer från mig, inte en maskin."
+
+<AIPrompt>
+  Skriv ett personligt och lättsamt nyhetsbrev till mina stamkunder i Uppsala.
+  Jag driver en salong där vi nu erbjuder 15% rabatt på klippning under juli.
+  Nyhetsbrevet ska kännas lokalt och varmt – som att det kommer från mig, inte
+  en maskin.
+</AIPrompt>
 
 **Tips:**
 
-* Sätt scenen: Vad är det för företag? Vilka är mottagarna?
-* Tala om syftet: Vad ska läsaren göra, känna eller förstå?
-* Skriv som om du briefade en människa
+- Sätt scenen: Vad är det för företag? Vilka är mottagarna?
+- Tala om syftet: Vad ska läsaren göra, känna eller förstå?
+- Skriv som om du briefade en människa
 
 ---
 
@@ -94,19 +115,22 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Skriv ett Instagraminlägg."
 
 **Bättre prompt:**
-"Skriv ett kort, engagerande Instagram-inlägg för min pizzeria i Uppsala. Vi har ny lunchmeny denna vecka med tre nya pizzor. Inlägget ska ha en avslappnad ton, gärna lite humor, och avslutas med en uppmaning att komma förbi."
+
+<AIPrompt>
+Skriv ett kort, engagerande Instagram-inlägg för min pizzeria i Uppsala. Vi har ny lunchmeny denna vecka med tre nya pizzor. Inlägget ska ha en avslappnad ton, gärna lite humor, och avslutas med en uppmaning att komma förbi.
+</AIPrompt>
 
 **Detaljer att bifoga:**
 
-* Ny pizzameny: Buffelmozzarella & basilika, Tryffelsalami, Vegansk med grillad paprika
-* De nya pizzorna har redan blivit snackisar på stan – vissa kunder har kommit tillbaka tre dagar i rad
-* Pizzerian heter Palermo och ligger på Sysslomansgatan
+- Ny pizzameny: Buffelmozzarella & basilika, Tryffelsalami, Vegansk med grillad paprika
+- De nya pizzorna har redan blivit snackisar på stan – vissa kunder har kommit tillbaka tre dagar i rad
+- Pizzerian heter Palermo och ligger på Sysslomansgatan
 
 **Tips:**
 
-* Var tydlig med kanal och mål
-* Tala om vad som är nytt, viktigt eller roligt
-* Justera tonen – AI klarar både säljigt och personligt
+- Var tydlig med kanal och mål
+- Tala om vad som är nytt, viktigt eller roligt
+- Justera tonen – AI klarar både säljigt och personligt
 
 ---
 
@@ -116,12 +140,15 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Skapa en bild till min hemsida som ser snygg ut."
 
 **Bättre prompt:**
-"Skapa en realistisk bild som ser ut som en äldre svensk småföretagare som står utanför sin butik i Uppsala. Bilden ska kännas varm och personlig. Den ska fungera som en hero-bild på en hemsida som säljer hemsidor till småföretag. Här är instruktionerna:
 
-* Personen ska stå på vänster sida i bilden, så att man kan lägga text till höger
-* Det ska vara gyllene timmen (varmt kvällsljus)
-* Butiken ska ha svensk stil (gatuskyltar, fasad, cykel etc)
-* Bilden ska kännas mänsklig – inte plastig eller fejkad"
+<AIPrompt>
+Skapa en realistisk bild som ser ut som en äldre svensk småföretagare som står utanför sin butik i Uppsala. Bilden ska kännas varm och personlig. Den ska fungera som en hero-bild på en hemsida som säljer hemsidor till småföretag. Här är instruktionerna:
+
+• Personen ska stå på vänster sida i bilden, så att man kan lägga text till höger
+• Det ska vara gyllene timmen (varmt kvällsljus)
+• Butiken ska ha svensk stil (gatuskyltar, fasad, cykel etc)
+• Bilden ska kännas mänsklig – inte plastig eller fejkad
+</AIPrompt>
 
 **Resultat från prompten:**
 
@@ -135,13 +162,18 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Skriv en offert."
 
 **Bättre prompt:**
-"Skriv ett tydligt och vänligt offertmejl för veckostädning. Det ska kännas lokalt och tryggt. Företaget heter Lasses Städfirma i Uppsala. Vi använder eget städmaterial. Pris: 695 kr inkl. moms."
+
+<AIPrompt>
+  Skriv ett tydligt och vänligt offertmejl för veckostädning. Det ska kännas
+  lokalt och tryggt. Företaget heter Lasses Städfirma i Uppsala. Vi använder
+  eget städmaterial. Pris: 695 kr inkl. moms.
+</AIPrompt>
 
 **Tips:**
 
-* Sätt alltid pris, plats och vad som ingår
-* Anpassa tonen efter ditt varumärke
-* Be om en text som är säljande – men inte för 'säljig'
+- Sätt alltid pris, plats och vad som ingår
+- Anpassa tonen efter ditt varumärke
+- Be om en text som är säljande – men inte för 'säljig'
 
 ---
 
@@ -151,13 +183,19 @@ Målet? Att du redan idag ska kunna skriva bättre prompts och få bättre svar 
 "Ge mig marknadsföringsidéer."
 
 **Bättre prompt:**
-"Ge mig 10 konkreta marknadsföringsidéer för en liten blomsteraffär i Uppsala inför våren. Några ska vara för sociala medier, några ska locka in folk i butiken. Tonen ska vara lekfull men inte tramsig. Budgeten är liten, men vi har tid att vara kreativa."
+
+<AIPrompt>
+  Ge mig 10 konkreta marknadsföringsidéer för en liten blomsteraffär i Uppsala
+  inför våren. Några ska vara för sociala medier, några ska locka in folk i
+  butiken. Tonen ska vara lekfull men inte tramsig. Budgeten är liten, men vi
+  har tid att vara kreativa.
+</AIPrompt>
 
 **Tips:**
 
-* Ju mer info du ger (målgrupp, säsong, budget) – desto bättre idéer
-* Be om en mix av fysiska och digitala förslag
-* AI kan hjälpa dig tänka nytt – även när du kört fast
+- Ju mer info du ger (målgrupp, säsong, budget) – desto bättre idéer
+- Be om en mix av fysiska och digitala förslag
+- AI kan hjälpa dig tänka nytt – även när du kört fast
 
 ---
 

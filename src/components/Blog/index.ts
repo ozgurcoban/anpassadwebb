@@ -7,3 +7,4 @@ export { default as BlogPostClient } from './BlogPostClient';
 export { default as CustomPortableTextComponents } from './CustomPortableTextComponents';
 export { BlogPostSkeleton, PostsGridSkeleton } from './BlogLoading';
 export { TagBadge } from './TagBadge';
+export { AIPrompt } from './AIPrompt';
