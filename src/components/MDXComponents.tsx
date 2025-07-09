@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { type MDXComponents } from 'mdx/types'
 import { KeyTakeawayBox } from '@/components/Blog/KeyTakeawayBox'
 import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption'
+import { AIPromptImageExample } from '@/components/Blog/AIPromptImageExample'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Info, AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -13,6 +14,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Image,
     ImageWithOverlayCaption,
     KeyTakeaway: KeyTakeawayBox,
+    AIPromptImageExample,
     
     // Alert components for different types of callouts
     Note: ({ children, title }: { children: React.ReactNode; title?: string }) => (

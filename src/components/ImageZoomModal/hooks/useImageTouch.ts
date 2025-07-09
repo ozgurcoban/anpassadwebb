@@ -61,7 +61,7 @@ export function useImageTouch(): UseImageTouchResult {
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     if (!isOpen || isZooming) return;
     
-    e.preventDefault();
+    // Don't preventDefault here - touchAction: 'none' handles it
     e.stopPropagation();
     
     // Record touch interaction
@@ -97,7 +97,7 @@ export function useImageTouch(): UseImageTouchResult {
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
     if (!isOpen) return;
     
-    e.preventDefault();
+    // Don't preventDefault here - touchAction: 'none' handles it
     e.stopPropagation();
     
     if (e.touches.length === 2 && initialPinchDistance > 0) {
@@ -139,7 +139,7 @@ export function useImageTouch(): UseImageTouchResult {
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     if (!isOpen) return;
     
-    e.preventDefault();
+    // Don't preventDefault here - touchAction: 'none' handles it
     e.stopPropagation();
     
     // BLOCK ALL INTERACTIONS DURING ZOOM ANIMATION
