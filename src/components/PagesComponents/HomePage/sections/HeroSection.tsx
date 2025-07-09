@@ -1,6 +1,5 @@
 import GradientHero from '@/components/GradientHero';
 import { DEFAULT_PARTICLE_COLORS } from '@/components/GradientHero/constants';
-import { PRIMARY_GRADIENT } from '@/lib/gradient-constants';
 import heroImage from '../../../../../public/images/hero.webp';
 
 const HeroSection = () => {

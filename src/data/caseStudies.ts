@@ -133,7 +133,7 @@ export const palermoProject: DetailedCaseStudy = {
   ],
   testimonial: {
     quote:
-      'Professionellt bemötande och otroligt nöjd med resultatet. Menyn är enkel att uppdatera och sidan ser fantastisk ut på mobilen.',
+      'Professionellt bemötande och mycket nöjd med resultatet. Sidan är enkel att uppdatera och den syns på Google.',
     author: 'Burhan Balikci',
     position: 'Ägare, Palermo',
   },
@@ -143,13 +143,13 @@ export const palermoProject: DetailedCaseStudy = {
       'Vi bakom Anpassad Webb har själva stått bakom kassan, planerat menyer och jobbat sena kvällar i restaurangbranschen. Idag hjälper vi andra företagare att bygga hemsidor som inte bara ser bra ut – utan som faktiskt levererar resultat. Med öga för detaljer, förståelse för vardagen som företagare och teknik i framkant skapar vi lösningar som funkar – även efter att hypen lagt sig.',
   },
   processSection: {
-    title: 'Så här funkar det – din process',
-    subtitle: 'Så här jobbar vi – snabbt, enkelt och utan krångel',
+    title: 'Så här går det till – vår process',
+    subtitle: 'Exempel: Vårt samarbete med Palermo i Uppsala',
     steps: [
-      'Första steget är en dialog – Du berättar om dina mål och behov.',
-      'Skiss och förslag tas fram – Du får se hur sidan kan se ut innan vi sätter igång.',
-      'Utveckling och godkännande – Tidsramen beror på projektets omfattning.',
-      'Långsiktig support – Vi hjälper gärna till med löpande underhåll och förbättringar.',
+      'Första mötet – Palermo ville ha en hemsida som matchade känslan folk redan har: bra pizza, skön stämning och ett ställe man gillar att hänga på.',
+      'Visuell identitet – Vi tog fram en design som fångar Palermos atmosfär med en mix av exteriörbilder, miljödetaljer och en tydlig, personlig ton.',
+      'Byggt med omsorg – Sidan utvecklades i flera etapper med fokus på att den skulle kännas rätt för Palermo – både i innehåll och uttryck.',
+      'Löpande stöd – Vi finns kvar i bakgrunden och hjälper till när det behövs, så att sidan rullar på – precis som vardagen på Palermo.',
     ],
   },
 };

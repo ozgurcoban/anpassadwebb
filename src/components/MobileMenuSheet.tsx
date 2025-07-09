@@ -17,9 +17,9 @@ import { Button } from '@/components/ui/button';
 // Full navigation links including secondary pages
 const fullNavLinks = [
   { href: '/', label: 'Hem' },
-  { href: '/paket', label: 'Paket' },
   { href: '/case', label: 'Case' },
   { href: '/blogg', label: 'Blogg' },
+  { href: '/paket', label: 'Paket' },
   { href: '/kontakt', label: 'Kontakt' },
   { href: '/boka-mote', label: 'Boka möte' },
   { href: '/integritetspolicy', label: 'Integritetspolicy' },
