@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { type MDXComponents } from 'mdx/types'
 import { KeyTakeawayBox } from '@/components/Blog/KeyTakeawayBox'
 import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption'
+import { ImageWithLightbox } from '@/components/Blog/ImageWithLightbox'
 import { AIPromptImageExample } from '@/components/Blog/AIPromptImageExample'
 import { AIPrompt } from '@/components/Blog/AIPrompt'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -14,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Custom components
     Image,
     ImageWithOverlayCaption,
+    ImageWithLightbox,
     KeyTakeaway: KeyTakeawayBox,
     AIPromptImageExample,
     AIPrompt,

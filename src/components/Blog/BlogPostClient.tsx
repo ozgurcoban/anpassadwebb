@@ -135,7 +135,7 @@ export default function BlogPostClient({
               <div>
                 <FadeInView delay={0.2} duration={0.8}>
                   <h1 
-                    className="mb-4 text-2xl [@media(min-width:400px)]:text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
+                    className="mb-4 text-xl [@media(min-width:400px)]:text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl"
                     style={{
                       textShadow: '2px 2px 8px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.4)'
                     }}
@@ -147,7 +147,7 @@ export default function BlogPostClient({
                 {description && (
                   <FadeInView delay={0.4} duration={0.8}>
                     <p 
-                      className="max-w-3xl text-base [@media(min-width:400px)]:text-xl leading-relaxed text-white/90"
+                      className="max-w-3xl text-sm [@media(min-width:400px)]:text-lg leading-relaxed text-white/90 md:text-xl"
                       style={{
                         textShadow: '0 2px 25px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,0.7), 0 4px 6px rgba(0,0,0,0.95)'
                       }}

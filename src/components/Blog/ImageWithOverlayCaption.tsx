@@ -23,7 +23,7 @@ export function ImageWithOverlayCaption({
   return (
     <figure
       className={cn(
-        'relative mt-2 mb-8 w-full md:-mx-4 md:w-[calc(100%+2rem)] lg:-mx-8 lg:w-[calc(100%+4rem)] xl:-mx-16 xl:w-[calc(100%+8rem)]',
+        'relative -mx-4 mb-12 mt-2 w-[calc(100%+2rem)] sm:mx-0 sm:w-full md:-mx-4 md:mb-8 md:w-[calc(100%+2rem)] lg:-mx-8 lg:w-[calc(100%+4rem)] xl:-mx-16 xl:w-[calc(100%+8rem)]',
         className,
       )}
     >
@@ -36,20 +36,14 @@ export function ImageWithOverlayCaption({
           className="h-auto w-full"
           priority={priority}
         />
-        {caption && (
-          <>
-            {/* Gradient overlay for better text readability */}
-            <div className="absolute inset-0" />
-
-            {/* Caption overlay */}
-            <figcaption className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="mx-auto max-w-3xl text-center text-sm text-white">
-                {caption}
-              </p>
-            </figcaption>
-          </>
-        )}
       </div>
+      {caption && (
+        <figcaption className="mt-3 px-4">
+          <p className="mx-auto max-w-3xl text-center text-sm text-gray-600 dark:text-gray-400">
+            {caption}
+          </p>
+        </figcaption>
+      )}
     </figure>
   );
 }

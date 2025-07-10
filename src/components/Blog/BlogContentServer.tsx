@@ -13,6 +13,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { KeyTakeawayBox } from '@/components/Blog/KeyTakeawayBox';
 import { ImageWithOverlayCaption } from '@/components/Blog/ImageWithOverlayCaption';
+import { ImageWithLightbox } from '@/components/Blog/ImageWithLightbox';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Info, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 
@@ -32,6 +33,7 @@ type ContentProps = {
 const mdxComponents = {
   Image,
   ImageWithOverlayCaption,
+  ImageWithLightbox,
   KeyTakeaway: KeyTakeawayBox,
   
   // Alert components for different types of callouts
