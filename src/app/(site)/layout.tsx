@@ -13,21 +13,21 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://anpassadwebb.se'),
-  title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
-  description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+  title: 'Hemsidor & Webbutveckling i Uppsala - Anpassad Webb',
+  description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling med fokus på responsiv design som hjälper lokala företag att växa online.',
   robots: 'index, follow',
   openGraph: {
     type: 'website',
     locale: 'sv_SE',
     url: 'https://anpassadwebb.se',
     siteName: 'Anpassad Webb',
-    title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
-    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+    title: 'Hemsidor & Webbutveckling i Uppsala - Anpassad Webb',
+    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling med fokus på responsiv design som hjälper lokala företag att växa online.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hemsida Uppsala | Webbutveckling Uppsala - Anpassad Webb',
-    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling Uppsala med fokus på responsiv design som hjälper lokala företag att växa online.',
+    title: 'Hemsidor & Webbutveckling i Uppsala - Anpassad Webb',
+    description: 'Vi skapar professionella hemsidor i Uppsala. Specialister på webbutveckling med fokus på responsiv design som hjälper lokala företag att växa online.',
   },
   icons: {
     icon: [
