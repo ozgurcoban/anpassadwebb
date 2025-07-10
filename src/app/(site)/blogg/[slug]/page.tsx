@@ -41,9 +41,9 @@ export async function generateMetadata(
       publishedTime,
       authors: [post.frontmatter.author],
       tags: post.frontmatter.tags,
-      images: post.frontmatter.image ? [
+      images: post.frontmatter.thumbnail || post.frontmatter.image ? [
         {
-          url: post.frontmatter.image,
+          url: post.frontmatter.thumbnail || post.frontmatter.image,
           alt: post.frontmatter.imageAlt || post.frontmatter.title,
           width: 1200,
           height: 630,
@@ -57,7 +57,7 @@ export async function generateMetadata(
       card: 'summary_large_image',
       title: post.frontmatter.title,
       description,
-      images: post.frontmatter.image ? [post.frontmatter.image] : undefined,
+      images: post.frontmatter.thumbnail || post.frontmatter.image ? [post.frontmatter.thumbnail || post.frontmatter.image] : undefined,
     },
     alternates: {
       canonical: url,
