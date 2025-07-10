@@ -60,7 +60,7 @@ const Footer = () => {
               <nav className="flex flex-col gap-3">
                 {links
                   .filter(
-                    (link) => link.label !== 'Blogg' && !isActive(link.href),
+                    (link) => link.label !== 'Blogg' && link.label !== 'Paket' && !isActive(link.href),
                   )
                   .map((link) => (
                     <Link
@@ -103,6 +103,13 @@ const Footer = () => {
                 >
                   <ArrowRight className="mr-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
                   Blogg & resurser
+                </Link>
+                <Link
+                  href="/boka-mote"
+                  className="group inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ArrowRight className="mr-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                  Boka möte
                 </Link>
               </nav>
             </div>
