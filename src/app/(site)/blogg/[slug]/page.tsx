@@ -28,6 +28,7 @@ export async function generateMetadata(
   const title = `${post.frontmatter.title} | Anpassad Webb`;
   const description = post.frontmatter.description;
   const url = `/blogg/${params.slug}`;
+  const ogImage = post.frontmatter.thumbnail || post.frontmatter.image;
 
   return {
     title,
@@ -41,9 +42,9 @@ export async function generateMetadata(
       publishedTime,
       authors: [post.frontmatter.author],
       tags: post.frontmatter.tags,
-      images: post.frontmatter.thumbnail || post.frontmatter.image ? [
+      images: ogImage ? [
         {
-          url: post.frontmatter.thumbnail || post.frontmatter.image,
+          url: ogImage,
           alt: post.frontmatter.imageAlt || post.frontmatter.title,
           width: 1200,
           height: 630,
@@ -57,7 +58,7 @@ export async function generateMetadata(
       card: 'summary_large_image',
       title: post.frontmatter.title,
       description,
-      images: post.frontmatter.thumbnail || post.frontmatter.image ? [post.frontmatter.thumbnail || post.frontmatter.image] : undefined,
+      images: ogImage ? [ogImage] : undefined,
     },
     alternates: {
       canonical: url,
