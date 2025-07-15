@@ -5,21 +5,38 @@ import { BlogPostsContainer } from '@/components/Blog/BlogPostsContainer';
 import FeaturedPostsSection from '@/components/Blog/FeaturedPostsSection';
 import Section from '@/components/ui/Section';
 
-export const metadata: Metadata = {
-  title: 'Blogg - AI & Digital marknadsföring för småföretagare | Anpassad Webb',
-  description: 'Praktiska guider om AI, webbutveckling och digital marknadsföring. Lär dig hur du som småföretagare kan växa online med enkla, beprövade strategier.',
-  openGraph: {
-    title: 'Blogg - AI & Digital marknadsföring för småföretagare',
-    description: 'Enkla guider och beprövade strategier för att lyckas digitalt - utan teknisk bakgrund.',
-    type: 'website',
-  },
-};
+interface PageProps {
+  searchParams: Promise<{ q?: string }>;
+}
 
-export default async function PostsPage() {
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const baseUrl = 'https://anpassadwebb.se/blogg';
+  
+  return {
+    title: 'Blogg - AI & Digital marknadsföring för småföretagare | Anpassad Webb',
+    description: 'Praktiska guider om AI, webbutveckling och digital marknadsföring. Lär dig hur du som småföretagare kan växa online med enkla, beprövade strategier.',
+    openGraph: {
+      title: 'Blogg - AI & Digital marknadsföring för småföretagare',
+      description: 'Enkla guider och beprövade strategier för att lyckas digitalt - utan teknisk bakgrund.',
+      type: 'website',
+    },
+    alternates: {
+      canonical: baseUrl,
+    },
+    robots: params.q ? 'noindex, follow' : 'index, follow',
+  };
+}
+
+export default async function PostsPage({ searchParams }: PageProps) {
   const posts = getAllPosts();
+  const params = await searchParams;
 
   return (
     <>
+      {params.q && (
+        <link rel="canonical" href="https://anpassadwebb.se/blogg" />
+      )}
       <BlogComponents />
       {/* <FeaturedPostsSection /> */}
       {posts?.length > 0 && (
