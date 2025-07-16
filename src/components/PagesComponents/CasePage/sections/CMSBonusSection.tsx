@@ -53,12 +53,12 @@ const CMSBonusSection = () => {
       title: 'Ändra från mobilen',
       description: 'Uppdatera direkt i mobilen - var du än befinner dig',
       mockupContent: (
-        <div className="relative h-full w-full bg-black">
+        <div className="relative h-full w-full bg-black overflow-hidden">
           <Image
             src="/images/palermo-case/cms-mobile-edit1.webp"
             alt="CMS mobile editing interface showing menu editing functionality"
             fill
-            className="-m-[1px] scale-[1.01] object-fill"
+            className="-m-[1px] scale-[1.01] object-contain"
             sizes="(max-width: 768px) 100vw, 400px"
           />
         </div>
@@ -70,12 +70,12 @@ const CMSBonusSection = () => {
       title: 'Designa precis som du vill',
       description: 'Skräddarsydd för dina specifika behov',
       mockupContent: (
-        <div className="relative h-full w-full bg-black">
+        <div className="relative h-full w-full bg-black overflow-hidden">
           <Image
             src="/images/palermo-case/cms-mobile-edit2.png"
             alt="CMS mobile customization interface"
             fill
-            className="-m-[1px] scale-[1.01] object-fill"
+            className="-m-[1px] scale-[1.01] object-contain"
             sizes="(max-width: 768px) 100vw, 400px"
             unoptimized={true}
           />
@@ -88,12 +88,12 @@ const CMSBonusSection = () => {
       title: 'Skydd mot misstag',
       description: 'Systemet säger till om något inte stämmer',
       mockupContent: (
-        <div className="relative h-full w-full bg-black">
+        <div className="relative h-full w-full bg-black overflow-hidden">
           <Image
             src="/images/palermo-case/cms-mobile-edit3.png"
             alt="CMS mobile error protection interface"
             fill
-            className="-m-[1px] scale-[1.01] object-fill"
+            className="-m-[1px] scale-[1.01] object-contain"
             sizes="(max-width: 768px) 100vw, 400px"
             unoptimized={true}
           />
@@ -221,11 +221,11 @@ const CMSBonusSection = () => {
                       {/* Large mockup preview - natural size */}
                       <button
                         onClick={() => openModal(index)}
-                        className="mobile-mockup-content group cursor-pointer"
+                        className="mobile-mockup-content group cursor-pointer overflow-hidden"
                       >
                         <div className="relative h-full overflow-hidden bg-[#181818]">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="relative h-full w-[280px]">
+                          <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                            <div className="relative h-full w-[280px] overflow-hidden">
                               {feature.mockupContent}
                             </div>
                           </div>

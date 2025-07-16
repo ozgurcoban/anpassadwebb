@@ -7,11 +7,11 @@ const HeroSection = () => {
     <GradientHero
       title={
         <>
-          Hemsidor som{' '}
+          Anpassade webblösningar som{' '}
           <span className="bg-gradient-to-r from-brand-blue-light via-brand-purple-light to-brand-pink-light bg-clip-text !text-transparent [text-shadow:none]">
-            funkar
+            driver din affär
           </span>{' '}
-          på riktigt
+          framåt
         </>
       }
       description="Vi skapar snabba, Google-optimerade hemsidor och är din lokala partner för webbutveckling i Uppsala."
