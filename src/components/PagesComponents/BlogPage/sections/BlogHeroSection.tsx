@@ -10,7 +10,6 @@ const BlogHeroSection = () => {
   const features = [
     { icon: Sparkles, text: 'Enkla guider' },
     { icon: TrendingUp, text: 'Växttips' },
-    { icon: Users, text: 'Kundcase' },
     { icon: Target, text: 'Strategier' }
   ];
 
@@ -23,7 +22,7 @@ const BlogHeroSection = () => {
         particleColors={DEFAULT_PARTICLE_COLORS}
         textAlign="center"
         verticalCenter={true}
-        minHeight="min-h-[400px] md:min-h-[60vh] lg:min-h-[70vh]"
+        minHeight="clamp(45vh, 50vh, 55vh)"
         overlayOpacity={0.9}
       >
         {/* Feature Pills */}
