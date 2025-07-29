@@ -19,7 +19,7 @@ const FeaturedPosts = async () => {
     <Section variant="wide">
       <SectionContainer>
         <SectionHeading
-          title="Senaste från bloggen"
+          title="Utvalda artiklar"
           subtitle="Tips och insikter för att växa online"
           subtitleClassName="text-gray-600 dark:text-gray-400"
         />
