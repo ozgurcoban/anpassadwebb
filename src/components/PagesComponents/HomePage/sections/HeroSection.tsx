@@ -14,7 +14,7 @@ const HeroSection = () => {
           framåt
         </>
       }
-      description="Vi skapar snabba, Google-optimerade hemsidor och är din lokala partner för webbutveckling i Uppsala."
+      description="Vi skapar snabba, Google-optimerade webbplatser och är din lokala partner för hemsidor i Uppsala."
       colorScheme="blue-purple"
       particleColors={DEFAULT_PARTICLE_COLORS}
       textAlign="left"
