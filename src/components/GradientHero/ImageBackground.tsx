@@ -22,6 +22,7 @@ export function ImageBackground({
         alt={alt}
         fill
         priority={priority}
+        fetchPriority="high"
         placeholder="blur"
         className="object-cover"
       />
