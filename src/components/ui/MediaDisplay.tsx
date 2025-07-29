@@ -18,6 +18,7 @@ interface MediaDisplayProps {
   height?: number;
   sizes?: string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  loop?: boolean;
 }
 
 export function MediaDisplay({
@@ -34,7 +35,8 @@ export function MediaDisplay({
   width,
   height,
   sizes,
-  objectFit = 'cover'
+  objectFit = 'cover',
+  loop = false
 }: MediaDisplayProps) {
   const determineType = (): 'image' | 'video' | 'none' => {
     if (!src) return 'none';
@@ -70,7 +72,7 @@ export function MediaDisplay({
           className={cn('w-full h-full', className)}
           style={{ objectFit }}
           autoPlay
-          loop
+          loop={loop}
           muted
           playsInline
         >
