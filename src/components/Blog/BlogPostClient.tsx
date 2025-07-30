@@ -191,7 +191,8 @@ export default function BlogPostClient({
               )}
             />
 
-            <Footer locale={locale} />
+            {/* Hide footer for AI series articles as they have custom CTAs */}
+            {!tags?.includes('AI') && <Footer locale={locale} />}
           </Card>
         </div>
       </article>
