@@ -71,7 +71,8 @@ export function PostCard({ post, locale = blogConfig.defaultLocale, index = 0 }:
           <h3 className={cn(
             "text-xl font-bold leading-tight text-gray-900 dark:text-white transition-all duration-300 line-clamp-2",
             "group-hover:text-transparent group-hover:bg-gradient-to-r",
-            `group-hover:${blogStyles.gradients.primary}`,
+            "group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-pink-700",
+            "dark:group-hover:from-blue-400 dark:group-hover:via-purple-400 dark:group-hover:to-pink-400",
             "group-hover:bg-clip-text"
           )}>
             {title && capitalizeFirstLetter(title)}
