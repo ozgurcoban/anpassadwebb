@@ -94,9 +94,9 @@ export default function CookieBanner() {
                   </p>
                 </div>
                 <button
-                  onClick={() => setShowBanner(false)}
+                  onClick={handleRejectAll}
                   className="text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label="Stäng cookie-banner"
+                  aria-label="Stäng cookie-banner (tacka nej till cookies)"
                 >
                   <X className="h-5 w-5" />
                 </button>
