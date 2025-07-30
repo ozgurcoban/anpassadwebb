@@ -61,7 +61,7 @@ export default function CookieBanner() {
                     <Button 
                       onClick={handleAcceptAll}
                       size="sm"
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white"
                     >
                       Acceptera alla
                     </Button>
