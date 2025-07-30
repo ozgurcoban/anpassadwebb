@@ -5,6 +5,7 @@ const Logo = () => {
     <Link
       href="/"
       className="group relative flex size-16 items-center justify-center transition-all duration-300 hover:scale-105"
+      aria-label="Anpassad Webb - Gå till startsidan"
     >
       <svg
         viewBox="0 0 70 60"

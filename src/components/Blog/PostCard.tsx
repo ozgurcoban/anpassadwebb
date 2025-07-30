@@ -119,8 +119,9 @@ export function PostCard({ post, locale = blogConfig.defaultLocale, index = 0 }:
           <Link
             href={`/blogg/${slug}`}
             className="inline-flex items-center gap-1 text-sm font-medium text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors"
+            aria-label={`Läs artikeln: ${title}`}
           >
-            Läs mer
+            Läs artikeln
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
